@@ -37,10 +37,10 @@ export function CopyOverlay({ show }: CopyOverlayProps) {
                     className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-green-100 dark:bg-white/15 
                     flex items-center justify-center border border-green-200 dark:border-white/25"
                 >
-                    <Check className="w-5 h-5 sm:w-6 sm:h-6 text-green-600 dark:text-white/90" />
+                    <Check className="w-5 h-5 sm:w-6 sm:h-6 font-sans font-medium text-green-600 dark:text-white/90" />
                 </div>
                 <span
-                    className="text-sm sm:text-base text-zinc-600 
+                    className="text-sm font-sans font-medium sm:text-base text-zinc-600 
                     dark:text-white/90 font-semibold"
                 >
                     Copied to clipboard

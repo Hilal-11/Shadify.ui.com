@@ -7,7 +7,9 @@ import { RiRemixRunLine } from "react-icons/ri";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { TbBrandReactNative } from "react-icons/tb";
 interface PageProps {
-  params: { id: string }; // note: lowercase 'params'
+  params: {
+    id: string;
+  };
 }
 function templateView({ params }: PageProps) {
     const { id } = params;

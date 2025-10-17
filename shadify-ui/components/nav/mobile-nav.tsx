@@ -33,7 +33,7 @@ export function MobileNav({
 
       <div
         className={cn(
-          "max-w-lg transition-all duration-300 ease-in-out",
+          "font-sans font-medium max-w-lg transition-all duration-300 ease-in-out",
           "bg-linear-to-b from-white/95 via-gray-50/95 to-white/95",
           "dark:from-zinc-900/90 dark:via-zinc-800/90 dark:to-zinc-900/90",
           "shadow-[0_2px_20px_-2px_rgba(0,0,0,0.15)]",
@@ -50,7 +50,7 @@ export function MobileNav({
             <div className="flex-1 overflow-y-auto px-4 py-2">
               {sections.map((section) => (
                 <div key={section.title} className="mb-6">
-                  <h3 className="text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-2">
+                  <h3 className="font-sans text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-2">
                     {section.title}
                   </h3>
                   <div className="space-y-1">
@@ -80,7 +80,7 @@ export function MobileNav({
                         >
                           <span
                             className={cn(
-                              "text-sm font-medium",
+                              "font-sans text-sm font-medium",
                               isActive
                                 ? item.isLab
                                   ? "text-purple-700 dark:text-purple-300"
@@ -90,12 +90,12 @@ export function MobileNav({
                           >
                             {item.title}
                             {item.isNew && !isActive && (
-                              <span className="ml-2 rounded-lg inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase bg-linear-to-r from-emerald-400/5 via-emerald-500/5 to-teal-500/5 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20 dark:ring-emerald-400/20">
+                              <span className="ml-2 rounded-lg inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-sans font-medium uppercase bg-linear-to-r from-emerald-400/5 via-emerald-500/5 to-teal-500/5 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/20 dark:ring-emerald-400/20">
                                 new
                               </span>
                             )}
                             {item.isLab && !isActive && (
-                              <span className="ml-2 rounded-xl inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-medium uppercase bg-linear-to-r from-purple-400/5 via-purple-500/5 to-purple-500/5 text-purple-600 dark:text-purple-400 ring-1 ring-purple-500/20 dark:ring-purple-400/20">
+                              <span className="ml-2 rounded-xl inline-flex items-center px-2 py-0.5 text-[9px] tracking-wide font-sans font-medium uppercase bg-linear-to-r from-purple-400/5 via-purple-500/5 to-purple-500/5 text-purple-600 dark:text-purple-400 ring-1 ring-purple-500/20 dark:ring-purple-400/20">
                                 lab
                               </span>
                             )}
@@ -128,10 +128,10 @@ export function MobileNav({
           </div>
         ) : (
           <div className="flex items-center justify-center h-full gap-1">
-            <span className="text-sm font-medium text-zinc-900 dark:text-zinc-100 truncate text-center">
+            <span className="text-sm font-sans font-medium text-zinc-900 dark:text-zinc-100 truncate text-center">
               {currentPage?.title}
             </span>
-            <span className="text-xs text-zinc-500 dark:text-zinc-400">
+            <span className="text-xs font-sans font-medium text-zinc-500 dark:text-zinc-400">
               {totalItems}
             </span>
           </div>

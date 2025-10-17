@@ -29,7 +29,7 @@ export function HeaderPro() {
       });
     } else {
       setContent({
-        text: "Explore new components",
+        text: "explore shadify templates",
         productName: "Shadify.ui Pro",
         link: "#",
       });
@@ -42,7 +42,7 @@ export function HeaderPro() {
         <Link
           href={content.link}
           target="_blank"
-          className="flex items-center justify-end gap-2 pl-2 pr-0.5 py-1 text-sm font-medium text-zinc-800 dark:text-zinc-200 rounded-xl border-2 border-fuchsia-500/20 hover:border-fuchsia-500/60 transition-all duration-300 group hover:shadow-md"
+          className="flex items-center justify-end gap-2 pl-2 pr-0.5 py-1 text-sm font-sans font-medium text-zinc-800 dark:text-zinc-200 rounded-xl border-2 border-fuchsia-500/20 hover:border-fuchsia-500/60 transition-all duration-300 group hover:shadow-md"
         >
           <span className="hidden md:flex items-center gap-2">
             {content.productName === "Shadify.ui Pro" ? (
@@ -50,7 +50,7 @@ export function HeaderPro() {
             ) : (
               <Rocket className="w-4 h-4 text-fuchsia-500" />
             )}
-            <span className="text-transparent bg-gradient-to-r from-fuchsia-500 via-purple-500 to-fuchsia-600 bg-clip-text font-semibold tracking-tighter">
+            <span className="text-transparent bg-gradient-to-r from-fuchsia-500 via-purple-500 to-fuchsia-600 bg-clip-text font-medium tracking-tighter">
               {content.text}
             </span>
           </span>
@@ -61,14 +61,14 @@ export function HeaderPro() {
             ) : (
               <Rocket className="w-4 h-4 text-fuchsia-500" />
             )}
-            <span className="text-transparent bg-gradient-to-r from-fuchsia-500 via-purple-500 to-fuchsia-600 bg-clip-text font-semibold">
+            <span className="font-sans font-medium text-transparent bg-gradient-to-r from-fuchsia-500 via-purple-500 to-fuchsia-600 bg-clip-text font-semibold">
               {content.text.split(" ")[0]}
             </span>
           </span>
 
-          <div className="relative inline-flex items-center gap-2 px-1.5 py-0.5 text-sm rounded-lg bg-gradient-to-r from-zinc-900 to-zinc-800 dark:from-zinc-100/90 dark:to-zinc-200/90">
+          <div className="relative inline-flex items-center gap-2 px-1.5 py-0.5 font-sans font-medium text-sm rounded-lg bg-gradient-to-r from-zinc-900 to-zinc-800 dark:from-zinc-100/90 dark:to-zinc-200/90">
             <div className="flex items-center gap-1">
-              <span className="text-white dark:text-zinc-900 group-hover:text-white dark:group-hover:text-zinc-900 tracking-tighter">
+              <span className="font-sans font-medium text-white dark:text-zinc-900 group-hover:text-white dark:group-hover:text-zinc-900 tracking-tighter">
                 {content.productName}
               </span>
               <ArrowUpRight className="w-3.5 h-3.5 text-white/90 dark:text-zinc-900/90 group-hover:text-white dark:group-hover:text-zinc-900 transition-transform group-hover:translate-x-[1px] group-hover:-translate-y-[1px]" />
@@ -76,14 +76,14 @@ export function HeaderPro() {
           </div>
         </Link>
         <Link
-          href="#"
+          href="https://github.com/hilal-11"
           target="_blank"
-          className="hidden group relative md:inline-flex items-center gap-2 px-1.5 py-1.5 text-sm rounded-lg bg-zinc-900 dark:bg-zinc-100 transition-colors hover:bg-zinc-800 dark:hover:bg-zinc-200"
+          className="hidden group relative md:inline-flex items-center gap-2 px-1.5 py-1.5 font-sans font-medium text-sm rounded-lg bg-zinc-900 dark:bg-zinc-100 transition-colors hover:bg-zinc-800 dark:hover:bg-zinc-200"
         >
           <div className="relative flex items-center gap-2 w-full">
             <svg
               viewBox="0 0 24 24"
-              className="w-4 h-4 text-white dark:text-zinc-900"
+              className="w-4 h-4 font-sans font-medium text-white dark:text-zinc-900"
               fill="currentColor"
             >
               <title>Github</title>
@@ -92,7 +92,7 @@ export function HeaderPro() {
           </div>
         </Link>
         <Link
-          href="#"
+          href="https://github.com/hilal-11"
           target="_blank"
           className="hidden group relative md:inline-flex items-center gap-2 px-1.5 py-1.5 text-sm rounded-lg bg-zinc-900 dark:bg-zinc-100 transition-colors hover:bg-zinc-800 dark:hover:bg-zinc-200"
         >

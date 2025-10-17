@@ -33,7 +33,7 @@ export async function submitContactForm(
         // Send email using Resend
         await resend.emails.send({
             from: "Contact Form <contact@codesnippetui.com>",
-            to: ["hi@codesnippetui.com"],
+            to: ["hilalahmadcodedev123@gmail.com"],
             subject: "New Contact Form Submission",
             text: `
 Email: ${validated.email}

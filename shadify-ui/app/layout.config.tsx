@@ -1,14 +1,13 @@
 import { HeaderPro } from "@/components/landing/header-pro";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
-import { Flame } from "lucide-react";
-
+import { LiaAtomSolid } from "react-icons/lia";
 
 
 export const baseOptions: BaseLayoutProps = {
   nav: {
     title: (
       <div className="flex items-center">
-        <Flame className="mr-2 h-5 w-5 text-green-600" />
+        <LiaAtomSolid className="animate-spin mr-2 h-8 w-8" />
         <span className="hidden md:inline-flex items-center text-lg font-bold tracking-tight text-black dark:text-white">
           Shadify UI
         </span>
@@ -17,10 +16,13 @@ export const baseOptions: BaseLayoutProps = {
   },
   links: [
     {
+      text: "Templates",
+      url: "/templates",
+    },
+    {
       text: "Pricing",
       url: "/pricing",
     },
-
     {
       type: "custom",
       children: <HeaderPro />,

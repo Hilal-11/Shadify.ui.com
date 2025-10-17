@@ -9,7 +9,7 @@ export function CopyButton({ onClick }: CopyButtonProps) {
         <button
             type="button"
             onClick={onClick}
-            className="relative flex items-center gap-1 px-3 py-2 rounded-lg text-sm
+            className="relative flex font-sans font-medium items-center gap-1 px-3 py-2 rounded-lg text-sm
                 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700
                 text-zinc-600 dark:text-zinc-400 transition-colors
                 touch-manipulation"

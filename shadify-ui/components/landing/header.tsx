@@ -17,6 +17,7 @@ import { IoMenu } from "react-icons/io5";
 import { RiCloseFill } from "react-icons/ri";
 import { IoSearchSharp } from "react-icons/io5";
 import { useState } from "react";
+import { LiaAtomSolid } from "react-icons/lia";
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,7 +42,7 @@ function Header() {
                 {/* Logo Section with Navigation Links */}
                 <div className="flex items-center gap-6">
                   <Link href="/" className="flex items-center gap-2">
-                   <Flame className="w-6 h-6 text-green-500 dark:text-green-400" />
+                   <LiaAtomSolid className="animate-spin mr-2 h-8 w-8" />
                    
                     <span className="hidden sm:block font-sans font-bold text-lg">
                       ShadifyUI

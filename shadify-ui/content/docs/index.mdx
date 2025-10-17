@@ -10,16 +10,15 @@ icon: ListStart
 All components use [Tailwind CSS v4](https://tailwindcss.com/docs/installation/framework-guides/nextjs), so ensure it's installed in your project.
 Many components also use the `cn` utility function—install it with the following command:
 
-<Tabs items={["bun", "npx", "pnpm"]}>
+<Tabs items={["npx" ,"bun", "pnpm"]}>
+```bash tab="npx"
+npx shadcn@latest add https://ui.codesnipet.dev/r/utils.json
+```
  
 ```bash tab="bun"
 bunx shadcn@latest add https://ui.codesnipet.dev/r/utils.json 
 ```
  
-```bash tab="npx"
-npx shadcn@latest add https://ui.codesnipet.dev/r/utils.json
-```
-
 ```bash tab="pnpm"
 pnpm dlx shadcn@latest add https://codesnippetui/r/utils.json
 ```
@@ -32,16 +31,16 @@ We use [lucide-icons](https://lucide.dev/guide/installation) for most components
 
 For exemple to add `card-05` to your project, it will be easy as:
 
-<Tabs items={["bun", "npx", "pnpm"]}>
+<Tabs items={["npx", "bun", "pnpm"]}>
+
+```bash tab="npx"
+npx shadcn@latest add https://ui.codesnipet.dev/r/card-05.json
+```
  
 ```bash tab="bun"
 bunx shadcn@latest add https://ui.codesnipet.dev/r/card-05.json
 ```
  
-```bash tab="npx"
-npx shadcn@latest add https://ui.codesnipet.dev/r/card-05.json
-```
-
 ```bash tab="pnpm"
 pnpm dlx shadcn@latest add https://ui.codesnipet.dev/r/card-05.json
 ```
@@ -66,16 +65,16 @@ import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 
 Blocks are a set of components to make a complete blocks, they contain multiples files. To install them it is mandatory to use the `cli`. For example it you'd like to install `ai-card-generation` block:
 
-<Tabs items={["bun", "npx", "pnpm"]}>
- 
-```bash tab="bun"
-bunx shadcn@latest add https://ui.codesnipet.dev/r/ai-card-generation.json
-```
+<Tabs items={["npx", "bun", "pnpm"]}>
  
 ```bash tab="npx"
 npx shadcn@latest add https://ui.codesnipet.dev/r/ai-card-generation.json
 ```
 
+```bash tab="bun"
+bunx shadcn@latest add https://ui.codesnipet.dev/r/ai-card-generation.json
+```
+ 
 ```bash tab="pnpm"
 pnpm dlx shadcn@latest add https://ui.codesnipet.dev/r/ai-card-generation.json
 ```
@@ -104,15 +103,15 @@ Some components require additional libraries, listed at the bottom of each compo
 
 For monorepo `shadcn/ui` CLI contain the options `-c` to the path to your workspace for exemple:
 
-<Tabs items={["bun", "npx", "pnpm"]}>
- 
-```bash tab="bun"
-bunx shadcn@latest add https://ui.codesnipet.dev/r/card-05.json -c ./apps/www
-```
+<Tabs items={["npx", "bun", "pnpm"]}>
  
 ```bash tab="npx"
 npx shadcn@latest add https://ui.codesnipet.dev/r/card-05.json -c ./apps/www
 ```
+```bash tab="bun"
+bunx shadcn@latest add https://ui.codesnipet.dev/r/card-05.json -c ./apps/www
+```
+ 
 
 ```bash tab="pnpm"
 pnpm dlx shadcn@latest add https://ui.codesnipet.dev/r/card-05.json -c ./apps/www
