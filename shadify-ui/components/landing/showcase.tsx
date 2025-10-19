@@ -1,12 +1,12 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import Text02 from "@/components/codesnippetui/text/text-02";
+import Text02 from "@/components/shadifyui/text/text-02";
 
 export function ShowcaseSection() {
     return (
         <div className="py-8 sm:py-24 text-center relative">
             <div className="inline-block mb-12">
-                <h2 className="text-2xl sm:text-4xl font-bold tracking-tight">
+                <h2 className="font-sans font-bold text-2xl sm:text-4xl tracking-tight">
                     <Text02
                         text="Showcase"
                         className="bg-clip-text text-transparent bg-linear-to-r from-pink-500 to-amber-500 dark:from-pink-400 dark:to-amber-400 text-4xl sm:text-7xl"
@@ -16,31 +16,31 @@ export function ShowcaseSection() {
 
             <div className="relative max-w-6xl mx-auto px-4">
                 <div className="hidden sm:block absolute -left-4 top-1/4 transform -translate-x-full text-left">
-                    <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200 mb-2">
+                    <p className="font-sans font-medium text-sm text-zinc-800 dark:text-zinc-200 mb-2">
                         50+ Components
                     </p>
-                    <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                    <p className="font-sans text-sm text-zinc-600 dark:text-zinc-400">
                         Ready to Use
                     </p>
                 </div>
 
                 <div className="hidden sm:block absolute -right-4 top-1/3 transform translate-x-full text-right">
-                    <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200 mb-2">
+                    <p className="font-sans text-sm font-medium text-zinc-800 dark:text-zinc-200 mb-2">
                         Built in minutes
                     </p>
-                    <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                    <p className="font-sans text-sm text-zinc-600 dark:text-zinc-400">
                         not hours
                     </p>
                 </div>
 
                 <div className="hidden sm:block absolute -left-4 bottom-1/3 transform -translate-x-full text-left">
-                    <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                    <p className="font-sans text-sm text-zinc-600 dark:text-zinc-400">
                         Fully Customizable
                     </p>
                 </div>
 
                 <div className="hidden sm:block absolute -right-4 bottom-1/4 transform translate-x-full text-right">
-                    <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                    <p className="font-sans text-sm font-medium text-zinc-800 dark:text-zinc-200">
                         Beautiful interfaces
                     </p>
                 </div>
@@ -54,7 +54,7 @@ export function ShowcaseSection() {
                 />
 
                 <div className="sm:hidden mt-4 space-y-2">
-                    <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200">
+                    <p className="font-sans text-sm font-medium text-zinc-800 dark:text-zinc-200">
                         Beautiful interfaces built in minutes
                     </p>
                     <div className="flex items-center justify-center gap-2 text-xs text-zinc-600 dark:text-zinc-400">
@@ -69,7 +69,7 @@ export function ShowcaseSection() {
                     className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                     group inline-flex items-center gap-2 px-4 sm:px-8 py-2 sm:py-4 rounded-xl
                     bg-white
-                    text-zinc-900 text-sm sm:text-base font-medium
+                    text-zinc-900 font-sans text-sm sm:text-base font-medium
                     hover:shadow-lg hover:shadow-zinc-900/20
                     transition-all duration-200 ease-in-out
                     backdrop-blur-xs bg-opacity-90"
