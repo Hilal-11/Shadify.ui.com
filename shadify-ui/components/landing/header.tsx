@@ -16,6 +16,8 @@ import { IoSearchSharp } from "react-icons/io5";
 import { useState } from "react";
 import { LiaAtomSolid } from "react-icons/lia";
 
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton, SignOutButton } from "@clerk/nextjs";
+
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
@@ -88,6 +90,20 @@ function Header() {
                   <span className="text-zinc-300 dark:text-zinc-700"></span>
                   {/* <HeaderPro /> */}
 
+
+                  <div className="flex gap-3">
+                    <SignedOut>
+                      <Link href="/signup" className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2">Signup</Link>
+                      <Link href="/login" className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2">Login</Link>
+                    </SignedOut>
+                    <SignedIn>
+                      <UserButton afterSignOutUrl="/" /> {/* shows user avatar dropdown */}
+                      {/* Optional Signout Button in plain text if needed */}
+                      {/* <SignOutButton /> */}
+                    </SignedIn>
+                  </div>
+
+
                    <div className="hidden lg:grid md:hidden w-full max-w-lg gap-6">
                     <InputGroup>
                       <InputGroupInput className="font-sans font-medium" placeholder="Search Documentation" />
@@ -139,11 +155,16 @@ function Header() {
                         Documentation
                       </ViewTransitionsLink>
                       <ViewTransitionsLink
+                      
                         href="/pricing"
                         className="block pb-3 font-sans font-medium text-xl text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                       >
                         Pricing
                       </ViewTransitionsLink>
+                      {/* <div className="border w-full flex justify-between gap-2">
+                        <Link className="font-sans font-medium  py-2 rounded-md bg-neutral-100 text-neutral-900 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" href="/login">Login</Link>
+                        <Link className="w-full font-sans font-medium py-2 rounded-md bg-neutral-100 text-neutral-900 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" href="/signup">Signup</Link>
+                      </div> */}
                       
                     </div>
                   </div>
