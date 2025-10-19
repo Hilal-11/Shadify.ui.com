@@ -4,9 +4,6 @@ import { Flame, Menu, SearchIcon } from "lucide-react";
 import Link from "next/link";
 import { Link as ViewTransitionsLink } from "next-view-transitions";
 import Image from "next/image";
-// import { HeaderPro } from "./header-pro";
-import { ArrowUpRight } from "lucide-react";
-import { PartyPopper } from "lucide-react";
 import { IoLogoGithub } from "react-icons/io5";
 import {
   InputGroup,
@@ -64,6 +61,12 @@ function Header() {
                       Templates
                     </Link>
                     <Link
+                      href="/bg-patterns"
+                      className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
+                    >
+                      Patterns
+                    </Link>
+                    <Link
                       href="docs"
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
                     >
@@ -85,7 +88,7 @@ function Header() {
                   <span className="text-zinc-300 dark:text-zinc-700"></span>
                   {/* <HeaderPro /> */}
 
-                   <div className="hidden lg:grid md:grid w-full max-w-lg gap-6">
+                   <div className="hidden lg:grid md:hidden w-full max-w-lg gap-6">
                     <InputGroup>
                       <InputGroupInput className="font-sans font-medium" placeholder="Search Documentation" />
                       <InputGroupAddon>
@@ -122,6 +125,12 @@ function Header() {
                         className="block pb-3 font-sans font-medium text-xl text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                       >
                         Templates
+                      </ViewTransitionsLink>
+                       <ViewTransitionsLink
+                        href="/bg-patterns"
+                        className="block pb-3 font-sans font-medium text-xl text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                      >
+                        Patterns
                       </ViewTransitionsLink>
                       <ViewTransitionsLink
                         href="docs"
