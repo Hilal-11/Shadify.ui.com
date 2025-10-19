@@ -154,7 +154,7 @@ export default function PreviewContent({
                         rel="noreferrer"
                         className={cn(
                             "flex items-center gap-2",
-                            "text-sm font-medium",
+                            "font-sans text-sm font-medium",
                             "text-zinc-800 dark:text-zinc-200",
                             "hover:text-zinc-600 dark:hover:text-zinc-400",
                             "transition-all duration-200 no-underline group"
@@ -180,7 +180,7 @@ export default function PreviewContent({
                                 "relative overflow-hidden",
                                 "h-7 px-3 text-xs font-medium",
                                 "bg-black dark:bg-white",
-                                "text-white dark:text-black",
+                                "font-sans font-medium text-white dark:text-black",
                                 "hover:bg-black/90 dark:hover:bg-white/90",
                                 "hover:text-white dark:hover:text-black",
                                 "transition-all duration-200",
@@ -220,7 +220,7 @@ export default function PreviewContent({
                                     disabled={isPending}
                                     className={cn(
                                         "relative overflow-hidden",
-                                        "h-7 px-3 text-xs font-medium",
+                                        "h-7 px-3 font-sans text-xs font-medium",
                                         "bg-black dark:bg-white",
                                         "text-white dark:text-black",
                                         "hover:bg-black/90 dark:hover:bg-white/90",
@@ -244,7 +244,7 @@ export default function PreviewContent({
                                             )}
                                         />
                                     )}
-                                    <span>Copy</span>
+                                    <span>Copy Code</span>
                                 </Button>
                             </form>
                         )}
