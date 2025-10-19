@@ -14,7 +14,7 @@ function Toast(props: ToastProps) {
 
     return (
         <Link
-            href="https://arca.directory/?utm_source=codesnippetui.com&utm_medium=toast"
+            href="https://arca.directory/?utm_source=shadifyui.com&utm_medium=toast"
             target="_blank"
             className="block"
             tabIndex={0}
@@ -32,10 +32,10 @@ function Toast(props: ToastProps) {
                     className="w-12 h-12 mr-3 flex-shrink-0"
                 />
                 <div className="flex-1">
-                    <p className="text-sm font-medium tracking-tighter text-zinc-900 dark:text-white">
+                    <p className="font-sans text-sm font-medium tracking-tighter text-zinc-900 dark:text-white">
                         {title}
                     </p>
-                    <p className="text-xs tracking-tighter text-zinc-700 dark:text-zinc-300">
+                    <p className="font-sans text-xs tracking-tighter text-zinc-700 dark:text-zinc-300">
                         {description}
                     </p>
                 </div>
