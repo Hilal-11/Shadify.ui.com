@@ -1,16 +1,16 @@
 import Link from "next/link";
 import { ArrowRight, Github, Zap } from "lucide-react";
-import AIInput_04 from "@/components/codesnippetui/ai-input/ai-input-04";
+import AIInput_04 from "@/components/shadifyui/ai-input/ai-input-04";
 
 function Header() {
     return (
         <div>
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-sans font-bold tracking-tight">
                 <span className="bg-clip-text text-transparent bg-linear-to-r from-amber-500 to-pink-500 dark:from-amber-400 dark:to-pink-400">
                     Build beautiful interfaces
                 </span>
             </h2>
-            <p className="mt-6 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <p className="mt-6 text-base font-sans sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 A collection of UI components that you can copy and paste into
                 your apps.
             </p>
