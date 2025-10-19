@@ -20,6 +20,10 @@ export const baseOptions: BaseLayoutProps = {
       url: "/templates",
     },
     {
+      text: "Patterns",
+      url: "/patterns",
+    },
+    {
       text: "Pricing",
       url: "/pricing",
     },
