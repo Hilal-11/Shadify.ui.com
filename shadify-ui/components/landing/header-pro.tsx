@@ -61,7 +61,7 @@ export function HeaderPro() {
             ) : (
               <Rocket className="w-4 h-4 text-fuchsia-500" />
             )}
-            <span className="font-sans font-medium text-transparent bg-gradient-to-r from-fuchsia-500 via-purple-500 to-fuchsia-600 bg-clip-text font-semibold">
+            <span className="font-sans font-medium text-transparent bg-gradient-to-r from-fuchsia-500 via-purple-500 to-fuchsia-600 bg-clip-text">
               {content.text.split(" ")[0]}
             </span>
           </span>
