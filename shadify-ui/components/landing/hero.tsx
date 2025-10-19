@@ -18,13 +18,13 @@ import {
   Layers,
 } from "lucide-react";
 
-import CheckoutInteraction from "../codesnippetui/currency-transfer"
-import Profile04 from "../codesnippetui/profile/profile-04";
-import AICardGeneration from "../codesnippetui/blocks/ai-card-generation/ai-card-generation"
-import Alert04 from "@/components/codesnippetui/alert/alert-04";
+import CheckoutInteraction from "../shadifyui/currency-transfer"
+import Profile04 from "../shadifyui/profile/profile-04";
+import AICardGeneration from "../shadifyui/blocks/ai-card-generation/ai-card-generation"
+import Alert04 from "@/components/shadifyui/alert/alert-04";
 import Features from "./feature-block";
 
-import Card02 from "../codesnippetui/card/card-02";
+import Card02 from "../shadifyui/card/card-02";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { RiNextjsFill  , RiTailwindCssFill } from "react-icons/ri";
 import { SiShadcnui } from "react-icons/si";
