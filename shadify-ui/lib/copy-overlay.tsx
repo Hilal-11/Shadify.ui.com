@@ -41,7 +41,7 @@ export function CopyOverlay({ show }: CopyOverlayProps) {
                 </div>
                 <span
                     className="text-sm font-sans font-medium sm:text-base text-zinc-600 
-                    dark:text-white/90 font-semibold"
+                    dark:text-white/90"
                 >
                     Copied to clipboard
                 </span>

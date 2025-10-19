@@ -11,7 +11,10 @@ interface PageProps {
     id: string;
   };
 }
-function templateView({ params }: PageProps) {
+
+
+
+async function templateView({ params }: PageProps) {
     const { id } = params;
     const template = templatesCofig.find((template) => template.id === id)
   return (

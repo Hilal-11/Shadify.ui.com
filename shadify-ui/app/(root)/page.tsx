@@ -4,7 +4,6 @@ import CTA from "@/components/landing/CTA";
 import { HeroSection } from "@/components/landing/hero";
 import Reviews from "@/components/landing/Reviews";
 
-
 export default function Home() {
     return (
         <main className="bg-white dark:bg-black/5 overflow-x-hidden">

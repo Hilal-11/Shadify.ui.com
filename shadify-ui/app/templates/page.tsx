@@ -37,8 +37,8 @@ function Templates(){
 
                 </div>
                 
-                <section className="w-full h-auto h-[800px] mt-20 flex gap-10 relative">
-                    <div className="hidden md:block lg:block overflow-y-auto w-[25%] pl-5 md:pl-5 lg:pl-10">
+                <section className="relative w-full h-auto mt-20 flex gap-10 relative">
+                    <div className="hidden md:block lg:block w-[25%] pl-5 md:pl-5 lg:pl-10 sticky top-[100px] self-start max-h-[calc(100vh-120px)] overflow-y-auto">
                         <div className="w-full h-auto py-4 flex flex-col gap-3 ">
                             <h1 className="font-sans font-bold text-2xl text-neutral-800 dark:text-neutral-200 pb-1">Templates</h1>
                             {
@@ -54,7 +54,7 @@ function Templates(){
                             }
                         </div>
                     </div>
-                    <div className="w-[100%] md:w-[75%] lg:w-[75%] flex flex-col gap-10">
+                    <div className="w-[100%] md:w-[75%] lg:w-[75%] flex flex-col gap-10 overflow-y-auto max-h-[calc(100vh-120px)] md:pr-4 lg:pr-4">
                         { templatesCofig.map((templete) => (
                             <div 
                              onClick={() => router.push(`/templatesView/${templete.id}`)}

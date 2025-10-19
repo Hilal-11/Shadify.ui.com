@@ -32,7 +32,7 @@ export async function submitContactForm(
 
         // Send email using Resend
         await resend.emails.send({
-            from: "Contact Form <contact@codesnippetui.com>",
+            from: "Contact Form <contact@shadifyui.com>",
             to: ["hilalahmadcodedev123@gmail.com"],
             subject: "New Contact Form Submission",
             text: `

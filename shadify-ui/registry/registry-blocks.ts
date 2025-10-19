@@ -8,27 +8,27 @@ export const block: Registry = [
         registryDependencies: ["button", "input", "select", "textarea"],
         files: [
             {
-                path: "components/codesnippetui/blocks/ai-card-generation/ai-card-generation.tsx",
+                path: "components/shadifyui/blocks/ai-card-generation/ai-card-generation.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/ai-card-generation/header-generation.tsx",
+                path: "components/shadifyui/blocks/ai-card-generation/header-generation.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/ai-card-generation/form-generation.tsx",
+                path: "components/shadifyui/blocks/ai-card-generation/form-generation.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/ai-card-generation/settings-generation.tsx",
+                path: "components/shadifyui/blocks/ai-card-generation/settings-generation.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/ai-card-generation/preview-generation.tsx",
+                path: "components/shadifyui/blocks/ai-card-generation/preview-generation.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/ai-card-generation/error-generation.tsx",
+                path: "components/shadifyui/blocks/ai-card-generation/error-generation.tsx",
                 type: "registry:component",
             },
         ],
@@ -46,39 +46,39 @@ export const block: Registry = [
         ],
         files: [
             {
-                path: "components/codesnippetui/blocks/dashboard/dashboard.tsx",
+                path: "components/shadifyui/blocks/dashboard/dashboard.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/dashboard/layout.tsx",
+                path: "components/shadifyui/blocks/dashboard/layout.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/dashboard/top-nav.tsx",
+                path: "components/shadifyui/blocks/dashboard/top-nav.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/dashboard/sidebar.tsx",
+                path: "components/shadifyui/blocks/dashboard/sidebar.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/dashboard/content.tsx",
+                path: "components/shadifyui/blocks/dashboard/content.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/dashboard/profile-01.tsx",
+                path: "components/shadifyui/blocks/dashboard/profile-01.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/dashboard/list-03.tsx",
+                path: "components/shadifyui/blocks/dashboard/list-03.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/dashboard/list-01.tsx",
+                path: "components/shadifyui/blocks/dashboard/list-01.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/dashboard/list-02.tsx",
+                path: "components/shadifyui/blocks/dashboard/list-02.tsx",
                 type: "registry:component",
             },
         ],
@@ -90,31 +90,31 @@ export const block: Registry = [
         registryDependencies: ["button", "input", "select", "textarea"],
         files: [
             {
-                path: "components/codesnippetui/blocks/minimal-shop/minimal-shop.tsx",
+                path: "components/shadifyui/blocks/minimal-shop/minimal-shop.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/minimal-shop/top-bar.tsx",
+                path: "components/shadifyui/blocks/minimal-shop/top-bar.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/minimal-shop/product-grid.tsx",
+                path: "components/shadifyui/blocks/minimal-shop/product-grid.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/minimal-shop/product-modal.tsx",
+                path: "components/shadifyui/blocks/minimal-shop/product-modal.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/minimal-shop/cart-drawer.tsx",
+                path: "components/shadifyui/blocks/minimal-shop/cart-drawer.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/minimal-shop/data.ts",
+                path: "components/shadifyui/blocks/minimal-shop/data.ts",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/minimal-shop/header.tsx",
+                path: "components/shadifyui/blocks/minimal-shop/header.tsx",
                 type: "registry:component",
             },
         ],
@@ -126,15 +126,15 @@ export const block: Registry = [
         registryDependencies: ["button", "input", "separator"],
         files: [
             {
-                path: "components/codesnippetui/blocks/auth-basic/auth-basic.tsx",
+                path: "components/shadifyui/blocks/auth-basic/auth-basic.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/auth-basic/auth-form.tsx",
+                path: "components/shadifyui/blocks/auth-basic/auth-form.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/auth-basic/social-login.tsx",
+                path: "components/shadifyui/blocks/auth-basic/social-login.tsx",
                 type: "registry:component",
             },
         ],
@@ -146,11 +146,11 @@ export const block: Registry = [
         registryDependencies: ["button", "input", "textarea"],
         files: [
             {
-                path: "components/codesnippetui/blocks/ai-chat/ai-chat.tsx",
+                path: "components/shadifyui/blocks/ai-chat/ai-chat.tsx",
                 type: "registry:component",
             },
             {
-                path: "components/codesnippetui/blocks/ai-chat/multimodal-input.tsx",
+                path: "components/shadifyui/blocks/ai-chat/multimodal-input.tsx",
                 type: "registry:component",
             },
         ],
