@@ -12,14 +12,14 @@ export function RefreshButton({ onRefresh }: RefreshButtonProps) {
         <button
             type="button"
             onClick={onRefresh}
-            className="group absolute top-24 right-2 p-2 rounded-lg text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors z-10 flex items-center gap-2 bg-black dark:bg-white h-7 px-3"
+            className="group absolute top-24 right-2 p-2 rounded-lg font-sans font-medium text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors z-10 flex items-center gap-2 bg-black dark:bg-white h-7 px-3"
             aria-label="Refresh preview"
         >
             <RefreshCw
                 className="transition-transform group-hover:rotate-180 duration-300"
                 size={16}
             />
-            <span className="text-sm font-medium">Refresh</span>
+            <span className="font-sans text-sm font-medium">Refresh</span>
         </button>
     );
 }
