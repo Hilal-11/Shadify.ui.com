@@ -4,6 +4,7 @@ import { ViewTransitions } from 'next-view-transitions';
 import "./globals.css";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 import { RootProvider } from "fumadocs-ui/provider"
+import { ClerkProvider } from "@clerk/nextjs";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,9 +26,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ViewTransitions>
+    <ClerkProvider>
+      <ViewTransitions>
       <html lang="en">
-        
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
@@ -37,12 +38,14 @@ export default function RootLayout({
               enableSystem
               disableTransitionOnChange
               >
-              <RootProvider>
-                {children}
-              </RootProvider>
+                <RootProvider>
+                  {children}
+                </RootProvider>
             </ThemeProvider>
+          
         </body>
       </html>
-    </ViewTransitions>
+      </ViewTransitions>
+    </ClerkProvider>
   );
 }
