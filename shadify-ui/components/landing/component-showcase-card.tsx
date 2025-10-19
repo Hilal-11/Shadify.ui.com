@@ -1,10 +1,3 @@
-import Input_10 from "@/components/codesnippetui/input/input-10";
-import Alert04 from "@/components/codesnippetui/alert/alert-04";
-import Input_08 from "@/components/codesnippetui/input/input-08";
-import Btn12 from "@/components/codesnippetui/button/btn-12";
-import Btn13 from "@/components/codesnippetui/button/btn-13";
-import PoweredByArchitecture from "./PoweredByArchitecture";
-
 interface ComponentShowcaseCardProps {
     className: string;
 }
