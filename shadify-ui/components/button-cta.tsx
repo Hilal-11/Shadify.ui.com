@@ -16,7 +16,7 @@ export default function ButtonCta({
     const variants = {
         primary: `
             bg-black dark:bg-white
-            text-white dark:text-black
+            text-white font-sans font-medium dark:text-black
             border-none
             hover:bg-zinc-800 dark:hover:bg-zinc-100
             active:scale-[0.94]
@@ -26,9 +26,9 @@ export default function ButtonCta({
         `,
         secondary: `
             bg-white dark:bg-black
-            text-black dark:text-white
+            text-black dark:text-white font-sans font-medium
             border-[3px] border-black dark:border-white
-            hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black
+            hover:bg-black hover:text-white font-sans font-medium dark:hover:bg-white dark:hover:text-black
             active:scale-[0.94]
             transition-all
             shadow-[4px_4px_0_0_rgba(0,0,0,1)] dark:shadow-[4px_4px_0_0_rgba(255,255,255,1)]
@@ -37,7 +37,7 @@ export default function ButtonCta({
             bg-black/5
             backdrop-blur-xl
             border-2 border-black/20 dark:border-white/20
-            text-black dark:text-white
+            text-black dark:text-white font-sans font-medium
             shadow-[0_0_10px_rgba(0,0,0,0.15)] dark:shadow-[0_0_10px_rgba(0,0,0,0.3)]
             before:absolute before:inset-0 before:bg-linear-to-br before:from-black/5 before:to-transparent dark:before:from-white/10
             before:rounded-md
@@ -51,7 +51,7 @@ export default function ButtonCta({
         gradient: `
             bg-linear-to-r from-zinc-950 via-zinc-700 to-zinc-800 
             dark:from-white dark:via-zinc-100 dark:to-white/95
-            text-white dark:text-zinc-900
+            text-white font-sans font-medium dark:text-zinc-900
             border-2 border-zinc-800/20 dark:border-white/20
             shadow-[0_10px_20px_-6px_rgba(24,24,27,0.4)] 
             dark:shadow-[0_10px_20px_-6px_rgba(255,255,255,0.4)]
