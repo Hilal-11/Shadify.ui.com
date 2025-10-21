@@ -69,12 +69,6 @@ function Header() {
                       Patterns
                     </Link>
                     <Link
-                      href="docs"
-                      className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
-                    >
-                      Documentation
-                    </Link>
-                    <Link
                       href="/pricing"
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
                     >
@@ -147,12 +141,6 @@ function Header() {
                         className="block pb-3 font-sans font-medium text-xl text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                       >
                         Patterns
-                      </ViewTransitionsLink>
-                      <ViewTransitionsLink
-                        href="docs"
-                        className="block pb-3 font-sans font-medium text-xl text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                      >
-                        Documentation
                       </ViewTransitionsLink>
                       <ViewTransitionsLink
                       
