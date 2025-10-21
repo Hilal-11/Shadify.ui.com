@@ -84,7 +84,7 @@
 
 
 .animate-spinning {
-  animation: rotate 5s linear infinite;
+  animation: rotate 6s linear infinite;
 }
 @keyframes rotate {
   0%{
