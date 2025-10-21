@@ -1,23 +1,30 @@
-import React from 'react'
+
+import React, { useState } from 'react'
 import Header from '@/components/landing/header'
-import { templatesCofig } from '@/config/templatesConfig'
 import { RiNextjsFill  , RiTailwindCssFill } from "react-icons/ri";
 import { SiShadcnui } from "react-icons/si";
 import { RiRemixRunLine } from "react-icons/ri";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { TbBrandReactNative } from "react-icons/tb";
 import Link from 'next/link';
+
+import { fetchQuery } from "convex/nextjs";
+import { api } from "@/convex/_generated/api";
+import { Id } from '@/convex/_generated/dataModel';
+
 interface PageProps {
   params: {
-    id: string;
+    id: Id<"templates">;
   };
 }
 
 
 
 async function templateView({ params }: PageProps) {
-    const { id } = params;
-    const template = templatesCofig.find((template) => template.id === id)
+
+    const id = await params.id;
+    const template = await fetchQuery(api.getTemplates.getTemplateById , { id : id })
+
   return (
     <div>
         <div className="fixed w-full h-auto">
