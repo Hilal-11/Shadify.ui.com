@@ -303,7 +303,7 @@ export const templatesCofig: TemplateConfigItem[] = [
         projectName: "Business Templete Grid Flow",
         projectDescription: "PortfoliX is a sleek and modern portfolio template designed for developers, designers, and freelancers who want to make a strong first impression. It features smooth animations, responsive layouts, and fully modular components, making it easy to customize and launch within minutes.",
         projectPrize: "$29",
-        projectLiveURL: "https://portfolix-two.vercel.app/",
+        projectLiveURL: "https://hilal-11.vercel.app/",
         projectImages: [
             "https://res.cloudinary.com/dou5rypdf/image/upload/v1760680064/IMG-20251008-WA0005_or6ssp.jpg",
             "https://res.cloudinary.com/dou5rypdf/image/upload/v1760680072/IMG-20251009-WA0001_idp5je.jpg",

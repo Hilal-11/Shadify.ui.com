@@ -71,12 +71,27 @@
   animation-duration: 3s;
 }
 
+
+
 @keyframes animation-path {
   0% {
     offset-distance: 0%;
   }
   100% {
     offset-distance: 100%;
+  }
+}
+
+
+.animate-spinning {
+  animation: rotate 5s linear infinite;
+}
+@keyframes rotate {
+  0%{
+    transform: rotate(0deg);
+
+  }100%{
+    transform: rotate(360deg);
   }
 }
 

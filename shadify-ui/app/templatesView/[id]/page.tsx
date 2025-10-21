@@ -6,6 +6,7 @@ import { SiShadcnui } from "react-icons/si";
 import { RiRemixRunLine } from "react-icons/ri";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { TbBrandReactNative } from "react-icons/tb";
+import Link from 'next/link';
 interface PageProps {
   params: {
     id: string;
@@ -30,7 +31,10 @@ async function templateView({ params }: PageProps) {
 
             </div>
             <div className='py-10 flex flex-wrap items-end lg:justify-end justify-center gap-5'>
-                <button className='w-full md:w-[200px] bg-neutral-900 dark:bg-neutral-100 dark:text-black text-white font-sans font-bold  text-sm lg:text-md shadow-sm shadow-slate-800  py-[9px] lg:rounded-md rounded-md cursor-pointer transition-all duration-300'>Live Preview</button>
+
+                <Link href={template?.projectLiveURL} alt="oops" className='w-full md:w-[200px] bg-neutral-900 dark:bg-neutral-100 dark:text-black text-white font-sans font-bold  text-sm lg:text-md shadow-sm shadow-slate-800  py-[9px] lg:rounded-md rounded-md cursor-pointer transition-all duration-300 text-center'>Live Demo</Link>
+
+
                 <button className='w-full md:w-[200px] font-sans font-bold  text-sm dark:bg-neutral-950 lg:text-md shadow-sm shadow-slate-800  py-[9px] rounded-md cursor-pointer transition-all duration-300'>Buy Now {template?.projectPrize}</button>
             </div>
         </div>

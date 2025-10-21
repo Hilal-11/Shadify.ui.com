@@ -50,7 +50,7 @@ export function MobileNav({
             <div className="flex-1 overflow-y-auto px-4 py-2">
               {sections.map((section) => (
                 <div key={section.title} className="mb-6">
-                  <h3 className="font-sans text-sm font-medium text-zinc-900 dark:text-zinc-100 mb-2">
+                  <h3 className="font-sans text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-2">
                     {section.title}
                   </h3>
                   <div className="space-y-1">

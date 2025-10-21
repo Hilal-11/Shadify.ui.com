@@ -41,7 +41,7 @@ function Header() {
                 {/* Logo Section with Navigation Links */}
                 <div className="flex items-center gap-6">
                   <Link href="/" className="flex items-center gap-2">
-                   <LiaAtomSolid className="animate-spin mr-2 h-8 w-8" />
+                   <LiaAtomSolid className="animate-spinning mr-2 h-8 w-8" />
                    
                     <span className="hidden sm:block font-sans font-bold text-lg">
                       ShadifyUI
@@ -149,11 +149,6 @@ function Header() {
                       >
                         Pricing
                       </ViewTransitionsLink>
-                      {/* <div className="border w-full flex justify-between gap-2">
-                        <Link className="font-sans font-medium  py-2 rounded-md bg-neutral-100 text-neutral-900 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" href="/login">Login</Link>
-                        <Link className="w-full font-sans font-medium py-2 rounded-md bg-neutral-100 text-neutral-900 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]" href="/signup">Signup</Link>
-                      </div> */}
-                      
                     </div>
                   </div>
                 }
