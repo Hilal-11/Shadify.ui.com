@@ -5,6 +5,9 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 import { RootProvider } from "fumadocs-ui/provider"
 import { ClerkProvider } from "@clerk/nextjs";
+import { ConvexClientProvider } from "@/provider/ConvexClientProvider";
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -39,7 +42,9 @@ export default function RootLayout({
               disableTransitionOnChange
               >
                 <RootProvider>
-                  {children}
+                  <ConvexClientProvider>
+                    {children}
+                  </ConvexClientProvider>
                 </RootProvider>
             </ThemeProvider>
           
