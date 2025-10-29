@@ -6,15 +6,14 @@ import { SiShadcnui } from "react-icons/si";
 import { RiRemixRunLine } from "react-icons/ri";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { TbBrandReactNative } from "react-icons/tb";
-import { templatesNames} from "@/config/templatesConfig";
 import { motion } from "motion/react";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
-
-
+import { IoMdSearch } from "react-icons/io";
+import { BsStars } from "react-icons/bs";
 
 function Templates(){
 
@@ -28,28 +27,32 @@ function Templates(){
             <div>
                 <Header />
             </div>
-            <div className="container pt-10 w-full h-auto">
+            <div className="container pt-20 w-full h-auto">
                 <div className="w-full h-auto mx-auto">
                     <div className="w-full mx-auto text-center">
                         <h1 className="font-sans font-bold text-3xl lg:text-6xl text-neutral-800 dark:text-neutral-200">Build Anything Faster with Ready-Made Templates & Components</h1>
-                        <p className="px-0 lg:w-2/3 mx-auto py-4 font-sans font-medium text-md text-neutral-600 dark:text-neutral-400">Discover a curated library of responsive templates and reusable components built for React, Next.js, and modern web technologies. Whether you're a freelancer, startup, or enterprise team, our templates help you launch beautiful websites faster with minimal effort.</p>
+                        <p className="px-0 lg:w-2/3 mx-auto py-4 font-sans font-medium text-md text-neutral-600 dark:text-neutral-400">Discover a curated library of responsive templates and reusable components built for React, Next.js, and modern web technologies. Whether you're a freelancer, startup, or enterprise team.</p>
                     </div>
-                    <div>
-                        <div className='flex flex-wrap justify-evenly lg:justify-center py-2 gap-4 lg:gap-6 poppins-medium text-neutral-600 dark:text-neutral-400'>
-                            <span className='flex gap-1 justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><RiNextjsFill/></span>Next.js</span>
-                            <span className='flex gap-1 justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><TbBrandReactNative/></span>React</span>
-                            <span className='flex gap-1 justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><RiTailwindCssFill/></span>Tailwind CSS</span>
-                            <span className='flex gap-1 justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><TbBrandFramerMotion/></span>Motion</span>
-                            <span className='flex gap-1 justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><RiRemixRunLine/></span>Remix</span>
-                            <span className='flex gap-1 justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><SiShadcnui/></span>Shadcn</span>
-                          </div>
+                   
+                </div>
+
+                 {/* Search functionality */}
+                <div className="flex items-center justify-center md:w-full w-full lg:w-2/3 mx-auto my-10 bg-transparent bg-neutral-50 h-[65px] px-2 rounded-full">
+                    <div className="ring-1 ring-neutral-300 rounded-full w-full relative flex justify-between items-center pr-1 bg-neutral-100 dark:bg-neutral-800 mx-auto rounded-full h-[58px] pl-4 font-sans font-medium">
+                        <span className="absolute left-4 top-3.5 text-3xl text-neutral-500"><IoMdSearch /></span>
+                        <input 
+                            type="text"
+                            placeholder="Search the creative work"
+                            className="w-full h-[58px] rounded-full outline-none pl-8"
+                        />
+                        <button className="flex items-center gap-1 h-[50px] whitespace-nowrap bg-neutral-950 text-center text-neutral-900 px-10 rounded-full inter-square shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] bg-[linear-gradient(90deg,_#F6D5F7_0%,_#FBE9D7_100%)]"><span className="text-xl"><BsStars /></span>GET TEMPLATE</button>
                     </div>
                 </div>
                 
 
             </div>  
-            <section className="container w-full h-[500px] pt-4 px-4 mt-20">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:px-5 pb-2">
+            <section className="lg:w-[90%] h-[500px] pt-4 px-6 mt-20 mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:px-5 pb-2">
                     { templates?.map((templete) => (
                         <div 
                             onClick={() => router.push(`/templatesView/${templete._id}`)}
@@ -109,7 +112,6 @@ function Templates(){
                                     </div>
                                 </div>
                                 </div>
-                            
                         </div>
                         
                     ))}

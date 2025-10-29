@@ -2,12 +2,23 @@
 @import "tw-animate-css";
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:opsz@14..32&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 ::selection {
   background: black;
   color: white;
 }
+
+
+.inter-square {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+
 .dark ::selection {
   background: white;
   color: black;

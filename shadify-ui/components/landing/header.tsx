@@ -17,9 +17,27 @@ import { useState } from "react";
 import { LiaAtomSolid } from "react-icons/lia";
 
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton, SignOutButton } from "@clerk/nextjs";
-
+import { Button } from "@/components/ui/button"
+import { FaAngleDown } from "react-icons/fa6";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { services } from "@/config/servicesConfig"
+import { GrCubes } from "react-icons/gr";
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <>
       {/* Mobile Pro Banner completely separate from sticky header */}
@@ -50,12 +68,37 @@ function Header() {
                   <span className="text-zinc-300 dark:text-zinc-700"></span>
                   {/* Desktop Navigation Links */}
                   <div className="hidden sm:flex items-center gap-4">
-                    <ViewTransitionsLink
+                    {/* <ViewTransitionsLink
                       href="/docs/components/background-paths"
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                     >
                       Components
-                    </ViewTransitionsLink>
+                    </ViewTransitionsLink> */}
+                    <DropdownMenu>
+                      <DropdownMenuTrigger>
+                        <h1 className="cursor-pointer flex gap-1 bg-transparent hover:bg-transparent font-sans font-medium text-[15px] text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center">Services<span className="text-sm"><FaAngleDown /></span></h1>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent className="md:w-[700px] lg:w-[800px] h-auto my-5.5 py-4 px-2" align="start">
+                        <div className="grid grid-cols-2 gap-3 w-full h-auto justify-evenly">
+                         {
+                          services.map(({ id, service, description, icon: Icon }) => (
+                            <div key={id} className="h-auto py-2 rounded-lg bg-neutral-50 dark:bg-neutral-800 hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] duration-400 cursor-pointer flex items-center">
+                              <div className="flex justify-center items-center px-5 h-full overflow-hidden relative">
+                                <span className="text-4xl"><Icon/></span>
+                                
+                                  <div className="absolute h-full w-full bg-[linear-gradient(to_right,#f74c062e_1px,transparent_1px),linear-gradient(to_bottom,#f9bc2c2e_1px,transparent_1px)] [background-size:5px_5px] [mask-image:radial-gradient(ellipse_40%_40%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+                                
+                              </div>
+                              <div className="space-y-1 px-2">
+                                <h1 className="text-lg font-sans font-bold">{service}</h1>
+                                <p className="font-sans text-xs text-zinc-600 dark:text-zinc-200">{description}</p>
+                              </div>
+                            </div>
+                          ))
+                         }
+                        </div>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                     <Link
                       href="/templates"
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
@@ -73,6 +116,12 @@ function Header() {
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
                     >
                       Pricing
+                    </Link>
+                    <Link
+                      href="/team"
+                      className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
+                    >
+                      Team
                     </Link>
                     
                   </div>
@@ -149,6 +198,13 @@ function Header() {
                       >
                         Pricing
                       </ViewTransitionsLink>
+                      <ViewTransitionsLink
+                      
+                        href="/team"
+                        className="block pb-3 font-sans font-medium text-xl text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                      >
+                        Team
+                      </ViewTransitionsLink>
                     </div>
                   </div>
                 }
@@ -160,3 +216,4 @@ function Header() {
   );
 }
 export default Header
+
