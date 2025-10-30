@@ -4,7 +4,7 @@ import { MdViewQuilt } from "react-icons/md";
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { LiaIconsSolid } from "react-icons/lia";
 import { FaRobot } from "react-icons/fa6";
-
+import { TbBrandAuth0 } from "react-icons/tb";
 
 
 interface Services {
@@ -31,6 +31,14 @@ export const services: Services[]  = [
       "Professional website templates crafted with clean code, modern layouts, and full responsiveness.",
       icon: MdViewQuilt,
       link: "/templates"
+  },
+  {
+    id: 3_1,
+    service: "Authentication",
+    description:
+      "Complete authentication and authorization with error handling, zod validation and typescript compatable.",
+    icon: TbBrandAuth0,
+    link: "/authentication"
   },
   {
     id: 3,
