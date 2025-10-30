@@ -16,7 +16,19 @@ var meta = defineCollections({
   schema: metaSchema
   // zod schema to validate JSON data
 });
+var authdocs = defineCollections({
+  type: "doc",
+  dir: "content/authdocs",
+  schema: frontmatterSchema
+});
+var authmeta = defineCollections({
+  type: "meta",
+  dir: "content/authdocs",
+  schema: metaSchema
+});
 export {
+  authdocs,
+  authmeta,
   docs,
   meta
 };
