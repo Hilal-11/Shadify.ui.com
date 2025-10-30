@@ -38,7 +38,7 @@ export const services: Services[]  = [
     description:
       "Complete authentication and authorization with error handling, zod validation and typescript compatable.",
     icon: TbBrandAuth0,
-    link: "/authentication"
+    link: "/authdocs"
   },
   {
     id: 3,
