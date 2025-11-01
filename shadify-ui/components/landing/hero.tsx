@@ -1,36 +1,22 @@
 "use client";
-
+import { Pre, CodeBlock } from 'fumadocs-ui/components/codeblock';
 import type React from "react";
 
-import Link from "next/link";
-import TailwindCSS from "@/components/icons/tailwindcss";
-import { motion } from "motion/react";
-
-import {
-  PlaneTakeoff,
-  BarChart2,
-  Video,
-  AudioLines,
-  Globe,
-  Diamond,
-  Sparkles,
-  Code,
-  Layers,
-} from "lucide-react";
 
 import CheckoutInteraction from "../shadifyui/currency-transfer"
 import Profile04 from "../shadifyui/profile/profile-04";
 import AICardGeneration from "../shadifyui/blocks/ai-card-generation/ai-card-generation"
 import Alert04 from "@/components/shadifyui/alert/alert-04";
-import Features from "./feature-block";
-
-import Card02 from "../shadifyui/card/card-02";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { RiNextjsFill  , RiTailwindCssFill } from "react-icons/ri";
 import { SiShadcnui } from "react-icons/si";
 import { RiRemixRunLine } from "react-icons/ri";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { TbBrandReactNative } from "react-icons/tb";
+import Login from '../auth_services/login';
+import CodeBlockDemo from './showcaseCodeBlock';
+import { code } from '@/geist/components';
+
 
 interface Action {
   id: string;
@@ -69,19 +55,29 @@ export function HeroSection() {
           <div className="lg:w-[400px] w-full relative top-10"><AICardGeneration/></div>
           <div className="flex flex-col gap-4 lg:w-auto w-full"><CheckoutInteraction /><Alert04/></div>
           <div className="hidden lg:flex w-[400px] relative top-12"><Profile04 /></div>
-        </div>
-        <div className="grid grid-cols-1 gap-1"> 
-          <div
-              className=""
-            >
-              <div className="">
-                <img
-                  className="w-full rounded-t-lg object-contain mask-b-from-0% to-30%"
-                  src={"https://res.cloudinary.com/dou5rypdf/image/upload/v1760615368/Screenshot_2025-10-10_202338_f8ic4h.png"}
-                  alt={"Bato image"}
-                />
-              </div>
+        </div> 
+        {/* <div className="w-full lg:h-[676px] h-[350px] aspect-video overflow-hidden mt-20 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] rounded-md"> 
+          <video
+            className="w-full rounded-md object-cover h-full"
+            src={"https://res.cloudinary.com/dou5rypdf/video/upload/v1761979295/showcase_-_Made_with_Clipchamp_y0czxl.mp4"}
+            loop
+            autoPlay
+          ></video>
+        </div> */}
+
+        <br /><br />
+        <div className="pt-10">
+          <h1 className="font-sans font-bold text-3xl lg:text-6xl text-neutral-800 dark:text-neutral-200">Easy to Integrate, Build faster ship faster and Deploy smoothly</h1>
+          <div className="w-full h-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 justify-between py-10 items-center">
+            <div className='bg-neutral-50 dark:bg-neutral-950 rounded-lg md:h-[450px] lg:h-[500px] w-[100%] overflow-auto shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]'>
+              
             </div>
+            <div className='relative pt-10 w-full flex justify-center flex-nowrap overflow-hidden h-full '>
+                <img className="hidden md:block lg:block z-20 rounded-2xl relative -bottom-20"src="https://res.cloudinary.com/dou5rypdf/image/upload/v1760628911/Screenshot_2025-09-26_025658_hoxc9a.png" alt="" />
+              <Login />
+                <img  className="hidden md:block lg:block z-20 relative top-16 rounded-2xl" src="https://res.cloudinary.com/dou5rypdf/image/upload/v1761817889/Screenshot_2025-10-30_151515_bimxnq.png" alt="" />
+            </div>
+          </div>
         </div>
     </div>
   );
