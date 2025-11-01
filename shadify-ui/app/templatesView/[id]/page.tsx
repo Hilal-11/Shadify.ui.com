@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React from 'react'
 import Header from '@/components/landing/header'
 import { RiNextjsFill  , RiTailwindCssFill } from "react-icons/ri";
 import { SiShadcnui } from "react-icons/si";
@@ -11,7 +11,6 @@ import Link from 'next/link';
 import { fetchQuery } from "convex/nextjs";
 import { api } from "@/convex/_generated/api";
 import { Id } from '@/convex/_generated/dataModel';
-
 interface PageProps {
   params: {
     id: Id<"templates">;
