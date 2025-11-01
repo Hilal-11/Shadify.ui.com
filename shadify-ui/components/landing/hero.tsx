@@ -1,8 +1,6 @@
 "use client";
-import { Pre, CodeBlock } from 'fumadocs-ui/components/codeblock';
+
 import type React from "react";
-
-
 import CheckoutInteraction from "../shadifyui/currency-transfer"
 import Profile04 from "../shadifyui/profile/profile-04";
 import AICardGeneration from "../shadifyui/blocks/ai-card-generation/ai-card-generation"
@@ -14,8 +12,7 @@ import { RiRemixRunLine } from "react-icons/ri";
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { TbBrandReactNative } from "react-icons/tb";
 import Login from '../auth_services/login';
-import CodeBlockDemo from './showcaseCodeBlock';
-import { code } from '@/geist/components';
+import { CodeBlock } from "@/components/landing/code-block";
 
 
 interface Action {
@@ -27,7 +24,57 @@ interface Action {
   end?: string;
 }
 
+const code = `"use client"
+import { useState, type FormEvent, type ChangeEvent } from "react"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { FaGoogle } from "react-icons/fa6"
+import { IoLogoGithub } from "react-icons/io5"
+import { z } from "zod"
 
+const loginSchema = z.object({
+  username: z.preprocess((v) => (typeof v === "string" ? v.trim() : v), z.string().min(3, "username is required")),
+  email: z.preprocess(
+    (v) => (typeof v === "string" ? v.trim() : v),
+    z
+      .string()
+      .regex(
+        /^(?!\.)(?!.*\.\.)([a-z0-9_'+\-.]*)[a-z0-9_+-]@([a-z0-9][a-z0-9-]*\.)+[a-z]{2,}$/i,
+        "Invalid email address",
+      ),
+  ),
+  password: z.string().min(8, "Password must be at least 8 characters"),
+})
+export default function Login2() {
+  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [loginFormData, setLoginFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  })
+  const onChangeFormHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target
+    setLoginFormData({ ...loginFormData, [name]: value })
+  }
+  const formSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setErrors({})
+    const parse = loginSchema.safeParse(loginFormData)
+    if (!parse.success) {
+      const fieldErrors: Record<string, string> = {}
+      for (const issue of parse.error.issues) {
+        const key = issue.path[0] ?? "form"
+        fieldErrors[String(key)] = issue.message
+      }
+      setErrors(fieldErrors)
+      return
+    }
+    console.log(parse.data)
+    setLoginFormData({ username: "", email: "", password: "" })
+  }
+`
 
 export function HeroSection() {
   return (
@@ -69,8 +116,13 @@ export function HeroSection() {
         <div className="pt-10">
           <h1 className="font-sans font-bold text-3xl lg:text-6xl text-neutral-800 dark:text-neutral-200">Easy to Integrate, Build faster ship faster and Deploy smoothly</h1>
           <div className="w-full h-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 justify-between py-10 items-center">
-            <div className='bg-neutral-50 dark:bg-neutral-950 rounded-lg md:h-[450px] lg:h-[500px] w-[100%] overflow-auto shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]'>
-              
+            <div className='bg-neutral-50 dark:bg-neutral-950 rounded-lg md:h-[450px] lg:h-[500px] w-[100%] overflow-auto shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] mt-20'>
+              <CodeBlock 
+                language="jsx"
+                filename="DummyComponent.jsx"
+                highlightLines={[9, 13, 14, 18]}
+                code={code}
+               />
             </div>
             <div className='relative pt-10 w-full flex justify-center flex-nowrap overflow-hidden h-full '>
                 <img className="hidden md:block lg:block z-20 rounded-2xl relative -bottom-20"src="https://res.cloudinary.com/dou5rypdf/image/upload/v1760628911/Screenshot_2025-09-26_025658_hoxc9a.png" alt="" />
