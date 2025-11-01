@@ -14,6 +14,7 @@ import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { IoMdSearch } from "react-icons/io";
 import { BsStars } from "react-icons/bs";
+import TemplateShimmerLoadingUI from '@/components/templateShimmerLoadingUI';
 
 function Templates(){
 
@@ -52,11 +53,28 @@ function Templates(){
 
             </div>  
             <section className="lg:w-[90%] h-[500px] pt-4 px-6 mt-20 mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:px-5 pb-2">
-                    { templates?.map((templete) => (
-                        <div 
+                { !templates ? (<TemplateShimmerLoadingUI/>) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:px-5 pb-2">
+                    { 
+                        templates?.map((templete) => (
+                        <motion.div
+                            initial={{ scale: 1, filter: "brightness(88%)" }}
+                            whileHover={{
+                                scale: 1.03,
+                                filter: "brightness(100%)",
+                            }}
+                            whileTap={{
+                                scale: 1.03,
+                                filter: "brightness(100%)",
+                            }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 300,
+                                damping: 20,
+                                duration: 0.3,
+                            }}
                             onClick={() => router.push(`/templatesView/${templete._id}`)}
-                            key={templete.id} className="cursor-pointer w-full h-auto bg-neutral-100 dark:bg-neutral-900 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] rounded-md relative">
+                            key={templete.id} className="cursor-pointer w-full h-auto bg-neutral-100 dark:bg-neutral-900 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] rounded-xl relative">
 
                                 <div class="absolute inset-0 h-full w-full"><div class="absolute h-full w-full bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:10px_10px] bg-gradient-to-r from-orange-500 to-yellow-300  [mask-image:radial-gradient(ellipse_80%_100%_at_100%_100%,#000_50%,transparent_100%)]"></div></div>
 
@@ -69,7 +87,7 @@ function Templates(){
                                         alt={templete.templateName}
                                         width={400}
                                         height={400}
-                                        className="w-full object-cover rounded-t-md"
+                                        className="z-40 w-full object-cover rounded-t-md"
                                     />
                                     </div>
                                 )}
@@ -92,31 +110,21 @@ function Templates(){
                                     </div>
                                     </div>
 
-                                    {/* Description */}
-                                    <div className="mt-2">
-                                    <p className="text-sm font-sans font-medium">{templete.projectDescription
-                                        .split(" ")
-                                        .slice(0, 40)
-                                        .join(" ")}
-                                    {templete.projectDescription.split(" ").length > 35 ? "..." : ""}</p>
-                                    </div>
-
                                     {/* Buttons */}
                                     <div className="flex justify-between px-3 py-3">
-                                    <button className="px-8 py-1 rounded-md bg-neutral-100 text-neutral-800 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] font-sans font-medium dark:bg-neutral-950  dark:text-neutral-200">
+                                    <button className="bg-neutral-50 z-30 px-8 py-1 rounded-md bg-neutral-100 text-neutral-800 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] font-sans font-medium dark:bg-neutral-950  dark:text-neutral-200">
                                         View Template
-                                    </button>
-                                    <button className="px-8 py-1 rounded-md bg-neutral-950 dark:bg-neutral-100 dark:text-neutral-800 text-neutral-100 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] font-sans font-medium ">
-                                        {templete.projectPrize}
                                     </button>
                                     </div>
                                 </div>
                                 </div>
-                        </div>
+                        </motion.div>
                         
-                    ))}
+                    )
+                    )}
 
                 </div>
+                )}
             </section>
 
         </div>
