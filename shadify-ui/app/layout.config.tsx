@@ -33,3 +33,23 @@ export const baseOptions: BaseLayoutProps = {
     },
   ],
 };
+
+
+export const baseOptions2: BaseLayoutProps = {
+  nav: {
+    title: (
+      <div className="flex items-center">
+        <LiaAtomSolid className="animate-spin mr-2 h-8 w-8" />
+        <span className="hidden md:inline-flex items-center text-lg font-bold tracking-tight text-black dark:text-white">
+          Shadify UI
+        </span>
+      </div>
+    ),
+  },
+  links: [
+    {
+      type: "custom",
+      children: <HeaderPro />,
+    },
+  ],
+};
