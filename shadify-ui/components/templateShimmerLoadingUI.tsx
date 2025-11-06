@@ -24,12 +24,7 @@ function TemplateShimmerLoadingUI() {
     </div>
   )
 }
-
 export default TemplateShimmerLoadingUI
-
-
-
-
 
 function Spinner({ className, ...props }: React.ComponentProps<"svg">) {
   return (
