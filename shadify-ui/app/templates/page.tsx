@@ -1,5 +1,5 @@
 "use client"
-import React from "react"
+import { useRef } from "react"
 import Header from "@/components/landing/header"
 import { RiNextjsFill  , RiTailwindCssFill } from "react-icons/ri";
 import { SiShadcnui } from "react-icons/si";
@@ -15,20 +15,50 @@ import { api } from "../../convex/_generated/api";
 import { IoMdSearch } from "react-icons/io";
 import { BsStars } from "react-icons/bs";
 import TemplateShimmerLoadingUI from '@/components/templateShimmerLoadingUI';
-
+import { templatesCategories } from '@/config/templatesCatagoriedConfig';
+import { CiMobile3 } from "react-icons/ci";
+import { MdWeb } from "react-icons/md";
+import Footer from "@/components/layout/footer"
 function Templates(){
 
     const templates = useQuery(api.getTemplates.getTemplates);
+
+
+    const ref = useRef<HTMLDivElement>(null);
+
+    const onMouseDown = (e: React.MouseEvent) => {
+        const slider = ref.current;
+        if (!slider) return;
+
+        let startX = e.pageX - slider.offsetLeft;
+        let scrollLeft = slider.scrollLeft;
+
+        const onMouseMove = (moveEvent: MouseEvent) => {
+        const x = moveEvent.pageX - slider.offsetLeft;
+        const walk = x - startX;
+        slider.scrollLeft = scrollLeft - walk;
+        };
+
+        const onMouseUp = () => {
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+        };
+
+        document.addEventListener("mousemove", onMouseMove);
+        document.addEventListener("mouseup", onMouseUp);
+    };
+
+
 
     const router = useRouter();
     return (
         <div className="relative">
             <div className="dark:hidden absolute inset-0 -z-10 h-screen w-full bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"><div className=" absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)]"></div></div>
 
-            <div>
+            <div className="fixed w-full z-50">
                 <Header />
             </div>
-            <div className="container pt-20 w-full h-auto">
+            <div className="container lg:pt-40 pt-30 w-full h-auto">
                 <div className="w-full h-auto mx-auto">
                     <div className="w-full mx-auto text-center">
                         <h1 className="font-sans font-bold text-3xl lg:text-6xl text-neutral-800 dark:text-neutral-200">Build Anything Faster with Ready-Made Templates & Components</h1>
@@ -39,20 +69,39 @@ function Templates(){
 
                  {/* Search functionality */}
                 <div className="flex items-center justify-center md:w-full w-full lg:w-2/3 mx-auto my-10 bg-transparent bg-neutral-50 h-[65px] px-2 rounded-full">
-                    <div className="ring-1 ring-neutral-300 rounded-full w-full relative flex justify-between items-center pr-1 bg-neutral-100 dark:bg-neutral-800 mx-auto rounded-full h-[58px] pl-4 font-sans font-medium">
+                    <div className="ring-1 ring-neutral-300 dark:ring-neutral-600 rounded-full w-full relative flex justify-between items-center pr-1 bg-neutral-100 dark:bg-neutral-800 mx-auto rounded-full h-[58px] pl-4 font-sans font-medium">
                         <span className="absolute left-4 top-3.5 text-3xl text-neutral-500"><IoMdSearch /></span>
                         <input 
                             type="text"
                             placeholder="Search the creative work"
                             className="w-full h-[58px] rounded-full outline-none pl-8"
                         />
-                        <button className="flex items-center gap-1 h-[50px] whitespace-nowrap bg-neutral-950 text-center text-neutral-900 px-10 rounded-full inter-square shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] bg-[linear-gradient(90deg,_#F6D5F7_0%,_#FBE9D7_100%)]"><span className="text-xl"><BsStars /></span>GET TEMPLATE</button>
+                        <button className="flex items-center gap-1 h-[40px] lg:h-[50px] whitespace-nowrap bg-neutral-950 text-center text-neutral-900 px-4 lg:px-10 rounded-full inter-square shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] bg-[linear-gradient(90deg,_#F6D5F7_0%,_#FBE9D7_100%)]"><span className="lg:text-xl text-sm"><BsStars /></span>GET TEMPLATE</button>
                     </div>
+                </div>
+                <div className="flex flex-col justify-center items-center pt-4">
+                    <div className="w-[100%] flex gap-3 overflow-auto whitespace-nowrap px-4 py-1 scrollbar-hide"
+                        ref={ref}
+                        onMouseDown={onMouseDown}
+                    >
+                        {
+                            templatesCategories?.map((catagory) => (
+                                <span key={catagory.id} className="px-4 py-1 text-lg cursor-pointer rounded-full ring-1 dark:ring-neutral-700 ring-neutral-300 flex items-center justify-center font-sans font-medium">{catagory.name}</span>
+                            ))
+                        }
+                    </div>
+                    <div className="flex justify-end w-full pt-4">
+                        <div className="flex items-center justify-evenly gap-px dark:bg-neutral-800 bg-neutral-100 rounded-sm w-[70px] h-[40px] lg:w-[100px] lg:h-[46px] shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
+                            <button className="flex items-center justify-center rounded-r-sm lg:text-3xl text-2xl w-full h-[40px] lg:h-[46px]"><MdWeb /></button> 
+                            <button className="flex items-center justify-center rounded-r-sm lg:text-3xl text-2xl bg-orange-600 w-full h-[40px] lg:h-[46px]"><CiMobile3 /></button>
+                        </div>
+                    </div>        
                 </div>
                 
 
-            </div>  
-            <section className="lg:w-[90%] h-[500px] pt-4 px-6 mt-20 mx-auto">
+        </div>  
+        
+            <section className="lg:w-[90%] h-auto pt-4 px-6 mt-10 mx-auto">
                 { !templates ? (<TemplateShimmerLoadingUI/>) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:px-5 pb-2">
                     { 
@@ -127,6 +176,7 @@ function Templates(){
                 )}
             </section>
 
+        <Footer />
         </div>
     )
 }
