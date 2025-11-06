@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { fetchQuery } from "convex/nextjs";
 import { api } from "@/convex/_generated/api";
 import { Id } from '@/convex/_generated/dataModel';
+
 interface PageProps {
   params: {
     id: Id<"templates">;
