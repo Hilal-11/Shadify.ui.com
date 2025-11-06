@@ -55,58 +55,22 @@ export default function Login3() {
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black p-4">
-      <style>{`
-        @keyframes gridFade {
-          0% { opacity: 0.3; }
-          50% { opacity: 0.8; }
-          100% { opacity: 0.3; }
-        }
-        .grid-bg { animation: gridFade 8s ease-in-out infinite; }
-        @keyframes slideInRight {
-          from { opacity: 0; transform: translateX(30px); }
-          to { opacity: 1; transform: translateX(0); }
-        }
-        .card-v3 { animation: slideInRight 0.7s ease-out; }
-        .input-v3 {
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .input-v3:focus {
-          border-color: rgba(59, 130, 246, 0.5);
-          background: rgba(59, 130, 246, 0.05);
-          box-shadow: 0 0 16px rgba(59, 130, 246, 0.2);
-        }
-        .btn-glow:hover {
-          box-shadow: 0 0 24px rgba(59, 130, 246, 0.4);
-        }
-      `}</style>
+    <div className="flex items-center justify-center  p-4">
 
-      <div className="absolute inset-0 grid-bg">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(0deg, transparent 24%, rgba(59, 130, 246, 0.05) 25%, rgba(59, 130, 246, 0.05) 26%, transparent 27%, transparent 74%, rgba(59, 130, 246, 0.05) 75%, rgba(59, 130, 246, 0.05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(59, 130, 246, 0.05) 25%, rgba(59, 130, 246, 0.05) 26%, transparent 27%, transparent 74%, rgba(59, 130, 246, 0.05) 75%, rgba(59, 130, 246, 0.05) 76%, transparent 77%, transparent)",
-            backgroundSize: "50px 50px",
-          }}
-        />
-      </div>
-
-      <div className="card-v3 relative z-10 w-full max-w-md bg-neutral-900/80 backdrop-blur-xl border border-neutral-800 rounded-2xl p-8">
+      <div className="card-v3 relative z-10 w-full max-w-md bg-neutral-100 dark:bg-neutral-900 backdrop-blur-xl border rounded-2xl p-8">
         <form onSubmit={formSubmitHandler} className="space-y-6">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-white">Welcome</h1>
+            <h1 className="text-3xl font-bold text-black dark:text-white">Welcome</h1>
             <p className="text-sm text-gray-400 mt-2">Sign in to your account</p>
           </div>
 
           <div className="space-y-4">
             <div>
-              <Label htmlFor="username" className="text-sm font-medium text-gray-300">
+              <Label htmlFor="username" className="text-sm font-medium text-black dark:text-white ">
                 Username
               </Label>
               <Input
-                className="input-v3 mt-2 w-full bg-neutral-800/50 text-white placeholder-gray-500 rounded-lg py-2 px-4"
+                className="input-v3 mt-2 w-full bg-neutral-200 text-white placeholder-gray-500 rounded-lg py-2 px-4"
                 onChange={onChangeFormHandler}
                 value={loginFormData.username}
                 id="username"
@@ -118,11 +82,11 @@ export default function Login3() {
             </div>
 
             <div>
-              <Label htmlFor="email" className="text-sm font-medium text-gray-300">
+              <Label htmlFor="email" className="text-sm font-medium text-black dark:text-white">
                 Email
               </Label>
               <Input
-                className="input-v3 mt-2 w-full bg-neutral-800/50 text-white placeholder-gray-500 rounded-lg py-2 px-4"
+                className="input-v3 mt-2 w-full bg-neutral-200 text-white placeholder-gray-500 rounded-lg py-2 px-4"
                 onChange={onChangeFormHandler}
                 value={loginFormData.email}
                 id="email"
@@ -134,11 +98,11 @@ export default function Login3() {
             </div>
 
             <div>
-              <Label htmlFor="password" className="text-sm font-medium text-gray-300">
+              <Label htmlFor="password" className="text-sm font-medium text-black dark:text-white">
                 Password
               </Label>
               <Input
-                className="input-v3 mt-2 w-full bg-neutral-800/50 text-white placeholder-gray-500 rounded-lg py-2 px-4"
+                className="input-v3 mt-2 w-full bg-neutral-200 text-white placeholder-gray-500 rounded-lg py-2 px-4"
                 onChange={onChangeFormHandler}
                 value={loginFormData.password}
                 id="password"
