@@ -9,7 +9,15 @@
   background: black;
   color: white;
 }
+/* Hide scrollbar but allow scrolling */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
 
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
 @keyframes scroll-left {
   0% {
     transform: translateX(0);
@@ -60,7 +68,6 @@
   font-weight: 600;
   font-style: normal;
 }
-
 
 .dark ::selection {
   background: white;
@@ -125,8 +132,6 @@
   animation-duration: 3s;
 }
 
-
-
 @keyframes animation-path {
   0% {
     offset-distance: 0%;
@@ -135,7 +140,6 @@
     offset-distance: 100%;
   }
 }
-
 
 .animate-spinning {
   animation: rotate 6s linear infinite;
@@ -187,6 +191,15 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --animate-shiny-text: shiny-text 8s infinite;
+  @keyframes shiny-text {
+  0%, 90%, 100% {
+    background-position: calc(-100% - var(--shiny-width)) 0;
+    }
+  30%, 60% {
+    background-position: calc(100% + var(--shiny-width)) 0;
+    }
+  }
 }
 
 :root {
