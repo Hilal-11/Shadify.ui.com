@@ -13,69 +13,10 @@ Built using the **latest web technologies** — including [**Tailwind CSS**](htt
 Whether you’re building a **SaaS product**, **dashboard**, **portfolio**, or **mobile-responsive web app**, our prebuilt authentication components ensure a professional, consistent, and scalable experience across all devices.
 
 ---
+import TabViewComponents from "../../components/docs-components/tab-view-components.tsx"
 
-## Code Block
-
-```js
-"use client"
-import { useState , useEffect, FormEvent, ChangeEvent, InputEventHandler } from "react"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { IconBrandGoogleFilled  , IconBrandGithubFilled   } from "@tabler/icons-react"
-import { cn } from "@/lib/utils";
-import { z } from 'zod'
-
-const loginSchema = z.object({
-  username: z.preprocess(
-    (v) => typeof v === 'string' ? v.trim() : v,
-    z.string().min(3, "username is required")
-  ),
-  email: z.preprocess(
-    (v) => typeof v === 'string' ? z.trim() : v,
-    z.string().regex(/^(?!\.)(?!.*\.\.)([a-z0-9_'+\-\.]*)[a-z0-9_+-]@([a-z0-9][a-z0-9\-]*\.)+[a-z]{2,}$/i, "Invalid email address")
-  ),
-  password: z.string().min(8, "Password must be at least 8 characters")
-})
-
-const  Login = () => {
-  const [errors, setErrors] = useState<Record<string, string>>({})
-  const [loginFormData , setLoginFormData] = useState({
-    username: "",
-    email: "",
-    password: "" 
-  })
-  const onChangeFormHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name , value } = event.target;
-    setLoginFormData({...loginFormData,  [name]: value})
-  }
-  const formSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setErrors({});
-
-    const parse = loginSchema.safeParse(loginFormData);
-    if(!parse.success) {
-      const fieldErrors: Record<string, string> = {};
-      for (const issue of parse.error.issues) {
-        const key = issue.path[0] ?? "form";
-        fieldErrors[String(key)] = issue.message;
-      }
-      setErrors(fieldErrors)
-      return;
-    }
-    const ValidData = parse.data;
-    console.log(ValidData)
-
-    // POST Request to send the data----for login on Backend
-    setLoginFormData({
-      username: "",
-      email: "",
-      password: "" 
-    })
-  }
-  
-```
+    <TabViewComponents />
+---
 
 
 # Why ShadifyUI Authentication?
