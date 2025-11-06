@@ -1,12 +1,10 @@
 'use client';
-import { ArrowRight, Github, Twitter } from 'lucide-react';
 import { BACKGROUND_OPTIONS } from '@/components/BackgroundPatterns/backgrounds';
-import { Button } from '@/components/ui/button';
 import Playground from '@/components/BackgroundPatterns/playground';
 import { useState } from 'react';
 import { Toaster } from 'sonner';
 import Header from '@/components/landing/header';
-
+import Footer from '@/components/layout/footer';
 export default function Home() {
   const [preview, setPreview] = useState<null | React.ReactNode>(null);
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -24,7 +22,7 @@ export default function Home() {
         <div className="fixed left-0 top-0 -z-10 h-full w-full">
           {preview ? preview : null}
         </div>
-        <div className="relative mx-auto h-screen w-[90%]">
+        <div className="relative mx-auto h-auto w-[90%]">
           <header className="flex items-center justify-between py-8">
             <div />
           </header>
@@ -61,7 +59,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-
+      <Footer />
     </>
   );
 }
