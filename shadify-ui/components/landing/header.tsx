@@ -63,7 +63,7 @@ function Header() {
                     </ViewTransitionsLink> */}
                     <DropdownMenu>
                       <DropdownMenuTrigger>
-                        <h1 className="cursor-pointer flex gap-1 bg-transparent hover:bg-transparent font-sans font-medium text-[15px] text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors items-center">Services<span className="text-sm"><FaAngleDown /></span></h1>
+                        <h1 className="cursor-pointer flex gap-1 bg-transparent hover:bg-transparent font-sans font-medium text-[15px] text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors items-center">Solution<span className="text-sm"><FaAngleDown /></span></h1>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent className="md:w-[700px] lg:w-[800px] h-auto my-5.5 py-4 px-2" align="start">
                         <div className="grid grid-cols-2 gap-3 w-full h-auto justify-evenly">
