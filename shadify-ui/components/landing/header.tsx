@@ -1,6 +1,5 @@
 "use client";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { SearchIcon } from "lucide-react";
 import Link from "next/link";
 import { Link as ViewTransitionsLink } from "next-view-transitions";
 import Image from "next/image";
