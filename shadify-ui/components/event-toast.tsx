@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-// import { toast } from "sonner";
 import { useEffect } from "react";
 
 import React from "react";

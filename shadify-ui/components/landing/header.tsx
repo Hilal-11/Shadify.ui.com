@@ -5,11 +5,9 @@ import Link from "next/link";
 import { Link as ViewTransitionsLink } from "next-view-transitions";
 import Image from "next/image";
 import { IoLogoGithub } from "react-icons/io5";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group"
+import { PiCrownFill } from "react-icons/pi";
+import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+
 import { IoMenu } from "react-icons/io5";
 import { RiCloseFill } from "react-icons/ri";
 import { IoSearchSharp } from "react-icons/io5";
@@ -23,7 +21,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { services } from "@/config/servicesConfig"
+import { Button } from "@/components/ui/button"
 function Header() {
+  const [isAuthenticate , setIsAuthenticate] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <>
@@ -55,36 +55,35 @@ function Header() {
                   <span className="text-zinc-300 dark:text-zinc-700"></span>
                   {/* Desktop Navigation Links */}
                   <div className="hidden sm:flex items-center gap-4">
-                    {/* <ViewTransitionsLink
-                      href="/docs/components/background-paths"
-                      className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                    >
-                      Components
-                    </ViewTransitionsLink> */}
                     <DropdownMenu>
                       <DropdownMenuTrigger>
                         <h1 className="cursor-pointer flex gap-1 bg-transparent hover:bg-transparent font-sans font-medium text-[15px] text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors items-center">Solution<span className="text-sm"><FaAngleDown /></span></h1>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent className="md:w-[700px] lg:w-[800px] h-auto my-5.5 py-4 px-2" align="start">
-                        <div className="grid grid-cols-2 gap-3 w-full h-auto justify-evenly">
+                      <DropdownMenuContent className="md:w-[700px] lg:w-[720px] pt-3 pb-4 h-auto my-5.5" align="start">
+                        <div className="w-full flex justify-between px-6 py-2 items-center border-b-1">
+                          <div><h2 className="text-ms font-sans font-medium">Browse Products</h2></div>
+                          <div><button className="relative cursor-pointer font-sans font-medium px-10 py-2 rounded-md text-sm bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">Start Building</button></div>
+                        </div>
+
+                        
+                        <div className="grid grid-cols-3 gap-3 w-full h-auto justify-evenly py-4 px-4">
                          {
-                          services.map(({ id, service, description, icon: Icon, link }) => (
+                          services.map(({ id, service, icon: Icon, link }) => (
                             <Link key={id} href={link}>
-                              <div className="h-auto py-2 rounded-lg bg-neutral-50 dark:bg-neutral-800 hover:shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] duration-400 cursor-pointer flex items-center">
+                              <div className="h-auto py-2 cursor-pointer flex items-center hover:bg-neutral-100 hover:dark:bg-neutral-950 hover:rounded-sm">
                                 <div className="flex justify-center items-center px-5 h-full overflow-hidden relative">
-                                  <span className="text-4xl z-30"><Icon/></span>
-                                  
-                                    <div className="z-10 absolute h-full w-full bg-[linear-gradient(to_right,#f74c062e_1px,transparent_1px),linear-gradient(to_bottom,#f9bc2c2e_1px,transparent_1px)] [background-size:5px_5px] [mask-image:radial-gradient(ellipse_40%_40%_at_50%_50%,#000_70%,transparent_100%)]"></div>
-                                  
+                                  <span className="text-xl z-30"><Icon/></span>
                                 </div>
-                                <div className="space-y-1 px-2">
-                                  <h1 className="text-lg font-sans font-bold">{service}</h1>
-                                  <p className="font-sans text-xs text-zinc-600 dark:text-zinc-200">{description}</p>
+                                <div className="space-y-1">
+                                  <h1 className="text-sm font-sans font-medium">{service}</h1>
                                 </div>
                               </div>
                             </Link>
                           ))
                          }
+                                <div className=" flex gap-3 items-end justify-end px-5">
+                                  <button className="pro_btn w-full whitespace-nowrap relative cursor-pointer font-sans font-medium rounded-md text-sm py-2 flex items-center gap-2"><span><PiCrownFill /></span>Pro Access</button>
+                                </div>
                         </div>
                       </DropdownMenuContent>
                     </DropdownMenu>
@@ -125,35 +124,25 @@ function Header() {
 
                   <div className="flex gap-3">
                     <SignedOut>
-                      <Link href="/signup" className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2">Signup</Link>
-                      <Link href="/login" className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2">Login</Link>
+                      <Link href="/signup" className="w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">Signup</Link>
+                      {/* <Link href="/login" className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2">Login</Link> */}
                     </SignedOut>
                     <SignedIn>
-                      <UserButton afterSignOutUrl="/" /> {/* shows user avatar dropdown */}
-                      {/* Optional Signout Button in plain text if needed */}
-                      {/* <SignOutButton /> */}
+                      <UserButton afterSignOutUrl="/" /> 
                     </SignedIn>
                   </div>
 
-
-                   <div className="hidden lg:grid md:hidden w-full max-w-lg gap-6">
-                    <InputGroup>
-                      <InputGroupInput className="font-sans font-medium" placeholder="Search Documentation" />
-                      <InputGroupAddon>
-                        <SearchIcon />
-                      </InputGroupAddon>
-                    </InputGroup>
-                  </div>
                   <span className="text-xl text-neutral-700 dark:text-neutral-300"><IoLogoGithub/></span>
                   <ThemeToggle />
                 </div>
 
                 {/* Mobile Navigation remains unchanged */}
                 <div className="flex sm:hidden items-center gap-3">
-                  <button className="flex md:hidden lg:hidden bg-transparent text-xl text-neutral-700 dark:text-neutral-300"><IoSearchSharp /></button>
-                  <span className="text-xl text-neutral-700 dark:text-neutral-300"><IoLogoGithub/></span>
-                  <ThemeToggle />
-                  {!isMobileMenuOpen ? <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex md:hidden lg:hidden bg-transparent text-2xl text-neutral-700 dark:text-neutral-300"><IoMenu /></button> : <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex md:hidden lg:hidden bg-transparent text-2xl text-neutral-700 dark:text-neutral-300"><RiCloseFill /></button>}
+                   {
+                    isAuthenticate ? (<button className="w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">Start Building <span><HiOutlineArrowNarrowRight /></span></button>) : (<button onClick={() => setIsAuthenticate(true)} className="w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">Signup</button>)
+                   }
+                   
+                  {!isMobileMenuOpen ? <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex md:hidden lg:hidden bg-neutral-100 dark:bg-neutral-900 rounded-sm p-1 text-2xl text-neutral-700 dark:text-neutral-300"><IoMenu /></button> : <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex md:hidden lg:hidden  text-2xl text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-900 rounded-sm p-1"><RiCloseFill /></button>}
                 </div>
                 
                 
@@ -161,39 +150,77 @@ function Header() {
               {
                   isMobileMenuOpen && <div className="md:hidden lg:hidden flex absolute top-14 left-0 w-screen h-screen bg-neutral-100 dark:bg-neutral-950">
                   {/* Mobile Menu Content */}
-                    <div className="block px-5 pt-4">
-                      <ViewTransitionsLink
-                        href="/docs"
-                        className="block pb-3 font-sans font-medium text-xl text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                      >
-                        Components
-                      </ViewTransitionsLink>
-                      <ViewTransitionsLink
-                        href="/templates"
-                        className="block pb-3 font-sans font-medium text-xl text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                      >
-                        Templates
-                      </ViewTransitionsLink>
-                       <ViewTransitionsLink
-                        href="/bg-patterns"
-                        className="block pb-3 font-sans font-medium text-xl text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                      >
-                        Patterns
-                      </ViewTransitionsLink>
-                      <ViewTransitionsLink
+                    <div className="block px-5 w-full">
+
+                      <div className="w-full pb-4 h-auto my-5.5 border-b-1 border-neutral-400">
+                        <div className="w-full flex justify-between px-2 items-center ">
+                          <div><h2 className="text-ms font-sans font-medium">Browse Products</h2></div>
+                          
+                        </div>
+
+                        
+                        <div className="grid grid-cols-1 gap-1 w-full h-auto justify-evenly pt-4">
+                         {
+                          services.map(({ id, service, icon: Icon, link }) => (
+                            <Link key={id} href={link}>
+                              <div
+                              className="hover:bg-neutral-50 hover:dark:bg-neutral-800 rounded-sm pl-2 h-auto py-2 cursor-pointer flex items-center gap-4 hover:bg-neutral-100 hover:dark:bg-neutral-950 hover:rounded-sm">
+                                <div className="flex justify-center items-center px-1 h-full overflow-hidden relative bg-neutral-200 px-2 py-2 dark:bg-neutral-900 rounded-sm">
+                                  <span className="text-xl z-30"><Icon/></span>
+                                </div>
+                                <div className="space-y-1">
+                                  <h1 className="text-sm font-sans font-medium">{service}</h1>
+                                </div>
+                              </div>
+                            </Link>
+                          ))
+                         }
+                                <div className="flex justify-between items-center gap-3 mt-5">
+                                  
+                                  <button className="w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-sm bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">Start Building <span><HiOutlineArrowNarrowRight /></span></button>
+
+                                  <button className="pro_btn w-full whitespace-nowrap relative cursor-pointer font-sans font-medium rounded-md text-sm py-2 flex items-center gap-2"><span><PiCrownFill /></span>Pro Access</button>
+                                </div>
+                        </div>
+                      </div>
+
+                      <div className="flex justify-between">
+                        <div className="flex flex-col gap-2  justify-center">
+                          <ViewTransitionsLink
+                            href="/pricing"
+                            className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                          >
+                            Pricing
+                          </ViewTransitionsLink>
+                          <ViewTransitionsLink
                       
-                        href="/pricing"
-                        className="block pb-3 font-sans font-medium text-xl text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                      >
-                        Pricing
-                      </ViewTransitionsLink>
-                      <ViewTransitionsLink
+                            href="/team"
+                            className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                          >
+                            Feedback
+                          </ViewTransitionsLink>
+                        </div>
+                        <div className="flex flex-col gap-2  justify-center">
+                          <ViewTransitionsLink
+                            href="/pricing"
+                            className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                          >
+                            Report Bug
+                          </ViewTransitionsLink>
+                          <ViewTransitionsLink
                       
-                        href="/team"
-                        className="block pb-3 font-sans font-medium text-xl text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                      >
-                        Team
-                      </ViewTransitionsLink>
+                            href="/team"
+                            className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                          >
+                            Team
+                          </ViewTransitionsLink>
+                        </div>
+                        <div className="flex flex-col gap-1 items-center ">
+                            <span className="p-1.5 rounded-sm bg-neutral-300 dark:bg-neutral-900 text-xl text-neutral-700 dark:text-neutral-300"><IoLogoGithub/></span>
+                            <span className="p-1.5 rounded-sm bg-neutral-300 dark:bg-neutral-900"><ThemeToggle /></span>
+                        </div>
+                      </div>
+                      
                     </div>
                   </div>
                 }
