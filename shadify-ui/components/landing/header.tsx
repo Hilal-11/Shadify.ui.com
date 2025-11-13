@@ -163,8 +163,8 @@ function Header() {
                           services.map(({ id, service, icon: Icon, link }) => (
                             <Link key={id} href={link}>
                               <div
-                              className="hover:bg-neutral-50 hover:dark:bg-neutral-800 rounded-sm pl-2 h-auto py-2 cursor-pointer flex items-center gap-4 hover:bg-neutral-100 hover:dark:bg-neutral-950 hover:rounded-sm">
-                                <div className="flex justify-center items-center px-1 h-full overflow-hidden relative bg-neutral-200 px-2 py-2 dark:bg-neutral-900 rounded-sm">
+                              className="hover:bg-neutral-50 hover:dark:bg-neutral-800 rounded-sm pl-2 h-auto py-2 cursor-pointer flex items-center gap-4 hover:rounded-sm">
+                                <div className="flex justify-center items-center px-1 h-full overflow-hidden relative bg-neutral-200 py-2 dark:bg-neutral-900 rounded-sm">
                                   <span className="text-xl z-30"><Icon/></span>
                                 </div>
                                 <div className="space-y-1">
