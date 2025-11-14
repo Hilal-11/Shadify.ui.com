@@ -1,10 +1,7 @@
 "use client";
 
 import type React from "react";
-import CheckoutInteraction from "../shadifyui/currency-transfer"
-import Profile04 from "../shadifyui/profile/profile-04";
-import AICardGeneration from "../shadifyui/blocks/ai-card-generation/ai-card-generation"
-import Alert04 from "@/components/shadifyui/alert/alert-04";
+
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { RiNextjsFill  , RiTailwindCssFill } from "react-icons/ri";
 import { SiShadcnui } from "react-icons/si";
@@ -78,8 +75,8 @@ export default function Login2() {
 
 export function HeroSection() {
   return (
-    <div className="w-full h-auto mx-auto container py-14 lg:py-16 flex flex-col items-center justify-center text-center gap-6 relative ">
-      <div className="w-full h-auto px-2 lg:px-4 py-6">
+    <div className="w-full h-auto mx-auto md:container lg:container py-8 lg:py-16 flex flex-col items-center justify-center text-center gap-6 relative ">
+      <div className="w-full h-auto px-0 lg:px-4 py-6">
         <AnnoncementBadge />
         <div className="mt-8 text-center flex-col gap-4">
           <h1 className="font-sans font-bold text-3xl lg:text-6xl text-neutral-800 dark:text-neutral-200">A Modern Component & Template Library for Fast, Beautiful Frontends.</h1>
@@ -108,18 +105,18 @@ export function HeroSection() {
           <span className='flex gap-1 justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><RiRemixRunLine/></span>Remix</span>
           <span className='flex gap-1 justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><SiShadcnui/></span>Shadcn</span>
         </div>
-        <div className="w-full h-auto grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 pt-10 gap-2 lg:gap-4 justify-evenly items-center">
-          <div className="relative h-[300px] rounded-xl bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex items-center justify-center overflow-hidden">
+        <div className="w-full h-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-10 gap-2 lg:gap-4 justify-evenly items-center">
+          <div className="relative h-[300px] rounded-xl bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex items-center justify-center overflow-hidden w-full">
             <div className=" z-10 absolute inset-0 h-full w-full bg-white dark:bg-neutral-900 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] bg-[size:10px_10px]"><div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)] dark:bg-[radial-gradient(circle_500px_at_50%_200px,#171717,transparent)]"></div></div>
             
           </div>
-          <div className="relative overflow-hidden h-[300px] rounded-xl bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
+          <div className="relative overflow-hidden h-[300px] rounded-xl bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full ">
             <div className="absolute inset-0 h-full w-full bg-white dark:bg-neutral-900 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] bg-[size:10px_10px]"><div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)] dark:bg-[radial-gradient(circle_500px_at_50%_200px,#171717,transparent)]"></div></div>
           </div>
-          <div className="relative overflow-hidden h-[300px] rounded-xl bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
+          <div className="relative overflow-hidden h-[300px] rounded-xl bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full">
             <div className="absolute inset-0 h-full w-full bg-white dark:bg-neutral-900 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] bg-[size:10px_10px]"><div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)] dark:bg-[radial-gradient(circle_500px_at_50%_200px,#171717,transparent)]"></div></div>
           </div>
-          <div className="relative overflow-hidden h-[300px] rounded-xl bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
+          <div className="relative overflow-hidden h-[300px] rounded-xl bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full">
             <div className="absolute inset-0 h-full w-full bg-white dark:bg-neutral-900 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] bg-[size:10px_10px]"><div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)] dark:bg-[radial-gradient(circle_500px_at_50%_200px,#171717,transparent)]"></div></div>
           </div>
         </div> 
