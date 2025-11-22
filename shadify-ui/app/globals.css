@@ -162,8 +162,12 @@
   color: rgb(121, 103, 3);
   cursor: pointer;
   position: relative;
-  z-index: 2;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.144);
+  background-size: 200% 200%;
+}
+
+.pramiun_pricing_btn {
+  background: linear-gradient(to right,#bf953f,#fcf6ba,#b38728,#fbf5b7,#aa771c);
   background-size: 200% 200%;
 }
 
