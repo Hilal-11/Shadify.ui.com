@@ -17,11 +17,11 @@ function Pricing() {
         <div className="flex flex-col items-center gap-6 pb-10 py-20">
           <div className="border-t border-dashed border-b py-1 w-38 text-center relative border-neutral-300 dark:border-neutral-800">
             <span className="h-14 absolute left-4 -top-4 border border-dashed border-neutral-300 dark:border-neutral-800"></span>
-            <p className="text-sm font-sans font-bold text-neutral-700 dark:text-neutral-300">PRICING PLAN</p>
+            <p className="text-sm font-sans font-bold text-neutral-700 dark:text-neutral-300">PRICING PLAN</p>  
             <span className="h-14 absolute right-4 -top-4 border border-dashed  border-neutral-300 dark:border-neutral-800"></span>          
           </div>
-          <div className="flex items-center px-10 lg:px-28">
-            <h1 className="lg:text-6xl md:text-5xl text-4xl font-sans font-bold text-center space-y-4">Simply choose the pricing plan that <br /> <span className="ml-4 px-2 text-transparent bg-clip-text bg-gradient-to-r from-[#bf953f] to-[#aa771c] rounded-lg"> fits you best.</span></h1>
+          <div className="flex items-center px-6 lg:px-28">
+            <h1 className="lg:text-6xl md:text-5xl text-2xl font-sans font-bold text-center space-y-4">Simply choose the pricing plan that <br /> <span className="ml-4 px-2 text-transparent bg-clip-text bg-gradient-to-r from-[#bf953f] to-[#aa771c] rounded-lg"> fits you best.</span></h1>
           </div>
         </div>
         <div className='flex gap-8 flex-wrap justify-center items-end pt-10'>
