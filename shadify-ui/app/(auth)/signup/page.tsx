@@ -66,8 +66,10 @@ const  Signup = () => {
       <Header />
     <div className="flex flex-col w-full h-screen relative">
       
-      <div className="w-svw h-[100%] z-30 bg-white dark:bg-neutral-900
-      shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] px-4 py-4">
+      <div className="absolute top-0 z-[-2] h-screen w-screen rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
+
+      <div className="w-svw h-[100%] z-30 dark:bg-neutral-950
+      shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] px-5 py-4">
 
         <form onSubmit={formSubmitHandler} className="">
             <h1 className="text-4xl font-bold ">Signup</h1>
@@ -105,11 +107,11 @@ const  Signup = () => {
               <div className="border border-gray-300 w-full h-px"></div>
             </div>
             <div className="mt-3 flex gap-1 w-full">
-                <Button className="w-full cursor-pointer font-sans font-medium px-10 py-6 rounded-md bg-gradient-to-t from-[#f5f5f5] to-[#d4d4d4] text-neutral-800 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-md" type="submit"><span className="text-2xl"><FaGoogle  /></span>Google</Button>
+                <Button className="w-full cursor-pointer font-sans font-medium px-10 py-6 rounded-md bg-white text-neutral-800 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-md hover:bg-none" type="submit"><span className="text-2xl"><FaGoogle  /></span>Google</Button>
             </div>
 
             <div className="mt-4 text-center text-sm 0 mx-auto">
-                <p >Don not have an account? <Link href="/login" className="text-neutral-500">login</Link></p>
+                <p >Don not have an account? <Link href="/login" className="font-bold text-neutral-500 pl-1 underline">login</Link></p>
             </div>
 
         </form>
