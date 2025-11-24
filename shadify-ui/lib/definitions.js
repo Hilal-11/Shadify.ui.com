@@ -1,12 +1,12 @@
 import * as z from 'zod'
-import Login from '../app/(auth)/login/page';
- 
 export const SignupFormSchema = z.object({
   username: z
     .string()
     .min(3, { error: 'Username must be at least 3 characters long.' })
     .trim(),
-  email: z.email({ error: 'Please enter a valid email.' }).trim(),
+  email: z.string()
+    .email({ message: 'Please enter a valid email.' })
+    .trim(),
   password: z
     .string()
     .min(8, { error: 'Be at least 8 characters long' })
@@ -19,7 +19,9 @@ export const SignupFormSchema = z.object({
 })
 
 export const LoginFormSchema = z.object({
-    email: z.email({ error: 'Please enter a valid email.' }).trim(),
+    email: z.string()
+    .email({ message: 'Please enter a valid email.' })
+    .trim(),
     password: z
     .string()
       .min(8, { error: 'Be at least 8 characters long' })

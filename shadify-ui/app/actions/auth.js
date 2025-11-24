@@ -1,7 +1,7 @@
 "use server"
 import { SignupFormSchema , LoginFormSchema } from '../../lib/definitions';
 
-export async function signup(formData) {
+export async function signup(state , formData) {
   // Validate form fields
   console.log("Signup from data = ",formData)
   const validatedFields = SignupFormSchema.safeParse({
@@ -19,7 +19,7 @@ export async function signup(formData) {
  
   // Call the provider or db to create a user...
 }
-export async function login(formData) {
+export async function login(state , formData) {
       // Validate form fields
   console.log("Login form data = ",formData)
   const validatedFields = LoginFormSchema.safeParse({
