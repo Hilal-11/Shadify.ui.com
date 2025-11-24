@@ -31,23 +31,3 @@ export const LoginFormSchema = z.object({
     .trim(),
     
 })
- 
-export type FormStateSignUp =
-  | {
-      errors?: {
-        username?: string[]
-        email?: string[]
-        password?: string[]
-      }
-      message?: string
-    }
-  | undefined
-export type FormStateLogin =
-  | {
-      errors?: {
-        email?: string[]
-        password?: string[]
-      }
-      message?: string
-    }
-  | undefined

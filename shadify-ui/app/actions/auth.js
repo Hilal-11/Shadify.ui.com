@@ -1,17 +1,14 @@
+"use server"
+import { SignupFormSchema , LoginFormSchema } from '../../lib/definitions';
 
-
-
-import { SignupFormSchema , LoginFormSchema , FormStateSignUp , FormStateLogin } from './../../lib/definitions';
-
-
-
-export async function signup(state: FormStateSignUp, formData: FormData) {
+export async function signup(formData) {
   // Validate form fields
+  console.log("Signup from data = ",formData)
   const validatedFields = SignupFormSchema.safeParse({
     username: formData.get('username'),
     email: formData.get('email'),
     password: formData.get('password'),
-  })
+  });
  
   // If any form fields are invalid, return early
   if (!validatedFields.success) {
@@ -22,12 +19,13 @@ export async function signup(state: FormStateSignUp, formData: FormData) {
  
   // Call the provider or db to create a user...
 }
-export async function login(state: FormStateLogin, formData: FormData) {
+export async function login(formData) {
       // Validate form fields
+  console.log("Login form data = ",formData)
   const validatedFields = LoginFormSchema.safeParse({
     email: formData.get('email'),
     password: formData.get('password'),
-  })
+  });
  
   // If any form fields are invalid, return early
   if (!validatedFields.success) {

@@ -4,13 +4,12 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { FaGoogle } from "react-icons/fa6";
-import { z } from 'zod'
 import Header from "@/components/landing/header"
 import { signup } from "@/app/actions/auth"
 import { useActionState } from 'react'
 
 const  Signup = () => {
-  const [state, action, pending] = useActionState(signup, undefined)
+  const [state, action, pending] = useActionState(signup)
   
   return (
     <div className="w-full h-auto">
@@ -22,7 +21,7 @@ const  Signup = () => {
       <div className="w-svw h-[100%] z-30 dark:bg-neutral-950
       shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] px-5 py-4">
 
-        <form action={signup}>
+        <form action={action}>
             <h1 className="text-4xl font-bold ">Signup</h1>
             <p className="font-sans font-medium text-sm pl-1.5 text-neutral-700 dark:text-neutral-300 pb-8 py-1">Create your account and get start building.</p>
 
