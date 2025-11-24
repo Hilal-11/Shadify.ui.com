@@ -5,8 +5,13 @@ export default defineSchema({
     users: defineTable({
         email: v.string(),
         name: v.string(),
-        clerkId: v.string(),
-    }),
+        image: v.string(),
+        stripeCustomerId: v.string(),
+        createdAt: v.number(),
+        updatedAt: v.number(),
+    }).index("by_email", ["email"])
+      .index("by_stripeCustomerId", ["stripeCustomerId"]),
+
     templates: defineTable({
         id: v.string(),
         projectName: v.string(),
@@ -30,5 +35,4 @@ export default defineSchema({
         )
          
     })
-
 })
