@@ -10,29 +10,13 @@
         "cli",
         "benefits",
         "---Components---",
-        "components/action-search-bar",
-        "components/avatar-picker",
-        "components/beams-background",
-        "components/background-circles",
-        "components/background-paths",
-        "components/bento-grid",
-        "components/checkout-interaction",
-        "components/currency-transfer",
-        "components/faq",
-        "components/hand-written-title",
-        "components/hero-geometric",
-        "components/particle-button",
-        "components/particles-background",
-        "components/toolbar",
-        "components/tweet-card",
-        "components/vercel-v0-chat",
-        "components/matrix-text",
+        "components/header",
+        "components/tabs",
+        "components/forms",
 
         "---Cross-platform Mobile Components---",
 
-        "---Native Mobile Components---",
-
-        "---Blocks---"
+        "---Native Mobile Components---"
         
     ]
 }
