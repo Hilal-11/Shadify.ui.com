@@ -172,6 +172,22 @@
 }
 
 
+/* Hide scrollbar for Chrome, Safari, and Edge */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.hide-scrollbar {
+  scrollbar-width: none; 
+}
+
+/* Hide scrollbar for IE, Edge (legacy) */
+.hide-scrollbar {
+  -ms-overflow-style: none; 
+}
+
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

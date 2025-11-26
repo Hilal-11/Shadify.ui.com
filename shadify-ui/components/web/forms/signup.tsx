@@ -58,9 +58,9 @@ const  Signup = () => {
 
   return (
     <div className="w-full h-auto">
-    <div className="flex flex-col w-full h-svh relative justify-center items-start lg:justify-center lg:items-center md:justify-center md:items-center">
+    <div className="flex flex-col w-full h-full relative justify-center items-start lg:justify-center lg:items-center md:justify-center md:items-center">
       
-    <div className="dark:hidden absolute top-0 z-[-2] h-svh w-screen flex rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
+    <div className="dark:hidden absolute top-0 z-[-2] h-auto wfull flex rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
 
       <div className="w-svw h-[100%] lg:w-[460px] md:w-[460px] md:h-auto  lg:h-auto z-30 dg-neutral-50 dark:bg-neutral-900
       shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] px-5 py-4 flex justify-center items-center md:rounded-xl lg:rounded-xl">

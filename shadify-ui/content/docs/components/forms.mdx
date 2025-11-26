@@ -3,13 +3,31 @@ title: Forms
 description: Developer-friendly login component with modern UI and authentication flow.
 icon: "."
 ---
+### 1. Install utilities
 
 # Form Components for Next.js and React Applications
+
+
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+
 
 The **Login Component** in **ShadifyUI** is a ready-to-use, developer-friendly authentication module built with modern tools like [**React**](https://react.dev/), [**Next.js**](https://nextjs.org/), [**Tailwind CSS**](https://tailwindcss.com/), [**Framer Motion**](https://www.framer.com/motion/), and [**Zod validation**](https://zod.dev/).
 
 It provides an elegant, responsive, and accessible interface for secure user login — reducing setup time and eliminating repetitive UI and logic work.
 
+---
+# CLI Installation
+<Tabs items={["npx" ,"bun", "pnpm"]}>
+```bash tab="npx"
+npx shadcn@latest add https://shadifyui/r/utils.json
+```
+```bash tab="bun"
+bun shadcn@latest add https://shadifyui/r/utils.json
+```
+```bash tab="pnpm"
+pnpm shadcn@latest add https://shadifyui/r/utils.json
+```
+</Tabs>
 ---
 
 ### Signup 
@@ -19,7 +37,12 @@ import Signup from '@/components/web/forms/signup'
 ---
 
 
-<div className='font-sans font-bold'>
+# Manually Installation.
+---
+<div className='font-sans font-bold w-full h-[360px] overflow-auto hide-scrollbar border rounded-md bg-neutral-100 dark:bg-neutral-900'>
+    <div className='flex items-center justify-between h-[70px] bg-neutral-300 dark:bg-neutral-800 w-full rounded-t-md'>
+    </div>
+    <div className='px-6 py-6'>
 ```js {style="font-size: 18px; font-weight: bold;"}
 "use client"
 import { useState , useEffect, FormEvent, ChangeEvent, InputEventHandler } from "react"
@@ -100,7 +123,7 @@ const  Login = () => {
     
 
 
-      <div className="z-50 bg-white dark:bg-neutral-900 w-full md:w-[460px] h-auto p-6
+      <div className="z-10 bg-white dark:bg-neutral-900 w-full md:w-[460px] h-auto p-6
       
       
       shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] 
@@ -146,11 +169,25 @@ const  Login = () => {
 
 export default Login
 ```
+    </div>
 </div>
 ---
 
 
 
+---
+# CLI Installation
+<Tabs items={["npx" ,"bun", "pnpm"]}>
+```bash tab="npx"
+npx shadcn@latest add https://shadifyui/r/utils.json
+```
+```bash tab="bun"
+bun shadcn@latest add https://shadifyui/r/utils.json
+```
+```bash tab="pnpm"
+pnpm shadcn@latest add https://shadifyui/r/utils.json
+```
+</Tabs>
 ---
 
 ### Login 
@@ -159,8 +196,12 @@ import Login from '@/components/web/forms/login'
     <div className='relative'><Login /></div>
 ---
 
-
-<div className='font-sans font-bold'>
+# Manually Installation.
+---
+<div className='font-sans font-bold w-full h-[360px] overflow-auto hide-scrollbar border rounded-md bg-neutral-100 dark:bg-neutral-900'>
+    <div className='flex items-center justify-between h-[70px] bg-neutral-300 dark:bg-neutral-800 w-full px-5 rounded-t-md'>
+    </div>
+    <div className='px-6 py-6'>
 ```js {style="font-size: 18px; font-weight: bold;"}
 "use client"
 import { useState , useEffect, FormEvent, ChangeEvent, InputEventHandler } from "react"
@@ -241,7 +282,7 @@ const  Login = () => {
     
 
 
-      <div className="z-50 bg-white dark:bg-neutral-900 w-full md:w-[460px] h-auto p-6
+      <div className="z-0 bg-white dark:bg-neutral-900 w-full md:w-[460px] h-auto p-6
       
       
       shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] 
@@ -287,6 +328,6 @@ const  Login = () => {
 
 export default Login
 ```
+    </div>
 </div>
 ---
-
