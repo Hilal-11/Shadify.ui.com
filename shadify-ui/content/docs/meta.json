@@ -42,11 +42,7 @@
         "components/backgroundPatterns",
         "components/pills",
         "components/tags",
-        "components/TypeWriterEffects",
-
-        "---Cross-platform Mobile Components---",
-
-        "---Native Mobile Components---"
+        "components/TypeWriterEffects"
         
     ]
 }
