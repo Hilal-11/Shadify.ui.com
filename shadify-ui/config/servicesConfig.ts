@@ -68,7 +68,7 @@ export const services: Services[]  = [
     id: 6,
     service: "Figma kits",
     icon: LuFigma,
-    link: "/figma-kits"
+    link: "/designs"
   },
   
 ];
