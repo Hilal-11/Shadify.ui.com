@@ -4,7 +4,6 @@ import { ViewTransitions } from 'next-view-transitions';
 import "./globals.css";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 import { RootProvider } from "fumadocs-ui/provider"
-import { ClerkProvider } from "@clerk/nextjs";
 import { ConvexClientProvider } from "@/provider/ConvexClientProvider";
 
 
@@ -29,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+  
       <ViewTransitions>
       <html lang="en">
         <body
@@ -52,6 +51,6 @@ export default function RootLayout({
         </body>
       </html>
       </ViewTransitions>
-    </ClerkProvider>
+    
   );
 }
