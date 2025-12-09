@@ -7,7 +7,7 @@ import { FaGoogle } from "react-icons/fa6";
 import Header from "@/components/landing/header"
 import { login } from "@/app/actions/auth"
 import { useActionState } from "react"
-
+import PrefetchLink from "@/components/pre-fetching"
 
 const  Login = () => {
   const [state, action, pending] = useActionState(login)
@@ -56,7 +56,7 @@ const  Login = () => {
             </div>
 
             <div className="mt-4 text-center text-sm 0 mx-auto">
-                <p >Don not have an account? <Link href="/signup" className="font-bold text-neutral-500 pl-1 underline"> signup</Link></p>
+                <p >Don not have an account? <PrefetchLink href="/signup" className="font-bold text-neutral-500 pl-1 underline"> signup</PrefetchLink></p>
             </div>
 
         </form>
