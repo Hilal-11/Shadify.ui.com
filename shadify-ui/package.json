@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.33.7",
     "@heroui/accordion": "^2.2.24",
     "@heroui/system": "^2.4.23",
     "@heroui/theme": "^2.4.23",
