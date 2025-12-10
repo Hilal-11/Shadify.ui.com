@@ -6,7 +6,6 @@ import { ThemeProvider } from "@/components/provider/theme-provider";
 import { RootProvider } from "fumadocs-ui/provider"
 import { ConvexClientProvider } from "@/provider/ConvexClientProvider";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -48,6 +47,12 @@ export default function RootLayout({
                 </RootProvider>
             </ThemeProvider>
           
+
+
+
+          
+
+
         </body>
       </html>
       </ViewTransitions>
