@@ -66,7 +66,7 @@ useEffect(() => {
                   Beautiful UI backgrounds, palettes, and patterns for every platform.
                     use across Web, iOS, Android.
                 </span>
-              </h2>
+              </h2>7
               <p className="mt-6 lg:max-w-3xl text-center text-xm lg:text-lg leading-6 text-gray-600 dark:text-gray-200 font-sans font-medium">
                 Get beautifully crafted backgrounds and UI patterns built for real-world apps for Web, React Native, and Flutter, making your design process fast, clean, and effortless.
               </p>
