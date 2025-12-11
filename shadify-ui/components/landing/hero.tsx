@@ -124,7 +124,7 @@ export function HeroSection() {
         <div className="pt-10">
           <h1 className="font-sans font-bold text-3xl lg:text-6xl text-neutral-800 dark:text-neutral-200">Easy to Integrate, Build faster ship faster and Deploy smoothly</h1>
           <div className="w-full h-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 justify-between py-10 items-center">
-            <div className='bg-neutral-50 dark:bg-neutral-950 rounded-lg h-[400px] md:h-[450px] lg:h-[500px] w-[100%] overflow-auto shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] mt-20'>
+            <div className='scrollbar-hide bg-neutral-50 dark:bg-neutral-950 rounded-lg h-[400px] md:h-[450px] lg:h-[500px] w-[100%] overflow-auto shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] mt-20'>
               <CodeBlock 
                 language="jsx"
                 filename="DummyComponent.jsx"
