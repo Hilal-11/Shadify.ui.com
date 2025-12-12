@@ -10,8 +10,8 @@ import { LuSunMedium } from "react-icons/lu";
 import { RiComputerLine } from "react-icons/ri";
 function Footer() {
   return (
-    <div className='h-auto w-full bg-neutral-100 dark:bg-neutral-900 mt-20 py-16 border-t-1 border-neutral-400 pb-10'>
-      <div className='px-4 container lg:px-0 h-auto'>
+    <div className='h-auto w-full bg-neutral-100 dark:bg-neutral-900 border-t border-neutral-400 dark:border-neutral-600 mt-20'>
+      <div className='container h-auto border-l border-r border-neutral-400 dark:border-neutral-700 py-20 px-10'>
         <div className='lg:w-2/3 w-full'>
             <div className='flex items-center'>
               <PiTerminalFill className="mr-2 h-10 w-10" />

@@ -30,8 +30,8 @@ function Templates(){
         const slider = ref.current;
         if (!slider) return;
 
-        let startX = e.pageX - slider.offsetLeft;
-        let scrollLeft = slider.scrollLeft;
+        const startX = e.pageX - slider.offsetLeft;
+        const scrollLeft = slider.scrollLeft;
 
         const onMouseMove = (moveEvent: MouseEvent) => {
         const x = moveEvent.pageX - slider.offsetLeft;
