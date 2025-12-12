@@ -42,7 +42,6 @@ useEffect(() => {
   const handleMobile = () => {
     setIsMobile(true)
     setIsWeb(false)
-    window.location.reload()
   }
   
   return (
@@ -102,7 +101,7 @@ useEffect(() => {
                   <div className='w-full h-auto rounded-md grid lg:grid-cols-1 md:grid-cols-1 grid-cols-1'>
                     <div className='h-[605px] overflow-hidden flex justify-center items-center'>
                       <Script
-                        async
+                        
                         src="https://snack.expo.dev/embed.js"
                       />
                       <div 
@@ -113,13 +112,12 @@ useEffect(() => {
                         data-snack-theme={theme}
                         className='overflow-hidden border rounded-md w-full h-[605px]'>
                       </div>
-
                     </div>
                   </div>
                   <div className='w-full h-auto rounded-md grid lg:grid-cols-1 md:grid-cols-1 grid-cols-1'>
                     <div className='h-[605px] overflow-hidden flex justify-center items-center'>
                       <Script
-                        async
+                        
                         src="https://snack.expo.dev/embed.js"
                       />
                       <div 
@@ -130,14 +128,13 @@ useEffect(() => {
                         data-snack-theme={theme}
                         className='overflow-hidden border rounded-md w-full h-[605px]'>
                       </div>
-
                     </div>
                   </div>
 
                    <div className='w-full h-auto rounded-md grid lg:grid-cols-1 md:grid-cols-1 grid-cols-1'>
                     <div className='h-[605px] overflow-hidden flex justify-center items-center'>
                       <Script
-                        async
+                        
                         src="https://snack.expo.dev/embed.js"
                       />
                       <div 
@@ -148,7 +145,6 @@ useEffect(() => {
                         data-snack-theme={theme}
                         className='overflow-hidden border rounded-md w-full h-[605px]'>
                       </div>
-
                     </div>
                   </div>
               </div> 
