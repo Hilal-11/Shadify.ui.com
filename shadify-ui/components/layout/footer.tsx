@@ -8,10 +8,20 @@ import { motion } from "motion/react"
 import { LuMoon } from "react-icons/lu";
 import { LuSunMedium } from "react-icons/lu";
 import { RiComputerLine } from "react-icons/ri";
+import { StripedPattern } from '../magicui/striped-pattern';
 function Footer() {
   return (
-    <div className='h-auto w-full bg-neutral-100 dark:bg-neutral-900 border-t border-neutral-400 dark:border-neutral-600 mt-20'>
-      <div className='container h-auto border-l border-r border-neutral-400 dark:border-neutral-700 py-20 px-10'>
+    <div className='relative h-auto w-[100%] bg-neutral-100 dark:bg-neutral-900 border-t border-neutral-400 dark:border-neutral-600 mt-20'>
+
+      <StripedPattern
+      direction="right"
+      className="absolute inset-0 z-10 mask-l-from-70% mask-l-to-100% mask-r-from-70% mask-r-to-100%"
+    />
+      
+
+
+      <div className='relative container !important border-dashed z-30 !important bg-neutral-100 dark:bg-neutral-950
+       h-auto border-l border-r border-neutral-400 dark:border-neutral-700 py-20 px-10'>
         <div className='lg:w-2/3 w-full'>
             <div className='flex items-center'>
               <PiTerminalFill className="mr-2 h-10 w-10" />
@@ -42,7 +52,7 @@ function Footer() {
             <div>
               <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">{footerConfig[0].service_title}</h1>
             </div>
-            <div className='pl-2 py-3'>
+            <div className='pl-1 py-3'>
               {
                 footerConfig[0].services?.map((service , index) => (
                   <div className="" key={index}>
@@ -65,7 +75,7 @@ function Footer() {
             <div>
               <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">{footerConfig[1].service_title}</h1>
             </div>
-            <div className='pl-2 py-3'>
+            <div className='pl-1 py-3'>
               {
                 footerConfig[1].services?.map((service , index) => (
                   <div className="" key={index}>
@@ -84,7 +94,7 @@ function Footer() {
             <div>
               <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">{footerConfig[2].service_title}</h1>
             </div>
-            <div className='pl-2 py-3'>
+            <div className='pl-1 py-3'>
               {
                 footerConfig[2].services?.map((service , index) => (
                   <div className="" key={index}>
@@ -103,7 +113,7 @@ function Footer() {
             <div>
               <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">{footerConfig[3].service_title}</h1>
             </div>
-            <div className='pl-2 py-3'>
+            <div className='pl-1 py-3'>
               {
                 footerConfig[3].services?.map((service , index) => (
                   <div className="" key={index}>
@@ -122,7 +132,7 @@ function Footer() {
             <div>
               <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">{footerConfig[4].service_title}</h1>
             </div>
-            <div className='pl-2 py-3'>
+            <div className='pl-1 py-3'>
               {
                 footerConfig[4].services?.map((service , index) => (
                   <div key={index}>
@@ -141,7 +151,7 @@ function Footer() {
             <div>
               <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">{footerConfig[5].service_title}</h1>
             </div>
-            <div className='pl-2 py-3'>
+            <div className='pl-1 py-3'>
               {
                 footerConfig[5].services?.map((service , index) => (
                   <div key={index}>
@@ -160,7 +170,7 @@ function Footer() {
             <div>
               <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">{footerConfig[6].service_title}</h1>
             </div>
-            <div className='pl-2 py-3'>
+            <div className='pl-1 py-3'>
               {
                 footerConfig[6].services?.map((service , index) => (
                   <div className="" key={index}>
@@ -189,6 +199,8 @@ function Footer() {
         </div>
 
       </div>
+
+
     </div>
   )
 }
