@@ -21,7 +21,6 @@ import {
 import { services } from "@/config/servicesConfig"
 import { FaChevronDown } from "react-icons/fa6";
 import { FaChevronUp } from "react-icons/fa";
-import PrefetchLink from "@/components/pre-fetching"
 function Header() {
   const [isAuthenticate , setIsAuthenticate] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -94,13 +93,13 @@ function Header() {
                       href="/templates"
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
                     >
-                      Templates
+                      Web Templates
                     </Link>
                     <Link
                       href="/bg-patterns"
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
                     >
-                      Patterns
+                      Mobile Applications
                     </Link>
                     <Link
                       href="/pricing"
@@ -108,13 +107,42 @@ function Header() {
                     >
                       Pricing
                     </Link>
-                    <Link
-                      href="/team"
-                      className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
-                    >
-                      Team
-                    </Link>
-                    
+                    <DropdownMenu>
+                      <DropdownMenuTrigger>
+                        <h1 className="cursor-pointer flex gap-1 bg-transparent hover:bg-transparent font-sans font-medium text-[15px] text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors items-center">more<span className="text-sm"><FaAngleDown /></span></h1>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent className="w-[160px] flex-col space-y-1 px-1 pt-2 pb-2 mt-2" align="start">
+                        <div className="w-full hover:bg-neutral-200 hover:dark:bg-neutral-800 cursor-pointer rounded-sm py-1 pl-1 ">
+                          <Link
+                          href="/team"
+                          className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                        >
+                          Team
+                        </Link>
+                        </div>
+                        <div className="w-full hover:bg-neutral-200 hover:dark:bg-neutral-800 cursor-pointer rounded-sm py-1 pl-1 ">
+                          <Link
+                          href="/team"
+                          className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                        >
+                          Careers
+                        </Link>
+                        </div>
+                        <div className="w-full hover:bg-neutral-200 hover:dark:bg-neutral-800 cursor-pointer rounded-sm py-1 pl-1 ">
+                          <Link
+                          href="/team"
+                          className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                        >
+                          Blogs
+                        </Link>
+                        </div>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+
+
+
+
+
                   </div>
                 </div>
 
@@ -201,6 +229,13 @@ function Header() {
                           >
                             Feedback
                           </ViewTransitionsLink>
+                               <ViewTransitionsLink
+                      
+                            href="/team"
+                            className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                          >
+                            Blogs
+                          </ViewTransitionsLink>
                         </div>
                         <div className="flex flex-col gap-2  justify-center">
                           <ViewTransitionsLink
@@ -216,6 +251,14 @@ function Header() {
                           >
                             Team
                           </ViewTransitionsLink>
+                          <ViewTransitionsLink
+                      
+                            href="/team"
+                            className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                          >
+                            Carrers
+                          </ViewTransitionsLink>
+                       
                         </div>
                         <div className="flex flex-col gap-1 items-center ">
                             <span className="p-1.5 rounded-sm bg-neutral-300 dark:bg-neutral-900 text-xl text-neutral-700 dark:text-neutral-300"><IoLogoGithub/></span>
@@ -225,7 +268,6 @@ function Header() {
                       </div>
                       <div className="flex justify-between items-center gap-3 mt-5">
                                   <button className="w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-sm bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">Start Building <span><HiOutlineArrowNarrowRight /></span></button>
-                                  <button className="pro_btn w-full whitespace-nowrap relative cursor-pointer font-sans font-medium rounded-md text-sm py-2 flex items-center gap-2"><span><PiCrownFill /></span>Pro Access</button>
                                 </div>
                       
                     </div>
