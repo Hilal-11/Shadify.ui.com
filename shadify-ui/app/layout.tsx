@@ -4,9 +4,7 @@ import { ViewTransitions } from 'next-view-transitions';
 import "./globals.css";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 import { RootProvider } from "fumadocs-ui/provider"
-import { ClerkProvider } from "@clerk/nextjs";
 import { ConvexClientProvider } from "@/provider/ConvexClientProvider";
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+  
       <ViewTransitions>
       <html lang="en">
         <body
@@ -49,9 +47,15 @@ export default function RootLayout({
                 </RootProvider>
             </ThemeProvider>
           
+
+
+
+          
+
+
         </body>
       </html>
       </ViewTransitions>
-    </ClerkProvider>
+    
   );
 }

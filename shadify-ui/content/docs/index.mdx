@@ -1,5 +1,5 @@
 ---
-title: Installation
+title: Introduction
 description: Getting started with Shadify
 icon: ListStart
 ---
@@ -51,13 +51,20 @@ _While we provide a convenient 'copy' button for the code, we strongly recommend
 
 Add to your page and it works!
 
-```jsx
+## Code Block
+---
+<div className='font-sans font-bold h-auto py-4 pb-4 overflow-y-auto w-full dark:bg-neutral-900 bg-neutral-100 p-4 rounded-md'>
+```js {style="font-size: 18px; font-weight: bold; background-color: transparent;"}
 import Card05 from "@/components/shadifyui/card-05";
 
 export default function Page() {
     return <Card05 />;
 }
 ```
+</div>
+---
+
+
 
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 
@@ -83,7 +90,10 @@ pnpm dlx shadcn@latest add https://shadifyui/r/ai-card-generation.json
 
 Then, add to your page and it works!
 
-```jsx
+## Code Block
+---
+<div className='font-sans font-bold h-auto py-4 pb-4 overflow-y-auto w-full dark:bg-neutral-900 bg-neutral-100 p-4 rounded-md'>
+```js {style="font-size: 18px; font-weight: bold; background-color: transparent;"}
 /**
  * AICardGeneration require 5 additional components
  * that will be automatically installed with the CLI.
@@ -95,6 +105,8 @@ export default function Page() {
     return <AICardGeneration />;
 }
 ```
+</div>
+---
 
 ### 4. Optionnal dependencies
 
