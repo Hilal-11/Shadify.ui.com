@@ -14,7 +14,7 @@ interface FooterConfigTypes {
 
 export const footerConfig: FooterConfigTypes[] = [
     {
-        id: Math.floor(Math.random() * 1000),
+        id: "services",
         service_title: "Services",
         services: [
             { service: "Authentication", navigateTo: "/auth" },
@@ -37,7 +37,7 @@ export const footerConfig: FooterConfigTypes[] = [
     },
 
     {
-        id: Math.floor(Math.random() * 1000),
+        id: "pages",
         service_title: "Pages",
         services: [
             { service: "Home", navigateTo: "/" },
@@ -56,7 +56,7 @@ export const footerConfig: FooterConfigTypes[] = [
     },
 
     {
-        id: Math.floor(Math.random() * 1000),
+        id: "web-components",
         service_title: "Web Components",
         services: [
            { service: "Button", navigateTo: "/components/button" },
@@ -81,7 +81,7 @@ export const footerConfig: FooterConfigTypes[] = [
     },
 
     {
-        id: Math.floor(Math.random() * 1000),
+        id: "web-templates",
         service_title: "Web Templates",
         services: [
            { service: "Landing", navigateTo: "/templates/landing" },
@@ -108,7 +108,7 @@ export const footerConfig: FooterConfigTypes[] = [
 
 
     {
-        id: Math.floor(Math.random() * 1000),
+        id: "mobile-apps",
         service_title: "Mobile Apps",
         services: [
            { service: "Business App", navigateTo: "/mobile/business" },
@@ -140,7 +140,7 @@ export const footerConfig: FooterConfigTypes[] = [
 
 
     {
-        id: Math.floor(Math.random() * 1000),
+        id: "mobile-ui-blocks",
         service_title: "Mobile UI Blocks",
         services: [
            { service: "Auth Form", navigateTo: "/blocks/auth-form" },
@@ -168,7 +168,7 @@ export const footerConfig: FooterConfigTypes[] = [
 
 
     {
-        id: Math.floor(Math.random() * 1000),
+        id: "web-mobile-ui-patterns",
         service_title: "Web/Mobile UI Patterns",
         services: [
             { service: "Gradient Waves", navigateTo: "/patterns/gradient-waves" },
