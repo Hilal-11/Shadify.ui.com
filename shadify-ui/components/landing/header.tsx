@@ -156,8 +156,6 @@ function Header() {
                   <div className="flex gap-3">
                       <Link href="/signup" className="w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">Signup</Link>
                   </div>
-
-                  <span className="text-xl text-neutral-700 dark:text-neutral-300"><IoLogoGithub/></span>
                   <ThemeToggle />
                 </div>
 
@@ -261,7 +259,6 @@ function Header() {
                        
                         </div>
                         <div className="flex flex-col gap-1 items-center ">
-                            <span className="p-1.5 rounded-sm bg-neutral-300 dark:bg-neutral-900 text-xl text-neutral-700 dark:text-neutral-300"><IoLogoGithub/></span>
                             <span className="p-1.5 rounded-sm bg-neutral-300 dark:bg-neutral-900"><ThemeToggle /></span>
                         </div>
                         
