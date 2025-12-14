@@ -108,7 +108,7 @@ export const mobileUIElementsPricingConfig: PricingConfig[] = [
     id: 'monthly-access',        
     plan: 'Monthly Access',
     planDescription: "Unlock all premium mobile UI components. Access cross-platform templates, native patterns, and regular updates for building high-quality apps.",
-    subscription_amount: '99',
+    subscription_amount: '149',
     save_price: "Save 20% with monthly plan",
     save_price_value: "149",
     features: [
@@ -130,7 +130,7 @@ export const mobileUIElementsPricingConfig: PricingConfig[] = [
     plan: 'Annual Access',
     save_price: "Save 30% with annual plan",
     planDescription: "Full year access to our mobile UI library — handle common mobile patterns and platform-specific UX with ready-made components.",
-    subscription_amount: '199',
+    subscription_amount: '299',
     save_price_value: "249",
     features: [
         'Access to 60+ Mobile UI Blocks — Lists, forms, navigation bars, drawers, bottom tabs, headers and cards with native behavior',
@@ -153,7 +153,7 @@ export const mobileUIElementsPricingConfig: PricingConfig[] = [
     id: 'lifetime-access',
     plan: 'Lifetime Access',
     planDescription: "A one-time purchase that includes lifetime updates for all mobile UI blocks and templates. Ideal for teams and long-term projects.",
-    subscription_amount: '299',
+    subscription_amount: '349',
     save_price: "Best Value - One-time payment",
     save_price_value: "499",
     features: [
@@ -175,7 +175,7 @@ export const mobileUIElementsPricingConfig: PricingConfig[] = [
     id: 'team-access',
     plan: 'Team Access | Custom Pricing',
     planDescription: "Team and enterprise plan — includes private repositories, priority support, and collaboration-friendly licensing for mobile products.",
-    subscription_amount: '599',
+    subscription_amount: '699',
     save_price_value: "999",
     save_price: "Contact us for custom pricing",
     features: [
@@ -206,13 +206,14 @@ export const designsUIKitsPricingConfig: PricingConfig[] = [
     save_price_value: '65',
     features: [
       'Access to 40+ ready-to-use UI screens for web and mobile — dashboards, e-commerce, auth flows',
-      'Figma & Sketch design files, components and shared design tokens',
-      'Responsive variants (mobile, tablet, desktop) with auto-layout ready components',
+      'Figma & Sketch design files, components and shared design tokens (colors, spacing, typography)',
+      'Responsive variants (mobile, tablet, desktop) with auto-layout-ready components and dark mode variants',
       '40+ curated icons, Lottie animations & vector illustrations included',
-      'Design-to-code handoff examples and CSS/React snippets',
-      'Regular monthly updates and new pattern additions',
-      'Private Discord access and community support',
-      '48 hours turnaround for support and bug fixes',
+      'Design-to-code handoff examples and CSS/React/Flutter snippets for quick developer integration',
+      'Design tokens export (JSON, CSS variables) to streamline developer handoff',
+      'Accessibility & contrast guidance, and touch-target best practices',
+      'Monthly updates, new components, and pattern additions',
+      'Private Discord access and community support with 48-hour response',
       'Commercial license for single product use (non-exclusive)'
     ],
     butttonContent: 'Try for Free',
@@ -226,14 +227,16 @@ export const designsUIKitsPricingConfig: PricingConfig[] = [
     subscription_amount: '299',
     save_price_value: '399',
     features: [
-      'Access to 80+ UI screens covering web & mobile product needs',
-      'Complete Figma & Sketch libraries with component variants, auto-layout, and design tokens',
-      'Prototype-ready flows for onboarding, checkout, and onboarding',
-      'Figma plugin integration + One-click export for developer handoff',
-      'Premium asset packs: icons, Lottie, vector illustrations',
-      '12 months of updates and new templates',
-      'Priority community support and dedicated Slack/Discord channel',
-      'Commercial license for unlimited products in the team'
+      'Access to 80+ UI screens covering web & mobile product needs with multiple theme variations',
+      'Complete Figma & Sketch libraries with component variants, auto-layout, design tokens and token versioning',
+      'Prototype-ready flows for onboarding, checkout, dashboard, and multi-step app flows',
+      'Figma plugin integration + One-click export for developer handoff; code snippets for React, Tailwind, and Flutter',
+      'Premium asset packs: icons, Lottie, vector illustrations, and brandable templates',
+      '12 months of updates and prioritized new template releases',
+      'Priority community support and dedicated Slack/Discord channel (faster SLA)',
+      'Commercial license for unlimited products within your team or agency',
+      'Design system documentation and style guide templates',
+      'Developer-ready storybook examples and example components for faster handoff'
     ],
     butttonContent: 'Get premium',
     popular: true
@@ -246,13 +249,17 @@ export const designsUIKitsPricingConfig: PricingConfig[] = [
     save_price: 'Best Value - One-time payment',
     save_price_value: '999',
     features: [
-      'Lifetime access to all design assets: Figma, Sketch, and source files',
-      'All templates, UI screens, icons, Lottie animations, and premium illustrations',
-      'Lifetime updates and new templates as they are released',
-      'Extended commercial license for unlimited client projects',
-      'Design tokens and export tool support for developer handoff',
-      'Priority support and 1:1 setup call for your first project',
-      'Dedicated Figma library setup files for teams'
+      'Lifetime access to all design assets: Figma, Sketch, PSD, and source files',
+      'All templates, UI screens, icons, Lottie animations, motion presets and premium illustrations included',
+      'All future design kit releases and templates included',
+      'Extended enterprise-grade commercial license with unlimited client projects',
+      'Design tokens export, versioned tokens JSON plus CSS variable bundles for easy integration',
+      'Developer-ready kits and exports: React, Tailwind, Flutter starter components and example code',
+      'Priority support including a 1:1 onboarding/setup session, design system review, and a one-time customization request',
+      'Team & Figma library setup guidance, code handoff documentation, and bespoke token configuration',
+      'Advanced accessibility audits and production-ready micro-interaction examples',
+      'Private asset repository and optional brand migration of your tokens into the kit',
+      'Early access to beta releases, premium asset drops, and private beta features'
     ],
     butttonContent: 'Buy Lifetime',
     popular: false
@@ -272,7 +279,7 @@ export const BgPatternsPricingConfig: PricingConfig[] = [
       'Community support via Discord',
       'Personal and non-commercial use only',
       'Limited customizations and color overrides'
-      
+
     ],
     butttonContent: 'Download Free',
     popular: false
