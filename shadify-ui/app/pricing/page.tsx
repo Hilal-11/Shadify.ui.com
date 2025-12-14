@@ -28,7 +28,7 @@ function Pricing() {
         </div>
 
 
-      <div className='w-full h-auto flex flex-col items-centerjustify-center lg:px-10 mt-10'>
+      <div className='w-full h-auto flex flex-col items-center justify-center lg:px-10 mt-10'>
         <div className='relative w-full flex items-center justify-center'>
           <p className='bg-white dark:bg-neutral-950 dark:text-neutral-300 relative top-2 w-[130px] h-7 lg:w-[200px] lg:h-10 flex items-center justify-center gap-2 text-xs lg:text-sm rounded-lg border-2 text-neutral-800 premium font-sans font-medium text-center'><span className='text-lg'><MdOutlinePriceChange /></span>Pricing Models</p>
         </div>
@@ -68,20 +68,21 @@ function Pricing() {
         <div  className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center flex-wrap items-start pt-10 w-full gap-2'>
         {
           webComponentsPricingConfig.map((plan) => (
-            <div key={plan.id} className='relative px-4 py-6 xl:w-[360px] lg:w-[350px] md:w-auto w-full h-auto ring-1 ring-neutral-300 dark:ring-neutral-900 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-neutral-50 dark:bg-neutral-900'>
+            <div key={plan.id} className={` ${plan.popular ? 'pricing_model_recommanded text-neutral-200' : 'bg-neutral-50 dark:bg-neutral-900'} relative px-4 py-6 xl:w-[360px] lg:w-[350px] md:w-auto w-full h-auto ring-1 ring-neutral-300 dark:ring-neutral-900 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] `}>
 
 
               {plan.popular && (<div className='absolute -top-4 left-[50%] translate-x-[-50%] flex items-center justify-center'><p className='flex items-center justify-center gap-2 pramiun_pricing_btn px-8 py-[2px] text-sm rounded-full border-2 text-neutral-800 premium font-sans font-medium text-center'><span><BsStars /></span>Popular</p></div>)}
 
-                <div className='flex flex-col justify-center gap-0'>
-                    <h1 className='font-sans font-medium text-2xl text-neutral-800 dark:text-neutral-200'>{plan.plan}</h1>
-                    <h1 className='pt-2 pb-2 text-6xl font-bold font-sans text-neutral-800 dark:text-neutral-200'>{plan.subscription_amount}$ <span>{plan.save_price_value && <span className='font-sans text-xl text-neutral-500 dark:text-neutral-500 line-through'>{plan.save_price_value}$</span>}</span></h1>
-                    {plan.save_price && <span className='font-sans text-xs text-neutral-800 dark:text-neutral-200'>{plan.save_price}</span>}
+                <div className={`${plan.popular ? 'text-neutral-200' : 'text-neutral-800 dark:text-neutral-200'} flex flex-col justify-center gap-0`}>
+                    <h1 className='font-sans font-medium text-2xl '>{plan.plan}</h1>
+                    <h1 className='pt-2 pb-2 text-6xl font-bold font-sans'>{plan.subscription_amount}$ <span>{plan.save_price_value && <span className='font-sans text-xl text-neutral-500 dark:text-neutral-500 line-through'>{plan.save_price_value}$</span>}</span></h1>
+                    {plan.save_price && <span className={`font-sans text-xs ${plan.popular ? 'text-neutral-200' : 'text-neutral-800 dark:text-neutral-200'}`}>{plan.save_price}</span>}
                 </div>
                 <div className='flex justify-center pt-8'>
-                    <p className='text-center font-sans text-sm text-neutral-800 dark:text-neutral-200'>{plan.planDescription}</p>
+                    <p className={`text-center font-sans text-sm ${plan.popular ? 'text-neutral-200' : 'text-neutral-800 dark:text-neutral-200'}`}>{plan.planDescription}</p>
                 </div>
-                <div className='mt-8 relative overflow-hidden bg-white dark:bg-neutral-800 rounded-lg shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full h-auto pb-3'>
+                <div className={`${plan.popular ? 'bg-s-800 text-neutral-200' : 'bg-white dark:bg-neutral-800'} mt-8 relative overflow-hidden rounded-lg shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full h-auto pb-3`}>
+
                   {plan.popular && (<StripedPattern direction="left" className="mask-l-from-50% mask-l-to-80% mask-t-from-20% to-90% " />)}
                     <div className='pt-4 px-3'>
                       <h1 className='font-sans text-sm text-neutral-600'>What's included:</h1>
@@ -127,20 +128,21 @@ function Pricing() {
         <div  className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center flex-wrap items-start pt-10 w-full gap-2'>
         {
           mobileUIElementsPricingConfig.map((plan) => (
-            <div key={plan.id} className='relative px-4 py-6 xl:w-[360px] lg:w-[350px] md:w-auto w-full h-auto ring-1 ring-neutral-300 dark:ring-neutral-900 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-neutral-50 dark:bg-neutral-900'>
+            <div key={plan.id} className={` ${plan.popular ? 'pricing_model_recommanded text-neutral-200' : 'bg-neutral-50 dark:bg-neutral-900'} relative px-4 py-6 xl:w-[360px] lg:w-[350px] md:w-auto w-full h-auto ring-1 ring-neutral-300 dark:ring-neutral-900 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] `}>
 
 
               {plan.popular && (<div className='absolute -top-4 left-[50%] translate-x-[-50%] flex items-center justify-center'><p className='flex items-center justify-center gap-2 pramiun_pricing_btn px-8 py-[2px] text-sm rounded-full border-2 text-neutral-800 premium font-sans font-medium text-center'><span><BsStars /></span>Popular</p></div>)}
 
-                <div className='flex flex-col justify-center gap-0'>
-                    <h1 className='font-sans font-medium text-2xl text-neutral-800 dark:text-neutral-200'>{plan.plan}</h1>
-                    <h1 className='pt-2 pb-2 text-6xl font-bold font-sans text-neutral-800 dark:text-neutral-200'>{plan.subscription_amount}$ <span>{plan.save_price_value && <span className='font-sans text-xl text-neutral-500 dark:text-neutral-500 line-through'>{plan.save_price_value}$</span>}</span></h1>
-                    {plan.save_price && <span className='font-sans text-xs text-neutral-800 dark:text-neutral-200'>{plan.save_price}</span>}
+                <div className={`${plan.popular ? 'text-neutral-200' : 'text-neutral-800 dark:text-neutral-200'} flex flex-col justify-center gap-0`}>
+                    <h1 className='font-sans font-medium text-2xl '>{plan.plan}</h1>
+                    <h1 className='pt-2 pb-2 text-6xl font-bold font-sans'>{plan.subscription_amount}$ <span>{plan.save_price_value && <span className='font-sans text-xl text-neutral-500 dark:text-neutral-500 line-through'>{plan.save_price_value}$</span>}</span></h1>
+                    {plan.save_price && <span className={`font-sans text-xs ${plan.popular ? 'text-neutral-200' : 'text-neutral-800 dark:text-neutral-200'}`}>{plan.save_price}</span>}
                 </div>
                 <div className='flex justify-center pt-8'>
-                    <p className='text-center font-sans text-sm text-neutral-800 dark:text-neutral-200'>{plan.planDescription}</p>
+                    <p className={`text-center font-sans text-sm ${plan.popular ? 'text-neutral-200' : 'text-neutral-800 dark:text-neutral-200'}`}>{plan.planDescription}</p>
                 </div>
-                <div className='mt-8 relative overflow-hidden bg-white dark:bg-neutral-800 rounded-lg shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full h-auto pb-3'>
+                <div className={`${plan.popular ? 'bg-s-800 text-neutral-200' : 'bg-white dark:bg-neutral-800'} mt-8 relative overflow-hidden rounded-lg shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full h-auto pb-3`}>
+
                   {plan.popular && (<StripedPattern direction="left" className="mask-l-from-50% mask-l-to-80% mask-t-from-20% to-90% " />)}
                     <div className='pt-4 px-3'>
                       <h1 className='font-sans text-sm text-neutral-600'>What's included:</h1>
@@ -186,20 +188,21 @@ function Pricing() {
         <div  className='flex justify-center items-center gap-4 flex-wrap pt-10 w-full '>
         {
           designsUIKitsPricingConfig.map((plan) => (
-            <div key={plan.id} className='relative px-4 py-6 xl:w-[360px] lg:w-[350px] md:w-auto w-full h-auto ring-1 ring-neutral-300 dark:ring-neutral-900 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-neutral-50 dark:bg-neutral-900'>
+            <div key={plan.id} className={` ${plan.popular ? 'pricing_model_recommanded text-neutral-200' : 'bg-neutral-50 dark:bg-neutral-900'} relative px-4 py-6 xl:w-[360px] lg:w-[350px] md:w-auto w-full h-auto ring-1 ring-neutral-300 dark:ring-neutral-900 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] `}>
 
 
               {plan.popular && (<div className='absolute -top-4 left-[50%] translate-x-[-50%] flex items-center justify-center'><p className='flex items-center justify-center gap-2 pramiun_pricing_btn px-8 py-[2px] text-sm rounded-full border-2 text-neutral-800 premium font-sans font-medium text-center'><span><BsStars /></span>Popular</p></div>)}
 
-                <div className='flex flex-col justify-center gap-0'>
-                    <h1 className='font-sans font-medium text-2xl text-neutral-800 dark:text-neutral-200'>{plan.plan}</h1>
-                    <h1 className='pt-2 pb-2 text-6xl font-bold font-sans text-neutral-800 dark:text-neutral-200'>{plan.subscription_amount}$ <span>{plan.save_price_value && <span className='font-sans text-xl text-neutral-500 dark:text-neutral-500 line-through'>{plan.save_price_value}$</span>}</span></h1>
-                    {plan.save_price && <span className='font-sans text-xs text-neutral-800 dark:text-neutral-200'>{plan.save_price}</span>}
+                <div className={`${plan.popular ? 'text-neutral-200' : 'text-neutral-800 dark:text-neutral-200'} flex flex-col justify-center gap-0`}>
+                    <h1 className='font-sans font-medium text-2xl '>{plan.plan}</h1>
+                    <h1 className='pt-2 pb-2 text-6xl font-bold font-sans'>{plan.subscription_amount}$ <span>{plan.save_price_value && <span className='font-sans text-xl text-neutral-500 dark:text-neutral-500 line-through'>{plan.save_price_value}$</span>}</span></h1>
+                    {plan.save_price && <span className={`font-sans text-xs ${plan.popular ? 'text-neutral-200' : 'text-neutral-800 dark:text-neutral-200'}`}>{plan.save_price}</span>}
                 </div>
                 <div className='flex justify-center pt-8'>
-                    <p className='text-center font-sans text-sm text-neutral-800 dark:text-neutral-200'>{plan.planDescription}</p>
+                    <p className={`text-center font-sans text-sm ${plan.popular ? 'text-neutral-200' : 'text-neutral-800 dark:text-neutral-200'}`}>{plan.planDescription}</p>
                 </div>
-                <div className='mt-8 relative overflow-hidden bg-white dark:bg-neutral-800 rounded-lg shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full h-auto pb-3'>
+                <div className={`${plan.popular ? 'bg-s-800 text-neutral-200' : 'bg-white dark:bg-neutral-800'} mt-8 relative overflow-hidden rounded-lg shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full h-auto pb-3`}>
+
                   {plan.popular && (<StripedPattern direction="left" className="mask-l-from-50% mask-l-to-80% mask-t-from-20% to-90% " />)}
                     <div className='pt-4 px-3'>
                       <h1 className='font-sans text-sm text-neutral-600'>What's included:</h1>
@@ -228,14 +231,15 @@ function Pricing() {
 
       </div>
 
+
         {/* Pricing for Patterns */}
 
 
 
         <div id="patterns" className='border-t border-neutral-400 dark:border-neutral-700 mt-20'> 
          <div className='w-full pb-0 px-0 lg:px-10 flex flex-col items-start'>
-          <h1 className='font-sans font-bold text-xl lg:text-3xl text-neutral-800 dark:text-neutral-200 pt-10 pb-4'>Background & smooth UI patterns for web & mobile.</h1>
-          <p className='font-mono text-sm text-neutral-600 dark:text-neutral-400 pb-6 lg:w-1/2'>A curated collection of smooth, production-ready background patterns and UI textures for web & mobile. Includes high-resolution SVGs, CSS gradient presets.</p>
+          <h1 className='font-sans font-bold text-xl lg:text-3xl text-neutral-800 dark:text-neutral-200 pt-10 pb-4'>Patterns for web and mobile apps.</h1>
+          <p className='font-mono text-sm text-neutral-600 dark:text-neutral-400 pb-6 lg:w-1/2'>Our patterns include reusable design solutions for common UI challenges, ensuring consistency and efficiency in your projects.</p>
           <div className="border-t border-dashed border-b py-1 w-42 text-center relative border-neutral-300 dark:border-neutral-800">
             <span className="h-14 absolute left-4 -top-4 border border-dashed border-neutral-300 dark:border-neutral-800"></span>
             <p className="text-sm font-mono font-bold text-neutral-700 dark:text-neutral-300">PATTERNS</p>  
@@ -243,23 +247,24 @@ function Pricing() {
           </div>
         </div> <br />
 
-        <div  className='flex justify-center items-center gap-10 flex-wrap pt-10 w-full'>
+        <div  className='flex justify-center items-center gap-4 flex-wrap pt-10 w-full'>
         {
           BgPatternsPricingConfig.map((plan) => (
-            <div key={plan.id} className='relative px-4 py-6 xl:w-[360px] lg:w-[350px] md:w-auto w-full h-auto ring-1 ring-neutral-300 dark:ring-neutral-900 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] bg-neutral-50 dark:bg-neutral-900'>
+            <div key={plan.id} className={` ${plan.popular ? 'pricing_model_recommanded text-neutral-200' : 'bg-neutral-50 dark:bg-neutral-900'} relative px-4 py-6 xl:w-[360px] lg:w-[350px] md:w-auto w-full h-auto ring-1 ring-neutral-300 dark:ring-neutral-900 rounded-xl shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] `}>
 
 
               {plan.popular && (<div className='absolute -top-4 left-[50%] translate-x-[-50%] flex items-center justify-center'><p className='flex items-center justify-center gap-2 pramiun_pricing_btn px-8 py-[2px] text-sm rounded-full border-2 text-neutral-800 premium font-sans font-medium text-center'><span><BsStars /></span>Popular</p></div>)}
 
-                <div className='flex flex-col justify-center gap-0'>
-                    <h1 className='font-sans font-medium text-2xl text-neutral-800 dark:text-neutral-200'>{plan.plan}</h1>
-                    <h1 className='pt-2 pb-2 text-6xl font-bold font-sans text-neutral-800 dark:text-neutral-200'>{plan.subscription_amount}$ <span>{plan.save_price_value && <span className='font-sans text-xl text-neutral-500 dark:text-neutral-500 line-through'>{plan.save_price_value}$</span>}</span></h1>
-                    {plan.save_price && <span className='font-sans text-xs text-neutral-800 dark:text-neutral-200'>{plan.save_price}</span>}
+                <div className={`${plan.popular ? 'text-neutral-200' : 'text-neutral-800 dark:text-neutral-200'} flex flex-col justify-center gap-0`}>
+                    <h1 className='font-sans font-medium text-2xl '>{plan.plan}</h1>
+                    <h1 className='pt-2 pb-2 text-6xl font-bold font-sans'>{plan.subscription_amount}$ <span>{plan.save_price_value && <span className='font-sans text-xl text-neutral-500 dark:text-neutral-500 line-through'>{plan.save_price_value}$</span>}</span></h1>
+                    {plan.save_price && <span className={`font-sans text-xs ${plan.popular ? 'text-neutral-200' : 'text-neutral-800 dark:text-neutral-200'}`}>{plan.save_price}</span>}
                 </div>
                 <div className='flex justify-center pt-8'>
-                    <p className='text-center font-sans text-sm text-neutral-800 dark:text-neutral-200'>{plan.planDescription}</p>
+                    <p className={`text-center font-sans text-sm ${plan.popular ? 'text-neutral-200' : 'text-neutral-800 dark:text-neutral-200'}`}>{plan.planDescription}</p>
                 </div>
-                <div className='mt-8 relative overflow-hidden bg-white dark:bg-neutral-800 rounded-lg shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full h-auto pb-3'>
+                <div className={`${plan.popular ? 'bg-s-800 text-neutral-200' : 'bg-white dark:bg-neutral-800'} mt-8 relative overflow-hidden rounded-lg shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full h-auto pb-3`}>
+
                   {plan.popular && (<StripedPattern direction="left" className="mask-l-from-50% mask-l-to-80% mask-t-from-20% to-90% " />)}
                     <div className='pt-4 px-3'>
                       <h1 className='font-sans text-sm text-neutral-600'>What's included:</h1>
