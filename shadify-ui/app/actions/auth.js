@@ -9,7 +9,7 @@ export async function signup(state , formData) {
     email: formData.get('email'),
     password: formData.get('password'),
   });
- 
+
   // If any form fields are invalid, return early
   if (!validatedFields.success) {
     return {
@@ -26,7 +26,6 @@ export async function login(state , formData) {
     email: formData.get('email'),
     password: formData.get('password'),
   });
- 
   // If any form fields are invalid, return early
   if (!validatedFields.success) {
     return {
