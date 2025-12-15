@@ -11,6 +11,11 @@ import Login from '../auth_services/login';
 import { CodeBlock } from "@/components/landing/code-block";
 import { motion } from "motion/react"
 import AnnoncementBadge from "./AnnoncementBadge";
+import Image from "next/image";
+
+
+import image1 from '../../public/heroImage1.png'
+import image2 from '../../public/heroImage2.png'
 interface Action {
   id: string;
   label: string;
@@ -74,7 +79,7 @@ export default function Login2() {
 
 export function HeroSection() {
   return (
-    <div className="w-full h-auto mx-auto md:container lg:container py-8 lg:py-16 flex flex-col items-center justify-center text-center gap-6 relative ">
+    <div className="w-full h-auto mx-auto md:container lg:container py-8 lg:py-16 flex flex-col items-center justify-center text-center gap-6 relative">
       <div className="w-full h-auto px-0 lg:px-4 py-6">
         <AnnoncementBadge />
         <div className="mt-8 text-center flex-col gap-4">
@@ -133,9 +138,21 @@ export function HeroSection() {
                />
             </div>
             <div className='relative pt-10 w-full flex justify-center flex-nowrap overflow-hidden h-full '>
-                <img className="hidden md:block lg:block z-20 rounded-2xl relative -bottom-20"src="https://res.cloudinary.com/dou5rypdf/image/upload/v1760628911/Screenshot_2025-09-26_025658_hoxc9a.png" alt="" />
-              <Login />
-                <img  className="hidden md:block lg:block z-20 relative top-16 rounded-2xl" src="https://res.cloudinary.com/dou5rypdf/image/upload/v1761817889/Screenshot_2025-10-30_151515_bimxnq.png" alt="" />
+                <Image
+                  className="hidden md:block lg:block z-20 rounded-2xl relative -bottom-20"
+                  src={image1} 
+                  alt="Image not load yet"
+                  width={500}
+                  height={500}
+                />
+                  <Login />
+                <Image  
+                  className="hidden md:block lg:block z-20 relative top-16 rounded-2xl" 
+                  src={image2} 
+                  alt="Image not load yet" 
+                  width={500}
+                  height={500}
+                />
             </div>
           </div>
         </div>
