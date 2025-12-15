@@ -39,42 +39,42 @@ export const services: Services[]  = [
     link: "/mobile-apps"
   },
   {
-    id: 3,
+    id: 4,
     service: "Mobile UI Elements",
     about: "Beautiful and reusable mobile UI components for iOS and Android apps.",
     icon: PiCubeDuotone,
     link: "/mobile-apps"
   },
   {
-    id: 3_1,
+    id: 5,
     service: "Universal Auth",
     about: "Authentication solutions for modern apps including JWT, OAuth, and social logins.",
     icon: TbBrandAuth0,
     link: "/authdocs"
   },
   {
-    id: 4,
+    id: 6,
     service: "SASS Starter Kits",
     about: "End-to-end starter kits with complete backend, APIs, and scalable architectures.",
     icon: LiaIconsSolid,
     link: "/"
   },
   {
-    id: 5,
+    id: 7,
     service: "UI Patterns",
     about: "Modern UI backgrounds, patterns, and sections ready to plug into any project.",
     icon: TbBackground,
     link: "/bg-patterns"
   },
   {
-    id: 5,
+    id: 8,
     service: "AI Integrations",
     about: "Integrate ChatGPT, Gemini, and other AI models seamlessly into your applications.",
     icon: FaRobot,
     link: "/ai-integration"
   },
   {
-    id: 6,
+    id: 9,
     service: "Figma Kits",
     about: "Complete Figma design systems, components, and templates for fast UI/UX creation.",
     icon: LuFigma,
