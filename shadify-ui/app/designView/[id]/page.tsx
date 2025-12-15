@@ -10,11 +10,16 @@ import Footer from '@/components/layout/footer';
 import { MdDone } from "react-icons/md";
 import Link from 'next/link';
 import Image from 'next/image';
-async function templateView({ params }) {
+interface PageProps {
+  params: Promise<{
+    id: string;
+  }>;
+}
+async function templateView({ params }: PageProps) {
 
     // const id = await params.id;
     // const template = await fetchQuery(api.getTemplates.getTemplateById , { id : id })
-    const id =  params.id;
+    const id = (await params).id;
     const design = designsConfig.find((design) => design.id === id);
 
   return (
