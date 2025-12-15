@@ -13,16 +13,13 @@ import { api } from "@/convex/_generated/api";
 import { Id } from '@/convex/_generated/dataModel';
 import Image from 'next/image';
 interface PageProps {
-  params: {
-    id: Id<"templates">;
-  };
+  params: Promise<{
+    id: string;
+  }>;
 }
-
-
-
 async function templateView({ params }: PageProps) {
 
-    const id = await params.id;
+    const id = (await params).id as Id<'templates'>;
     const template = await fetchQuery(api.getTemplates.getTemplateById , { id : id })
 
   return (
