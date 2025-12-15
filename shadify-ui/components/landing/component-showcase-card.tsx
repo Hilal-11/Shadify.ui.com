@@ -4,16 +4,46 @@ interface ComponentShowcaseCardProps {
 }
 import { TbBrandAuth0 } from "react-icons/tb";
 import { motion } from 'motion/react'
+import image1 from '../../public/heroImage1.png'
+import image2 from '../../public/heroImage2.png'
+import image3 from '../../public/heroImage3.png'
+import image4 from '../../public/heroImage4.png'
+import Image from "next/image";
+
+
 export function ComponentShowcaseCard({
     className,
 }: ComponentShowcaseCardProps) {
     return (
         <div className="bg-neutral-100 pb-34 p-10 relative">
             <div className="flex flex-nowrap overflow-hidden justify-center items-end gap-4 relative h-full mask-l-from-10% to-10%">
-                <img className="rounded-2xl relative -bottom-20"src="https://res.cloudinary.com/dou5rypdf/image/upload/v1760628911/Screenshot_2025-09-26_025658_hoxc9a.png" alt="" />
-                <img  className="hidden md:block lg:block rounded-2xl" src="https://res.cloudinary.com/dou5rypdf/image/upload/v1761817889/Screenshot_2025-10-30_151515_bimxnq.png" alt="" />
-                <img  className="hidden md:block lg:block rounded-2xl" src="https://res.cloudinary.com/dou5rypdf/image/upload/v1761817934/Screenshot_2025-10-30_151444_xdoaek.png" alt="" />
-                <img  className="hidden md:block lg:block rounded-2xl" src="https://res.cloudinary.com/dou5rypdf/image/upload/v1761817989/Screenshot_2025-10-30_151457_q5bg1a.png" alt="" />
+                <Image 
+                    className="rounded-2xl relative -bottom-20"
+                    src={image1} 
+                    alt="Image not load yet" 
+                    width={500}
+                    height={500}
+                />
+
+                <Image  className="hidden md:block lg:block rounded-2xl" 
+                    src={image2} 
+                    alt="Image not load yet" 
+                    width={500}
+                    height={500}
+                />
+                <Image  className="hidden md:block lg:block rounded-2xl" 
+                    src={image4} 
+                    alt="Image not load yet" 
+                    width={500}
+                    height={500}
+                />
+                <Image  className="hidden md:block lg:block rounded-2xl" 
+                    src={image3} 
+                    alt="Image not load yet" 
+                    width={500}
+                    height={500}
+                />
+            
             </div>
             <div className="absolute right-10 bottom-4 py-2 px-2">
                 <motion.button
