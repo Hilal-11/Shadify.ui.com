@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { fetchQuery } from "convex/nextjs";
 import { api } from "@/convex/_generated/api";
 import { Id } from '@/convex/_generated/dataModel';
-
+import Image from 'next/image';
 interface PageProps {
   params: {
     id: Id<"templates">;
@@ -62,7 +62,13 @@ async function templateView({ params }: PageProps) {
                 {
                     template?.projectImages.map((image, index) => (
                         <div key={index} className=' lg:rounded-2xl rounded-xl shadow-sm shadow-gray-400'>
-                            <img className='h-full rounded-2xl object-cover hover:mask-none transition duration-500' src={image} alt="Error" />
+                            <Image 
+                                className='h-full rounded-2xl object-cover hover:mask-none transition duration-500' 
+                                src={image} 
+                                alt="Error" 
+                                width={'800'}
+                                height={800}
+                            />
                         </div>
                     ))
                 }
