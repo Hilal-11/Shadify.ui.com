@@ -34,16 +34,16 @@ function Pricing() {
         </div>
         <div className='w-full flex flex-nowrap whitespace-nowrap justify-between items-center rounded-lg bg-neutral-100 dark:bg-neutral-900 h-14 lg:h-16 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] lg:gap-0 gap-6 overflow-x-auto'>
           <Link href="#web-components" className='flex items-center justify-center pt-2 hover:bg-white dark:hover:bg-neutral-800 transition duration-300 w-full h-full rounded-l-lg pl-2'>
-            <Link href="#web-components" className="cursor-pointer font-sans font-medium text-neutral-800 dark:text-neutral-200 text-md lg:text-lg">Web Components</Link>
+            <p className="cursor-pointer font-sans font-medium text-neutral-800 dark:text-neutral-200 text-md lg:text-lg">Web Components</p>
           </Link>
           <Link href="#mobile-ui-elements" className='flex items-center justify-center pt-2 w-full h-full hover:bg-white dark:hover:bg-neutral-800 transition duration-300'>
-            <Link href="#mobile-ui-elements" className="cursor-pointer font-sans font-medium text-neutral-800 dark:text-neutral-200 text-md lg:text-lg">Mobile UI Elements</Link>
+            <p className="cursor-pointer font-sans font-medium text-neutral-800 dark:text-neutral-200 text-md lg:text-lg">Mobile UI Elements</p>
           </Link>
           <Link href="#design-ui-kits" className='flex items-center justify-center pt-2 w-full h-full hover:bg-white dark:hover:bg-neutral-800 transition duration-300'>
-            <Link href="#design-ui-kits" className="cursor-pointer font-sans font-medium text-neutral-800 dark:text-neutral-200 text-md lg:text-lg">Design UI Kits</Link>
+            <p className="cursor-pointer font-sans font-medium text-neutral-800 dark:text-neutral-200 text-md lg:text-lg">Design UI Kits</p>
           </Link>
           <Link href="#patterns" className='flex items-center justify-center pt-2 w-full h-full hover:bg-white dark:hover:bg-neutral-800 transition duration-300 rounded-r-lg pr-2'>
-            <Link href="#patterns" className="cursor-pointer font-sans font-medium text-neutral-800 dark:text-neutral-200 text-md lg:text-lg">Patterns</Link>
+            <p className="cursor-pointer font-sans font-medium text-neutral-800 dark:text-neutral-200 text-md lg:text-lg">Patterns</p>
           </Link>
         </div>
       </div>
