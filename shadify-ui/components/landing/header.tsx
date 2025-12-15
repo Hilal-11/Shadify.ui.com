@@ -21,6 +21,7 @@ import {
 import { services } from "@/config/servicesConfig"
 import { FaChevronDown } from "react-icons/fa6";
 import { FaChevronUp } from "react-icons/fa";
+import { Link2OffIcon } from "lucide-react";
 function Header() {
   const [isAuthenticate , setIsAuthenticate] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -71,7 +72,7 @@ function Header() {
                         <div className="grid grid-cols-3 gap-3 w-full h-auto justify-evenly py-4 px-4">
                          {
                           services.map(({ id, service, icon: Icon, link }) => (
-                            <Link key={id} href={link}>
+                            <Link key={id} href={link} prefetch>
                               <div className="h-auto py-2 cursor-pointer flex items-center hover:bg-neutral-100 hover:dark:bg-neutral-950 hover:rounded-sm">
                                 <div className="flex justify-center items-center px-5 h-full overflow-hidden relative">
                                   <span className="text-xl z-30"><Icon/></span>
@@ -92,18 +93,21 @@ function Header() {
                     <Link
                       href="/templates"
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
+                      prefetch
                     >
                       Web Templates
                     </Link>
                     <Link
                       href="/bg-patterns"
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
+                      prefetch
                     >
                       Mobile Applications
                     </Link>
                     <Link
                       href="/pricing"
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
+                      prefetch
                     >
                       Pricing
                     </Link>
@@ -116,6 +120,7 @@ function Header() {
                           <Link
                           href="/team"
                           className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                          prefetch
                         >
                           Team
                         </Link>
@@ -124,6 +129,7 @@ function Header() {
                           <Link
                           href="/team"
                           className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                          prefetch
                         >
                           Careers
                         </Link>
@@ -132,6 +138,7 @@ function Header() {
                           <Link
                           href="/team"
                           className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                          prefetch
                         >
                           Blogs
                         </Link>
@@ -194,7 +201,7 @@ function Header() {
                         <div className="grid grid-cols-1 gap-1 w-full h-auto justify-evenly pt-4">
                          { showservices && 
                           services.map(({ id, service, about,  icon: Icon, link }) => (
-                            <Link key={id} href={link}>
+                            <Link key={id} href={link} prefetch>
                               <div
                               className="hover:bg-neutral-50 hover:dark:bg-neutral-800 rounded-sm pl-2 h-auto py-2 cursor-pointer flex items-center gap-4 hover:rounded-sm">
                                 <div className="flex justify-center items-center px-1 h-full overflow-hidden relative bg-neutral-200 py-2 dark:bg-neutral-900 rounded-sm">
@@ -214,48 +221,53 @@ function Header() {
 
                       <div className="flex justify-between">
                         <div className="flex flex-col gap-2  justify-center">
-                          <ViewTransitionsLink
+                          <Link
                             href="/pricing"
                             className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                            prefetch
                           >
                             Pricing
-                          </ViewTransitionsLink>
-                          <ViewTransitionsLink
-                      
+                          </Link>
+                          <Link
                             href="/team"
                             className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                            prefetch
                           >
                             Feedback
-                          </ViewTransitionsLink>
-                               <ViewTransitionsLink
+                          </Link>
+                          <Link
                       
                             href="/team"
                             className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                            prefetch
                           >
                             Blogs
-                          </ViewTransitionsLink>
+                          </Link>
                         </div>
                         <div className="flex flex-col gap-2  justify-center">
-                          <ViewTransitionsLink
+                          <Link
                             href="/pricing"
                             className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                            prefetch
                           >
                             Report Bug
-                          </ViewTransitionsLink>
-                          <ViewTransitionsLink
+                          </Link>
+                          <Link
                       
                             href="/team"
                             className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                            prefetch
                           >
                             Team
-                          </ViewTransitionsLink>
-                          <ViewTransitionsLink
+                          </Link>
+                          <Link
                       
                             href="/team"
                             className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                            prefetch
                           >
                             Carrers
-                          </ViewTransitionsLink>
+                          </Link>
                        
                         </div>
                         <div className="flex flex-col gap-1 items-center ">
