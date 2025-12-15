@@ -9,7 +9,7 @@ import CTA from '@/components/landing/CTA';
 import Footer from '@/components/layout/footer';
 import { MdDone } from "react-icons/md";
 import Link from 'next/link';
-import { motion } from "motion/react"
+import Image from 'next/image';
 async function templateView({ params }) {
 
     // const id = await params.id;
@@ -48,7 +48,12 @@ async function templateView({ params }) {
                 {
                     design?.images.map((image, index) => (
                         <div key={index} className=' lg:rounded-2xl rounded-xl shadow-sm shadow-gray-400'>
-                            <img className='h-full rounded-2xl object-cover hover:mask-none transition duration-500' src={image} alt="Error" />
+                            <Image className='h-full rounded-2xl object-cover hover:mask-none transition duration-500' 
+                                src={image} 
+                                alt="Error" 
+                                width={600}
+                                height={500}
+                            />
                         </div>
                     ))
                 }
