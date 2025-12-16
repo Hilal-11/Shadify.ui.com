@@ -1,6 +1,19 @@
 
+interface IDesign {
+    id: string
+    name: string 
+    discription: string
+    price: string | number
+    designType: string
+    images: string[]
+    overview: string
+    features: string[]
+    formats: string[]
+    highlight: string[]
 
-export const designsConfig = [
+
+}
+export const designsConfig:IDesign[] = [
     {
         id: "Transpeed3883346",
         name: "Transpeed - Flight Booking Mobile App UI Kit",
