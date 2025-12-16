@@ -1,5 +1,6 @@
+"use client"
 import  Header  from '@/components/landing/header'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { MdDone } from "react-icons/md";
 import { BsStars } from "react-icons/bs";
 import FAQ from './FAQ';
@@ -9,6 +10,10 @@ import Footer from '@/components/layout/footer';
 import CTA from '@/components/landing/CTA';
 import { MdOutlinePriceChange } from "react-icons/md";
 import Link from 'next/link';
+
+
+
+
 function Pricing() {
   return (
     <div className='bg-[#f4f4f5] dark:bg-neutral-950 h-full'>
