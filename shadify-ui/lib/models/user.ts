@@ -4,6 +4,7 @@ export interface IUser {
     username: string;
     email: string;
     password: string;
+    isVarified?: boolean;
     forgetPasswordToken?: string;
     forgetPasswordTokenExpiry?: Date;
     varifyToken: string;
@@ -15,6 +16,7 @@ const userSchema: Schema<IUser> = new Schema({
     username: { type: String, required: true, unique: true},
     email: { type: String, required: true, unique: true , lowercase: true, trim: true},
     password: { type: String, required: true, trim: true , },
+    isVarified: { type: Boolean, default: false },
     forgetPasswordToken: { type: String  },
     forgetPasswordTokenExpiry: { type: Date  },
     varifyToken: { type: String  },
