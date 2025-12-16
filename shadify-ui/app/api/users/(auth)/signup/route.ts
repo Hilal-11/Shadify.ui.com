@@ -3,7 +3,9 @@ import { NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect"
 import User from "@/lib/models/user";
 import bcrypt from "bcryptjs";
+import { sendMail } from "@/lib/helpers/mailer"
 
+dbConnect();
 
 export const GET = async (request: Request) => {
     try{
@@ -40,6 +42,9 @@ export const POST = async (request: NextRequest) => {
         const user = new User(body)
         await user.save();
 
+        // Send Varification Email
+        await sendMail({ email: user.email, emailType: "Varify" , userId: user._id });
+
         return new NextResponse(
             JSON.stringify({ message: "new user created successfully" , user: user}),
             {status: 200}
@@ -50,6 +55,4 @@ export const POST = async (request: NextRequest) => {
             {status: 500}
         )
     }
-
-   
 }

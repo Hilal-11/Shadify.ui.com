@@ -1,0 +1,8 @@
+import { NextRequest, NextResponse } from 'next/server';
+
+
+
+const GET = async (request: NextRequest) => {
+    
+    return NextResponse.json({ message: "User profile endpoint" }, { status: 200 });
+}

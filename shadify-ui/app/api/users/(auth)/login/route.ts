@@ -3,54 +3,55 @@ import { NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect"
 import User from "@/lib/models/user";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken"
 
 
-
-export const GET = async (request: Request) => {
-    try{
-        await dbConnect();
-        const users = await User.find({});
-        return NextResponse.json({
-            message: "Users fetched successfully",
-            users: users,
-            success: true,
-            status: 200
-        })
-    }catch(error:any){
-        return NextResponse.json({
-            message: "Error fetching users",
-            error: error.message,
-            success: false,
-            status: 500
-        })
-    }
-}
-
+dbConnect()
 export const POST = async (request: NextRequest) => {
     const body = await request.json();
+    const { email, password } = body;
+    if (!email || !password) {
+      return NextResponse.json(
+        { message: "Email and password are required" },
+        { status: 400 }
+      );
+    }
+
     await dbConnect();
-
+    console.log("Login body:", email, password);
     try{
-        const userExists = await User.findOne({ email: body.email })
-        if(userExists) {
-            return new NextResponse(JSON.stringify({ message: "User already exists" }), { status: 500 })
+        const user = await User.findOne({ email }).select("+password");
+        if(!user) {
+            return new NextResponse(JSON.stringify({ message: "Email not found, user not exists" }), { status: 500 })
         }   
+        const isPasswordValid = await bcrypt.compare(password , user.password);
+        if(!isPasswordValid){
+            return new NextResponse(JSON.stringify({ message: "Email and password does not match, Invalid password" }), { status: 500 })
+        }
 
-        const saltRounds = 10;
-        body.password = await bcrypt.hash(body.password , saltRounds);
-        const user = new User(body)
-        await user.save();
-
-        return new NextResponse(
-            JSON.stringify({ message: "new user created successfully" , user: user}),
-            {status: 200}
+        // Generate JWT Token
+        const token = jwt.sign(
+            { id: user._id, username: user.username, email: user.email },
+            process.env.JWT_SECRET!,
+            { expiresIn: "1d" }
         )
+
+        const { password: _, ...userData } = user.toObject();
+
+        const response = NextResponse.json({
+            message: "User logged in successfully",
+            success: true,
+            status: 200,
+        })
+        response.cookies.set("token", token, {
+            httpOnly: true,
+        })
+        return response;
+
     }catch(error:any) {
         return new NextResponse(
-            JSON.stringify({ message: "new user created successfully"+ error.message}),
+            JSON.stringify({ message: "nternal server error"+ error.message}),
             {status: 500}
         )
     }
-
-   
 }
