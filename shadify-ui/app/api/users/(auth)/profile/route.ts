@@ -1,8 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
-
-
+import User from '@/lib/models/user';
+import dbConnect from '@/lib/dbConnect';
+import Jwt from 'jsonwebtoken';
+dbConnect();
 
 const GET = async (request: NextRequest) => {
-    
-    return NextResponse.json({ message: "User profile endpoint" }, { status: 200 });
+    // extract token from cookies
+    const token = request.cookies.get("token")?.value;
+
+
+
 }
