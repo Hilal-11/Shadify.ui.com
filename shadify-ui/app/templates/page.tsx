@@ -1,6 +1,5 @@
 "use client"
 import { useRef } from "react"
-import Header from "@/components/landing/header"
 import { RiNextjsFill  , RiTailwindCssFill } from "react-icons/ri";
 import { SiShadcnui } from "react-icons/si";
 import { RiRemixRunLine } from "react-icons/ri";
@@ -54,10 +53,6 @@ function Templates(){
     return (
         <div className="relative">
             <div className="dark:hidden absolute inset-0 -z-10 h-screen w-full bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]"><div className=" absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)]"></div></div>
-
-            <div className="fixed w-full z-50">
-                <Header />
-            </div>
             <div className="container lg:pt-40 pt-30 w-full h-auto">
                 <div className="w-full h-auto mx-auto">
                     <div className="w-full mx-auto text-center">
