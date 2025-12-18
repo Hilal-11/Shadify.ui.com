@@ -4,14 +4,64 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { FaGoogle } from "react-icons/fa6";
 import Header from "@/app/headerClient"
-import { signup } from "@/app/actions/auth"
-import { useActionState } from "react"
+import { useState } from "react"
 import PrefetchLink from "@/components/pre-fetching"
-
+import { SignupFormSchema } from "@/lib/definitions";
+import { useRouter } from "next/navigation";
 const  Signup = () => {
-  const [state, action, pending] = useActionState(signup)
+  const [formData , setFormData] = useState({
+    username: "",
+    email: "",
+    password: ""
+  })
+  const handleFormChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
+  const router = useRouter();
+  const [errors , setErrors] = useState({
+    username: "",
+    email: "",
+    password: ""
+  })
+  const handleFormSubmittion = async (event) => {
+    event.preventDefault();
+
+    const validatedFields = SignupFormSchema.safeParse({
+      username: formData?.username,
+      email: formData?.email,
+      password: formData?.password,
+    });
+    // If any form fields are invalid, return early
+    if (!validatedFields.success) {
+      setErrors(validatedFields.error.flatten().fieldErrors)
+      return;
+    }
+    // api call for backend to entry in databse
+
+    try{
+        const response = await fetch(`/api/users/signup` , {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(validatedFields.data)
+        })
+        if(response.ok) {
+          router.push("/login")
+        }
+      }catch(error) {
+        console.log("Something went wrong. Please try again.");
+      }   
   
-     return (
+  }
+
+
+
+  return (
     <div className="w-full h-auto">
       <Header />
     <div className="flex flex-col w-full h-svh relative justify-center items-start lg:justify-center lg:items-center md:justify-center md:items-center">
@@ -20,24 +70,24 @@ const  Signup = () => {
 
       <div className="w-svw h-[100%] lg:w-[460px] md:w-[460px] md:h-auto  lg:h-auto z-30 dg-neutral-50 dark:bg-neutral-900
       shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] px-5 py-4 flex justify-center items-center md:rounded-xl lg:rounded-xl">
-        <form action={action}>
+        <form onSubmit={handleFormSubmittion}>
             <h1 className="text-4xl font-bold ">Signup</h1>
             <p className="font-sans font-medium text-sm pl-1.5 text-neutral-700 dark:text-neutral-300 pb-8 py-1">Signup to create an account to get start building?</p>
 
             <div className="mt-3">
                 <Label className="text-[15px] font-sans font-medium pb-1 px-1" htmlFor="username">Username</Label>
-                <Input className="py-5" id="username" name="username" type="text" placeholder="Enter username:- "/>
-                <div className='text-red-600 font-sans font-medium px-1 text-[11px] py-1 '>{state?.errors?.username}</div>
+                <Input className="py-5" onChange={handleFormChange} value={formData.username} id="username" name="username" type="text" placeholder="Enter username:- "/>
+                <div className='text-red-600 font-sans font-medium px-1 text-[11px] py-1 '>{errors?.username}</div>
             </div>
             <div className="mt-0">
                 <Label className="text-[15px] font-sans font-medium pb-1 px-1" htmlFor="email">Email</Label>
-                <Input className="py-5" id="email" name="email" type="email" placeholder="Enter email ID:- "/>
-                <div className='text-red-600 font-sans font-medium px-1 text-[11px] py-1 '>{state?.errors?.email}</div>
+                <Input className="py-5" onChange={handleFormChange} value={formData.email} id="email" name="email" type="email" placeholder="Enter email ID:- "/>
+                <div className='text-red-600 font-sans font-medium px-1 text-[11px] py-1 '>{errors?.email}</div>
             </div>
             <div className="mt-3">
                 <Label className="text-[15px] font-sans font-medium pb-1 px-1" htmlFor="password">Password</Label>
-                <Input className="py-5" id="password" name="password" type="password" placeholder="Enter Password:-"/>
-                <div className='text-red-600 font-sans font-medium px-1 text-[11px] py-1 '>{state?.errors?.password}</div>
+                <Input className="py-5" onChange={handleFormChange} value={formData.password} id="password" name="password" type="password" placeholder="Enter Password:-"/>
+                <div className='text-red-600 font-sans font-medium px-1 text-[11px] py-1 '>{errors?.password}</div>
             </div>
              <div className="mt-1 flex justify-between w-full px-2 text-sm font-medium text-neutral-600">
                 <div className="flex gap-2 items-center justify-center">
@@ -47,7 +97,7 @@ const  Signup = () => {
                 <div><p className="dark:text-neutral-300">Forget password?</p></div>
             </div>
             <div className="mt-8">
-                <Button className="w-full cursor-pointer font-sans font-medium px-10 py-6 rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-md" type="submit" disabled={pending}>Signup</Button>
+                <Button className="w-full cursor-pointer font-sans font-medium px-10 py-6 rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-md" type="submit" >Signup</Button>
             </div>
 
             <div className="mt-6 mb-6 flex justify-between items-center gap-3 px-4">
