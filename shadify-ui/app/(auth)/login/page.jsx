@@ -11,9 +11,13 @@ import { LoginFormSchema } from "@/lib/definitions"
 import { Spinner } from "@/components/ui/spinner"
 import Snowfall from "react-snowfall"
 const  Login = () => {
-  
+
     const [loading , setLoading] = useState(false);
     const [panding , setPanding] = useState(false);
+    const [invalidLoginCradentials , setInvalidLoginCradentials] = useState({
+      email: "",
+      password: ""
+    })
 
     const [formData , setFormData] = useState({
       email: "",
@@ -26,11 +30,26 @@ const  Login = () => {
         [name]: value,
       }));
     }
+
+    const handleFocus = (e) => {
+      const { name } = e.target;
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+      setInvalidLoginCradentials((prev) => ({
+        ...prev,
+        [name]: "",
+      }))
+    }
+
+
     const router = useRouter();
     const [errors , setErrors] = useState({
       email: "",
       password: ""
     })
+
     const handleFormSubmittion = async (event) => {
       event.preventDefault();
       setLoading(true);
@@ -56,14 +75,27 @@ const  Login = () => {
             body: JSON.stringify(validatedFields.data),
             credentials: "include",
           })
-          if(response.ok) {
-            router.push("/")
-            setLoading(false);
+         
+          if(!response.ok) {
+            const data = await response.json();
+            setInvalidLoginCradentials((prev) => ({
+              ...prev,
+              email: data?.message,
+            }));
+            setInvalidLoginCradentials((prev) => ({
+              ...prev,
+              password: data?.message,
+            }));
+            return;
           }
+          router.push("/")
         }catch(error) {
-          console.log("Something went wrong. Please try again.");
-        }   
+            console.log(error.message)
+        } finally {
+          setLoading(false);
+        }  
     }
+
   
 
   return (
@@ -74,21 +106,24 @@ const  Login = () => {
       
     <div className="dark:hidden absolute top-0 z-[-2] h-svh w-screen flex rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
 
-      <div className="w-svw h-[100%] lg:w-[460px] md:w-[460px] md:h-auto  lg:h-auto z-30 dg-neutral-50 dark:bg-neutral-900
-      shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] px-5 py-4 flex justify-center items-center md:rounded-xl lg:rounded-xl">
+      <div className="w-svw h-[100%] lg:w-[460px] md:w-[460px] md:h-auto lg:h-auto z-30 dg-neutral-50 dark:bg-neutral-900
+      shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] px-4 lg:px-2 py-4 flex justify-center items-center md:rounded-xl lg:rounded-xl">
         <form onSubmit={handleFormSubmittion}>
             <h1 className="text-4xl font-bold ">Login</h1>
             <p className="font-sans font-medium text-sm pl-1.5 text-neutral-700 dark:text-neutral-300 pb-8 py-1">Login to your account if you already have an account.</p>
 
             <div className="mt-0">
                 <Label className="text-[15px] font-sans font-medium pb-1 px-1" htmlFor="email">Email</Label>
-                <Input className="py-5" onChange={handleFormChange} value={formData.email} id="email" name="email" type="email" placeholder="Enter email ID:- "/>
-                <div className='text-red-600 font-sans font-medium px-1 text-[11px] py-1 '>{errors?.email}</div>
+                <Input className="py-5" onChange={handleFormChange} onFocus={handleFocus} value={formData.email} id="email" name="email" type="email" placeholder="Enter email ID:- "/>
+                <div className='lg:w-[360px] text-red-600 font-sans font-medium px-1 text-[11px] py-px '>{errors?.email}</div>
+                <div className='lg:w-[360px] text-red-600 font-sans font-medium px-1 text-[11px] py-px '>{invalidLoginCradentials?.email}</div>
+
             </div>
             <div className="mt-3">
                 <Label className="text-[15px] font-sans font-medium pb-1 px-1" htmlFor="password">Password</Label>
-                <Input className="py-5" onChange={handleFormChange} value={formData.password} id="password" name="password" type="password" placeholder="Enter Password:-"/>
-                <div className='text-red-600 font-sans font-medium px-1 text-[11px] py-1 '>{errors?.password}</div>
+                <Input className="py-5" onChange={handleFormChange} onFocus={handleFocus} value={formData.password} id="password" name="password" type="password" placeholder="Enter Password:-"/>
+                <div className='lg:w-[360px] text-red-600 font-sans font-medium px-1 text-[11px] py-px '>{errors?.password}</div>
+                <div className='lg:w-[360px] text-red-600 font-sans font-medium px-1 text-[11px] py-px '>{invalidLoginCradentials?.password}</div>
             </div>
              <div className="mt-1 flex justify-between w-full px-2 text-sm font-medium text-neutral-600">
                 <div className="flex gap-2 items-center justify-center">

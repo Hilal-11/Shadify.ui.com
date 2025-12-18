@@ -18,15 +18,15 @@ export const POST = async (request: NextRequest) => {
     }
 
     await dbConnect();
-    console.log("Login body:", email, password);
+
     try{
         const user = await User.findOne({ email }).select("+password");
         if(!user) {
-            return new NextResponse(JSON.stringify({ message: "Email not found, user not exists" }), { status: 500 })
+            return new NextResponse(JSON.stringify({ message: "Incorrect Email and password" }), { status: 400 })
         }   
         const isPasswordValid = await bcrypt.compare(password , user.password);
         if(!isPasswordValid){
-            return new NextResponse(JSON.stringify({ message: "Email and password does not match, Invalid password" }), { status: 500 })
+            return new NextResponse(JSON.stringify({ message: "Incorrect Email and password" }), { status: 400 })
         }
 
         // Generate JWT Token
@@ -52,7 +52,7 @@ export const POST = async (request: NextRequest) => {
 
     }catch(error:any) {
         return new NextResponse(
-            JSON.stringify({ message: "nternal server error"+ error.message}),
+            JSON.stringify({ message: "internal server error"+ error.message}),
             {status: 500}
         )
     }
