@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { FaGoogle } from "react-icons/fa6";
-import Header from "@/components/landing/header"
+import Header from "@/app/headerClient"
 import { z } from "zod"
 
 const loginSchema = z.object({
