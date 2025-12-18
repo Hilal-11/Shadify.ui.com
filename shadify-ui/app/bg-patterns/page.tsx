@@ -3,7 +3,6 @@ import { BACKGROUND_OPTIONS } from '@/components/BackgroundPatterns/backgrounds'
 import Playground from '@/components/BackgroundPatterns/playground';
 import { useState } from 'react';
 import { Toaster } from 'sonner';
-import Header from '@/components/landing/header';
 import Footer from '@/components/layout/footer';
 import { CiMobile3 } from "react-icons/ci";
 import { MdWeb } from "react-icons/md";
@@ -47,7 +46,6 @@ useEffect(() => {
   return (
     <>
     
-    <Header />
       <Toaster position='top-right'/>
       <div className={`${theme}`}>
         <div className="fixed left-0 top-0 -z-10 h-full w-full">
