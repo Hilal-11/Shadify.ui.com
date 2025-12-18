@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { FaGoogle } from "react-icons/fa6";
-import Header from "@/components/landing/header"
+import Header from "@/app/headerClient"
 import { login } from "@/app/actions/auth"
 import { useActionState } from "react"
 import PrefetchLink from "@/components/pre-fetching"

@@ -45,6 +45,8 @@ export const POST = async (request: NextRequest) => {
         })
         response.cookies.set("token", token, {
             httpOnly: true,
+            sameSite: "lax", // or "none" if cross-origin (with secure)
+            path: "/", // important
         })
         return response;
 

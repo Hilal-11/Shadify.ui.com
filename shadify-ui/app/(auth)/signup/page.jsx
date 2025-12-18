@@ -2,17 +2,16 @@
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import { FaGoogle } from "react-icons/fa6";
-import Header from "@/components/landing/header"
+import Header from "@/app/headerClient"
 import { signup } from "@/app/actions/auth"
 import { useActionState } from "react"
 import PrefetchLink from "@/components/pre-fetching"
 
 const  Signup = () => {
   const [state, action, pending] = useActionState(signup)
-
-  return (
+  
+     return (
     <div className="w-full h-auto">
       <Header />
     <div className="flex flex-col w-full h-svh relative justify-center items-start lg:justify-center lg:items-center md:justify-center md:items-center">
