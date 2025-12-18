@@ -1,6 +1,5 @@
 "use client"
 import { useRef } from "react"
-import Header from "@/components/landing/header"
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -52,10 +51,6 @@ function DegignKits(){
         <div className="relative">
 
             <div className="dark:hidden absolute top-0 z-[-2] h-svh w-auto flex rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
-
-            <div className="fixed w-full z-50">
-                <Header />
-            </div>
             <div className="container lg:pt-40 pt-30 w-full h-auto">
                 <div className="w-full h-auto mx-auto">
                     <div className="w-full mx-auto text-center">
