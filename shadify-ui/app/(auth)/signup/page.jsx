@@ -9,6 +9,7 @@ import PrefetchLink from "@/components/pre-fetching"
 import { SignupFormSchema } from "@/lib/definitions";
 import { useRouter } from "next/navigation";
 import { Spinner } from "@/components/ui/spinner"
+import Snowfall from "react-snowfall"
 const  Signup = () => {
   const [loading , setLoading] = useState(false);
   const [panding , setPanding] = useState(false);
@@ -69,6 +70,7 @@ const  Signup = () => {
 
   return (
     <div className="w-full h-auto">
+      <Snowfall color="#bfdbf7"/>
       <Header />
     <div className="flex flex-col w-full h-svh relative justify-center items-start lg:justify-center lg:items-center md:justify-center md:items-center">
       
