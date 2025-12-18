@@ -1,6 +1,5 @@
 
 import React from 'react'
-import Header from '@/components/landing/header'
 import { fetchQuery } from "convex/nextjs";
 import { api } from "@/convex/_generated/api";
 import { Id } from '@/convex/_generated/dataModel';
@@ -24,9 +23,6 @@ async function templateView({ params }: PageProps) {
 
   return (
     <div>
-        <div className="fixed w-full h-auto">
-            <Header />
-        </div> 
       <div className='pt-20 w-full h-auto py-2 lg:py-10 container px-6'>
         <div className='grid grid-cols-1 lg:grid-cols-2 justify-between py-14 lg:py-28 md:py-24'>
             <div className='space-y-4'>
