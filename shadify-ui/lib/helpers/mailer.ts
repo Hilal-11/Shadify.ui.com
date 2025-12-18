@@ -3,10 +3,6 @@ import User from "@/lib/models/user";
 import bcrypt from "bcryptjs";
 export const sendMail = async({ email , emailType , userId }:any) => {
     try{
-        console.log("EMAIL = ", email)
-        console.log("EMAIL TPPE = ", emailType)
-        console.log("USER ID = ", userId)
-
         const hashedToken = await bcrypt.hash(userId.toString(), 10);
         
         if(emailType === "Varify") {

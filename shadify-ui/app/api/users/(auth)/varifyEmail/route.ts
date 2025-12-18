@@ -9,25 +9,20 @@ export const POST = async (request: NextRequest) => {
     const body = await request.json();
     const { token } = body;
 
-    console.log("Varify Email Token = ", token);
-    // if (!token) {
-    //   return NextResponse.json(
-    //     { message: "varifyToken is required" },
-    //     { status: 400 }
-    //   );
-    // }
-    // await dbConnect();
-
+    if (!token) {
+      return NextResponse.json(
+        { message: "varifyToken is required" },
+        { status: 400 }
+      );
+    }
     try{
-        const decodeToken:any = Jwt.verify(token , process.env.JWT_SECRET!);
-        console.log("Decode Token = ", decodeToken);
-        console.log("Decode Token ID = ", decodeToken.id);
-        const user = await User.findById(decodeToken.id)
-        console.log("User fetched for email varification = ", user);
+        const user = await User.findOne({
+            varifyToken: token,
+            varifyTokenExpiry: { $gt: Date.now() },
+        });
         if(!user) {
             return new NextResponse(JSON.stringify({ message: "User not found or token expired" }), { status: 500 })
         }
-
         user.isVarified = true;
         user.varifyToken = undefined;
         user.varifyTokenExpiry = undefined
