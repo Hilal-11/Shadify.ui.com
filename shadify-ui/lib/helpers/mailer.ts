@@ -3,23 +3,31 @@ import User from "@/lib/models/user";
 import bcrypt from "bcryptjs";
 export const sendMail = async({ email , emailType , userId }:any) => {
     try{
+        console.log("EMAIL = ", email)
+        console.log("EMAIL TPPE = ", emailType)
+        console.log("USER ID = ", userId)
+
         const hashedToken = await bcrypt.hash(userId.toString(), 10);
         
         if(emailType === "Varify") {
             await User.findByIdAndUpdate(userId, {
-                varifyToken: hashedToken,
-                varifyTokenExpiry: Date.now() + 3600000, // 1 hour expiry
+               $set:{
+                 varifyToken: hashedToken,
+                 varifyTokenExpiry: Date.now() + 3600000, // 1 hour expiry
+               }
             });
             // Generate varification link
-            const varifyLink = `${process.env.DOMAIN}/varify-email?token=${userId}`;
+            const varifyLink = `${process.env.DOMAIN}/varifyEmail?token=${userId}`;
             console.log("Varify Link:", varifyLink);
         }else if(emailType === "Reset") {
             await User.findByIdAndUpdate(userId, {
-                forgetPasswordToken: hashedToken,
-                forgetPasswordTokenExpiry: Date.now() + 3600000, // 1 hour expiry
+                $set:{
+                    forgetPasswordToken: hashedToken,
+                    forgetPasswordTokenExpiry: Date.now() + 3600000, // 1 hour expiry
+                }
             });
             // Generate reset password link
-            const resetLink = `${process.env.DOMAIN}/reset-password?token=${userId}`;
+            const resetLink = `${process.env.DOMAIN}/resetPassword?token=${userId}`;
             console.log("Reset Link:", resetLink);
         }   
 
@@ -39,7 +47,7 @@ export const sendMail = async({ email , emailType , userId }:any) => {
             to: email,
             subject: emailType === "Varify" ? "Varify your email" : "reset your password",
             html: `<p>
-                ${emailType === "Varify" ? `Click here <a href="${process.env.DOMAIN}/varify-email?token=${hashedToken}"></a> to varify your email`: `Click here <a href="${process.env.DOMAIN}/reset-password?token=${hashedToken}"></a> to reset your password`} 
+                ${emailType === "Varify" ? `Click here <a href="${process.env.DOMAIN}/varifyEmail?token=${hashedToken}"></a> to varify your email`: `Click here <a href="${process.env.DOMAIN}/resetPassword?token=${hashedToken}"></a> to reset your password`} 
             </p>`, 
         }
 
