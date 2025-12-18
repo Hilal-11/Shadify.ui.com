@@ -1,5 +1,4 @@
 "use client"
-import  Header  from '@/components/landing/header'
 import React, { useEffect } from 'react'
 import { MdDone } from "react-icons/md";
 import { BsStars } from "react-icons/bs";
@@ -22,9 +21,6 @@ const Patterns = dynamic(() => import('./PricingModels/Patterns'));
 function Pricing() {
   return (
     <div className='bg-[#f4f4f5] dark:bg-neutral-950 h-full'>
-      <div className="fixed w-full z-50">
-        <Header />
-      </div>
       <div className='pt-20 h-auto pricing_breakpoint lg:w-[98%] mx-auto px-5 py-20'>
         <div className="flex flex-col items-center gap-6 pb-10 py-20">
           <div className="mx-auto border-t border-dashed border-b py-1 w-38 text-center relative border-neutral-300 dark:border-neutral-800">
