@@ -8,7 +8,11 @@ import { useState } from "react"
 import PrefetchLink from "@/components/pre-fetching"
 import { SignupFormSchema } from "@/lib/definitions";
 import { useRouter } from "next/navigation";
+import { Spinner } from "@/components/ui/spinner"
 const  Signup = () => {
+  const [loading , setLoading] = useState(false);
+  const [panding , setPanding] = useState(false);
+
   const [formData , setFormData] = useState({
     username: "",
     email: "",
@@ -29,7 +33,7 @@ const  Signup = () => {
   })
   const handleFormSubmittion = async (event) => {
     event.preventDefault();
-
+    setLoading(true);
     const validatedFields = SignupFormSchema.safeParse({
       username: formData?.username,
       email: formData?.email,
@@ -37,6 +41,7 @@ const  Signup = () => {
     });
     // If any form fields are invalid, return early
     if (!validatedFields.success) {
+      setLoading(false);
       setErrors(validatedFields.error.flatten().fieldErrors)
       return;
     }
@@ -52,6 +57,7 @@ const  Signup = () => {
         })
         if(response.ok) {
           router.push("/login")
+          setLoading(false);
         }
       }catch(error) {
         console.log("Something went wrong. Please try again.");
@@ -97,7 +103,7 @@ const  Signup = () => {
                 <div><p className="dark:text-neutral-300">Forget password?</p></div>
             </div>
             <div className="mt-8">
-                <Button className="w-full cursor-pointer font-sans font-medium px-10 py-6 rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-md" type="submit" >Signup</Button>
+                <Button className="w-full cursor-pointer font-sans font-medium px-10 py-6 rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-md" type="submit" disabled={loading}>{loading && <div><Spinner/></div>}  Signup</Button>
             </div>
 
             <div className="mt-6 mb-6 flex justify-between items-center gap-3 px-4">

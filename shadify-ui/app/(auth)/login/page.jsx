@@ -8,9 +8,12 @@ import { useState } from "react"
 import PrefetchLink from "@/components/pre-fetching"
 import { useRouter } from "next/navigation";
 import { LoginFormSchema } from "@/lib/definitions"
+import { Spinner } from "@/components/ui/spinner"
 const  Login = () => {
   
-  
+    const [loading , setLoading] = useState(false);
+    const [panding , setPanding] = useState(false);
+
     const [formData , setFormData] = useState({
       email: "",
       password: ""
@@ -29,13 +32,14 @@ const  Login = () => {
     })
     const handleFormSubmittion = async (event) => {
       event.preventDefault();
-  
+      setLoading(true);
       const validatedFields = LoginFormSchema.safeParse({
         email: formData?.email,
         password: formData?.password,
       });
       // If any form fields are invalid, return early
       if (!validatedFields.success) {
+        setLoading(false);
         setErrors(validatedFields.error.flatten().fieldErrors)
         return;
       }
@@ -53,6 +57,7 @@ const  Login = () => {
           })
           if(response.ok) {
             router.push("/")
+            setLoading(false);
           }
         }catch(error) {
           console.log("Something went wrong. Please try again.");
@@ -91,7 +96,7 @@ const  Login = () => {
                 <div><p className="dark:text-neutral-300">Forget password?</p></div>
             </div>
             <div className="mt-8">
-                <Button className="w-full cursor-pointer font-sans font-medium px-10 py-6 rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-md" type="submit">Login</Button>
+                <Button className="w-full cursor-pointer font-sans font-medium px-10 py-6 rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-md" type="submit" disabled={loading}>{loading && <div><Spinner/></div>} Login</Button>
             </div>
 
             <div className="mt-6 mb-6 flex justify-between items-center gap-3 px-4">
