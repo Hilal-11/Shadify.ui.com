@@ -1,17 +1,12 @@
 "use client"
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import Link from "next/link";
-import { Link as ViewTransitionsLink } from "next-view-transitions";
-import Image from "next/image";
 import { PiTerminalFill } from "react-icons/pi";
-import { IoLogoGithub } from "react-icons/io5";
 import { PiCrownFill } from "react-icons/pi";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
-
 import { IoMenu } from "react-icons/io5";
 import { RiCloseFill } from "react-icons/ri";
-import { useState } from "react";
-import { LiaAtomSolid } from "react-icons/lia";
+import { useEffect, useState } from "react";
 import { FaAngleDown } from "react-icons/fa6";
 import {
   DropdownMenu,
@@ -21,12 +16,34 @@ import {
 import { services } from "@/config/servicesConfig"
 import { FaChevronDown } from "react-icons/fa6";
 import { FaChevronUp } from "react-icons/fa";
-// import { cookies } from "next/headers";
+import HeaderProfile from "@/components/HeaderProfile";
 function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
   // const token = cookies().get("token")?.value;
   // const isAuthenticate = !!token;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showservices, setShowServices] = useState(false)
+
+  const [user, setUser] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+
+  const loggedInUser = async () => {
+    try{  
+      const res =  await fetch('/api/users/profile', {
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+      const data = await res.json();
+      setUser(data.user.username);
+      setUserEmail(data.user.email);
+    }catch(error){
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    loggedInUser();
+  }, []);
 
   return (
     <>
@@ -147,10 +164,6 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                       </DropdownMenuContent>
                     </DropdownMenu>
 
-
-
-
-
                   </div>
                 </div>
 
@@ -164,13 +177,13 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                   <div className="flex gap-3">
                       <Link href="/signup" className="w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">{isLoggedIn ? "Start Building" : "Signup"}</Link>
                   </div>
-                  <ThemeToggle />
+                  { isLoggedIn ? (<HeaderProfile user={user} userEmail={userEmail} />) : null }
                 </div>
 
                 {/* Mobile Navigation remains unchanged */}
                 <div className="flex sm:hidden items-center gap-3">
                    {
-                    isLoggedIn ? (<button className="w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">Start Building <span><HiOutlineArrowNarrowRight /></span></button>) : (<Link href="/signup" className="w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">Signup</Link>)
+                    isLoggedIn ? (<HeaderProfile user={user} userEmail={userEmail} />) : (<Link href="/signup" className="w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">Signup</Link>)
                    }
                    
                   {!isMobileMenuOpen ? <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex md:hidden lg:hidden bg-neutral-100 dark:bg-neutral-900 rounded-sm p-1 text-2xl text-neutral-700 dark:text-neutral-300"><IoMenu /></button> : <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex md:hidden lg:hidden  text-2xl text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-900 rounded-sm p-1"><RiCloseFill /></button>}
