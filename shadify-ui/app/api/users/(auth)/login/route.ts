@@ -6,7 +6,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken"
 
 
-dbConnect()
+await dbConnect()
+
 export const POST = async (request: NextRequest) => {
     const body = await request.json();
     const { email, password } = body;

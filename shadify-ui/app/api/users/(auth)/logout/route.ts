@@ -3,9 +3,9 @@ import { NextResponse } from "next/server";
 import dbConnect from "@/lib/dbConnect"
 
 
-dbConnect()
+await dbConnect()
 export const POST = async (request: NextRequest) => {
-    dbConnect();
+    await dbConnect();
     try {
         const response = NextResponse.json({
             message: "User logged out successfully",

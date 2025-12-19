@@ -11,9 +11,13 @@ import { useRouter } from "next/navigation";
 import { Spinner } from "@/components/ui/spinner"
 import Snowfall from "react-snowfall"
 const  Signup = () => {
-  const [loading , setLoading] = useState(false);
-  const [panding , setPanding] = useState(false);
 
+  const [invalidLoginCradentials , setInvalidLoginCradentials] = useState({
+    username: "",
+    email: "",
+    password: ""
+  })
+  const [loading , setLoading] = useState(false);
   const [formData , setFormData] = useState({
     username: "",
     email: "",
@@ -26,6 +30,21 @@ const  Signup = () => {
       [name]: value,
     }));
   }
+
+
+  const handleFocus = (e) => {
+      const { name } = e.target;
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+      setInvalidLoginCradentials((prev) => ({
+        ...prev,
+        [name]: "",
+      }))
+    }
+
+
   const router = useRouter();
   const [errors , setErrors] = useState({
     username: "",
@@ -56,13 +75,31 @@ const  Signup = () => {
           },
           body: JSON.stringify(validatedFields.data)
         })
-        if(response.ok) {
+        
+        if(!response.ok) {
+            const data = await response.json();
+            setInvalidLoginCradentials((prev) => ({
+              ...prev,
+              username: data?.message,
+            }));
+            setInvalidLoginCradentials((prev) => ({
+              ...prev,
+              email: data?.message,
+            }));
+            setInvalidLoginCradentials((prev) => ({
+              ...prev,
+              password: data?.message,
+            }));
+            return;
+          }
           router.push("/login")
-          setLoading(false);
-        }
+
       }catch(error) {
         console.log("Something went wrong. Please try again.");
-      }   
+      }
+      finally {
+        setLoading(false);
+      }     
   
   }
 
@@ -84,18 +121,21 @@ const  Signup = () => {
 
             <div className="mt-3">
                 <Label className="text-[15px] font-sans font-medium pb-1 px-1" htmlFor="username">Username</Label>
-                <Input className="py-5" onChange={handleFormChange} value={formData.username} id="username" name="username" type="text" placeholder="Enter username:- "/>
-                <div className='text-red-600 font-sans font-medium px-1 text-[11px] py-1 '>{errors?.username}</div>
+                <Input className="py-5" onChange={handleFormChange} onFocus={handleFocus} value={formData.username} id="username" name="username" type="text" placeholder="Enter username:- "/>
+                <div className='lg:w-[360px] text-red-600 font-sans font-medium px-1 text-[11px] py-px '>{errors?.username}</div>
+                <div className='lg:w-[360px] text-red-600 font-sans font-medium px-1 text-[11px] py-px '>{invalidLoginCradentials?.username}</div>
             </div>
             <div className="mt-0">
                 <Label className="text-[15px] font-sans font-medium pb-1 px-1" htmlFor="email">Email</Label>
-                <Input className="py-5" onChange={handleFormChange} value={formData.email} id="email" name="email" type="email" placeholder="Enter email ID:- "/>
-                <div className='text-red-600 font-sans font-medium px-1 text-[11px] py-1 '>{errors?.email}</div>
+                <Input className="py-5" onChange={handleFormChange} onFocus={handleFocus} value={formData.email} id="email" name="email" type="email" placeholder="Enter email ID:- "/>
+                <div className='lg:w-[360px] text-red-600 font-sans font-medium px-1 text-[11px] py-px '>{errors?.email}</div>
+                <div className='lg:w-[360px] text-red-600 font-sans font-medium px-1 text-[11px] py-px '>{invalidLoginCradentials?.email}</div>
             </div>
             <div className="mt-3">
                 <Label className="text-[15px] font-sans font-medium pb-1 px-1" htmlFor="password">Password</Label>
-                <Input className="py-5" onChange={handleFormChange} value={formData.password} id="password" name="password" type="password" placeholder="Enter Password:-"/>
-                <div className='text-red-600 font-sans font-medium px-1 text-[11px] py-1 '>{errors?.password}</div>
+                <Input className="py-5" onChange={handleFormChange} onFocus={handleFocus} value={formData.password} id="password" name="password" type="password" placeholder="Enter Password:-"/>
+                <div className='lg:w-[360px] text-red-600 font-sans font-medium px-1 text-[11px] py-px '>{errors?.password}</div>
+                <div className='lg:w-[360px] text-red-600 font-sans font-medium px-1 text-[11px] py-px '>{invalidLoginCradentials?.password}</div>
             </div>
              <div className="mt-1 flex justify-between w-full px-2 text-sm font-medium text-neutral-600">
                 <div className="flex gap-2 items-center justify-center">
@@ -114,7 +154,7 @@ const  Signup = () => {
               <div className="border border-gray-300 w-full h-px"></div>
             </div>
             <div className="mt-3 flex gap-1 w-full">
-                <Button className="w-full cursor-pointer font-sans font-medium px-10 py-6 rounded-md bg-white  text-neutral-800 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-md hover:bg-none" type="submit"><span className="text-2xl"><FaGoogle  /></span>Google</Button>
+                <Button className="w-full cursor-pointer font-sans font-medium px-10 py-6 rounded-md bg-white text-neutral-800 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-md hover:bg-none" type="submit"><span className="text-2xl"><FaGoogle  /></span>Google</Button>
             </div>
 
             <div className="mt-4 text-center text-sm 0 mx-auto">

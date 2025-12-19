@@ -13,7 +13,6 @@ import Snowfall from "react-snowfall"
 const  Login = () => {
 
     const [loading , setLoading] = useState(false);
-    const [panding , setPanding] = useState(false);
     const [invalidLoginCradentials , setInvalidLoginCradentials] = useState({
       email: "",
       password: ""

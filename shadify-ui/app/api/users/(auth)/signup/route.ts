@@ -5,7 +5,7 @@ import User from "@/lib/models/user";
 import bcrypt from "bcryptjs";
 import { sendMail } from "@/lib/helpers/mailer"
 
-dbConnect();
+await dbConnect();
 
 export const GET = async (request: Request) => {
     try{

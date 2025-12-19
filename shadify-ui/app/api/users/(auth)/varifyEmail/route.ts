@@ -4,7 +4,7 @@ import dbConnect from "@/lib/dbConnect"
 import User from "@/lib/models/user";
 import Jwt from "jsonwebtoken";
 
-dbConnect();
+await dbConnect();
 export const POST = async (request: NextRequest) => {
     const body = await request.json();
     const { token } = body;
