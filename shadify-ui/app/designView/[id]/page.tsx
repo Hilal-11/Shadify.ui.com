@@ -7,8 +7,6 @@ import { designsConfig } from '../../designs/designsConfig';
 import CTA from '@/components/landing/CTA';
 import Footer from '@/components/layout/footer';
 import { MdDone } from "react-icons/md";
-import Link from 'next/link';
-import Image from 'next/image';
 interface PageProps {
   params: Promise<{
     id: string;
@@ -49,11 +47,9 @@ async function templateView({ params }: PageProps) {
                 {
                     design?.images.map((image, index) => (
                         <div key={index} className=' lg:rounded-2xl rounded-xl shadow-sm shadow-gray-400'>
-                            <Image className='h-full rounded-2xl object-cover hover:mask-none transition duration-500' 
+                            <img className='h-full rounded-2xl object-cover hover:mask-none transition duration-500' 
                                 src={image} 
                                 alt="Error" 
-                                width={600}
-                                height={500}
                             />
                         </div>
                     ))
