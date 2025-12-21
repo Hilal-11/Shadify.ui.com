@@ -1,7 +1,7 @@
 "use client";
 import { FaqConfig } from '@/config/FaqConfig';
 import {Accordion, AccordionItem} from "@heroui/accordion";
-import Link from 'next/link';
+export const dynamic = 'force-static';
 function FAQ() {
   return (
     <div className='z-50 !important relative '>
