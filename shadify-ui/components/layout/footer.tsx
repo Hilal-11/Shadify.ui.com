@@ -4,11 +4,12 @@ import { footerConfig , socialLinks } from "@/config/footerConfig"
 import { PiTerminalFill } from "react-icons/pi";
 import Link from 'next/link';
 import { motion } from "motion/react"
-
 import { LuMoon } from "react-icons/lu";
 import { LuSunMedium } from "react-icons/lu";
 import { RiComputerLine } from "react-icons/ri";
 import { StripedPattern } from '../magicui/striped-pattern';
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+
 function Footer() {
   return (
     <div className='relative h-auto w-[100%] bg-neutral-100 dark:bg-neutral-900 border-t border-neutral-400 dark:border-neutral-600 mt-20'>
@@ -191,10 +192,8 @@ function Footer() {
 
         <div className='flex w-full justify-between lg:px-4 py-5 lg:py-10'>
             <div></div>
-            <div className='flex gap-2 items-center justify-evenly h-10 rounded-full px-2 bg-neutral-200 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]'>
-              <span className='relative left-2 text-xl text-neutral-500 cursor-pointer hover:bg-neutral-300 dark:hover:bg-neutral-900 rounded-full h-8 w-8 flex items-center justify-center'><LuMoon /></span>
-              <span className='text-xl text-neutral-500 cursor-pointer hover:bg-neutral-300 dark:hover:bg-neutral-900 rounded-full h-8 w-8 flex items-center justify-center'><RiComputerLine/></span>
-              <span className='relative right-2 text-xl text-neutral-500 cursor-pointer hover:bg-neutral-300 dark:hover:bg-neutral-900 rounded-full h-8 w-8 flex items-center justify-center'><LuSunMedium /></span>
+            <div className='flex gap-2 items-center justify-center w-12 h-12 rounded-full bg-neutral-200 dark:bg-neutral-800 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]'>
+              <ThemeToggle/>
             </div>
         </div>
 
