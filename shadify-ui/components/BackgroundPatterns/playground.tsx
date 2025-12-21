@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, { useState } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { toast } from 'sonner';
 import { RiExpandDiagonalLine } from "react-icons/ri";
@@ -6,10 +6,10 @@ import { Button } from '../ui/button';
 import { IoCloseSharp } from "react-icons/io5";
 import { FiCopy } from "react-icons/fi";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
-import { motion } from "motion/react"
 import { GoStarFill } from "react-icons/go";
 import { GoStar } from "react-icons/go";
-import Hello from './helloTypeEffect/hello';
+import Hello from './helloTypeEffect/Hello';
+
 type PlaygroundProps = {
   children: React.ReactElement;
   setPreview: (preview: React.ReactNode) => void;
