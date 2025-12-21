@@ -3,13 +3,17 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { FaGoogle } from "react-icons/fa6";
-import Header from "@/app/headerClient"
 import { useState } from "react"
 import PrefetchLink from "@/components/pre-fetching"
 import { SignupFormSchema } from "@/lib/definitions";
 import { useRouter } from "next/navigation";
 import { Spinner } from "@/components/ui/spinner"
 import Snowfall from "react-snowfall"
+
+
+export const dynamic = "force-static";
+
+
 const  Signup = () => {
 
   const [invalidLoginCradentials , setInvalidLoginCradentials] = useState({
@@ -108,7 +112,6 @@ const  Signup = () => {
   return (
     <div className="w-full h-auto">
       <Snowfall color="#bfdbf7"/>
-      <Header />
     <div className="flex flex-col w-full h-svh relative justify-center items-start lg:justify-center lg:items-center md:justify-center md:items-center">
       
     <div className="dark:hidden absolute top-0 z-[-2] h-svh w-screen flex rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
