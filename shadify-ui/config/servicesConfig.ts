@@ -19,7 +19,7 @@ interface Services {
 export const services: Services[]  = [
    {
     id: 1,
-    service: "Component Blocks",
+    service: "Components",
     about: "Pre-built, customizable components to speed up your development workflow.",
     icon: GrCubes,
     link: "/docs"
@@ -47,7 +47,7 @@ export const services: Services[]  = [
   },
   {
     id: 5,
-    service: "Universal Auth",
+    service: "Authentication kits",
     about: "Authentication solutions for modern apps including JWT, OAuth, and social logins.",
     icon: TbBrandAuth0,
     link: "/authdocs"
@@ -65,13 +65,6 @@ export const services: Services[]  = [
     about: "Modern UI backgrounds, patterns, and sections ready to plug into any project.",
     icon: TbBackground,
     link: "/bg-patterns"
-  },
-  {
-    id: 8,
-    service: "AI Integrations",
-    about: "Integrate ChatGPT, Gemini, and other AI models seamlessly into your applications.",
-    icon: FaRobot,
-    link: "/ai-integration"
   },
   {
     id: 9,
