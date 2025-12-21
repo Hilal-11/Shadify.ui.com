@@ -3,6 +3,7 @@ import { MdDone } from "react-icons/md";
 import { BsStars } from "react-icons/bs";
 import { StripedPattern } from "@/components/magicui/striped-pattern"
 import { BgPatternsPricingConfig } from '@/config/pricingConfig';
+export const dynamic = 'force-static';
 function Patterns() {
   return (
 
