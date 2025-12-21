@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { MdDone } from "react-icons/md";
 import { BsStars } from "react-icons/bs";
 import { StripedPattern } from "@/components/magicui/striped-pattern"
 import { webComponentsPricingConfig } from '@/config/pricingConfig';
+export const dynamic = 'force-static';
 function WebComponents() {
   return (
           <div id="web-components" className='border-t border-neutral-400 dark:border-neutral-700 mt-10 lg:mt-20'>
