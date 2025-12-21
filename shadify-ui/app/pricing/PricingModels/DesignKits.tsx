@@ -3,6 +3,7 @@ import { StripedPattern } from "@/components/magicui/striped-pattern"
 import { designsUIKitsPricingConfig } from '@/config/pricingConfig';
 import { MdDone } from "react-icons/md";
 import { BsStars } from "react-icons/bs";
+export const dynamic = 'force-static';
 function DesignKits() {
   return (
       <div id="design-ui-kits" className='border-t border-neutral-400 dark:border-neutral-700 mt-20'> 
