@@ -3,6 +3,7 @@ import { StripedPattern } from "@/components/magicui/striped-pattern"
 import { mobileUIElementsPricingConfig } from '@/config/pricingConfig';
 import { MdDone } from "react-icons/md";
 import { BsStars } from "react-icons/bs";
+export const dynamic = 'force-static';
 function MobileUIElements() {
   return (
       
