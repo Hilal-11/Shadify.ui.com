@@ -9,11 +9,13 @@ function CTA() {
 
                 
                 <div className='z-30 px-6 lg:px-10'>
-                    <h1 className='text-4xl lg:text-5xl dark:text-neutral-300 text-neutral-800  font-sans font-bold py-3'>Train your brain, upgrade your code</h1>
-                    <p className='text-sm font-sans text-neutral-700 py-5 dark:text-neutral-300'>Take on bite-sized coding challenges designed to strengthen your problem-solving abilities and sharpen your logical thinking. Each task focuses on improving specific techniques.</p>
-                    <div className='flex flex-wrap gap-4'>
-                        <button className='whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2'>Login/Signup</button>
-                        <button className='whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#f5f5f5] to-[#e5e5e5] text-neutral-800 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2'>Explore localhost.io</button>
+                    <div>
+                        <h1 className='text-3xl font-mono font-bold bg-gradient-to-r from-[#E62314] to-[#F19E18] text-transparent bg-clip-text'>Need something custom built?</h1>
+                        <p className='px-14 pt-3 text-[15px] font-mono font-medium text-neutral-600 dark:text-neutral-400 pl-3'>I’m available for client work and can help you customize this template or build something entirely new — from UI and design systems to full-stack applications, backend services, and scalable production solutions.</p>
+                    </div>
+                    <div className='pt-4 lg:py-20 lg:px-10 flex items-center flex-wrap gap-2'>
+                        <button className='z-40 relative overflow-hidden cursor-pointer font-sans font-medium text-sm px-10 py-2 rounded-md bg-neutral-100 bg-gradient-to-t from-[#f5f5f5] to-[#d4d4d4] dark:text-neutral-900 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]'>Ask a Question</button>
+                        <button className='z-40 cursor-pointer font-sans text-sm font-medium px-10 py-2 rounded-md bg-gradient-to-r from-[#E62314] to-[#F19E18] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]'>Hire for Custom Work</button>
                     </div>
                 </div>
                 <div className='flex justify-center items-center h-full'>
