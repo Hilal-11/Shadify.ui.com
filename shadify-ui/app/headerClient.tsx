@@ -17,6 +17,7 @@ import { services } from "@/config/servicesConfig"
 import { FaChevronDown } from "react-icons/fa6";
 import { FaChevronUp } from "react-icons/fa";
 import HeaderProfile from "@/components/HeaderProfile";
+import { TbLockHeart } from "react-icons/tb";
 function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
   // const token = cookies().get("token")?.value;
   // const isAuthenticate = !!token;
@@ -124,10 +125,10 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                     </Link>
                     <Link
                       href="/pricing"
-                      className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
+                      className=" relative font-sans font-medium text-sm text-zinc-400 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
                       prefetch
                     >
-                      Pricing
+                      <span className="absolute -top-2 right-0 text-sm text-neutral-700"><TbLockHeart /></span> Pricing 
                     </Link>
                     <DropdownMenu>
                       <DropdownMenuTrigger>
@@ -141,15 +142,6 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                           prefetch
                         >
                           Team
-                        </Link>
-                        </div>
-                        <div className="w-full hover:bg-neutral-200 hover:dark:bg-neutral-800 cursor-pointer rounded-sm py-1 pl-1 ">
-                          <Link
-                          href="/team"
-                          className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                          prefetch
-                        >
-                          Careers
                         </Link>
                         </div>
                         <div className="w-full hover:bg-neutral-200 hover:dark:bg-neutral-800 cursor-pointer rounded-sm py-1 pl-1 ">
@@ -240,7 +232,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                             className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                             prefetch
                           >
-                            Pricing
+                            <span><TbLockHeart /></span>Pricing
                           </Link>
                           <Link
                             href="/team"
@@ -274,15 +266,6 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                           >
                             Team
                           </Link>
-                          <Link
-                      
-                            href="/team"
-                            className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                            prefetch
-                          >
-                            Carrers
-                          </Link>
-                       
                         </div>
                         <div className="flex flex-col gap-1 items-center ">
                             <span className="p-1.5 rounded-sm bg-neutral-300 dark:bg-neutral-900"><ThemeToggle /></span>
