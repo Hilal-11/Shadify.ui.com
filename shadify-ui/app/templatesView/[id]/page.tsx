@@ -14,13 +14,13 @@ import { Id } from '@/convex/_generated/dataModel';
 import Image from 'next/image';
 interface PageProps {
   params: Promise<{
-    id: string;
+    id?: string;
   }>;
 }
 async function templateView({ params }: PageProps) {
 
     const id = (await params).id as Id<'templates'>;
-    const template = await fetchQuery(api.getTemplates.getTemplateById , { id : id })
+    const template:any = await fetchQuery(api.getTemplates.getTemplateById , { id : id })
 
   return (
     <div>
@@ -33,7 +33,7 @@ async function templateView({ params }: PageProps) {
             </div>
             <div className='py-10 flex flex-wrap items-end lg:justify-end justify-center gap-5'>
 
-                <Link href={template?.projectLiveURL} alt="oops" className='w-full md:w-[200px] bg-neutral-900 dark:bg-neutral-100 dark:text-black text-white font-sans font-bold  text-sm lg:text-md shadow-sm shadow-slate-800  py-[9px] lg:rounded-md rounded-md cursor-pointer transition-all duration-300 text-center'>Live Demo</Link>
+                <Link href={template?.projectLiveURL} className='w-full md:w-[200px] bg-neutral-900 dark:bg-neutral-100 dark:text-black text-white font-sans font-bold  text-sm lg:text-md shadow-sm shadow-slate-800  py-[9px] lg:rounded-md rounded-md cursor-pointer transition-all duration-300 text-center'>Live Demo</Link>
 
 
                 <button className='w-full md:w-[200px] font-sans font-bold  text-sm dark:bg-neutral-950 lg:text-md shadow-sm shadow-slate-800  py-[9px] rounded-md cursor-pointer transition-all duration-300'>Buy Now {template?.projectPrize}</button>
@@ -54,7 +54,7 @@ async function templateView({ params }: PageProps) {
         <div className='flex justify-center items-center py-20'>
             <div className='grid lg:grid-cols-2 grid-cols-1 w-full lg:gap-4 gap-2 '>
                 {
-                    template?.projectImages.map((image, index) => (
+                    template?.projectImages.map((image:any, index:number) => (
                         <div key={index} className=' lg:rounded-2xl rounded-xl shadow-sm shadow-gray-400'>
                             <Image 
                                 className='h-full rounded-2xl object-cover hover:mask-none transition duration-500' 
