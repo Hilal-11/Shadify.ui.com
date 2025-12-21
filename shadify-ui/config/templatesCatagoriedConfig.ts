@@ -1,11 +1,11 @@
 
 interface TemplatesCategories{
-
+  id: number,
+  name: string
 }
-export const templatesCategories: TemplatesCategories = [
+export const templatesCategories: TemplatesCategories[] = [
   // General
   { id: 1, name: "All Products" },
-
   // AI & Tech
   { id: 2, name: "AI" },
   { id: 3, name: "Machine Learning" },
