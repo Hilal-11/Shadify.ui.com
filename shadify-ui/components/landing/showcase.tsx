@@ -1,16 +1,16 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import Text02 from "@/components/shadifyui/text/text-02";
+
 
 export function ShowcaseSection() {
     return (
         <div className="py-8 sm:py-24 text-center relative">
             <div className="inline-block mb-12">
                 <h2 className="font-sans font-bold text-2xl sm:text-4xl tracking-tight">
-                    <Text02
+                    {/* <Text02
                         text="Showcase"
                         className="bg-clip-text text-transparent bg-linear-to-r from-pink-500 to-amber-500 dark:from-pink-400 dark:to-amber-400 text-4xl sm:text-7xl"
-                    />
+                    /> */}
                 </h2>
             </div>
 
