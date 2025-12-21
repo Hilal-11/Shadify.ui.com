@@ -1,21 +1,17 @@
-"use client"
-import React, { useEffect } from 'react'
-import { MdDone } from "react-icons/md";
-import { BsStars } from "react-icons/bs";
+import React from 'react'
 import FAQ from './FAQ';
 import { StripedPattern } from "@/components/magicui/striped-pattern"
-import { webComponentsPricingConfig , mobileUIElementsPricingConfig, designsUIKitsPricingConfig ,  BgPatternsPricingConfig } from '@/config/pricingConfig';
 import Footer from '@/components/layout/footer';
 import CTA from '@/components/landing/CTA';
 import { MdOutlinePriceChange } from "react-icons/md";
 import Link from 'next/link';
-import { Suspense, lazy } from 'react';
 import WebComponents from './PricingModels/WebComponents';
-import dynamic from 'next/dynamic';
+import MobileUIElements from "./PricingModels/MobileUIElements"
+import DesignKits from "./PricingModels/DesignKits"
+import Patterns from "./PricingModels/Patterns"
 
-const MobileUIElements = dynamic(() => import('./PricingModels/MobileUIElements'));
-const DesignKits = dynamic(() => import('./PricingModels/DesignKits'));
-const Patterns = dynamic(() => import('./PricingModels/Patterns'));
+
+export const dynamic = 'force-static';
 
 
 function Pricing() {
