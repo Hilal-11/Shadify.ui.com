@@ -11,13 +11,12 @@ import { templatesCategories } from '@/config/templatesCatagoriedConfig';
 import { CiMobile3 } from "react-icons/ci";
 import { MdWeb } from "react-icons/md";
 import Footer from "@/components/layout/footer"
-import { designsConfig } from "./designsConfig"
 import { IoMdSearch } from "react-icons/io";
 import { GrFavorite } from "react-icons/gr";
 import { IoEyeOutline } from "react-icons/io5";
 function DegignKits(){
 
-    // const templates = useQuery(api.getTemplates.getTemplates);
+    const designsKits = useQuery(api.getTemplates.getDesignKits);
 
 
     const ref = useRef<HTMLDivElement>(null);
@@ -93,10 +92,10 @@ function DegignKits(){
 
                 {/*  Design sections */}
              <section className="lg:w-full h-auto pt-4 px-0 mt-10 mx-auto">
-                { !designsConfig ? (<TemplateShimmerLoadingUI/>) : (
+                { !designsKits ? (<TemplateShimmerLoadingUI/>) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:px-5 pb-2 justify-between gap-10 realtive">
                     { 
-                        designsConfig?.map((design) => (
+                        designsKits?.map((design) => (
                         <motion.div
                             initial={{ scale: 1, filter: "brightness(88%)" }}
                             whileHover={{
@@ -113,7 +112,7 @@ function DegignKits(){
                                 damping: 20,
                                 duration: 0.3,
                             }}
-                            onClick={() => router.push(`/designView/${design.id}`)}
+                            onClick={() => router.push(`/designView/${design._id}`)}
                             key={design.id} className="cursor-pointer w-full h-auto bg-neutral-100 dark:bg-neutral-900 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] rounded-xl relative">
 
 
@@ -123,18 +122,16 @@ function DegignKits(){
                                 </div>
 
 
-                                <div className="absolute inset-0 h-full w-full"><div className="absolute h-full w-full bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:10px_10px] bg-gradient-to-r from-orange-500 to-yellow-300  [mask-image:radial-gradient(ellipse_80%_100%_at_100%_100%,#000_50%,transparent_100%)]"></div></div>
-
                             <div className="flex flex-col">
                                 {/* Image */}
                                 {design.images?.[0] && (
                                     <div>
                                     <Image 
                                         src={design.images[0]}
-                                        alt={design.name}
+                                        alt={"Error while loading the images"}
                                         width={400}
-                                        height={400}
-                                        className="z-40 w-full object-cover rounded-t-md"
+                                        height={200}
+                                        className="h-[250px] z-40 w-full object-cover rounded-t-md"
                                     />
                                     </div>
                                 )}
