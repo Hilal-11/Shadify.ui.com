@@ -5,11 +5,6 @@ import { fetchQuery } from "convex/nextjs";
 import { api } from "@/convex/_generated/api";
 import { Id } from '@/convex/_generated/dataModel';
 import Image from 'next/image';
-import { RiNextjsFill  , RiTailwindCssFill } from "react-icons/ri";
-import { SiShadcnui } from "react-icons/si";
-import { RiRemixRunLine } from "react-icons/ri";
-import { TbBrandFramerMotion } from "react-icons/tb";
-import { TbBrandReactNative } from "react-icons/tb";
 import { LuFigma } from "react-icons/lu";
 import { FaGithub } from "react-icons/fa";
 import { GoFileZip } from "react-icons/go";
@@ -17,6 +12,15 @@ import { MdDone } from "react-icons/md";
 import { IoIosStarOutline } from "react-icons/io";
 import Footer from '@/components/layout/footer';
 import { StripedPattern2 } from '@/app/dashboard/pattern';
+
+import react from "@/public/tech/react.jpeg"
+import next from "@/public/tech/next.jpeg"
+import tailwindX from "@/public/tech/tailwindX.webp"
+import shadcn from "@/public/tech/shadcn.jpeg"
+import vite from "@/public/tech/vite.jpeg"
+import ts from "@/public/tech/ts.jpeg"
+import js from "@/public/tech/js.jpeg"
+
 interface PageProps {
   params: Promise<{
     id?: string;
@@ -25,6 +29,16 @@ interface PageProps {
 
 
 async function templateView({ params }: PageProps) {
+
+    const techStackImages = [
+        react,
+        next,
+        tailwindX,
+        shadcn,
+        vite,
+        ts,
+        js,
+    ]
 
     const id = (await params).id as Id<'templates'>;
     const template:any = await fetchQuery(api.getTemplates.getTemplateById , { id : id })
@@ -50,12 +64,18 @@ async function templateView({ params }: PageProps) {
             <div>
                 {/* Technologies used */}
                     <div className='flex flex-wrap justify-evenly lg:justify-between py-0 poppins-medium text-neutral-600 '>
-                        <span className='flex justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><RiNextjsFill/></span></span>
-                        <span className='flex justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><TbBrandReactNative/></span></span>
-                        <span className='flex justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><RiTailwindCssFill/></span></span>
-                        <span className='flex justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><TbBrandFramerMotion/></span></span>
-                        <span className='flex justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><RiRemixRunLine/></span></span>
-                        <span className='flex justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><SiShadcnui/></span></span>
+                        {techStackImages.map((image, index) => (
+                            <div key={index} className='rounded-full p-[3px] cursor-pointer bg-neutral-50 dark:bg-neutral-800 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex items-center justify-center'>
+                                <Image
+                                    key={index}
+                                    src={image}
+                                    width={30}
+                                    height={30}
+                                    alt='Tech Image'
+                                    className='rounded-full '
+                                />
+                            </div>
+                        ))}
                     </div>
                 {/* Template format for users(code, figms kit, repo,) */}
             </div>
@@ -131,13 +151,13 @@ async function templateView({ params }: PageProps) {
                 <h1 className='text-2xl font-sans font-medium'>Download resources</h1>
                 <br />
                 <div className='flex pl-5'> 
-                    <p className='w-[220px] flex gap-2 border px-2 cursor-pointer hover:bg-neutral-200 dark:hover:bg-neutral-800 transition duration-300 py-2 font-sans font-medium'><span className='text-2xl dark:text-neutral-400'><GoFileZip/></span>Download Zip</p>
+                    <p className='w-[220px] flex gap-2 border px-2 cursor-pointer hover:bg-neutral-200 dark:hover:bg-neutral-800 transition duration-300 py-2 font-sans font-medium'><span className='text-2xl dark:text-neutral-400'><GoFileZip/></span><Link href={template.zip_code_file}>Download Zip</Link></p>
                 </div>
                 <div className='flex pl-5'>
                     <p className='w-[220px] flex gap-2 border px-2 cursor-pointer hover:bg-neutral-200 dark:hover:bg-neutral-800 transition duration-300 py-2 font-sans font-medium'><span className='text-2xl dark:text-neutral-400'><FaGithub/></span>Clone Repository</p>
                 </div>
                 <div className='flex pl-5'>
-                    <p className='w-[220px] flex gap-2 border px-2 cursor-pointer hover:bg-neutral-200 dark:hover:bg-neutral-800 transition duration-300 py-2 font-sans font-medium'><span className='text-2xl dark:text-neutral-400'><LuFigma/></span>Clone Repository</p>
+                    <p className='w-[220px] flex gap-2 border px-2 cursor-pointer hover:bg-neutral-200 dark:hover:bg-neutral-800 transition duration-300 py-2 font-sans font-medium'><span className='text-2xl dark:text-neutral-400'><LuFigma/></span>Figma Kit</p>
                 </div>
             </div>
         </div>
