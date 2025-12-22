@@ -1,18 +1,11 @@
 "use client"
 import { useRef } from "react"
-import { RiNextjsFill  , RiTailwindCssFill } from "react-icons/ri";
-import { SiShadcnui } from "react-icons/si";
-import { RiRemixRunLine } from "react-icons/ri";
-import { TbBrandFramerMotion } from "react-icons/tb";
-import { TbBrandReactNative } from "react-icons/tb";
 import { motion } from "motion/react";
-import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { IoMdSearch } from "react-icons/io";
-import { BsStars } from "react-icons/bs";
 import TemplateShimmerLoadingUI from '@/components/templateShimmerLoadingUI';
 import { templatesCategories } from '@/config/templatesCatagoriedConfig';
 import { CiMobile3 } from "react-icons/ci";
