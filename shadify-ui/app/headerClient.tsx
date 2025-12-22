@@ -123,13 +123,17 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                     >
                       Mobile Applications
                     </Link>
-                    <Link
+                    <div className="relative border-t border-b border-dashed border-neutral-500 px-4 py-px">
+                      <span className="absolute left-2 h-[35px] -top-[6px] border-l border-dashed border-neutral-500"></span>
+                      <span className="absolute right-2 h-[35px] -top-[6px] border-l border-dashed border-neutral-500"></span>
+                      <Link
                       href="/pricing"
-                      className=" relative font-sans font-medium text-sm text-zinc-400 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
+                      className=" relative font-sans font-medium text-sm text-zinc-500 dark:text-neutral-700 transition-colors flex items-center gap-2"
                       prefetch
                     >
-                      <span className="absolute -top-2 right-0 text-sm text-neutral-700"><TbLockHeart /></span> Pricing 
+                      Pricing 
                     </Link>
+                    </div>
                     <DropdownMenu>
                       <DropdownMenuTrigger>
                         <h1 className="cursor-pointer flex gap-1 bg-transparent hover:bg-transparent font-sans font-medium text-[15px] text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors items-center">more<span className="text-sm"><FaAngleDown /></span></h1>
