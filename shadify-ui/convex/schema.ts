@@ -38,5 +38,37 @@ export default defineSchema({
         templatePreferFor: v.array(
             v.string()
         )
+    }),
+    designKits: defineTable({
+        id: v.string(),
+        name: v.string(),
+        
+        discription: v.string(),
+        isPremium: v.boolean(),
+        price: v.string(),
+        designType: v.string(),
+        images: v.array(
+            v.string()
+        ),
+        overview: v.string(),
+        features: v.array(
+            v.string()
+        ),
+        formats: v.array(
+            v.string()
+        ),
+        designPages: v.array(
+            v.string()
+        ),
+        designTotalPages: v.number(),
+        designPurposes: v.array(
+            v.string()
+        ),
+        designPreferFor: v.array(
+            v.string()
+        ),
+        highlight: v.array(
+            v.string()
+        )
     })
 })
