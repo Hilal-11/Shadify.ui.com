@@ -1,5 +1,6 @@
 import { defineSchema , defineTable} from "convex/server"
 import { v } from "convex/values"
+import { optional } from "zod"
 
 export default defineSchema({
     templates: defineTable({
@@ -37,7 +38,8 @@ export default defineSchema({
         ),
         templatePreferFor: v.array(
             v.string()
-        )
+        ),
+        zip_code_file: v.string(),
     }),
     designKits: defineTable({
         id: v.string(),
