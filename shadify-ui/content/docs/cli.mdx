@@ -1,134 +1,187 @@
 ---
-
 title: CLI Setup
-description: Getting started with Shadify
+description: How to use the localhost.io CLI to manage components.
 icon: Terminal
 ---
 
-### 1. Install utilities
+# CLI Reference
 
+The **localhost.io** ecosystem is powered by the **shadcn CLI registry system**.
 
-All components use [Tailwind CSS v4](https://tailwindcss.com/docs/installation/framework-guides/nextjs), so ensure it's installed in your project.
-Many components also use the `cn` utility function—install it with the following command:
+This CLI allows you to:
+- Initialize your project with best-practice defaults
+- Add production-ready components directly into your codebase
+- Automatically install required dependencies
+- Preview and explore components before installation
 
-<Tabs items={["npx" ,"bun", "pnpm"]}>
-```bash tab="npx"
-npx shadcn@latest add https://shadifyui/r/utils.json
-```
- 
-```bash tab="bun"
-bunx shadcn@latest add https://shadifyui/r/utils.json 
-```
- 
-```bash tab="pnpm"
-pnpm dlx shadcn@latest add https://shadifyui/r/utils.json
-```
+All actions are performed **directly from your terminal**, keeping your workflow fast and predictable.
 
-</Tabs>
+## init
 
-### 2. That's it 🎉
+The `init` command prepares your project to work with the localhost.io registry.
 
-We use [lucide-icons](https://lucide.dev/guide/installation) for most components that include icons, along with some [shadcn/ui](https://ui.shadcn.com/) components. These dependencies will be automatically installed when using the CLI.
+You should run this command **once per project**, before adding any components.
 
-For exemple to add `card-05` to your project, it will be easy as:
+### What `init` does
 
-<Tabs items={["npx", "bun", "pnpm"]}>
+Running `init` will automatically:
 
-```bash tab="npx"
-npx shadcn@latest add https://shadifyui/r/card-05.json
-```
- 
-```bash tab="bun"
-bunx shadcn@latest add https://shadifyui/r/card-05.json
-```
- 
-```bash tab="pnpm"
-pnpm dlx shadcn@latest add https://shadifyui/r/card-05.json
-```
+- Create a `components.json` configuration file
+- Install required base dependencies
+- Add the `cn` utility function
+- Configure Tailwind CSS for component usage
+- Set up CSS variables for theming
+- Prepare registry support for localhost.io components
 
-</Tabs>
+This ensures all components work consistently across your application.
 
-_While we provide a convenient 'copy' button for the code, we strongly recommend using the CLI for installing components, as it ensures all necessary files are included._
-
-Add to your page and it works!
-
-## Code Block
----
-<div className='font-sans font-bold h-auto py-4 pb-4 overflow-y-auto w-full dark:bg-neutral-900 bg-neutral-100 p-4 rounded-md'>
-```js {style="font-size: 18px; font-weight: bold; background-color: transparent;"}
-import Card05 from "@/components/shadifyui/card-05";
-
-export default function Page() {
-    return <Card05 />;
-}
-```
-</div>
 ---
 
+### Run the init command
+
+Choose your package manager:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">
+    ```bash
+    npx shadcn@latest init
+    ```
+  </Tab>
+  <Tab value="pnpm">
+    ```bash
+    pnpm dlx shadcn@latest init
+    ```
+  </Tab>
+  <Tab value="yarn">
+    ```bash
+    npx shadcn@latest init
+    ```
+  </Tab>
+  <Tab value="bun">
+    ```bash
+    bunx --bun shadcn@latest init
+    ```
+  </Tab>
+</Tabs>
+
+---
+
+
+
+## add
+
+The `add` command installs **localhost.io components** directly into your project.
+
+Each component is:
+- Copied into your source code
+- Fully editable
+- Automatically wired with required dependencies
+
+This command also installs **related libraries** (such as Motion, GSAP, or utility packages) when required.
+
+---
+
+### Add a component
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">
+    ```bash
+    npx shadcn@latest add https://localhost.io/r/button.json
+    ```
+  </Tab>
+  <Tab value="pnpm">
+    ```bash
+    pnpm dlx shadcn@latest add https://localhost.io/r/button.json
+    ```
+  </Tab>
+  <Tab value="yarn">
+    ```bash
+    npx shadcn@latest add https://localhost.io/r/button.json
+    ```
+  </Tab>
+  <Tab value="bun">
+    ```bash
+    bunx --bun shadcn@latest add https://localhost.io/r/button.json
+    ```
+  </Tab>
+</Tabs>
+
+---
+
+## How the localhost.io CLI works
+
+Unlike traditional UI libraries, the CLI does **not** install components as hidden dependencies.
+
+Instead, it:
+- Copies component source code into your project
+- Keeps everything fully editable
+- Avoids runtime lock-in
+- Makes debugging and customization simple
+
+You always **own the code**.
+
+---
+
+
+### During initialization
+
+The CLI may prompt you to choose:
+- Your framework (Next.js, monorepo, etc.)
+- Base color palette
+- Whether to use CSS variables
+- Whether to use a `src/` directory
+
+> 💡 **Tip:** The default options are recommended for most projects.
+
+---
+
+### Init options
+
+| Option | Description |
+| :--- | :--- |
+| `-t, --template` | Choose a project template (`next`, `next-monorepo`). |
+| `-b, --base-color` | Set the base color palette (`zinc`, `slate`, `stone`, etc.). |
+| `-y, --yes` | Skip confirmation prompts (default: true). |
+| `-c, --cwd` | Specify a working directory for initialization. |
+
+---
 
 
 import { Tab, Tabs } from "fumadocs-ui/components/tabs";
 
-### 3. Blocks
+### What happens when you add a component
 
-Blocks are a set of components to make a complete blocks, they contain multiples files. To install them it is mandatory to use the `cli`. For example it you'd like to install `ai-card-generation` block:
+- Component files are copied into your project
+- Dependencies are installed automatically
+- Tailwind styles are applied
+- The component is ready to use immediately
 
-<Tabs items={["npx", "bun", "pnpm"]}>
- 
-```bash tab="npx"
-npx shadcn@latest add https://shadifyui/r/ai-card-generation.json
-```
+No extra configuration is required.
 
-```bash tab="bun"
-bunx shadcn@latest add https://shadifyui/r/ai-card-generation.json
-```
- 
-```bash tab="pnpm"
-pnpm dlx shadcn@latest add https://shadifyui/r/ai-card-generation.json
-```
-
-</Tabs>
-
-Then, add to your page and it works!
-
-## Code Block
----
-<div className='font-sans font-bold h-auto py-4 pb-4 overflow-y-auto w-full dark:bg-neutral-900 bg-neutral-100 p-4 rounded-md'>
-```js {style="font-size: 18px; font-weight: bold; background-color: transparent;"}
-/**
- * AICardGeneration require 5 additional components
- * that will be automatically installed with the CLI.
- */
-import AICardGeneration from 
-"@/components/shadifyui/AICardGeneration";
-
-export default function Page() {
-    return <AICardGeneration />;
-}
-```
-</div>
 ---
 
-### 4. Optionnal dependencies
+### Add options
 
-Some components require additional libraries, listed at the bottom of each components. Make sure to install them to ensure the component works properly.
+| Option | Description |
+| :--- | :--- |
+| `-o, --overwrite` | Overwrite existing files if they already exist. |
+| `-a, --all` | Add all available components from the registry. |
+| `-p, --path` | Specify a custom destination path for components. |
 
-### 5. Monorepo
+---
 
-For monorepo `shadcn/ui` CLI contain the options `-c` to the path to your workspace for exemple:
+## view
 
-<Tabs items={["npx", "bun", "pnpm"]}>
- 
-```bash tab="npx"
-npx shadcn@latest add https://shadifyui/r/card-05.json -c ./apps/www
-```
-```bash tab="bun"
-bunx shadcn@latest add https://shadifyui/r/card-05.json -c ./apps/www
-```
- 
+The `view` command lets you **preview components before installing them**.
 
-```bash tab="pnpm"
-pnpm dlx shadcn@latest add https://shadifyui/r/card-05.json -c ./apps/www
-```
+This is useful when you want to:
+- Inspect component structure
+- Review dependencies
+- Understand what will be added to your project
 
-</Tabs>
+---
+
+### View a component
+
+```bash
+npx shadcn@latest view button
