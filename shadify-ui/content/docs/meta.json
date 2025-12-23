@@ -3,13 +3,12 @@
     "description": "The headless library",
     "icon": "Dna",
     "root": true,
-    "defaultOpen": true,
+    "defaultOpen": false,
     "pages": [
         "---Overview---",
         "index",
         "cli",
         "components",
-        "benefits",
         "---Components---",
         "components/tabs",
         "components/forms",
@@ -42,7 +41,9 @@
         "components/backgroundPatterns",
         "components/pills",
         "components/tags",
-        "components/TypeWriterEffects"
+        "components/TypeWriterEffects",
+        "---Blocks---"
+
         
     ]
 }
