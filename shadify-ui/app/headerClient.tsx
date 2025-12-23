@@ -22,7 +22,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
   // const token = cookies().get("token")?.value;
   // const isAuthenticate = !!token;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showservices, setShowServices] = useState(false)
+  const [showservices, setShowServices] = useState(true)
 
   const [user, setUser] = useState("");
   const [userEmail, setUserEmail] = useState("");
