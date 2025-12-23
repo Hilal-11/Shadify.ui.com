@@ -11,6 +11,7 @@ import { createElement } from "react";
 export const source = loader({
     baseUrl: "/docs",
     source: createMDXSource(docs, meta),
+    
     icon(icon) {
         if (!icon) {
             return createElement(icons.Library);
