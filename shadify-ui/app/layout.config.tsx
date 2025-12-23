@@ -45,10 +45,4 @@ export const baseOptions2: BaseLayoutProps = {
       </div>
     ),
   },
-  links: [
-    {
-      type: "custom",
-      children: <HeaderPro />,
-    },
-  ],
 };
