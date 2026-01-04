@@ -1,83 +1,23 @@
 "use client";
 
 import type React from "react";
-
-import { RiNextjsFill  , RiTailwindCssFill } from "react-icons/ri";
-import { SiShadcnui } from "react-icons/si";
-import { RiRemixRunLine } from "react-icons/ri";
-import { TbBrandFramerMotion } from "react-icons/tb";
-import { TbBrandReactNative } from "react-icons/tb";
-import Login from '../auth_services/login';
-import { CodeBlock } from "@/components/landing/code-block";
 import { motion } from "motion/react"
 import AnnoncementBadge from "./AnnoncementBadge";
 import Image from "next/image";
-
-
-import image1 from '../../public/heroImage1.png'
-import image2 from '../../public/heroImage2.png'
-interface Action {
-  id: string;
-  label: string;
-  icon: React.ReactNode;
-  description?: string;
-  short?: string;
-  end?: string;
-}
-
-const code = `"use client"
-import { useState, type FormEvent, type ChangeEvent } from "react"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { FaGoogle } from "react-icons/fa6"
-import { IoLogoGithub } from "react-icons/io5"
-import { z } from "zod"
-
-const loginSchema = z.object({
-  username: z.preprocess((v) => (typeof v === "string" ? v.trim() : v), z.string().min(3, "username is required")),
-  email: z.preprocess(
-    (v) => (typeof v === "string" ? v.trim() : v),
-    z
-      .string()
-      .regex(
-        /^(?!\.)(?!.*\.\.)([a-z0-9_'+\-.]*)[a-z0-9_+-]@([a-z0-9][a-z0-9-]*\.)+[a-z]{2,}$/i,
-        "Invalid email address",
-      ),
-  ),
-  password: z.string().min(8, "Password must be at least 8 characters"),
-})
-export default function Login2() {
-  const [errors, setErrors] = useState<Record<string, string>>({})
-  const [loginFormData, setLoginFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  })
-  const onChangeFormHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target
-    setLoginFormData({ ...loginFormData, [name]: value })
-  }
-  const formSubmitHandler = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setErrors({})
-    const parse = loginSchema.safeParse(loginFormData)
-    if (!parse.success) {
-      const fieldErrors: Record<string, string> = {}
-      for (const issue of parse.error.issues) {
-        const key = issue.path[0] ?? "form"
-        fieldErrors[String(key)] = issue.message
-      }
-      setErrors(fieldErrors)
-      return
-    }
-    console.log(parse.data)
-    setLoginFormData({ username: "", email: "", password: "" })
-  }
-`
+import { IoIosArrowRoundForward } from "react-icons/io";
+import { servicesShowCaseConfig } from '../../config/servicesConfig';
+import { useEffect, useState } from "react";
 
 export function HeroSection() {
+
+  const [serviceId , setServiceId] = useState(1)
+  const [service , setService] = useState(servicesShowCaseConfig[0])
+  useEffect(() => {
+    const findService:any = servicesShowCaseConfig.find(service => service.id === serviceId)
+    setService(findService)
+  }, [serviceId])
+
+
   return (
     <div className="w-full h-auto mx-auto md:container lg:container py-8 lg:py-16 flex flex-col items-center justify-center text-center gap-6 relative">
       <div className="w-full h-auto px-0 lg:px-4 py-6">
@@ -101,59 +41,77 @@ export function HeroSection() {
           
         </div>
       </div>
-      <div className='flex flex-wrap justify-evenly lg:justify-between py-0 gap-4 lg:gap-6 poppins-medium text-neutral-600 '>
-          <span className='flex gap-1 justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><RiNextjsFill/></span>Next.js</span>
-          <span className='flex gap-1 justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><TbBrandReactNative/></span>React</span>
-          <span className='flex gap-1 justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><RiTailwindCssFill/></span>Tailwind CSS</span>
-          <span className='flex gap-1 justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><TbBrandFramerMotion/></span>Motion</span>
-          <span className='flex gap-1 justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><RiRemixRunLine/></span>Remix</span>
-          <span className='flex gap-1 justify-center items-end text-[14px] lg:text-[15px] font-sans font-bold '> <span className='text-3xl lg:text-4xl'><SiShadcnui/></span>Shadcn</span>
-        </div>
-        <div className="w-full h-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pt-10 gap-2 lg:gap-4 justify-evenly items-center">
-          <div className="relative h-[300px] rounded-xl bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex items-center justify-center overflow-hidden w-full">
-            <div className=" z-10 absolute inset-0 h-full w-full bg-white dark:bg-neutral-900 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] bg-[size:10px_10px]"><div className="absolute bottom-0 left-0 right-0 top-0 dark:bg-[radial-gradient(circle_500px_at_50%_200px,#171717,transparent)]"></div></div>
-            
+
+        <div className="relative h-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-b border-dashed px-px">
+          {/* verticel border-dashed lines */}
+          <span className="absolute h-[800px] border-l border-dashed left-0 top-0"></span>
+          <span className="absolute h-[800px] border-r border-dashed right-0 top-0"></span>
+
+          {/* corners design */}
+          <span className="hidden lg:block absolute h-[160px] w-[160px] rounded-full border border-dashed -top-20 -left-20"></span>
+          <span className="hidden lg:block absolute h-[160px] w-[160px] rounded-full border border-dashed -top-20 -right-20"></span>
+
+          <div className="relative h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex items-center justify-center overflow-hidden w-full border-r border-dashed">
+            <div className="w-full h-[100px] absolute -top-12 bg-orange-200 rounded-b-full blur-lg"></div>
           </div>
-          <div className="relative overflow-hidden h-[300px] rounded-xl bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full ">
-            <div className="absolute inset-0 h-full w-full bg-white dark:bg-neutral-900 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] bg-[size:10px_10px]"><div className="absolute bottom-0 left-0 right-0 top-0 dark:bg-[radial-gradient(circle_500px_at_50%_200px,#171717,transparent)]"></div></div>
+          <div className="relative overflow-hidden h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full border-r border-dashed">
           </div>
-          <div className="relative overflow-hidden h-[300px] rounded-xl bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full">
-            <div className="absolute inset-0 h-full w-full bg-white dark:bg-neutral-900 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] bg-[size:10px_10px]"><div className="absolute bottom-0 left-0 right-0 top-0 dark:bg-[radial-gradient(circle_500px_at_50%_200px,#171717,transparent)]"></div></div>
+          <div className="relative overflow-hidden h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full border-r border-dashed">
           </div>
-          <div className="relative overflow-hidden h-[300px] rounded-xl bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full">
-            <div className="absolute inset-0 h-full w-full bg-white dark:bg-neutral-900 bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] bg-[size:10px_10px]"><div className="absolute bottom-0 left-0 right-0 top-0 dark:bg-[radial-gradient(circle_500px_at_50%_200px,#171717,transparent)]"></div></div>
-          </div>
+          <div className="relative overflow-hidden h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full border-r border-dashed "></div>
+
+          <div className="relative overflow-hidden h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full border-r border-dashed border-t"></div>
+
+          <div className="relative overflow-hidden h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full border-r border-dashed border-t"></div>
+
+          <div className="md:col-span-2 lg:col-span-2 relative overflow-hidden h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full border-r border-dashed border-t"></div>
+
         </div> 
 
         <br /><br />
         <div className="pt-10">
-          <h1 className="font-sans font-bold text-3xl lg:text-6xl text-neutral-800 dark:text-neutral-200">Easy to Integrate, Build faster ship faster and Deploy smoothly</h1>
-          <div className="w-full h-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 justify-between py-10 items-center">
-            <div className='scrollbar-hide bg-neutral-50 dark:bg-neutral-950 rounded-lg h-[400px] md:h-[450px] lg:h-[500px] w-[100%] overflow-auto shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] mt-20'>
-              <CodeBlock 
-                language="jsx"
-                filename="DummyComponent.jsx"
-                highlightLines={[9, 13, 14, 18]}
-                code={code}
-               />
+          <h1 className="font-sans font-bold text-xl lg:text-5xl text-neutral-800 dark:text-neutral-200">Easy to Integrate, Build faster ship faster and Deploy smoothly</h1>
+          <div className="w-full h-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 justify-between py-10 items-start">
+
+            <div className="">
+              <div className="w-full flex justify-end lg:hidden">
+                <span className="text-3xl relative top-6 bg-neutral-200 shadow-md border rounded-full dark:bg-neutral-800 flex justify-center items-center"><IoIosArrowRoundForward /></span>
+              </div>
+              <div className="flex lg:flex-col flex-nowrap overflow-auto gap-6 pl-2 pt-10">
+
+                {
+                  servicesShowCaseConfig.map(({id , service , discription , tech_bages , link , icon: Icon}) => (
+                    <div key={id} onClick={() => setServiceId(id) } className="cursor-pointer lg:w-auto w-[400px] h-auto rounded-sm px-2 py-2 bg-neutral-100 dark:bg-neutral-900 border pb-4 relative">
+                      <div className="flex w-[350px] justify-between ">
+                        <div className="w-[80] lg:w-[120px] h-[80px] flex items-center justify-center">
+                          <span className="text-4xl"><Icon/></span>
+                        </div>
+                        <div className="pt-1 pb-2 lg:pl-0 pl-3">
+                          <h1 className="text-left text-sm font-bold text-neutral-700 dark:text-neutral-300">{service}</h1>
+                          <p className="text-left text-[11px] font-sans font-medium pl-1 text-neutral-500">{discription}</p>
+                        </div>
+                        <div className="absolute right-1 bottom-1 flex gap-1">
+                          {
+                            tech_bages.map((tech , index) => (
+                              <span key={index} className="text-[11px] font-mono font-medium px-2 h-4 rounded-full shadow-xs bg-neutral-700 text-neutral-200 flex items-center justify-center">{tech}</span>
+                            ))
+                          }
+                          </div>
+                      </div>
+                  </div>
+                    ))
+                }
+                
+
+
+              </div>
             </div>
-            <div className='relative pt-10 w-full flex justify-center flex-nowrap overflow-hidden h-full '>
-                <Image
-                  className="hidden md:block lg:block z-20 rounded-2xl relative -bottom-20"
-                  src={image1} 
-                  alt="Image not load yet"
-                  width={500}
-                  height={500}
-                />
-                  <Login />
-                <Image  
-                  className="hidden md:block lg:block z-20 relative top-16 rounded-2xl" 
-                  src={image2} 
-                  alt="Image not load yet" 
-                  width={500}
-                  height={500}
-                />
+            <div className="xl:col-span-2 h-[600px] lg:pt-10 border">
+              <div className="flex items-center justify-center overflow-hidden">
+                 <img className=" h-[500px] object-cover overflow-hidden" src={service.image} alt="Err" />
+              </div> 
             </div>
+
           </div>
         </div>
     </div>

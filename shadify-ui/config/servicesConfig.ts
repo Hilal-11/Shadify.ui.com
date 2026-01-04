@@ -3,7 +3,6 @@ import { IconType } from "react-icons";
 import { MdViewQuilt } from "react-icons/md";
 import { IoPhonePortraitOutline } from "react-icons/io5";
 import { LiaIconsSolid } from "react-icons/lia";
-import { FaRobot } from "react-icons/fa6";
 import { TbBrandAuth0 } from "react-icons/tb";
 import { LuFigma } from "react-icons/lu";
 import { TbBackground } from "react-icons/tb";
@@ -74,3 +73,57 @@ export const services: Services[]  = [
     link: "/designs"
   }
 ];
+
+
+interface IServices {
+    id: number
+    service: string
+    discription: string
+    tech_bages: string[]
+    icon: IconType,
+    link: string,
+    image: string,
+
+}
+export const servicesShowCaseConfig:IServices[] = [
+  {
+    id: 1,
+    service: "Web Components for React/Next.Js",
+    discription: "Production ready funationsl web components for react/nextjs application.",
+    tech_bages : ["React", "Next.Js" , "Typescript"],
+    link: "/docs",
+    icon: GrCubes,
+    image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1767535126/Screenshot_2026-01-04_192534_ayj4if.png"
+
+  },
+  {
+    id: 2,
+    service: "Modern Web Templates",
+    discription: "Modern Web Templates for personal, professional, business or anything.",
+    tech_bages : ["React/Next.js" , "Tailwind/Motion" , "Typescript"],
+    link: "/templatess",
+    icon: MdViewQuilt,
+    image: "https://cdn.dribbble.com/userupload/18345302/file/original-cd77993b9bf19501994e8099f6bfe59c.jpg"
+  },
+  {
+    id: 3,
+    service: "Mobile Appications",
+    discription: "Production ready funationsl web components for react/nextjs application.",
+    tech_bages : ["React Native", "Flutter", "Typescript"],
+    link: "/mobile-apps",
+    icon: IoPhonePortraitOutline,
+    image: "https://cdn.dribbble.com/userupload/43067054/file/original-8fdd2826c28645b40c13bc6426fce4a5.jpg"
+
+  },
+  {
+    id: 4,
+    service: "UI Design Kits",
+    discription: "Production ready funationsl web components for react/nextjs application.",
+    tech_bages : ["Figma" , "Frammer" , "Designs"],
+    link: "/designs",
+    icon: LuFigma,
+    image: "https://cdn.dribbble.com/userupload/42728462/file/original-77d7c731d90840391841a852b1f347a0.png"
+
+  },
+
+]
