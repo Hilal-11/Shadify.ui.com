@@ -88,7 +88,7 @@ interface IServices {
 export const servicesShowCaseConfig:IServices[] = [
   {
     id: 1,
-    service: "Web Components for React/Next.Js",
+    service: "Web Components",
     discription: "Production ready funationsl web components for react/nextjs application.",
     tech_bages : ["React", "Next.Js" , "Typescript"],
     link: "/docs",
@@ -98,7 +98,7 @@ export const servicesShowCaseConfig:IServices[] = [
   },
   {
     id: 2,
-    service: "Modern Web Templates",
+    service: "Web Templates",
     discription: "Modern Web Templates for personal, professional, business or anything.",
     tech_bages : ["React/Next.js" , "Tailwind/Motion" , "Typescript"],
     link: "/templatess",

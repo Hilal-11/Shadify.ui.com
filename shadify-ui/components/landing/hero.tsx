@@ -53,6 +53,13 @@ export function HeroSection() {
 
           <div className="relative h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex items-center justify-center overflow-hidden w-full border-r border-dashed">
             <div className="w-full h-[100px] absolute -top-12 bg-orange-200 rounded-b-full blur-lg"></div>
+            <div>
+              <img className="object-cover" src="https://res.cloudinary.com/dou5rypdf/image/upload/v1767559172/Hilal_zsdfut.png" alt="" />
+            </div>
+            <div className="absolute bottom-2 px-5">
+              <h1 className="font-sans font-medium text-[16px] text-left">Web Components</h1>
+              <p className="text-[12px] font-sans font-medium text-neutral-400 text-left">Explore the production ready components for React and Next.Js apps.</p>
+            </div>
           </div>
           <div className="relative overflow-hidden h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full border-r border-dashed">
           </div>
@@ -77,23 +84,25 @@ export function HeroSection() {
               <div className="w-full flex justify-end lg:hidden">
                 <span className="text-3xl relative top-6 bg-neutral-200 shadow-md border rounded-full dark:bg-neutral-800 flex justify-center items-center"><IoIosArrowRoundForward /></span>
               </div>
-              <div className="flex lg:flex-col flex-nowrap overflow-auto gap-6 pl-2 pt-10">
+              <div className="flex lg:flex-col flex-nowrap overflow-auto gap-2 lg:gap-6 pl-2 pt-10">
 
                 {
                   servicesShowCaseConfig.map(({id , service , discription , tech_bages , link , icon: Icon}) => (
-                    <div key={id} onClick={() => setServiceId(id) } className="cursor-pointer lg:w-auto w-[400px] h-auto rounded-sm px-2 py-2 bg-neutral-100 dark:bg-neutral-900 border pb-4 relative">
-                      <div className="flex w-[350px] justify-between ">
+                    <div key={id} onClick={() => setServiceId(id) } className="cursor-pointer lg:w-auto w-[400px] h-auto rounded-sm px-2 py-2 bg-neutral-100 dark:bg-neutral-900 border pb-4 relative hover:bg-neutral-900 dark:hover:bg-neutral-200 dark:hover:text-neutral-800 hover:text-neutral-200 group shadow-md transition duration-300 ease-in-out ">
+                      <div className="flex w-[320px] justify-between ">
                         <div className="w-[80] lg:w-[120px] h-[80px] flex items-center justify-center">
                           <span className="text-4xl"><Icon/></span>
                         </div>
                         <div className="pt-1 pb-2 lg:pl-0 pl-3">
-                          <h1 className="text-left text-sm font-bold text-neutral-700 dark:text-neutral-300">{service}</h1>
-                          <p className="text-left text-[11px] font-sans font-medium pl-1 text-neutral-500">{discription}</p>
+                          <h1 className="text-left text-sm font-bold text-neutral-700 group-hover:text-neutral-300 dark:group-hover:text-neutral-700 dark:text-neutral-300">{service}</h1>
+                          <p className="text-left text-[11px] font-sans font-medium pl-1 group-hover:text-neutral-500 text-neutral-500">{discription}</p>
                         </div>
                         <div className="absolute right-1 bottom-1 flex gap-1">
                           {
                             tech_bages.map((tech , index) => (
-                              <span key={index} className="text-[11px] font-mono font-medium px-2 h-4 rounded-full shadow-xs bg-neutral-700 text-neutral-200 flex items-center justify-center">{tech}</span>
+                              <motion.span
+
+                              key={index} className="group-hover:flex md:hidden lg:hidden text-[11px] font-mono font-medium px-2 h-4 rounded-full shadow-xs bg-neutral-700 text-neutral-200 items-center justify-center">{tech}</motion.span>
                             ))
                           }
                           </div>
@@ -106,7 +115,7 @@ export function HeroSection() {
 
               </div>
             </div>
-            <div className="xl:col-span-2 h-[600px] lg:pt-10 border">
+            <div className="xl:col-span-2 h-[600px] lg:pt-10">
               <div className="flex items-center justify-center overflow-hidden">
                  <img className=" h-[500px] object-cover overflow-hidden" src={service.image} alt="Err" />
               </div> 
