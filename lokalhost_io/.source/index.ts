@@ -1,4 +1,5 @@
 // @ts-nocheck -- skip type checking
+import * as meta_0 from "../content/docs/meta.json?collection=meta&hash=1761859682028"
 import * as docs_36 from "../content/docs/hooks/use-auto-resize-textarea.mdx?collection=docs&hash=1761859682028"
 import * as docs_35 from "../content/docs/components/TypeWritereffects.mdx?collection=docs&hash=1761859682028"
 import * as docs_34 from "../content/docs/components/tooltip.mdx?collection=docs&hash=1761859682028"
@@ -36,7 +37,6 @@ import * as docs_3 from "../content/docs/components/accordions.mdx?collection=do
 import * as docs_2 from "../content/docs/index.mdx?collection=docs&hash=1761859682028"
 import * as docs_1 from "../content/docs/components.mdx?collection=docs&hash=1761859682028"
 import * as docs_0 from "../content/docs/cli.mdx?collection=docs&hash=1761859682028"
-import * as meta_0 from "../content/docs/meta.json?collection=meta&hash=1761859682028"
 import * as authmeta_0 from "../content/authdocs/meta.json?collection=authmeta&hash=1761859682028"
 import * as authdocs_14 from "../content/authdocs/components/User_Profile.mdx?collection=authdocs&hash=1761859682028"
 import * as authdocs_13 from "../content/authdocs/components/Signup.mdx?collection=authdocs&hash=1761859682028"
