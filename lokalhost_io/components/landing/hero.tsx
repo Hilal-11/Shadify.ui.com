@@ -7,9 +7,10 @@ import Image from "next/image";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { servicesShowCaseConfig } from '../../config/servicesConfig';
 import { useEffect, useState } from "react";
-
+import { ThemeProvider , useTheme } from "next-themes"
 export function HeroSection() {
 
+  const { theme } = useTheme();
   const [serviceId , setServiceId] = useState(1)
   const [service , setService] = useState(servicesShowCaseConfig[0])
   useEffect(() => {
@@ -17,6 +18,12 @@ export function HeroSection() {
     setService(findService)
   }, [serviceId])
 
+
+
+{/* <img
+  src={theme === 'dark' ? '/image-dark.png' : '/image-light.png'}
+  alt=""
+/> */}
 
   return (
     <div className="w-full h-auto mx-auto md:container lg:container py-8 lg:py-16 flex flex-col items-center justify-center text-center gap-6 relative">
@@ -41,8 +48,8 @@ export function HeroSection() {
           
         </div>
       </div>
-
-        <div className="relative h-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-b border-dashed px-px">
+{/*  */}
+        <div className="relative h-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t gap-2 md:gap-0 lg:gap-0 border-b border-dashed px-px">
           {/* verticel border-dashed lines */}
           <span className="absolute h-[800px] border-l border-dashed left-0 top-0"></span>
           <span className="absolute h-[800px] border-r border-dashed right-0 top-0"></span>
@@ -52,20 +59,62 @@ export function HeroSection() {
           <span className="hidden lg:block absolute h-[160px] w-[160px] rounded-full border border-dashed -top-20 -right-20"></span>
 
           <div className="relative h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex items-center justify-center overflow-hidden w-full border-r border-dashed">
-            <div className="w-full h-[100px] absolute -top-12 bg-orange-200 rounded-b-full blur-lg"></div>
+            <div className="dark:hidden w-full h-[100px] absolute -top-12 bg-gradient-to-r from-[hsla(312,77%,86%,1)] to-[hsla(220,61%,79%,1)] rounded-b-full blur-lg"></div>
             <div>
-              <img className="object-cover" src="https://res.cloudinary.com/dou5rypdf/image/upload/v1767559172/Hilal_zsdfut.png" alt="" />
+              <Image 
+                width={400}
+                height={650}
+                src={theme === 'dark' ? "https://res.cloudinary.com/dou5rypdf/image/upload/v1767732075/image_comp_dark_xwdxwb.png" : "https://res.cloudinary.com/dou5rypdf/image/upload/v1767728958/image_comp_vzgzhv.png"}
+                alt=""
+              />
             </div>
             <div className="absolute bottom-2 px-5">
               <h1 className="font-sans font-medium text-[16px] text-left">Web Components</h1>
               <p className="text-[12px] font-sans font-medium text-neutral-400 text-left">Explore the production ready components for React and Next.Js apps.</p>
             </div>
           </div>
+
+
           <div className="relative overflow-hidden h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full border-r border-dashed">
+            <div className="dark:hidden w-full h-[100px] absolute -top-12 bg-gradient-to-r from-[hsla(277,79%,84%,1)] to-[hsla(204,95%,77%,1)] rounded-b-full blur-lg"></div>
+            <div>
+              <Image 
+                width={400}
+                height={650}
+                src={theme === 'dark' ? "https://res.cloudinary.com/dou5rypdf/image/upload/v1767730724/image_temp_dark2_bkl2f6.png" : "https://res.cloudinary.com/dou5rypdf/image/upload/v1767729440/image_templat_r9b3hs.png"}
+                alt=""
+              />
+            </div>
           </div>
+
+
+
+
           <div className="relative overflow-hidden h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full border-r border-dashed">
+            <div className="dark:hidden w-full h-[100px] absolute -top-12 bg-gradient-to-r from-[hsla(212,35%,58%,1)] to-[hsla(218,32%,80%,1)] rounded-b-full blur-lg"></div>
+            <div>
+               <Image 
+                width={400}
+                height={650}
+                src={theme === 'dark' ? "https://res.cloudinary.com/dou5rypdf/image/upload/v1767732075/image_mob_dark_t4wia5.png" : "https://res.cloudinary.com/dou5rypdf/image/upload/v1767729440/image_mob_w4f6v3.png"}
+                alt=""
+              />
+            </div>
           </div>
-          <div className="relative overflow-hidden h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full border-r border-dashed "></div>
+
+
+          
+          <div className="relative overflow-hidden h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full border-r border-dashed ">
+            <div className="dark:hidden w-full h-[100px] absolute -top-12 bg-gradient-to-r from-[hsla(233,100%,90%,1)] to-[hsla(0,0%,89%,1)] rounded-b-full blur-lg"></div>
+            <div>
+              <Image 
+                width={400}
+                height={650}
+                src={theme === 'dark' ? "https://res.cloudinary.com/dou5rypdf/image/upload/v1767732075/image_mob_dark_t4wia5.png" : "https://res.cloudinary.com/dou5rypdf/image/upload/v1767729440/image_design_xo7czm.png"}
+                alt=""
+              />
+            </div>
+          </div>
 
           <div className="relative overflow-hidden h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full border-r border-dashed border-t"></div>
 
@@ -76,20 +125,19 @@ export function HeroSection() {
         </div> 
 
         <br /><br />
-        <div className="pt-10">
+        <div className="lg:pt-10">
           <h1 className="font-sans font-bold text-xl lg:text-5xl text-neutral-800 dark:text-neutral-200">Easy to Integrate, Build faster ship faster and Deploy smoothly</h1>
-          <div className="w-full h-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 justify-between py-10 items-start">
-
-            <div className="">
+          
+          <div className="lg:mt-20 w-full h-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 justify-between lg:py-10 items-between">
               <div className="w-full flex justify-end lg:hidden">
                 <span className="text-3xl relative top-6 bg-neutral-200 shadow-md border rounded-full dark:bg-neutral-800 flex justify-center items-center"><IoIosArrowRoundForward /></span>
               </div>
-              <div className="flex lg:flex-col flex-nowrap overflow-auto gap-2 lg:gap-6 pl-2 pt-10">
+              <div className="flex lg:flex-col justify-between lg:h-[525px] flex-nowrap overflow-auto gap-2 pl-2">
 
                 {
                   servicesShowCaseConfig.map(({id , service , discription , tech_bages , link , icon: Icon}) => (
-                    <div key={id} onClick={() => setServiceId(id) } className="cursor-pointer lg:w-auto w-[400px] h-auto rounded-sm px-2 py-2 bg-neutral-100 dark:bg-neutral-900 border pb-4 relative hover:bg-neutral-900 dark:hover:bg-neutral-200 dark:hover:text-neutral-800 hover:text-neutral-200 group shadow-md transition duration-300 ease-in-out ">
-                      <div className="flex w-[320px] justify-between ">
+                    <div key={id} onClick={() => setServiceId(id) } className="cursor-pointer lg:w-auto w-[400px] h-auto rounded-sm px-2 py-2 bg-neutral-100 dark:bg-neutral-900 border pb-4 relative hover:bg-neutral-900 dark:hover:bg-neutral-200 dark:hover:text-neutral-800 hover:text-neutral-200 group shadow-md transition duration-300 ease-in-out">
+                      <div className="flex w-[320px] justify-between">
                         <div className="w-[80] lg:w-[120px] h-[80px] flex items-center justify-center">
                           <span className="text-4xl"><Icon/></span>
                         </div>
@@ -110,35 +158,58 @@ export function HeroSection() {
                   </div>
                     ))
                 }
-                
-
-
               </div>
-            </div>
-            <div className="xl:col-span-2 h-[600px] overflow-hidden lg:pt-10 border">
-               
-
+            <div className="xl:col-span-2 lg:h-[600px] overflow-hidden">
+               {/* for components */}
+                { 
+                  service.id === 1 && <div className="w-full h-auto gap-2 grid lg:grid-cols-3 grid-cols-2">
+                    <div className="h-[260px] rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
+                    <div className="h-[260px] rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
+                    <div className="h-[260px] rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
+                    <div className="h-[260px] lg:col-span-2 rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
+                    <div className="h-[260px] lg:col-span-1 col-span-2 rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
+                  </div>
+                }
                {/* for templates view */}
-               <div className="grid grid-cols-2 gap-6 -rotate-25 justify-end items-end pl-14">
-                <div className="grid grid-cols-1 w-full h-full gap-6 justify-between relative bottom-[38rem]">
+               <div className="grid grid-cols-2 gap-6 rotate-25 justify-end items-end pr-28">
+                <motion.div
+                    initial={{ opacity: 0, y: -280 }}   // start from TOP
+                    whileInView={{ opacity: 1, y: -150 }} // move DOWN smoothly
+                    viewport={{ once: false }} 
+                    transition={{
+                      duration: 2.6,
+                      ease: 'easeInOut',
+                    }}
+
+                 className="grid grid-cols-1 w-full h-full gap-6 justify-between relative">
                 {
                   service.id === 2 && service?.templates_list_1?.map((template) => (
-                    <div key={template?.id} className={`flex justify-center items-center text-xl font-medium font-sans h-[300px] shadow-sm border rounded-sm bg-neutral-100 dark:bg-neutral-800`}>
+                    <div key={template?.id} className={`flex justify-center items-center text-xl font-medium font-sans h-[200px] lg:h-[300px] shadow-sm border rounded-sm bg-neutral-100 dark:bg-neutral-800`}>
                       <h1>{template.id}</h1>
                     </div>
                   ))
                 }
-               </div>
-               <div className="grid grid-cols-1 w-full h-full gap-6 justify-between relative top-78">
+               </motion.div>
+               <motion.div
+                  initial={{ opacity: 0, y: -280 }}   // start from TOP
+                    whileInView={{ opacity: 1, y: -150 }} // move DOWN smoothly
+                    viewport={{ once: false }} 
+                    transition={{
+                      duration: 1.6,
+                      ease: 'easeInOut',
+                    }}
+
+                className="grid grid-cols-1 w-full h-full gap-6 justify-between relative">
                 {
                   service.id === 2 && service?.templates_list_2?.map((template) => (
-                    <div key={template?.id} className={`flex justify-center items-center text-xl font-medium font-sans h-[300px] shadow-sm border rounded-sm bg-neutral-100 dark:bg-neutral-800`}>
+                    <div key={template?.id} className={`flex justify-center items-center text-xl font-medium font-sans h-[200px] lg:h-[300px] shadow-sm border rounded-sm bg-neutral-100 dark:bg-neutral-800`}>
                       <h1>{template.id}</h1>
                     </div>
                   ))
                 }
+               </motion.div>
                </div>
-               </div>
+               {/* for compo */}
             </div>
 
           </div>
