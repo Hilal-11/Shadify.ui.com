@@ -10,11 +10,10 @@
         "components",
         "---Components---",
         "components/buttons",
-        "components/bantos",
+        "components/bentos",
         "components/cards",
         "components/forms",
-        "components/inputFields",
-        "components/menus",
+        "components/inputs",
         "components/navbars"
     ]
 }
