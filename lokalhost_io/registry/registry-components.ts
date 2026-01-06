@@ -2,21 +2,195 @@ import type { Registry } from "./schema";
 
 export const component: Registry = [
     {
+        name: "buttonX",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/buttonX.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+
+    {
         name: "button-01",
         type: "registry:component",
         dependencies: ["lucide-react", "motion"],
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/lokalhost_io/buttons/button-01.tsx",
+                path: "components/lokalhost_io/buttons/btn-01.tsx",
                 type: "registry:component",
-            },
-            {
-                path: "hooks/use-auto-resize-textarea.ts",
-                type: "registry:hook",
             },
         ],
     },
+
+    {
+        name: "button-02",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/btn-02.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+
+        {
+        name: "button-03",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/btn-03.tsx",
+                type: "registry:component",
+            },
+        ],
+    },    {
+        name: "button-04",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/btn-04.tsx",
+                type: "registry:component",
+            },
+        ],
+    },    {
+        name: "button-05",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/btn-05.tsx",
+                type: "registry:component",
+            },
+        ],
+    },    {
+        name: "button-06",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/btn-06.tsx",
+                type: "registry:component",
+            },
+        ],
+    },    {
+        name: "button-07",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/btn-07.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+        {
+        name: "button-08",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/btn-08.tsx",
+                type: "registry:component",
+            },
+        ],
+    },    {
+        name: "button-09",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/btn-09.tsx",
+                type: "registry:component",
+            },
+        ],
+    },    {
+        name: "button-10",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/btn-10.tsx",
+                type: "registry:component",
+            },
+        ],
+    },    {
+        name: "button-11",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/btn-11.tsx",
+                type: "registry:component",
+            },
+        ],
+    },    {
+        name: "button-12",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/btn-12.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+
+    {
+        name: "button-13",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/btn-13.tsx",
+                type: "registry:component",
+            },
+        ],
+    },    {
+        name: "button-14",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/btn-14.tsx",
+                type: "registry:component",
+            },
+        ],
+    },    {
+        name: "button-15",
+        type: "registry:component",
+        dependencies: ["lucide-react", "motion"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/buttons/btn-15.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+
+
+
+
     
     {
         name: "navbar",
@@ -31,26 +205,6 @@ export const component: Registry = [
         ],
     },
     {
-        name: "mega-menu",
-        type: "registry:component",
-        dependencies: ["lucide-react"],
-        registryDependencies: ["textarea"],
-        files: [
-            {
-                path: "components/lokalhost_io/mega_menus/mega-menu.tsx",
-                type: "registry:component",
-            },
-            {
-                path: "hooks/use-auto-resize-textarea.ts",
-                type: "registry:hook",
-            },
-            {
-                path: "hooks/use-click-outside.ts",
-                type: "registry:hook",
-            },
-        ],
-    },
-    {
         name: "pricing",
         type: "registry:component",
         dependencies: ["lucide-react"],
@@ -60,203 +214,178 @@ export const component: Registry = [
                 path: "components/lokalhost_io/pricings/pricing.tsx",
                 type: "registry:component",
             },
-            {
-                path: "hooks/use-auto-resize-textarea.ts",
-                type: "registry:hook",
-            },
         ],
     },
+
     {
-        name: "reviews",
+        name: "footer-01",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["textarea"],
         files: [
             {
-                path: "components/lokalhost_io/reviews/reviews.tsx",
+                path: "components/lokalhost_io/footers/footer-01.tsx",
                 type: "registry:component",
             },
-            {
-                path: "hooks/use-auto-resize-textarea.ts",
-                type: "registry:hook",
-            },
-        ],
-    },
-    {
-        name: "footer",
-        type: "registry:component",
-        dependencies: ["lucide-react"],
-        registryDependencies: ["textarea"],
-        files: [
-            {
-                path: "components/lokalhost_io/footers/footer.tsx",
-                type: "registry:component",
-            },
-            {
-                path: "hooks/use-auto-resize-textarea.ts",
-                type: "registry:hook",
-            },
-        ],
-    },
-    {
-        name: "forms",
-        type: "registry:component",
-        dependencies: ["lucide-react"],
-        registryDependencies: ["textarea"],
-        files: [
-            {
-                path: "components/lokalhost_io/forms/forms.tsx",
-                type: "registry:component",
-            },
-            {
-                path: "hooks/use-auto-resize-textarea.ts",
-                type: "registry:hook",
-            },
-        ],
-    },
-    {
-        name: "code-block",
-        type: "registry:component",
-        dependencies: ["lucide-react", "motion"],
-        registryDependencies: [],
-        files: [
-            {
-                path: "components/lokalhost_io/code_blocks/codeBlock.tsx",
-                type: "registry:component",
-            },
-            {
-                path: "hooks/use-click-outside.ts",
-                type: "registry:hook",
-            },
-        ],
-    },
-    {
-        name: "cta",
-        type: "registry:component",
-        dependencies: ["lucide-react"],
-        registryDependencies: ["textarea"],
-        files: [
-            {
-                path: "components/lokalhost_io/cta/cta.tsx",
-                type: "registry:component",
-            },
-            {
-                path: "hooks/use-auto-resize-textarea.ts",
-                type: "registry:hook",
-            },
-        ],
-    },
-    {
-        name: "dashboard",
-        type: "registry:component",
-        dependencies: ["lucide-react"],
-        registryDependencies: ["button"],
-        files: [
-            {
-                path: "components/lokalhost_io/dashboard/dashboard-01.tsx",
-                type: "registry:component",
-            },
-        ],
-    },
-    {
-        name: "tabs",
-        type: "registry:component",
-        registryDependencies: ["button"],
-        files: [
-            {
-                path: "components/lokalhost_io/tabs/tabs.tsx",
-                type: "registry:component",
-            },
-        ],
-    },
-    {
-        name: "text-animation",
-        type: "registry:component",
-        dependencies: ["lucide-react", "motion"],
-        registryDependencies: ["button"],
-        files: [
-            {
-                path: "components/lokalhost_io/text_animation/animated-text.tsx",
-                type: "registry:component",
-            },
-        ],
-    },
-    {
-        name: "shimmer_uis",
-        type: "registry:component",
-        dependencies: ["lucide-react", "motion"],
-        registryDependencies: ["button"],
-        files: [
-            {
-                path: "components/lokalhost_io/shimmer_uis/shimmer-ui.tsx",
-                type: "registry:component",
-            },
-        ],
-    },
-    {
-        name: "loaders",
-        type: "registry:component",
-        dependencies: ["lucide-react", "motion"],
-        registryDependencies: ["button"],
-        files: [
-            {
-                path: "components/lokalhost_io/loaders/loader.tsx",
-                type: "registry:component",
-            },
-        ],
-    },
-    {
-        name: "btn-06",
-        type: "registry:component",
-        dependencies: ["lucide-react", "motion"],
-        registryDependencies: ["button"],
-        files: [
-            {
-                path: "components/lokalhost_io/button/btn-06.tsx",
-                type: "registry:component",
-            },
-            {
-                path: "hooks/use-copy-to-clipboard.ts",
-                type: "registry:hook",
-            },
-        ],
-    },
-    {
-        name: "login",
-        type: "registry:component",
-        dependencies: ["lucide-react"],
-        registryDependencies: ["button"],
-        files: [
-            {
-                path: "components/lokalhost_io/forms/login.tsx",
-                type: "registry:component",
-            },
+        
         ],
     },
     {
         name: "signup",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["button"],
+        registryDependencies: ["textarea"],
         files: [
             {
                 path: "components/lokalhost_io/forms/signup.tsx",
                 type: "registry:component",
             },
+        
+        ],
+    },
+
+    {
+        name: "login",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: ["textarea"],
+        files: [
+            {
+                path: "components/lokalhost_io/forms/login.tsx",
+                type: "registry:component",
+            },
+        
+        ],
+    },
+
+
+
+
+    {
+        name: "card-01",
+        type: "registry:component",
+        dependencies: [],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/lokalhost_io/cards/card-01.tsx",
+                type: "registry:component",
+            },
         ],
     },
     {
-        name: "cards",
+        name: "card-02",
         type: "registry:component",
         dependencies: ["lucide-react"],
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/lokalhost_io/cards/cards..tsx",
+                path: "components/lokalhost_io/cards/card-02.tsx",
                 type: "registry:component",
             },
         ],
     },
+    {
+        name: "card-03",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/lokalhost_io/cards/card-03.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "card-04",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/lokalhost_io/cards/card-04.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "card-05",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/lokalhost_io/cards/card-05.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "card-06",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/lokalhost_io/cards/card-06.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "card-07",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/lokalhost_io/cards/card-07.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "card-08",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/lokalhost_io/cards/card-08.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "card-09",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: [],
+        files: [
+            {
+                path: "components/lokalhost_io/cards/card-09.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+    {
+        name: "card-10",
+        type: "registry:component",
+        dependencies: ["lucide-react"],
+        registryDependencies: ["button", "progress"],
+        files: [
+            {
+                path: "components/lokalhost_io/cards/card-10.tsx",
+                type: "registry:component",
+            },
+        ],
+    },
+
+
+
+
+
     {
         name: "bento",
         type: "registry:component",
@@ -264,35 +393,12 @@ export const component: Registry = [
         registryDependencies: ["button"],
         files: [
             {
-                path: "components/lokalhost_io/bento_grids/bento.tsx",
+                path: "components/lokalhost_io/bentos/bento.tsx",
                 type: "registry:component",
             },
         ],
     },
-    {
-        name: "alert",
-        type: "registry:component",
-        dependencies: ["lucide-react"],
-        registryDependencies: ["button"],
-        files: [
-            {
-                path: "components/lokalhost_io/alert/alert-01.tsx",
-                type: "registry:component",
-            },
-        ],
-    },
-    {
-        name: "accordian",
-        type: "registry:component",
-        dependencies: ["lucide-react"],
-        registryDependencies: ["button"],
-        files: [
-            {
-                path: "components/lokalhost_io/accordians/accordian.tsx",
-                type: "registry:component",
-            },
-        ],
-    },
+
     {
         name: "input-01",
         type: "registry:component",
