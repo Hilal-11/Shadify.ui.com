@@ -13,13 +13,9 @@ interface PreviewProps {
   isBlock?: boolean;
 }
 
-// const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
-//   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-//   : `https://${process.env.NEXT_PUBLIC_SITE_URL}`;
-
 const prePath = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  ? `http://localhost:3000/`
-  : `http://localhost:3000/`;
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "http://localhost:3000";
 
 export function Preview({
   children,
