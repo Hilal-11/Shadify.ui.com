@@ -195,7 +195,7 @@ export const component: Registry = [
     {
         name: "navbar",
         type: "registry:component",
-        dependencies: [""],
+        dependencies: ["lucide-react", "motion"],
         registryDependencies: ["textarea"],
         files: [
             {
@@ -211,7 +211,7 @@ export const component: Registry = [
         registryDependencies: ["textarea", "tooltip"],
         files: [
             {
-                path: "components/lokalhost_io/pricings/pricing.tsx",
+                path: "components/lokalhost_io/pricing/pricing-01.tsx",
                 type: "registry:component",
             },
         ],
@@ -390,7 +390,6 @@ export const component: Registry = [
         name: "bento",
         type: "registry:component",
         dependencies: ["lucide-react"],
-        registryDependencies: ["button"],
         files: [
             {
                 path: "components/lokalhost_io/bentos/bento.tsx",
