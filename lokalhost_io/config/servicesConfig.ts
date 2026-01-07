@@ -79,6 +79,7 @@ interface ITemlatesList {
   id: number | string,
   template_image: string,
   template_url: string
+  template_name: string
 }
 interface IServices {
     id: number
@@ -113,37 +114,46 @@ export const servicesShowCaseConfig:IServices[] = [
     image: "https://cdn.dribbble.com/userupload/18345302/file/original-cd77993b9bf19501994e8099f6bfe59c.jpg",
     templates_list_1: [
       {
-        id: "template_1",
-        template_image: "",
-        template_url: "",
-      },
-      {
-        id: "template_2",
-        template_image: "",
-        template_url: "",
-      },
-      {
-        id: "template_3",
-        template_image: "",
-        template_url: "",
-      },
+
+        id: "jd743wehqr6b3qxpd0gdxhh50x7xpxk2",
+        template_image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1760680292/Screenshot_2025-08-14_010122_dqcw04.png",
+        template_url: "https://start-up-seven-iota.vercel.app/",
+        template_name: "Agency Templete PrimeDeck"
+    },
+    {
+        id: "jd7e2jfhf8sz24xfgpech0hzzs7xpbqm",
+        template_image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1760680174/Screenshot_2025-08-03_230537_f6popm.png",
+        template_url: "https://portfolio-templete-five.vercel.app/",
+        template_name: "Your Portfolio"
+    },
+    {
+        id: "jd72kqr9k6104ynps1vkfedfxd7xpcgy",
+        template_image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1760680072/IMG-20251009-WA0001_idp5je.jpg",
+        template_url: "https://portfolix-two.vercel.app/",
+        template_name: "Minimal Portfolio for everyone"
+    },
+    
     ],
     templates_list_2: [
       {
-        id: "template_4",
-        template_image: "",
-        template_url: "",
+          id: "jd72kqr9k6104ynps1vkfedfxd7xpcgy",
+          template_image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1760680072/IMG-20251009-WA0001_idp5je.jpg",
+          template_url: "https://portfolio-pro-seven.vercel.app/",
+          template_name: "Minimal Portfolio for everyone"
       },
       {
-        id: "template_5",
-        template_image: "",
-        template_url: "",
+          id: "dummy_template_1",
+          template_image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1760680291/Screenshot_2025-08-14_010221_gfq5nj.png",
+          template_url: "https://portfolio-pro-seven.vercel.app/",
+          template_name: "Developer Profile"
       },
       {
-        id: "template_6",
-        template_image: "",
-        template_url: "",
+          id: "dummy_template_2",
+          template_image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1760680065/IMG-20251008-WA0006_qk7ywz.jpg",
+          template_url: "https://portfolio-pro-seven.vercel.app/",
+          template_name: "Agency Templete PrimeDeck"
       },
+
     ]
   },
   {
