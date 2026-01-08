@@ -12,21 +12,55 @@ function TemplatesShowcaseBento() {
             <h1 className='text-center font-sans font-bold text-2xl lg:text-4xl text-neutral-800 dark:text-neutral-200 pb-3'>Clean and Modern Design Pattens Web Templates for React and NextJs.</h1>
             <p className='text-center text-sm font-sans font-medium text-neutral-700 dark:text-neutral-300'>Modern and minimalist templates for building your next product. Built with React, NextJS, TailwindCSS, Framer Motion and Typescript.</p>
         </div>
-        <div className="mt-10 border-l relative h-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-0 lg:gap-0 border-b border-dashed px-px">
+        <div className="mt-10 border-l relative h-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-0 lg:gap-0 border-b border-r   border-dashed px-px">
+          
+            <div className="w-full lg:col-span-2 relative overflow-hidden h-auto lg:h-[280px] border-r border-dashed border-t flex justify-start mask-x-from-80% mask-x-to-100%">
+                <div className='pt-7 px-4 lg:pl-14 w-[600px]'>
+                    <h1 className='text-left text-lg font-sans font-bold text-neutral-800 dark:text-neutral-300'>What Lokalhost.io is?</h1>
+                    <p className='text-left pt-1 pl-2 text-xs lg:text-sm lg:pl-2 font-sans font-medium text-neutral-700 dark:text-neutral-400'>A unified ecosystem built for modern product development, covering web and mobile UI, design systems, authentication, motion, and creative assets — all optimized for production use</p>
 
-            <div className="lg:col-span-2 relative overflow-hidden h-[280px] w-full border-r border-dashed border-t flex justify-between">
-                <div>
-                    <h1>Lorem ipsum dolor sit amet consectetur.</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia incidunt ea mollitia similique placeat quidem doloribus dignissimos dolores ducimus dicta?</p>
+                    <div className='pt-4 pl-2'>
+                      <p className='flex gap-1 text-sm font-sans font-bold text-neutral-800 dark:text-neutral-300'><span className='text-xl'><PiTerminalFill /></span>What lokalhost provide?</p>
+                      <div className='w-full grid grid-cols-2 lg:grid-cols-5 lg:justify-center justify-between items-center gap-2 lg:gap-3 px-3 py-3'>
+                        <motion.div initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 , ease: 'easeInOut'}} style={{ translateZ: 100 }} className=' h-24 bg-white dark:bg-black border border-dashed rounded-sm shadow-sm flex items-center justify-center'>
+                          <div className='w-full space-y-2'>
+                            <p className='text-center text-5xl flex justify-center items-center'><PiCubeDuotone/></p>
+                            <h1 className='text-center font-sans font-medium text-xs text-neutral-800 dark:text-neutral-300'>Components</h1>
+                          </div>
+                        </motion.div>
+                        <motion.div initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.66 , ease: 'easeInOut'}} style={{ translateZ: 100 }} className=' h-24 bg-white dark:bg-black border border-dashed rounded-sm flex justify-center items-center'>
+                          <div className='w-full space-y-2 '>
+                              <p className='text-center text-5xl flex justify-center items-center'><RiPagesLine/></p>
+                              <h1 className='text-center font-sans font-medium text-xs text-neutral-800 dark:text-neutral-300'>Templates</h1>
+                          </div>
+                        </motion.div>
+                        <div className='w-full h-24 bg-white dark:bg-black border border-dashed rounded-sm flex justify-center items-center'>
+                          <div className='w-full space-y-2 '>
+                                <p className='text-center text-5xl flex justify-center items-center'><LuFigma/></p>
+                                <h1 className='text-center font-sans font-medium text-xs text-neutral-800 dark:text-neutral-300'>UI Kits</h1>
+                          </div>
+                        </div>
+                        <motion.div initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.66 , ease: 'easeInOut'}} style={{ translateZ: 100 }} className=' h-24 bg-white dark:bg-black border border-dashed rounded-sm flex justify-center items-center'>
+                          <div className='w-full space-y-2 '>
+                                <p className='text-center text-5xl flex justify-center items-center'><IoPhonePortraitOutline/></p>
+                                <h1 className='text-center font-sans font-medium text-xs text-neutral-800 dark:text-neutral-300'>Mobile</h1>
+                          </div>
+                        </motion.div>
+                        <motion.div initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1 , ease: 'easeInOut'}} style={{ translateZ: 100 }} className=' h-24 bg-white dark:bg-black border border-dashed rounded-sm shadow-sm flex justify-center items-center'>
+                          <div className='w-full space-y-2 '>
+                                <p className='text-center text-5xl flex justify-center items-center'><TbBrandAuth0/></p>
+                                <h1 className='text-center font-sans font-medium text-xs text-neutral-800 dark:text-neutral-300'>Authe Kits</h1>
+                          </div>
+                        </motion.div>
+                      </div>
+                    </div>
                 </div>
-                <div>
-                  <div className="relative h-[500px] w-full overflow-hidden">
-                   
-                  </div>
+                <div className='hidden lg:block absolute right-24 top-5 '>
+                    <OrbitingCirclesDemo />
                 </div>
             </div>
 
-            <div className="lg:row-span-2 relative w-full border-r border-dashed border-t mask-x-from-80% mask-x-to-100% border">
+            <div className="lg:row-span-2 relative w-full border border-dashed mask-x-from-80% mask-x-to-100%">
               <div className='w-full'>
                 <div className='px-4 pt-5'>
                   <h1 className='text-lg font-sans font-bold text-neutral-800 dark:text-neutral-300'>Production-Ready Web & App Templates</h1>
@@ -87,8 +121,30 @@ function TemplatesShowcaseBento() {
 }
 
 export default TemplatesShowcaseBento
+import { IoPhonePortraitOutline } from "react-icons/io5";
+import { TbBrandAuth0 } from "react-icons/tb";
+import { LuFigma } from "react-icons/lu";
+import { TbBackground } from "react-icons/tb";
+import { PiCubeDuotone } from "react-icons/pi";
+import { RiPagesLine } from "react-icons/ri";
 
-
+import { OrbitingCircles } from '@/components/ui/orbiting-circles';
+export function OrbitingCirclesDemo() {
+  return (
+    <div className="relative flex h-[80px] top-28 right-0 w-full flex-col items-center justify-center">
+      <OrbitingCircles iconSize={30} radius={100}>
+        <IoPhonePortraitOutline className='text-3xl'/>
+        <TbBrandAuth0 className='text-3xl'/>
+        <LuFigma className='text-3xl'/>
+        <PiCubeDuotone className='text-3xl'/>
+        <TbBackground className='text-3xl'/>
+      </OrbitingCircles>
+      <div>
+        <PiTerminalFill className='text-6xl'/>
+      </div>
+    </div>
+  )
+}
 
 
 
