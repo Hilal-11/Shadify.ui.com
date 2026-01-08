@@ -15,6 +15,8 @@ import { ContainerTextFlip } from "./animate_hero_tags"
 import DesignsShowcase from "./LandingComponents/DesignsShowcase";
 import TemplatesShowcase from "./LandingComponents/TemplatesShowcase";
 import { cn } from "@/lib/utils";
+import TemplatesShowcaseBento from "./LandingComponents/TemplatesShowcaseBento";
+import Features from "./LandingComponents/Features";
 export function HeroSection() {
 
   const { theme } = useTheme();
@@ -107,12 +109,18 @@ export function HeroSection() {
           }
           <div className="md:col-span-2 lg:col-span-2 relative overflow-hidden h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full border-r border-dashed border-t"></div>
         </div> 
+        <div>
+          <Features />
+        </div>
+        <div>
+          <TemplatesShowcaseBento />
+        </div>
 
         <br /><br />
         <div className="lg:pt-14">
-          <h1 className="font-sans font-bold text-2xl lg:text-6xl text-neutral-800 dark:text-neutral-200">Everything You Can Build with Lokalhost</h1>
+          <h1 className="font-sans font-bold text-2xl lg:text-4xl text-neutral-800 dark:text-neutral-200">Everything You Can Build with Lokalhost</h1>
           <p className="px-0 lg:w-2/3 mx-auto py-4 font-sans font-medium text-sm text-neutral-600 dark:text-neutral-400 ">Explore a carefully curated ecosystem of production-ready components, scalable templates, design systems, mobile UI elements, and creative assets — thoughtfully crafted to work together seamlessly and help you build, iterate, and launch modern digital products faster.</p>
-          <div className="lg:mt-14 w-full h-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 justify-between lg:py-10 items-between">
+          <div className="lg:mt-10 w-full h-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 justify-between lg:py-10 items-between">
               <div className="w-full flex justify-end lg:hidden">
                 <span className="text-3xl relative top-3 bg-neutral-200 shadow-md border rounded-full dark:bg-neutral-800 flex justify-center items-center"><IoIosArrowRoundForward /></span>
               </div>
