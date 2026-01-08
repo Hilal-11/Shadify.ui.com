@@ -2,7 +2,9 @@
 import { ComponentShowcaseCard } from "@/components/landing/component-showcase-card";
 import CTA from "@/components/landing/CTA";
 import { HeroSection } from "@/components/landing/hero";
-import Reviews from "@/components/landing/Reviews";
+import { FinalMainFAQ } from "@/components/landing/LandingComponents/FAQ";
+import ComponentsShowcase from "@/components/landing/LandingComponents/ComponentsShowcase";
+import TemplatesShowcaseBento from "@/components/landing/LandingComponents/TemplatesShowcaseBento";
 
 export default function Home() {
     return (
@@ -14,8 +16,14 @@ export default function Home() {
             <ComponentShowcaseCard
                 className="mx-auto w-full max-w-screen bg-neutral-100 dark:bg-neutral-900 h-auto py-10"
             />
-            <div className="pt-20 pb-8">
-                <Reviews/>
+            <div className="container">
+                <ComponentsShowcase/>
+            </div>
+            <div className="container">
+                <TemplatesShowcaseBento/>
+            </div>
+            <div className="container">
+                <FinalMainFAQ />
             </div>
             <div className="pt-10 pb-5">
                 <CTA/>
