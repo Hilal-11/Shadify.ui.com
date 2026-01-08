@@ -14,7 +14,7 @@ import { HiOutlineExternalLink } from "react-icons/hi";
 import { ContainerTextFlip } from "./animate_hero_tags"
 import DesignsShowcase from "./LandingComponents/DesignsShowcase";
 import TemplatesShowcase from "./LandingComponents/TemplatesShowcase";
-
+import { cn } from "@/lib/utils";
 export function HeroSection() {
 
   const { theme } = useTheme();
@@ -46,12 +46,12 @@ export function HeroSection() {
             transition={{ duration: 0.28 , ease: "easeInOut"}}
             whileHover={{ y: -3 }}
             whileTap={{ y: -4 }}
-          className="border-t-[2px] border-l-[2px] border-r-[2px] border-neutral-50 relative overflow-hidden cursor-pointer font-sans font-medium px-10 py-2 rounded-md bg-neutral-100 bg-gradient-to-t from-[#f5f5f5] to-[#d4d4d4] dark:text-neutral-900 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">Explore Templets  </motion.button>
+          className="border-t-[2px] border-l-[2px] border-r-[2px] border-neutral-50 dark:border-neutral-400 relative overflow-hidden cursor-pointer font-sans font-medium px-10 py-2 rounded-md bg-neutral-100 bg-gradient-to-t from-[#f5f5f5] to-[#d4d4d4] dark:text-neutral-900 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">Explore Templets  </motion.button>
           <motion.button
               transition={{ duration: 0.28 , ease: "easeInOut"}}
               whileHover={{ y: -3}}
               whileTap={{ y: -4 }}
-          className="border-t-[2px] border-l-[2px] border-r-[2px] border-neutral-950 relative cursor-pointer font-sans font-medium px-10 py-2 rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">Components Documentation
+          className="border-t-[2px] border-l-[2px] border-r-[2px] border-neutral-950 dark:border-neutral-800 relative cursor-pointer font-sans font-medium px-10 py-2 rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">Components Documentation
           </motion.button>
           
         </div>
@@ -66,7 +66,6 @@ export function HeroSection() {
             heroServiceContent.map((service) => (
               <Link key={service.id} href={service.service_link}>
               <div  className="cursor-pointer group relative h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex items-center justify-center overflow-hidden w-full border border-dashed">
-                <div className="dark:hidden z-20 w-full h-[100px] absolute -top-12 bg-gradient-to-r from-[hsla(312,77%,86%,1)] to-[hsla(220,61%,79%,1)] rounded-b-full blur-lg"></div>
                 <div className="relative group-hover:scale-110 transition duration-400">
                   <Image 
                     width={400}
@@ -76,7 +75,15 @@ export function HeroSection() {
                     alt=""
                   />
                 </div>
-                <div className="absolute bottom-3 px-5 flex flex-col gap-2">
+                <div 
+                className={cn(
+                  "absolute bottom-0 px-5 flex flex-col gap-2 py-3",
+                  "[background:linear-gradient(to_bottom,#f3f4f6,#e5e7eb)]",
+                  "shadow-[inset_0_-1px_#d1d5db,inset_0_0_0_1px_#d1d5db,_0_4px_8px_#d1d5db]",
+                  "dark:[background:linear-gradient(to_bottom,#262626,#0a0a0a)]",
+                  "dark:shadow-[inset_0_-1px_#10171e,inset_0_0_0_1px_hsla(205,89%,46%,.24),_0_4px_8px_#00000052]",
+                )}
+                >
                   <div className="">
                     <h1 className="font-sans font-medium text-[17px] text-left text-neutral-700 dark:text-neutral-200">{service.sercice_name}</h1>
                     <p className="text-[13px] font-sans font-medium text-neutral-500 dark:text-neutral-300 text-left">{service.service_disc}</p>
@@ -102,10 +109,10 @@ export function HeroSection() {
         </div> 
 
         <br /><br />
-        <div className="lg:pt-10">
-          <h1 className="font-sans font-bold text-xl lg:text-5xl text-neutral-800 dark:text-neutral-200">Easy to Integrate, Build faster ship faster and Deploy smoothly</h1>
-          
-          <div className="lg:mt-20 w-full h-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 justify-between lg:py-10 items-between">
+        <div className="lg:pt-14">
+          <h1 className="font-sans font-bold text-2xl lg:text-6xl text-neutral-800 dark:text-neutral-200">Everything You Can Build with Lokalhost</h1>
+          <p className="px-0 lg:w-2/3 mx-auto py-4 font-sans font-medium text-sm text-neutral-600 dark:text-neutral-400 ">Explore a carefully curated ecosystem of production-ready components, scalable templates, design systems, mobile UI elements, and creative assets — thoughtfully crafted to work together seamlessly and help you build, iterate, and launch modern digital products faster.</p>
+          <div className="lg:mt-14 w-full h-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 justify-between lg:py-10 items-between">
               <div className="w-full flex justify-end lg:hidden">
                 <span className="text-3xl relative top-3 bg-neutral-200 shadow-md border rounded-full dark:bg-neutral-800 flex justify-center items-center"><IoIosArrowRoundForward /></span>
               </div>
@@ -171,8 +178,6 @@ export function HeroSection() {
                     <DesignsShowcase />
                   </div>
                 }
-              
- 
             </div>
           </div>
         </div>
