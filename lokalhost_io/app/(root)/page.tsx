@@ -5,7 +5,7 @@ import { HeroSection } from "@/components/landing/hero";
 import { FinalMainFAQ } from "@/components/landing/LandingComponents/FAQ";
 import ComponentsShowcase from "@/components/landing/LandingComponents/ComponentsShowcase";
 import TemplatesShowcaseBento from "@/components/landing/LandingComponents/TemplatesShowcaseBento";
-
+import { TemplatesBlockList , BGPatterns } from "@/components/landing/LandingComponents/ComponentsShowcase";
 export default function Home() {
     return (
         <main className="bg-white dark:bg-black/5 overflow-x-hidden">
@@ -20,8 +20,13 @@ export default function Home() {
                 <ComponentsShowcase/>
             </div>
             <div className="container">
-                <TemplatesShowcaseBento/>
+                <TemplatesBlockList/>
             </div>
+            
+            <div className="container">
+                <BGPatterns/>
+            </div>
+
             <div className="container">
                 <FinalMainFAQ />
             </div>
