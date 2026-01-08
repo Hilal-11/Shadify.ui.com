@@ -32,8 +32,8 @@ useEffect(() => {
   };
 
 
-  const [isMobile ,setIsMobile] = useState(true)
-  const [isWeb ,setIsWeb] = useState(false)
+  const [isMobile ,setIsMobile] = useState(false)
+  const [isWeb ,setIsWeb] = useState(true)
   const handleWeb = () => {
     setIsWeb(true)
     setIsMobile(false)
@@ -80,7 +80,7 @@ useEffect(() => {
           <div className="overflow-hidden px-0 pb-20 pt-20">
           {
             isWeb ? (
-               <div className="grid grid-cols-1 gap-6 pb-6 md:grid-cols-2 lg:grid-cols-4">
+              <div className="grid grid-cols-1 gap-6 pb-6 md:grid-cols-2 lg:grid-cols-4">
               {BACKGROUND_OPTIONS.map((background, index) => {
                 return (
                   <Playground
