@@ -11,8 +11,8 @@ function TemplatesShowcase() {
 
     {
     servicesShowCaseConfig[1].templates_list_1?.map((template) => (
-      <div className='snap-center shimmer shrink-0 w-[180px] lg:w-[250px] bg-neutral-50 dark:bg-neutral-900 h-[120px] lg:h-[250px] rounded-sm shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] overflow-hidden'>
-        <div key={template?.id} className={`group cursor-pointer flex justify-center items-center text-xl font-medium font-sans w-full h-auto lg:h-auto shadow-sm border rounded-sm bg-neutral-100 dark:bg-neutral-800 relative`}>
+      <div key={template?.id} className='snap-center shimmer shrink-0 w-[180px] lg:w-[250px] bg-neutral-50 dark:bg-neutral-900 h-[120px] lg:h-[250px] rounded-sm shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] overflow-hidden'>
+        <div  className={`group cursor-pointer flex justify-center items-center text-xl font-medium font-sans w-full h-auto lg:h-auto shadow-sm border rounded-sm bg-neutral-100 dark:bg-neutral-800 relative`}>
             <Link href={template.template_url} target="_blank">
             <div className='w-full h-full gap-1 grid grid-cols-2'>
                 <Image className="col-span-2 rounded-sm group-hover:scale-105 transition duration-300 group-hover:blur-[4px] w-full h-full object-center" src={template.template_image} alt="Template Image" width={400} height={300} />
@@ -30,8 +30,8 @@ function TemplatesShowcase() {
     <div className='py-4 w-full flex flex-nowrap gap-4 overflow-x-hidden scrollbar-hide snap-x snap-mandatory scroll-smooth relative animate-scroll-right'>
     {
     servicesShowCaseConfig[1].templates_list_2?.map((template) => (
-      <div className='snap-center shrink-0 w-[180px] lg:w-[250px] bg-neutral-50 dark:bg-neutral-900 h-[120px] lg:h-[250px] rounded-sm shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] overflow-hidden'>
-        <div key={template?.id} className={`group cursor-pointer flex justify-center items-center text-xl font-medium font-sans w-full h-auto lg:h-auto shadow-sm border rounded-sm bg-neutral-100 dark:bg-neutral-800 relative`}>
+      <div key={template?.id} className='snap-center shrink-0 w-[180px] lg:w-[250px] bg-neutral-50 dark:bg-neutral-900 h-[120px] lg:h-[250px] rounded-sm shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] overflow-hidden'>
+        <div className={`group cursor-pointer flex justify-center items-center text-xl font-medium font-sans w-full h-auto lg:h-auto shadow-sm border rounded-sm bg-neutral-100 dark:bg-neutral-800 relative`}>
             <Link href={template.template_url} target="_blank">
             <div className='w-full h-full gap-1 grid grid-cols-2 overflow-hidden'>
                 <Image className="col-span-2 rounded-sm group-hover:scale-105 transition duration-300 group-hover:blur-[4px] w-full h-full object-center" src={template.template_image} alt="Template Image" width={400} height={300} />
