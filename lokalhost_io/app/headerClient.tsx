@@ -8,6 +8,7 @@ import { IoMenu } from "react-icons/io5";
 import { RiCloseFill } from "react-icons/ri";
 import { useEffect, useState } from "react";
 import { FaAngleDown } from "react-icons/fa6";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,6 +19,21 @@ import { FaChevronDown } from "react-icons/fa6";
 import { FaChevronUp } from "react-icons/fa";
 import HeaderProfile from "@/components/HeaderProfile";
 import { TbLockHeart } from "react-icons/tb";
+
+import { IoSearchSharp } from "react-icons/io5";
+import { FaGithub } from "react-icons/fa";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { MAIN_PAGE_SEARCHING_CONFIG } from "@/config/searchingConfig";
+
 function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
   // const token = cookies().get("token")?.value;
   // const isAuthenticate = !!token;
@@ -117,23 +133,34 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                       Web Templates
                     </Link>
                     <Link
+                      href="/designs"
+                      className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
+                      prefetch
+                    >
+                      Figma
+                    </Link>
+                    <Link
+                      href="/designs"
+                      className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
+                      prefetch
+                    >
+                      Auth Kits
+                    </Link>
+                    <Link
                       href="/bg-patterns"
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
                       prefetch
                     >
                       Mobile Applications
                     </Link>
-                    <div className="relative border-t border-b border-dashed border-neutral-500 px-4 py-px">
-                      <span className="absolute left-2 h-[35px] -top-[6px] border-l border-dashed border-neutral-500"></span>
-                      <span className="absolute right-2 h-[35px] -top-[6px] border-l border-dashed border-neutral-500"></span>
-                      <Link
-                      href="/pricing"
-                      className=" relative font-sans font-medium text-sm text-zinc-500 dark:text-neutral-700 transition-colors flex items-center gap-2"
+                    <Link
+                      href="/bg-patterns"
+                      className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
                       prefetch
                     >
-                      Pricing 
+                      Pricing
                     </Link>
-                    </div>
+
                     <DropdownMenu>
                       <DropdownMenuTrigger>
                         <h1 className="cursor-pointer flex gap-1 bg-transparent hover:bg-transparent font-sans font-medium text-[15px] text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors items-center">more<span className="text-sm"><FaAngleDown /></span></h1>
@@ -161,14 +188,48 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                     </DropdownMenu>
 
                   </div>
+
+                </div>
+                <div className=" lg:block xl:block w-[100px] h-full absolute right-16 lg:right-18">
+                  <div className="flex justify-end lg:gap-1 gap-[2px] pr-2">
+                      <div>
+                        <Dialog>
+                            <DialogTrigger asChild>
+                              <button className="bg-neutral-50 dark:bg-neutral-900 px-[7px] py-[6px] rounded-sm shadow-sm border hover:bg-neutral-100"><IoSearchSharp className="text-lg"/></button>
+                            </DialogTrigger>
+                            <DialogContent className="lg:w-[500px] h-[400px] overflow-y-scroll pb-4">
+                              {/* Header search box */}
+                              <div className="w-full h-[48px] fixed top-0 border-b rounded-5-lg p-1 flex justify-center items-center pl-2  ">
+                                <span><IoSearchSharp className="text-lg text-neutral-400 dark:text-neutral-700"/></span>
+                                <input className="w-full h-full outline-0 text-sm font-sans font-medium pl-1" type="text" placeholder="Searching..." />
+                              </div>
+                              <div className="flex flex-col gap-1 w-full h-auto mt-10">
+                                <p className="text-xs fonr-sans text-neutral-600">Suggestions</p>
+                                {
+                                  MAIN_PAGE_SEARCHING_CONFIG.map(({suggesstion , suggesstion_to , Icon}) => (
+                                    <div className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
+                                      <Link className="flex gap-3 pl-2 items-center text-sm font-medium" href={suggesstion_to}><span className="text-lg"><Icon /></span>{suggesstion}</Link>
+                                    </div>
+                                  ))
+                                }
+                              </div>
+                            </DialogContent>
+                        </Dialog>
+                      </div>
+                      <button className="bg-neutral-50 dark:bg-neutral-900 px-[7px] py-[5px] rounded-sm shadow-sm border hover:bg-neutral-100"><FaGithub className="text-[16px]"/></button>
+                      <button className="bg-neutral-50 dark:bg-neutral-900 px-[7px] py-[5px] rounded-sm shadow-sm border hover:bg-neutral-100"><ThemeToggle/></button>
+                      {!isMobileMenuOpen ? <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex md:hidden lg:hidden  items-center justify-center bg-neutral-50 dark:bg-neutral-900 shadow-sm border rounded-sm px-[7px] py-[5px] text-neutral-700 dark:text-neutral-300"><IoMenu className="text-lg" /></button> : <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex items-center justify-center md:hidden lg:hidden text-neutral-700 bg-neutral-50 dark:bg-neutral-900 shadow-sm border rounded-sm px-[7px] py-[5px]"><RiCloseFill className="text-lg" /></button>}
+                  </div>
                 </div>
 
+                
+
                 {/* Right side items */}
+
                 
                 <div className="hidden sm:flex items-center gap-4">
                   <span className="text-zinc-300 dark:text-zinc-700"></span>
                   {/* <HeaderPro /> */}
-
 
                   <div className="flex gap-3">
                       <Link href="/signup" className="w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">{isLoggedIn ? "Start Building" : "Signup"}</Link>
@@ -176,13 +237,14 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                   { isLoggedIn ? (<HeaderProfile user={user} userEmail={userEmail} />) : null }
                 </div>
 
+                
                 {/* Mobile Navigation remains unchanged */}
                 <div className="flex sm:hidden items-center gap-3">
-                   {
+                {
                     isLoggedIn ? (<HeaderProfile user={user} userEmail={userEmail} />) : (<Link href="/signup" className="w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">Signup</Link>)
                    }
                    
-                  {!isMobileMenuOpen ? <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex md:hidden lg:hidden bg-neutral-100 dark:bg-neutral-900 rounded-sm p-1 text-2xl text-neutral-700 dark:text-neutral-300"><IoMenu /></button> : <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex md:hidden lg:hidden  text-2xl text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-900 rounded-sm p-1"><RiCloseFill /></button>}
+
                 </div>
                 
                 
@@ -218,7 +280,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                                   <span className="text-xl z-30"><Icon/></span>
                                 </div>
                                 <div className="">
-                                  <h1 className="text-sm font-sans font-medium">{service}</h1>
+                                  <h1 className="font-sans font-medium">{service}</h1>
                                   <p className="text-[9px] font-sans font-medium">{about}</p>
                                 </div>
                               </div>
