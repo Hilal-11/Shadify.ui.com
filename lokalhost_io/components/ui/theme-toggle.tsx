@@ -25,10 +25,10 @@ export function ThemeToggle() {
             }}
         >
             {theme === "light" ? (
-                <Sun className="h-5 w-5 text-black" />
+                <Sun className="h-4 w-4 text-black" />
             ) : (
                 <Moon
-                    className="h-5 w-5 text-white"
+                    className="h-4 w-4 text-white"
                     color="white"
                 />
             )}
