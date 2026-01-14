@@ -33,3 +33,11 @@ export const LoginFormSchema = z.object({
     .trim(),
     
 })
+
+export const FeedbackSchema = z.object({
+  feedback_title: z.string()
+    .trim().nonempty({ message: "Feedback can't be empty"}),
+  feedback_discription: z.string()
+    .trim().nonempty({ message: "Feedback can't be empty."})
+    .min(10, {message: "Feedback must be more than 10 charcters"})
+})
