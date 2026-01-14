@@ -28,7 +28,7 @@ function HeaderProfile({ user , userEmail }: { user: string; userEmail: string }
                     <Toaster position='top-right'/>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
-                        <button className="cursor-pointer px-1 py-1 rounded-full flex justify-center items-center w-[22px] h-[22px] lg:w-[28px] lg:h-[28px] overflow-hidden bg-neutral-900 dark:bg-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
+                        <button className="cursor-pointer px-px py-1 rounded-sm flex justify-center items-center w-[23px] h-[23px] lg:w-[29px] lg:h-[29px] overflow-hidden bg-neutral-900 dark:bg-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">
                           <Avatar className="rounded-full">
                             <span className="text-lg lg:text-lg font-medium text-white dark:text-black">{user[0]}</span>
                           </Avatar>
