@@ -6,9 +6,8 @@ import { PiCrownFill } from "react-icons/pi";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { IoMenu } from "react-icons/io5";
 import { RiCloseFill } from "react-icons/ri";
-import { useEffect, useState } from "react";
+import { useEffect, useState , useRef} from "react";
 import { FaAngleDown } from "react-icons/fa6";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,20 +18,17 @@ import { FaChevronDown } from "react-icons/fa6";
 import { FaChevronUp } from "react-icons/fa";
 import HeaderProfile from "@/components/HeaderProfile";
 import { TbLockHeart } from "react-icons/tb";
-
 import { IoSearchSharp } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa";
+import { MdOutlineFeedback } from "react-icons/md";
 import {
   Dialog,
-  DialogClose,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { MAIN_PAGE_SEARCHING_CONFIG } from "@/config/searchingConfig";
+import Feedback from "@/components/landing/MicroComponents/Feedback";
+import { SearchingMain } from '../components/landing/MicroComponents/Searching';
 
 function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
   // const token = cookies().get("token")?.value;
@@ -42,6 +38,9 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
 
   const [user, setUser] = useState("");
   const [userEmail, setUserEmail] = useState("");
+  const [showFeedback, setShowFeedback] = useState(false)
+  const feedbackRef = useRef<HTMLDivElement | null>(null);
+
 
   const loggedInUser = async () => {
     try{  
@@ -61,6 +60,28 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
   useEffect(() => {
     loggedInUser();
   }, []);
+
+
+
+  
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        feedbackRef.current &&
+        !feedbackRef.current.contains(event.target as Node)
+      ) {
+        setShowFeedback(false);
+      }
+    }
+  
+    if (showFeedback) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+  
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showFeedback]);
 
   return (
     <>
@@ -186,12 +207,41 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                         </div>
                       </DropdownMenuContent>
                     </DropdownMenu>
-
                   </div>
-
                 </div>
-                <div className=" lg:block xl:block w-[100px] h-full absolute right-16 lg:right-18">
-                  <div className="flex justify-end lg:gap-1 gap-[2px] pr-2">
+                {/* Right side items */}
+
+                
+                <div className="hidden sm:flex items-center gap-2">
+
+
+                <div className=" lg:block xl:block h-full relative left-2">
+                  <div className="flex justify-end gap-1">
+                      <div>
+                        <SearchingMain/>
+                      </div>
+                      <button className="bg-neutral-50 dark:bg-neutral-900 px-[7px] py-[7px] rounded-sm shadow-sm border hover:bg-neutral-100"><FaGithub className="text-[15px]"/></button>
+                      <button onClick={() => setShowFeedback(prev => !prev)} className="flex items-center justify-center gap-2 text-xs border-t-[1px] border-l-[1px] border-r-[1px] border-neutral-950 dark:border-neutral-800 relative cursor-pointer font-sans font-medium px-4 py-[8px] rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><span className="text-sm"><MdOutlineFeedback /></span>Feedback</button>
+                      {/*  feedback  */}
+                      { showFeedback && <div ref={feedbackRef} onMouseDown={(e) => e.stopPropagation()} className="absolute inset-0 top-10"><Feedback /></div> }
+                  </div>
+                </div>
+
+
+                  <span className="text-zinc-300 dark:text-zinc-700"></span>
+                  {/* <HeaderPro /> */}
+
+                  <div className="flex gap-3">
+                      <Link href="/signup" className="border-t-[1px] border-l-[1px] border-r-[1px] border-neutral-950 dark:border-neutral-800 w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">{isLoggedIn ? "Start Building" : "Signup"}</Link>
+                  </div>
+                  { isLoggedIn ? (<HeaderProfile user={user} userEmail={userEmail} />) : null }
+                </div>
+
+                
+                {/* Mobile Navigation remains unchanged */}
+                <div className="flex sm:hidden items-center gap-3">
+                <div className=" lg:block xl:block h-full relative left-2">
+                  <div className="flex justify-end gap-1">
                       <div>
                         <Dialog>
                             <DialogTrigger asChild>
@@ -207,7 +257,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                                 <p className="text-xs fonr-sans text-neutral-600">Suggestions</p>
                                 {
                                   MAIN_PAGE_SEARCHING_CONFIG.map(({suggesstion , suggesstion_to , Icon}) => (
-                                    <div className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
+                                    <div key={suggesstion_to} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
                                       <Link className="flex gap-3 pl-2 items-center text-sm font-medium" href={suggesstion_to}><span className="text-lg"><Icon /></span>{suggesstion}</Link>
                                     </div>
                                   ))
@@ -217,34 +267,14 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                         </Dialog>
                       </div>
                       <button className="bg-neutral-50 dark:bg-neutral-900 px-[7px] py-[5px] rounded-sm shadow-sm border hover:bg-neutral-100"><FaGithub className="text-[16px]"/></button>
-                      <button className="bg-neutral-50 dark:bg-neutral-900 px-[7px] py-[5px] rounded-sm shadow-sm border hover:bg-neutral-100"><ThemeToggle/></button>
-                      {!isMobileMenuOpen ? <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex md:hidden lg:hidden  items-center justify-center bg-neutral-50 dark:bg-neutral-900 shadow-sm border rounded-sm px-[7px] py-[5px] text-neutral-700 dark:text-neutral-300"><IoMenu className="text-lg" /></button> : <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex items-center justify-center md:hidden lg:hidden text-neutral-700 bg-neutral-50 dark:bg-neutral-900 shadow-sm border rounded-sm px-[7px] py-[5px]"><RiCloseFill className="text-lg" /></button>}
                   </div>
                 </div>
-
-                
-
-                {/* Right side items */}
-
-                
-                <div className="hidden sm:flex items-center gap-4">
-                  <span className="text-zinc-300 dark:text-zinc-700"></span>
-                  {/* <HeaderPro /> */}
-
-                  <div className="flex gap-3">
-                      <Link href="/signup" className="w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">{isLoggedIn ? "Start Building" : "Signup"}</Link>
-                  </div>
-                  { isLoggedIn ? (<HeaderProfile user={user} userEmail={userEmail} />) : null }
-                </div>
-
-                
-                {/* Mobile Navigation remains unchanged */}
-                <div className="flex sm:hidden items-center gap-3">
-                {
+                   
+                  {!isMobileMenuOpen ? <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex md:hidden lg:hidden bg-neutral-100 dark:bg-neutral-900 rounded-sm p-1 text-2xl text-neutral-700 dark:text-neutral-300"><IoMenu /></button> : <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="flex md:hidden lg:hidden  text-2xl text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-900 rounded-sm p-1"><RiCloseFill /></button>}
+                  {
                     isLoggedIn ? (<HeaderProfile user={user} userEmail={userEmail} />) : (<Link href="/signup" className="w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">Signup</Link>)
                    }
                    
-
                 </div>
                 
                 
@@ -280,7 +310,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                                   <span className="text-xl z-30"><Icon/></span>
                                 </div>
                                 <div className="">
-                                  <h1 className="font-sans font-medium">{service}</h1>
+                                  <h1 className="text-sm font-sans font-medium">{service}</h1>
                                   <p className="text-[9px] font-sans font-medium">{about}</p>
                                 </div>
                               </div>
