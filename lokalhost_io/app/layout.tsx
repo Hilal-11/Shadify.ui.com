@@ -4,6 +4,7 @@ import "./globals.css";
 import GoToTop from '@/components/GoToTop';
 import Providers from "./provider";
 import Header from '@/app/header'
+import { FeedbackMobile } from "@/components/GoToTop";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
       >
         <Providers>
           <GoToTop />
+          <div className="lg:hidden md:hidden block"><FeedbackMobile/></div>
           <Header/>
           {children}
         </Providers>
