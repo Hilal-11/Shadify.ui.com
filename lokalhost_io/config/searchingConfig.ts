@@ -1,11 +1,8 @@
 import { GrCubes } from "react-icons/gr";
-import { IconType } from "react-icons";
 import { MdViewQuilt } from "react-icons/md";
-import { IoPhonePortraitOutline } from "react-icons/io5";
 import { LiaIconsSolid } from "react-icons/lia";
 import { TbBrandAuth0 } from "react-icons/tb";
 import { LuFigma } from "react-icons/lu";
-import { TbBackground } from "react-icons/tb";
 import { PiCubeDuotone } from "react-icons/pi";
 import { RiTeamLine } from "react-icons/ri";
 interface IMAIN_PAGE_SERCHING {
@@ -14,7 +11,7 @@ interface IMAIN_PAGE_SERCHING {
     Icon: React.ElementType
 }
 
-export const MAIN_PAGE_SEARCHING_CONFIG = [ 
+export const MAIN_PAGE_SEARCHING_CONFIG:IMAIN_PAGE_SERCHING[] = [ 
     {
         suggesstion: "Components",
         suggesstion_to: "/",
