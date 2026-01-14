@@ -35,7 +35,7 @@ function Footer() {
               <p className='font-sans font-medium'>Build By</p>
             <div className="border-t border-dashed border-b py-1 w-30 text-center relative border-neutral-300 dark:border-neutral-700">
               <span className="h-12 absolute left-4 -top-2.5 border border-dashed border-neutral-300 dark:border-neutral-700"></span>
-              <p className="text-sm font-mono font-bold text-neutral-700 dark:text-neutral-300 underline">@HILAL</p>
+                <Link href={''}><p className="text-sm font-mono font-bold text-neutral-700 dark:text-neutral-300 underline">@HILAL</p></Link>
               <span className="h-12 absolute right-4 -top-2.5 border border-dashed  border-neutral-300 dark:border-neutral-700"></span>          
             </div>
             </div>
