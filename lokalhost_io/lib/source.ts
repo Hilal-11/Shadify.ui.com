@@ -1,6 +1,6 @@
 
 import { type InferPageType } from 'fumadocs-core/source';
-import { docs, meta , authdocs, authmeta } from "@/.source";
+import { docs, meta , authdocs, authmeta ,backgrounds , backgroundsmeta} from "@/.source";
 import { createMDXSource } from "fumadocs-mdx";
 import { loader } from "fumadocs-core/source";
 
@@ -36,12 +36,37 @@ export const authsource = loader({
 });
 
 
+
+export const backgroundsource = loader({
+  baseUrl: "/backgrounds",
+  source: createMDXSource(backgrounds, backgroundsmeta),
+  icon(icon) {
+        if (!icon) {
+            return createElement(icons.Library);
+        }
+
+        if (icon in icons)
+            return createElement(icons[icon as keyof typeof icons]);
+    },
+});
+
+
 export function getPageImage(page: InferPageType<typeof authsource>) {
   const segments = [...page.slugs, 'image.png'];
 
   return {
     segments,
     url: `/og/authdocs/${segments.join('/')}`,
+  };
+}
+
+
+export function getPageImage2(page: InferPageType<typeof backgroundsource>) {
+  const segments = [...page.slugs, 'image.png'];
+
+  return {
+    segments,
+    url: `/og/backgrounds/${segments.join('/')}`,
   };
 }
 
