@@ -39,7 +39,7 @@ export function HeroSection() {
       <div className="w-full h-auto px-0 lg:px-4 py-6">
         <AnnoncementBadge />
         <div className="mt-8 text-center flex-col gap-4">
-          <h1 className="font-sans font-bold text-3xl lg:text-5xl text-neutral-800 dark:text-neutral-200">A Complete Ecosystem for Designing, Building, and Scaling Modern Web & Mobile Applications.</h1>
+          <h1 className="font-sans font-bold text-3xl lg:text-5xl text-neutral-800 dark:text-neutral-200 pb-2">A Complete Ecosystem for Designing, Building, and Scaling Modern Web & Mobile Applications.</h1>
           <ContainerTextFlip/>
           <p className="px-0 lg:w-2/3 mx-auto py-4 font-sans font-medium text-md text-neutral-600 dark:text-neutral-400 ">A unified ecosystem built for modern product development, covering web and mobile UI, design systems, authentication, motion, and creative assets — all optimized for production use</p>
         </div>
