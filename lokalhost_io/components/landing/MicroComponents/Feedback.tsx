@@ -1,3 +1,4 @@
+
 import {
     Card,
     CardContent,
@@ -22,6 +23,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { IoMdSend } from "react-icons/io";
 import { Spinner } from "@/components/ui/spinner"
 import { FeedbackSchema } from "@/lib/definitions"
+import { toast, Toaster } from 'sonner';
+
 function Feedback() {
   const [feedbackTitle , setFeedbackTitle] = useState('')
   const [feedbackDiscription , setFeedbackDiscription] = useState('')
@@ -53,8 +56,6 @@ function Feedback() {
   const handleFeedbackSubmit = async (event:any) => {
     event.preventDefault()
     setLoading(true);
-    setFeedbackTitle('')
-    setFeedbackDiscription('')
     // validation of feedback data
 
     const validatedFields:any = FeedbackSchema.safeParse({
@@ -77,10 +78,16 @@ function Feedback() {
         body: JSON.stringify(feedback)
       })
       if(response.ok) {
-        console.log(response)
+        setFeedbackTitle('')
+        setFeedbackDiscription('')
+        setErrors({
+          feedback_title: "",
+          feedback_discription: "",
+        })
+        toast.success('Feedback submitted successfully!');
       }
     }catch(error:any){
-      console.log("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again.");
     }
     finally {
       setLoading(false);
@@ -89,6 +96,7 @@ function Feedback() {
   }
   return (
     <Card className="w-[340px] lg:w-[320px] md:w-[320px] h-auto">
+      <Toaster position='top-right'/>
       <CardHeader>
         <Field>
             <Select onValueChange={handleFeedbackTitle} value={feedbackTitle}>
