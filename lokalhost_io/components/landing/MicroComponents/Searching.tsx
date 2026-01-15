@@ -7,22 +7,23 @@ import {
 import { MAIN_PAGE_SEARCHING_CONFIG } from "@/config/searchingConfig";
 import Link from 'next/link';
 import { IoSearchSharp } from 'react-icons/io5';
+import { FilterIcon } from 'lucide-react';
 export function SearchingMain() {
     const [searchQuery , setSearchQuery] = useState('');
-    const [isSearching , setIsSearching] = useState(false);
+    const [filteredItem , setFilteredItem] = useState([...MAIN_PAGE_SEARCHING_CONFIG]);
     const handleSearching = (event:any) => {
         setSearchQuery(event.target.value)
     }
 
     useEffect(() => {
-        const filtering = MAIN_PAGE_SEARCHING_CONFIG.find((item) => item.suggesstion.includes(searchQuery))
-        console.log(filtering)
+        const filtering = MAIN_PAGE_SEARCHING_CONFIG.filter((item) => item.suggesstion.toLowerCase().includes(searchQuery.toLowerCase()))
+        setFilteredItem(filtering);
     }, [searchQuery])
   return (
     <div>
         <Dialog>
-            <DialogTrigger asChild>
-                <button className="bg-neutral-50 dark:bg-neutral-900 px-[7px] py-[6px] rounded-sm shadow-sm border hover:bg-neutral-100"><IoSearchSharp className="text-lg"/></button>
+            <DialogTrigger asChild className='flex items-center justify-center'>
+                <button className="bg-neutral-50 dark:bg-neutral-900 px-[7px] h-8 rounded-sm shadow-sm border hover:bg-neutral-100"><IoSearchSharp className="text-[15px]"/></button>
             </DialogTrigger>
             <DialogContent className="lg:w-[500px] h-[400px] overflow-y-scroll pb-4">
                 {/* Header search box */}
@@ -33,11 +34,27 @@ export function SearchingMain() {
                             <div className="flex flex-col gap-1 w-full h-auto mt-10">
                                 <p className="text-xs fonr-sans text-neutral-600">Suggestions</p>
                                 {
-                                  MAIN_PAGE_SEARCHING_CONFIG.map(({suggesstion , suggesstion_to , Icon}) => (
-                                    <div key={suggesstion_to} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
-                                      <Link className="flex gap-3 pl-2 items-center text-sm font-medium" href={suggesstion_to}><span className="text-lg"><Icon /></span>{suggesstion}</Link>
+                                  filteredItem.length > 0 ? (
+                                    <div>
+                                        {
+                                        filteredItem.map(({suggesstion , suggesstion_to , Icon}) => (
+                                          <div key={suggesstion_to} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
+                                            <Link className="flex gap-3 pl-2 items-center text-sm font-medium" href={suggesstion_to}><span className="text-lg"><Icon /></span>{suggesstion}</Link>
+                                          </div>
+                                        ))
+                                      }
                                     </div>
-                                  ))
+                                  ) : (
+                                    <div>
+                                      {
+                                        MAIN_PAGE_SEARCHING_CONFIG.map(({suggesstion , suggesstion_to , Icon}) => (
+                                          <div key={suggesstion_to} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
+                                            <Link className="flex gap-3 pl-2 items-center text-sm font-medium" href={suggesstion_to}><span className="text-lg"><Icon /></span>{suggesstion}</Link>
+                                          </div>
+                                        ))
+                                      }
+                                    </div>
+                                  )
                                 }
                 </div>
             </DialogContent>
