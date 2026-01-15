@@ -1,14 +1,12 @@
-import { Schema , model } from "mongoose"
+import { Schema , model , models } from "mongoose"
 interface IFeedback {
-    id: string,
     feedback_title: string,
-    feedback_disceiption: string
+    feedback_discription: string
 }
 const FeedbackSchema:Schema<IFeedback> = new Schema({
-    id: { type: String, required: true, unique: true },
     feedback_title: { type: String, required: true, trim: true},
-    feedback_disceiption: { type: String, required: true, trim: true }
+    feedback_discription: { type: String, required: true, trim: true }
 }, { timestamps: true })
 
-const Feedback = model<IFeedback>("Feedback" , FeedbackSchema)
+const Feedback = models.Feedback || model<IFeedback>("Feedback" , FeedbackSchema)
 export default Feedback;
