@@ -31,5 +31,17 @@ export const authmeta = defineCollections({
 });
 
 
+export const backgrounds = defineCollections({
+  type: "doc",
+  dir: 'content/backgrounds',
+  schema: frontmatterSchema,
+});
+
+export const backgroundsmeta = defineCollections({
+  type: "meta",
+  dir: "content/backgrounds",
+  schema: metaSchema,
+});
+
 
 
