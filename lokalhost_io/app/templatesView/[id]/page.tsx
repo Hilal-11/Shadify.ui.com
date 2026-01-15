@@ -11,7 +11,6 @@ import { GoFileZip } from "react-icons/go";
 import { MdDone } from "react-icons/md";
 import { IoIosStarOutline } from "react-icons/io";
 import Footer from '@/components/layout/footer';
-import { StripedPattern2 } from '@/app/dashboard/pattern';
 
 import react from "@/public/tech/react.jpeg"
 import next from "@/public/tech/next.jpeg"
@@ -240,3 +239,51 @@ export default templateView
 
 
 
+
+import { useId } from "react"
+import { cn } from "@/lib/utils"
+interface StripedPatternProps extends React.SVGProps<SVGSVGElement> {
+  direction?: "left" | "right"
+}
+export function StripedPattern2({
+  direction = "left",
+  className,
+  width = 10,
+  height = 10,
+  ...props
+}: StripedPatternProps) {
+  const id = useId()
+  const w = Number(width)
+  const h = Number(height)
+
+  return (
+    <svg
+      aria-hidden="true"
+      className={cn(
+        "pointer-events-none absolute z-10 h-[100%] w-[100%] stroke-[0.1]",
+        className
+      )}
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <defs>
+        <pattern id={id} width={w} height={h} patternUnits="userSpaceOnUse">
+          {direction === "left" ? (
+            <>
+              <line x1="0" y1={h} x2={w} y2="0" stroke="currentColor" />
+              <line x1={-w} y1={h} x2="0" y2="0" stroke="currentColor" />
+              <line x1={w} y1={h} x2={w * 2} y2="0" stroke="currentColor" />
+            </>
+          ) : (
+            <>
+              <line x1="0" y1="0" x2={w} y2={h} stroke="currentColor" />
+              <line x1={-w} y1="0" x2="0" y2={h} stroke="currentColor" />
+              <line x1={w} y1="0" x2={w * 2} y2={h} stroke="currentColor" />
+            </>
+          )}
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill={`url(#${id})`} />
+    </svg>
+  )
+}
