@@ -29,6 +29,7 @@ import {
 import { MAIN_PAGE_SEARCHING_CONFIG } from "@/config/searchingConfig";
 import Feedback from "@/components/landing/MicroComponents/Feedback";
 import { SearchingMain } from '../components/landing/MicroComponents/Searching';
+import { HiArrowNarrowRight } from "react-icons/hi";
 
 function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
   // const token = cookies().get("token")?.value;
@@ -216,12 +217,10 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
 
 
                 <div className=" lg:block xl:block h-full relative left-2">
-                  <div className="flex justify-end gap-1">
-                      <div>
-                        <SearchingMain/>
-                      </div>
-                      <button className="bg-neutral-50 dark:bg-neutral-900 px-[7px] py-[7px] rounded-sm shadow-sm border hover:bg-neutral-100"><FaGithub className="text-[15px]"/></button>
-                      <button onClick={() => setShowFeedback(prev => !prev)} className="flex items-center justify-center gap-2 text-xs border-t-[1px] border-l-[1px] border-r-[1px] border-neutral-950 dark:border-neutral-800 relative cursor-pointer font-sans font-medium px-4 py-[8px] rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><span className="text-sm"><MdOutlineFeedback /></span>Feedback</button>
+                  <div className="flex justify-end items-center gap-1">
+                      <SearchingMain/>
+                      <button className="bg-neutral-50 dark:bg-neutral-900 px-[7px] h-8 rounded-sm shadow-sm border hover:bg-neutral-100"><FaGithub className="text-[15px]"/></button>
+                      <button onClick={() => setShowFeedback(prev => !prev)} className="flex items-center justify-center gap-2 text-xs border-t-[1px] border-l-[1px] border-r-[1px] border-neutral-950 dark:border-neutral-800 relative cursor-pointer font-sans font-medium px-4 h-8 pb-px rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><span className="text-sm"><MdOutlineFeedback /></span>Feedback</button>
                       {/*  feedback  */}
                       { showFeedback && <div ref={feedbackRef} onMouseDown={(e) => e.stopPropagation()} className="absolute inset-0 top-10"><Feedback /></div> }
                   </div>
@@ -231,8 +230,8 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                   <span className="text-zinc-300 dark:text-zinc-700"></span>
                   {/* <HeaderPro /> */}
 
-                  <div className="flex gap-3">
-                      <Link href="/signup" className="border-t-[1px] border-l-[1px] border-r-[1px] border-neutral-950 dark:border-neutral-800 w-full whitespace-nowrap relative cursor-pointer font-sans font-medium py-2 rounded-md text-xs px-4 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">{isLoggedIn ? "Start Building" : "Signup"}</Link>
+                  <div className="flex items-center gap-3">
+                      <Link href="/signup" className="flex gap-1 border-t-[1px] border-l-[1px] border-r-[1px] border-neutral-950 dark:border-neutral-800 w-full whitespace-nowrap relative cursor-pointer font-sans font-medium rounded-md text-xs px-4 h-8 pb-px bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2">{isLoggedIn ? "Start Building" : "Signup"}{isLoggedIn && <span className="text-xl"><HiArrowNarrowRight /></span>}</Link>
                   </div>
                   { isLoggedIn ? (<HeaderProfile user={user} userEmail={userEmail} />) : null }
                 </div>
@@ -243,28 +242,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                 <div className=" lg:block xl:block h-full relative left-2">
                   <div className="flex justify-end gap-1">
                       <div>
-                        <Dialog>
-                            <DialogTrigger asChild>
-                              <button className="bg-neutral-50 dark:bg-neutral-900 px-[7px] py-[6px] rounded-sm shadow-sm border hover:bg-neutral-100"><IoSearchSharp className="text-lg"/></button>
-                            </DialogTrigger>
-                            <DialogContent className="lg:w-[500px] h-[400px] overflow-y-scroll pb-4">
-                              {/* Header search box */}
-                              <div className="w-full h-[48px] fixed top-0 border-b rounded-5-lg p-1 flex justify-center items-center pl-2  ">
-                                <span><IoSearchSharp className="text-lg text-neutral-400 dark:text-neutral-700"/></span>
-                                <input className="w-full h-full outline-0 text-sm font-sans font-medium pl-1" type="text" placeholder="Searching..." />
-                              </div>
-                              <div className="flex flex-col gap-1 w-full h-auto mt-10">
-                                <p className="text-xs fonr-sans text-neutral-600">Suggestions</p>
-                                {
-                                  MAIN_PAGE_SEARCHING_CONFIG.map(({suggesstion , suggesstion_to , Icon}) => (
-                                    <div key={suggesstion_to} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
-                                      <Link className="flex gap-3 pl-2 items-center text-sm font-medium" href={suggesstion_to}><span className="text-lg"><Icon /></span>{suggesstion}</Link>
-                                    </div>
-                                  ))
-                                }
-                              </div>
-                            </DialogContent>
-                        </Dialog>
+                        <SearchingMain/>
                       </div>
                       <button className="bg-neutral-50 dark:bg-neutral-900 px-[7px] py-[5px] rounded-sm shadow-sm border hover:bg-neutral-100"><FaGithub className="text-[16px]"/></button>
                   </div>
