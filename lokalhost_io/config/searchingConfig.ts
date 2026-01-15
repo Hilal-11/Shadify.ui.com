@@ -14,42 +14,42 @@ interface IMAIN_PAGE_SERCHING {
 export const MAIN_PAGE_SEARCHING_CONFIG:IMAIN_PAGE_SERCHING[] = [ 
     {
         suggesstion: "Components",
-        suggesstion_to: "/",
+        suggesstion_to: "/components",
         Icon: GrCubes
     },
     {
         suggesstion: "Templates",
-        suggesstion_to: "/",
+        suggesstion_to: "/templates",
         Icon: MdViewQuilt
     },
     {
         suggesstion: "Designs",
-        suggesstion_to: "/",
+        suggesstion_to: "/designs",
         Icon: TbBrandAuth0
     },
     {
         suggesstion: "Authentication kits",
-        suggesstion_to: "/",
+        suggesstion_to: "/authdocs",
         Icon: LiaIconsSolid
     },
     {
         suggesstion: "SASS stater kits",
-        suggesstion_to: "/",
+        suggesstion_to: "/sass-kits",
         Icon: LuFigma
     },
     {
         suggesstion: "Mobile UI Elements",
-        suggesstion_to: "/",
+        suggesstion_to: "/mobile-elements",
         Icon: PiCubeDuotone
     },
     {
         suggesstion: "Mobile Applications",
-        suggesstion_to: "/",
+        suggesstion_to: "/mobile-apps",
         Icon: PiCubeDuotone
     },
     {
         suggesstion: "Team",
-        suggesstion_to: "/",
+        suggesstion_to: "/team",
         Icon: RiTeamLine
     },
 ]
