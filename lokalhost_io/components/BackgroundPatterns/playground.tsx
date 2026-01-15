@@ -78,13 +78,8 @@ const [isFavorite , setIsFavorite] = useState(false)
             }
             transition-all duration-300 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]
         `}>
-            <Button onClick={ handleFavorite} variant="outline" size="icon" aria-label="Go Back" className={`absolute left-1 top-1 cursor-pointer z-[100] }`}>
-            {
-                isFavorite ? <GoStarFill/> : <GoStar/>
-            }
-            </Button>
 
-            <Button onClick={() => setExpand(!expand)} variant="outline" size="icon" aria-label="Go Back" className={`absolute right-1 top-1 cursor-pointer z-[100] }`}>
+            <Button onClick={() => setExpand(!expand)} variant="outline" size="icon" aria-label="Go Back" className={`absolute right-1 top-1 cursor-pointer z-30 }`}>
             {
                 !expand ? <RiExpandDiagonalLine /> : <IoCloseSharp />
             }
@@ -98,7 +93,7 @@ const [isFavorite , setIsFavorite] = useState(false)
           { 
             !expand && <div className="flex gap-2 justify-between w-full px-4">
             <div
-              className="z-50 w-full flex justify-center font-sans font-medium text-neutral-900 bg-neutral-100 rounded-md shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]  py-1 items-center gap-2"
+              className="z-40 flex items-center justify-center gap-2 border-t-[2px] border-l-[2px] border-r-[2px] border-neutral-50 dark:border-neutral-400 relative overflow-hidden text-sm cursor-pointer font-sans font-medium w-full py-[6px] rounded-md bg-neutral-100 bg-gradient-to-t from-[#f5f5f5] to-[#d4d4d4] dark:text-neutral-900 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"
               onClick={() => {
                 setPreview(children);
                 setTheme(theme);
@@ -107,7 +102,7 @@ const [isFavorite , setIsFavorite] = useState(false)
               <span className='text-lg'><MdOutlineRemoveRedEye/></span>Preview
             </div>
             <div
-              className="z-50 w-full flex justify-center items-center gap-2 font-sans font-medium text-neutral-900 bg-neutral-100 rounded-md shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]  py-1"
+              className="flex items-center justify-center gap-2 z-30 border-t-[2px] border-l-[2px] border-r-[2px] border-neutral-950 dark:border-neutral-800 relative cursor-pointer text-sm font-sans font-medium w-full py-[6px] rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"
               onClick={copyCode}
             >
               <span className='flex items-center justify-center gap-1'><FiCopy />{isCopied ? "Copied" : "Copy Code"}</span>
