@@ -26,9 +26,21 @@ var authmeta = defineCollections({
   dir: "content/authdocs",
   schema: metaSchema
 });
+var backgrounds = defineCollections({
+  type: "doc",
+  dir: "content/backgrounds",
+  schema: frontmatterSchema
+});
+var backgroundsmeta = defineCollections({
+  type: "meta",
+  dir: "content/backgrounds",
+  schema: metaSchema
+});
 export {
   authdocs,
   authmeta,
+  backgrounds,
+  backgroundsmeta,
   docs,
   meta
 };
