@@ -60,11 +60,11 @@ export const heroServiceContent: IHeroSectionSevice[] = [
         service_buttons: [
             {
                 button_name: "Building Apps",
-                button_link: "/",
+                button_link: "apps",
             },
             {
                 button_name: "Mobile Elements",
-                button_link: "/",
+                button_link: "/xyz",
             },
         ]
     },
