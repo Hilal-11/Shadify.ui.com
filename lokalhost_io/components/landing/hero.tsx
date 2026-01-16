@@ -17,6 +17,8 @@ import TemplatesShowcase from "./LandingComponents/TemplatesShowcase";
 import { cn } from "@/lib/utils";
 import TemplatesShowcaseBento from "./LandingComponents/TemplatesShowcaseBento";
 import Features from "./LandingComponents/Features";
+import { IoMdSend } from "react-icons/io";
+import TailoredSignal from "./MicroComponents/TailoredSignal";
 export function HeroSection() {
 
   const { theme } = useTheme();
@@ -29,7 +31,7 @@ export function HeroSection() {
 
 
   return (
-    <div className="w-full h-auto mx-auto md:container lg:container py-8 lg:py-16 flex flex-col items-center justify-center text-center gap-6">
+    <div className="w-full container max-w-[1580px] h-auto mx-auto  py-8 lg:py-16 flex flex-col items-center justify-center text-center gap-6">
       <motion.span
        initial={{opacity: 0 , y: -100}}
        animate={{opacity: 1 , y: 0}}
@@ -39,16 +41,21 @@ export function HeroSection() {
       <div className="w-full h-auto px-0 lg:px-4 py-6">
         <AnnoncementBadge />
         <div className="mt-8 text-center flex-col gap-4">
-          <h1 className="font-sans font-bold text-3xl lg:text-5xl text-neutral-800 dark:text-neutral-200 pb-2">A Complete Ecosystem for Designing, Building, and Scaling Modern Web & Mobile Applications.</h1>
+          <h1 className="font-sans font-bold text-2xl lg:text-5xl text-neutral-800 dark:text-neutral-200 pb-2">A Complete Ecosystem for Designing, Building, and Scaling Modern Web & Mobile Applications.</h1>
           <ContainerTextFlip/>
-          <p className="px-0 lg:w-2/3 mx-auto py-4 font-sans font-medium text-md text-neutral-600 dark:text-neutral-400 ">A unified ecosystem built for modern product development, covering web and mobile UI, design systems, authentication, motion, and creative assets — all optimized for production use</p>
+          <p className="px-0 lg:w-2/3 mx-auto py-4 font-sans font-medium text-[16px] text-neutral-600 dark:text-neutral-400 ">A unified ecosystem built for modern product development, covering web and mobile UI, design systems, authentication, motion, and creative assets — all optimized for production use</p>
         </div>
+
+        <div className="flex mx-auto mt-2 mb-2">
+          <TailoredSignal />
+        </div>
+
         <div className="flex flex-wrap justify-center gap-4 pt-8">
           <motion.button
             transition={{ duration: 0.28 , ease: "easeInOut"}}
             whileHover={{ y: -3 }}
             whileTap={{ y: -4 }}
-          className="border-t-[2px] border-l-[2px] border-r-[2px] border-neutral-50 dark:border-neutral-400 relative overflow-hidden cursor-pointer font-sans font-medium px-10 py-2 rounded-md bg-neutral-100 bg-gradient-to-t from-[#f5f5f5] to-[#d4d4d4] dark:text-neutral-900 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">Explore Templets  </motion.button>
+          className="border-t-[2px] border-l-[2px] border-r-[2px] border-neutral-50 dark:border-neutral-400 relative overflow-hidden cursor-pointer font-sans font-medium px-10 py-2 rounded-md bg-neutral-100 bg-gradient-to-t from-[#f5f5f5] to-[#d4d4d4] dark:text-neutral-900 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2"><span><IoMdSend className="text-lg text-neutral-700"/></span>Explore Templets</motion.button>
           <motion.button
               transition={{ duration: 0.28 , ease: "easeInOut"}}
               whileHover={{ y: -3}}
