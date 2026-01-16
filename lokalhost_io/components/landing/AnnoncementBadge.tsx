@@ -1,24 +1,17 @@
-import { BsStars } from "react-icons/bs";
-import { cn } from "@/lib/utils"
-import { AnimatedShinyText } from "@/components/ui/animated-shiny-text"
-import { IoIosArrowRoundForward } from "react-icons/io";
-import { IoCreateOutline } from "react-icons/io5";
-
+import { HiArrowNarrowRight } from "react-icons/hi";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
 function AnnoncementBadge() {
   return (
     <div className="z-10 flex  items-center justify-center">
-      <div
-        className={cn(
-          "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
-        )}
-      >
-        <AnimatedShinyText className="flex gap-1 items-center justify-center font-sans font-medium px-4 py-[3px] transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400 text-sm">
-          <span className="flex gap-1 items-center justify-center"><IoCreateOutline className="text-lg" /> Open for Client Work</span>
-          <IoIosArrowRoundForward className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-        </AnimatedShinyText>
-      </div>
+      <ShimmerButton className="shadow-2xl">
+      <p className="text-center text-sm whitespace-break-spaces flex items-center gap-2">
+        <span className="flex items-center justify-center bg-neutral-100 text-center font-mono text-[11px] px-2 h-[12px] py-px rounded-full text-neutral-800 ">New</span> Templates & Marketing UI Blocks, Mobile apps, UI design kits & more <span className="pl-1"><HiArrowNarrowRight className="text-xs" /></span>
+      </p>
+    </ShimmerButton>
     </div>
   )
 }
 
 export default AnnoncementBadge
+
+
