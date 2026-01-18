@@ -5,20 +5,24 @@ import { motion } from "motion/react"
 import AnnoncementBadge from "./AnnoncementBadge";
 import Image from "next/image";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import { cn } from "@/lib/utils";
 import { servicesShowCaseConfig } from '../../config/servicesConfig';
 import { useEffect, useState } from "react";
-import { ThemeProvider , useTheme } from "next-themes"
+import {  useTheme } from "next-themes"
 import { heroServiceContent } from "@/config/hero_section_service_config"
 import Link from "next/link";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { ContainerTextFlip } from "./animate_hero_tags"
 import DesignsShowcase from "./LandingComponents/DesignsShowcase";
 import TemplatesShowcase from "./LandingComponents/TemplatesShowcase";
-import { cn } from "@/lib/utils";
 import TemplatesShowcaseBento from "./LandingComponents/TemplatesShowcaseBento";
-import Features from "./LandingComponents/Features";
 import { IoMdSend } from "react-icons/io";
 import TailoredSignal from "./MicroComponents/TailoredSignal";
+import { MarqueeTemplates } from "./MicroComponents/templatesScrolling";
+import FeaturesBento from "./LandingComponents/FeaturesBento";
+import ComponentsBento from "./LandingComponents/ComponentsBento"
+import DesignsBento from "./LandingComponents/DesignsBento"
+
 export function HeroSection() {
 
   const { theme } = useTheme();
@@ -86,11 +90,8 @@ export function HeroSection() {
                 </div>
                 <div 
                 className={cn(
-                  "absolute bottom-0 px-5 flex flex-col gap-2 py-3",
-                  "[background:linear-gradient(to_bottom,#f3f4f6,#e5e7eb)]",
-                  "shadow-[inset_0_-1px_#d1d5db,inset_0_0_0_1px_#d1d5db,_0_4px_8px_#d1d5db]",
-                  "dark:[background:linear-gradient(to_bottom,#262626,#0a0a0a)]",
-                  "dark:shadow-[inset_0_-1px_#10171e,inset_0_0_0_1px_hsla(205,89%,46%,.24),_0_4px_8px_#00000052]",
+                  "absolute bottom-0 px-5 flex flex-col gap-2 py-3 bg-neutral-50 dark:bg-neutral-950 border-t border-dashed",
+                  
                 )}
                 >
                   <div className="">
@@ -114,87 +115,22 @@ export function HeroSection() {
               </Link>
             ))
           }
-          <div className="md:col-span-2 lg:col-span-2 relative overflow-hidden h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] w-full border-r border-dashed border-t"></div>
         </div> 
-        <div>
-          <Features />
+        
+        <div className="w-full h-auto mt-10 mb-10">
+          <MarqueeTemplates />
         </div>
-        <div>
+        <div className="mt-16 relative overflow-hidden w-full h-auto border-t border-l border-r border-dashed">
+          <FeaturesBento />
+        </div>
+        <div className="mt-16 relative overflow-hidden w-full h-auto border-t border-l border-r border-dashed">
+          <ComponentsBento />
+        </div>
+        <div className="mt-16 relative overflow-hidden w-full h-auto border-t border-l border-r border-dashed">
           <TemplatesShowcaseBento />
         </div>
-
-        <br /><br />
-        <div className="lg:pt-14">
-          <h1 className="font-sans font-bold text-2xl lg:text-4xl text-neutral-800 dark:text-neutral-200">Everything You Can Build with Lokalhost</h1>
-          <p className="px-0 lg:w-2/3 mx-auto py-4 font-sans font-medium text-sm text-neutral-600 dark:text-neutral-400 ">Explore a carefully curated ecosystem of production-ready components, scalable templates, design systems, mobile UI elements, and creative assets — thoughtfully crafted to work together seamlessly and help you build, iterate, and launch modern digital products faster.</p>
-          <div className="lg:mt-10 w-full h-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 justify-between lg:py-10 items-between">
-              <div className="w-full flex justify-end lg:hidden">
-                <span className="text-3xl relative top-3 bg-neutral-200 shadow-md border rounded-full dark:bg-neutral-800 flex justify-center items-center"><IoIosArrowRoundForward /></span>
-              </div>
-              <div className="flex lg:flex-col justify-between lg:h-[525px] flex-nowrap overflow-auto gap-2 pl-2">
-
-                {
-                  servicesShowCaseConfig.map(({id , service , discription , tech_bages , link , icon: Icon}) => (
-                    <div key={id} onClick={() => setServiceId(id) } className="cursor-pointer lg:w-auto w-[400px] h-auto rounded-sm px-2 py-2 bg-neutral-100 dark:bg-neutral-900 border pb-4 relative hover:bg-neutral-900 dark:hover:bg-neutral-200 dark:hover:text-neutral-800 hover:text-neutral-200 group shadow-md transition duration-300 ease-in-out">
-                      <div className="flex w-[320px] justify-between">
-                        <div className="w-[80] lg:w-[120px] h-[80px] flex items-center justify-center">
-                          <span className="text-4xl"><Icon/></span>
-                        </div>
-                        <div className="pt-1 pb-2 lg:pl-0 pl-3">
-                          <h1 className="text-left text-sm font-bold text-neutral-700 group-hover:text-neutral-300 dark:group-hover:text-neutral-700 dark:text-neutral-300">{service}</h1>
-                          <p className="text-left text-[11px] font-sans font-medium pl-1 group-hover:text-neutral-500 text-neutral-500">{discription}</p>
-                        </div>
-                        <div className="absolute right-1 bottom-1 flex gap-1">
-                          {
-                            tech_bages.map((tech , index) => (
-                              <motion.span
-
-                              key={index} className="group-hover:flex md:hidden lg:hidden text-[11px] font-mono font-medium px-2 h-4 rounded-full shadow-xs bg-neutral-700 text-neutral-200 items-center justify-center">{tech}</motion.span>
-                            ))
-                          }
-                          </div>
-                      </div>
-                  </div>
-                    ))
-                }
-              </div>
-            <div className="xl:col-span-2 lg:h-[600px] overflow-hidden">
-               {/* for components */}
-                { 
-                  service.id === 1 && <div className="w-full h-auto gap-2 grid lg:grid-cols-3 grid-cols-2">
-                    <div className="h-[120px] lg:h-[260px] rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
-                    <div className="h-[120px] lg:h-[260px] rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
-                    <div className="h-[120px] lg:h-[260px] rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
-                    <div className="h-[120px] lg:h-[260px] lg:col-span-2 rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
-                    <div className="h-[120px] lg:h-[260px] lg:col-span-1 col-span-2 rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
-                  </div>
-                }
-
-                {/* form mobile elememnts */}
-                { 
-                  service.id === 3 && <div className="w-full h-auto gap-2 grid lg:grid-cols-3 grid-cols-2">
-                    <div className="h-[120px] lg:h-[260px] rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
-                    <div className="h-[120px] lg:h-[260px] rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
-                    <div className="h-[120px] lg:h-[260px] rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
-                    <div className="h-[120px] lg:h-[260px] lg:col-span-2 rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
-                    <div className="h-[120px] lg:h-[260px] lg:col-span-1 col-span-2 rounded-sm shadow-sm border hover:bg-neutral-100 transition duration-300 hover:dark:bg-neutral-950"></div>
-                  </div>
-                }
-
-               {/* for templates view */}
-               {
-                service.id === 2 && <div>
-                  <TemplatesShowcase />
-                </div>
-               }
-              {/*  fro designs */}
-              { 
-                  service.id === 4 && <div className="w-full h-full">
-                    <DesignsShowcase />
-                  </div>
-                }
-            </div>
-          </div>
+        <div className="mt-16 relative overflow-hidden w-full h-auto border-t border-l border-r border-dashed">
+          <DesignsBento />
         </div>
     </div>
   );
