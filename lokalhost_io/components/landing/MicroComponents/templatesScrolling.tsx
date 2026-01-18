@@ -147,3 +147,42 @@ export function ComponentsMarquee() {
     </div>
   )
 }
+
+import { templatesCategories } from "@/config/templatesCatagoriedConfig"
+
+const TemplatesCatagory = ({
+  id,
+  name,
+}: {
+    id: number | string
+    name: string
+}) => {
+  return (
+    <div className="flex justify-center items-center px-3 text-sm font-sans font-medium py-1 rounded-sm bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
+      <p>{name}</p>
+    </div>
+  )
+}
+export function TemplatesList() {
+  return (
+    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+      <Marquee pauseOnHover  className="[--duration:200s]">
+        {templatesCategories.map((template, index) => (
+          <TemplatesCatagory key={index} {...template} />
+        ))}
+      </Marquee>
+      <Marquee reverse pauseOnHover className="[--duration:180s]">
+        {templatesCategories.map((template, index) => (
+          <TemplatesCatagory key={index} {...template} />
+        ))}
+      </Marquee>
+      <Marquee pauseOnHover className="[--duration:180s]">
+        {templatesCategories.map((template, index) => (
+          <TemplatesCatagory key={index} {...template} />
+        ))}
+      </Marquee>
+      <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
+      <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
+    </div>
+  )
+}
