@@ -66,7 +66,7 @@ export const FAQ_A = () => {
 
 export const FAQ_B = () => {
     return (
-      <Accordion type='single' collapsible className='w-full' defaultValue='item-1'>
+      <Accordion type='single' collapsible className='w-full'>
         <div className='pb-3'>
             <h1 className='font-mono font-bold text-[16px] lg:text-xl relative -left-2'>About Client Work</h1>
         </div>
@@ -92,7 +92,7 @@ export const FAQ_B = () => {
   
 export const FAQ_C = () => {
     return (
-      <Accordion type='single' collapsible className='w-full' defaultValue='item-1'>
+      <Accordion type='single' collapsible className='w-full'>
         <div className='pb-3'>
             <h1 className='font-mono font-bold text-[16px] lg:text-xl relative -left-2'>Services Related</h1>
         </div>
@@ -118,7 +118,7 @@ export const FAQ_C = () => {
   
 export const FAQ_D = () => {
     return (
-      <Accordion type='single' collapsible className='w-full' defaultValue='item-1'>
+      <Accordion type='single' collapsible className='w-full'>
         <div className='pb-3'>
             <h1 className='font-mono font-bold text-[16px] lg:text-xl relative -left-2'>Support</h1>
         </div>
