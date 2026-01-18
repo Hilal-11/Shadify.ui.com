@@ -21,7 +21,7 @@ function Footer() {
       
 
 
-      <div className='relative container !important border-dashed z-30 !important bg-neutral-100 dark:bg-neutral-950
+      <div className='relative w-full container max-w-[1580px] !important border-dashed z-30 !important bg-neutral-100 dark:bg-neutral-950
        h-auto border-l border-r border-neutral-400 dark:border-neutral-700 py-20 px-10'>
         <div className='lg:w-2/3 w-full'>
             <div className='flex items-center'>
