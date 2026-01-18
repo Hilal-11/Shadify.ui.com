@@ -1,7 +1,12 @@
 "use client"
 import React from 'react'
 import { motion } from "motion/react"
+import Image from 'next/image'
 import { DotPattern } from '@/components/ui/dot-pattern';
+import { StripedPattern } from '@/components/magicui/striped-pattern';
+import { GoFileZip } from "react-icons/go";
+import { LuCodeXml } from "react-icons/lu";
+import { RxFigmaLogo } from "react-icons/rx";
 export default function TemplatesShowcaseBento() {
   return (
     <div className='w-full h-full'>
@@ -19,20 +24,102 @@ export default function TemplatesShowcaseBento() {
         </div>
         <div className="relative h-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-0 lg:gap-0 border-b border-dashed px-px">
           
-            <div className="w-full lg:col-span-2 relative overflow-hidden h-auto lg:h-[340px] border-r border-dashed border-t flex justify-start mask-x-from-80% mask-x-to-100%">
-                
+            <div className="relative h-[340px] w-full border border-dashed overflow-hidden mask-x-from-80% to-100%">
+              <div className='space-y-1 pt-5 px-5 lg:px-7'>
+                <h1 className='text-left font-sans text-xl lg:text-2xl font-bold text-neutral-800 dark:text-neutral-200'>Clean, Modern Templates Designed for Real Products</h1>
+                <p className='text-left font-sans font-medium text-sm text-neutral-600 dark:text-neutral-400 lg:px-2'>Designed around real products and startups, these templates focus on clarity, usability, and layouts that actually ship.</p>
+              </div>
+              <div className='lg:px-10 px-5 [perspective:800px] [transform-style:preserve-3d]'>
+                <motion.div
+                  initial={{
+                      rotateX: 0,
+                      translateZ: "0px",
+                      y: 60,
+                      opacity: 0
+                  }}
+                   style={{
+                        rotateX: 0,
+                        translateZ: "0px",
+                        y: 6
+                        
+                    }}
+                    whileInView={{
+                        rotateX: 24,
+                        translateZ: "0px",
+                        y: 6,
+                        opacity: 1 ,
+                    }}
+                   whileHover={{
+                      rotateX: 0,
+                      translateZ: "0px",
+                      y: 0,
+                      scale: 1.05,
+                      opacity: 1 ,
+                   }}
+
+                    transition={{
+                        duration: 0.5,
+                        ease: "easeInOut",
+                    }}
+                 className="flex w-full h-full items-start justify-center px-4 pt-5 relative ">
+                  <Image width={200} height={200} className="z-10 rounded-sm object-cover w-[200px] absolute left-0 top-18 border " alt="templates" src="http://localhost:3000/templates/hero-block-1-light.webp" />
+                  <img  className="border-2 z-20 rounded-sm object-cover w-[380px]" alt="templates" src="/templates/hero-block-4-light.webp" />
+                  <Image width={200} height={200} className="z-10 rounded-sm object-cover w-[200px] absolute right-0 top-18 border" alt="templates" src="http://localhost:3000/templates/hero-block-9-light.webp" />
+                </motion.div>
+              </div>
             </div>
 
-            <div className="relative h-[340px] w-full border border-dashed">
+
+            <div className="lg:row-span-2 relative h-auto w-full border border-dashed grid grid-cols-1 p-2 overflow-hidden gap-5 lg:gap-1">
+              <div className='flex justify-end items-start overflow-hidden px-2'>
+                  <HeroVideoDialog
+                    className="block"
+                    animationStyle="top-in-bottom-out"
+                    videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+                    thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+                    thumbnailAlt="Hero Video"
+                  />
+              </div>
+              <div className='flex justify-end items-center relative overflow-hidden lg:bottom-20'>
+                <TemplatesList />
+              </div>
+              <div className='hidden lg:flex justify-center items-center relative top-8'>
+                  <TechEcosystemOrbit />
+              </div>
+            </div>
+
+
+            <div className="relative h-[340px] w-full border border-dashed  overflow-hidden">
+              <div className='space-y-1 pt-5 px-5 lg:px-7'>
+                <h1 className='text-left font-sans text-xl lg:text-2xl font-bold text-neutral-800 dark:text-neutral-200'>Multiple Delivery FormatsCode Zip, Design + Repository</h1>
+                <p className='text-left font-sans font-medium text-sm text-neutral-600 dark:text-neutral-400 lg:px-2'>Each template includes a downloadable code ZIP, a full repository, and design assets, making it easy to adapt the project to your workflow.</p>
+              </div>
+              <div className="flex justify-center items-start w-full h-auto px-3 gap-4 pt-5 px-8">
+                    <div className="w-[120px] h-[100px] bg-neutral-100 dark:bg-neutral-800 shadow-sm rounded-sm flex items-center justify-center">
+                      <span><GoFileZip className="text-6xl"/></span>
+                    </div>
+                    <div className="w-[120px] h-[100px] bg-neutral-100 dark:bg-neutral-800 shadow-sm rounded-sm flex items-center justify-center">
+                      <span><RxFigmaLogo className="text-6xl"/></span>
+                    </div>
+                    <div className="w-[120px] h-[100px] bg-neutral-100 dark:bg-neutral-800 shadow-sm rounded-sm flex items-center justify-center">
+                      <span><LuCodeXml className="text-6xl"/></span>
+                    </div>
+              </div>
             </div>
 
             <div className="relative overflow-hidden h-[340px] w-full border-r border-dashed border-t">
+              
             </div>
 
-            <div className="relative overflow-hidden h-[340px] w-full border-r border-dashed border-t">
+             <div className="relative h-[340px] w-full border border-dashed">
+              
             </div>
 
         </div> 
+        <div className='w-full flex items-center justify-center py-10 lg:py-16 border-b border-dashed relative lg:mask-x-from-40% mask-x-from-70% to-100%'>
+          <StripedPattern />
+          <button className='z-20 border-t-[2px] border-l-[2px] border-r-[2px] border-neutral-950 dark:border-neutral-800 relative cursor-pointer font-sans font-medium px-10 py-2 rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]'>Browse Templates</button>
+        </div>
     </div>
   )
 }
@@ -41,3 +128,28 @@ export default function TemplatesShowcaseBento() {
 
 
 
+
+
+import { TbBrandFramerMotion } from "react-icons/tb";
+import { PiTerminalFill } from "react-icons/pi";
+import { RiTailwindCssFill } from "react-icons/ri";
+import { FaReact } from "react-icons/fa";
+import { RiNextjsFill } from "react-icons/ri";
+import { OrbitingCircles } from '@/components/ui/orbiting-circles';
+import { SiShadcnui } from 'react-icons/si';
+import { TemplatesList } from '../MicroComponents/templatesScrolling';
+import { HeroVideoDialog } from '../../ui/hero-video-dialog';
+function TechEcosystemOrbit() {
+  return (
+    <div className="flex h-full w-full flex-col items-center justify-center">
+      <OrbitingCircles iconSize={30} radius={160}>
+          <span className='p-2 rounded-full border shadow-sm bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center'><FaReact className='text-3xl'/></span>
+          <span className='p-2 rounded-full border shadow-sm bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center'><RiNextjsFill className='text-3xl'/></span>
+          <span className='p-2 rounded-full border shadow-sm bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center'><RiTailwindCssFill className='text-3xl'/></span>
+          <span className='p-2 rounded-full border shadow-sm bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center'><TbBrandFramerMotion className='text-3xl'/></span>
+          <span className='p-2 rounded-full border shadow-sm bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center'><SiShadcnui className='text-3xl'/></span>
+      </OrbitingCircles>
+        <div className="flex justify-center items-center"><PiTerminalFill className='text-6xl'/></div>
+    </div>
+  )
+}
