@@ -94,7 +94,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                             border-neutral-200 dark:border-neutral-800">
             <div
               className={`
-                            w-full md:w-[90%] lg:w-[80%] xl:w-[80%] mx-auto
+                            w-full md:w-[100%] lg:w-[90%] xl:w-[80%] mx-auto
                             flex items-center justify-between
                             px-4 py-4
                             relative
@@ -152,7 +152,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
                       prefetch
                     >
-                      Web Templates
+                      Templates
                     </Link>
                     <Link
                       href="/designs"
@@ -161,7 +161,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                     >
                       Figma
                     </Link>
-                    <Link
+                    {/* <Link
                       href="/designs"
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
                       prefetch
@@ -174,7 +174,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                       prefetch
                     >
                       Mobile Applications
-                    </Link>
+                    </Link> */}
                     <Link
                       href="/bg-patterns"
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
