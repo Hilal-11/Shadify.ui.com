@@ -7,12 +7,13 @@ import { StripedPattern } from '@/components/magicui/striped-pattern';
 import { GoFileZip } from "react-icons/go";
 import { LuCodeXml } from "react-icons/lu";
 import { RxFigmaLogo } from "react-icons/rx";
+import { LuMessageCircleHeart } from "react-icons/lu";
 export default function TemplatesShowcaseBento() {
   return (
     <div className='w-full h-full'>
         <div className='w-full mx-auto pt-8 lg:pt-16 relative pb-10'>
             <motion.h1
-            initial={{ opacity: 0, y: 110 }}
+            initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, }}
             className='z-20  text-center font-sans font-bold text-3xl lg:text-4xl text-neutral-800 dark:text-neutral-200 pb-3'>Explore 10+ Premium Lokalhost.io Templates</motion.h1>
@@ -108,17 +109,37 @@ export default function TemplatesShowcaseBento() {
             </div>
 
             <div className="relative overflow-hidden h-[340px] w-full border-r border-dashed border-t">
-              
+              <div className='space-y-1 pt-5 px-5 lg:px-4'>
+                <h1 className='text-left font-sans text-xl lg:text-2xl font-bold text-neutral-800 dark:text-neutral-200'>Customization Support Included. Free customization</h1>
+                <p className='text-left font-sans font-medium text-sm text-neutral-600 dark:text-neutral-400 lg:px-2'>Customization support is included to help with basic layout, styling, and content adjustments, ensuring the template aligns better with your product requirements and branding, while keeping the structure clean and production-ready.</p>
+              </div>
+              <div className='flex flex-col gap-2 px-6 pl-10'>
+                  <ul className='space-y-2 text-left font-sans font-medium text-sm text-neutral-600 dark:text-neutral-400 lg:px-2 list-none mt-3'>
+                    <li className='flex gap-1 items-center '><span><LuMessageCircleHeart className='text-lg text-red-300'/></span> Spacing and layout refinements</li>
+                    <li className='flex gap-1 items-center '><span><LuMessageCircleHeart className='text-lg text-red-300'/></span> Color and typography adjustments</li>
+                    <li className='flex gap-1 items-center '><span><LuMessageCircleHeart className='text-lg text-red-300'/></span> Component-level UI tweaks</li>
+                    <li className='flex gap-1 items-center '><span><LuMessageCircleHeart className='text-lg text-red-300'/></span> Content structure and hierarchy updates</li>
+                    <li className='flex gap-1 items-center '><span><LuMessageCircleHeart className='text-lg text-red-300'/></span> Minor UX and interaction improvements</li>
+                    <li className='flex gap-1 items-center '><span><LuMessageCircleHeart className='text-lg text-red-300'/></span> Responsive layout adjustments</li>
+                    <li className='flex gap-1 items-center '><span><LuMessageCircleHeart className='text-lg text-red-300'/></span> Accessibility and usability fixes</li>
+                  </ul>
+              </div>
             </div>
 
              <div className="relative h-[340px] w-full border border-dashed">
-              
+              <div className='space-y-1 pt-5 px-5 lg:px-4'>
+                <h1 className='text-left font-sans text-xl lg:text-2xl font-bold text-neutral-800 dark:text-neutral-200'>Production Support with Refinements & Deployment Help</h1>
+                <p className='text-left font-sans font-medium text-sm text-neutral-600 dark:text-neutral-400 lg:px-2'>We provide hands-on support for final UI refinements, production readiness, and deployment-level adjustments, helping ensure your product ships smoothly, performs reliably, and feels polished for real users.</p>
+              </div>
+              <div>
+                <ComponentsMarquee />
+              </div>
             </div>
 
         </div> 
-        <div className='w-full flex items-center justify-center py-10 lg:py-16 border-b border-dashed relative lg:mask-x-from-40% mask-x-from-70% to-100%'>
+        <div className='w-full flex items-center justify-center py-10 lg:py-16 border-b border-dashed relative lg:mask-x-from-60% mask-x-from-70% to-100%'>
           <StripedPattern />
-          <button className='z-20 border-t-[2px] border-l-[2px] border-r-[2px] border-neutral-950 dark:border-neutral-800 relative cursor-pointer font-sans font-medium px-10 py-2 rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]'>Browse Templates</button>
+          <Link href="/templates" className='z-20 border-t-[2px] border-l-[2px] border-r-[2px] border-neutral-950 dark:border-neutral-800 relative cursor-pointer font-sans font-medium px-10 py-2 rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]'>Browse Templates</Link>
         </div>
     </div>
   )
@@ -137,8 +158,9 @@ import { FaReact } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
 import { OrbitingCircles } from '@/components/ui/orbiting-circles';
 import { SiShadcnui } from 'react-icons/si';
-import { TemplatesList } from '../MicroComponents/templatesScrolling';
+import { TemplatesList, ComponentsMarquee } from '../MicroComponents/templatesScrolling';
 import { HeroVideoDialog } from '../../ui/hero-video-dialog';
+import Link from 'next/dist/client/link';
 function TechEcosystemOrbit() {
   return (
     <div className="flex h-full w-full flex-col items-center justify-center">
