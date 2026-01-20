@@ -7,7 +7,6 @@ import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { IoMdSearch } from "react-icons/io";
 import TemplateShimmerLoadingUI from '@/components/templateShimmerLoadingUI';
-import { templatesCategories } from '@/config/templatesCatagoriedConfig';
 import Footer from "@/components/layout/footer"
 import { LuFigma } from "react-icons/lu";
 import AnnoncementBadge from "@/components/landing/AnnoncementBadge"
@@ -21,18 +20,19 @@ import ts from "@/public/tech/ts.jpeg"
 import js from "@/public/tech/js.jpeg"
 import { HiArrowNarrowRight } from "react-icons/hi";
 import HoverExternalIcon from "@/components/landing/MicroComponents/HoverExternalIcon";
-import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "@/components/ui/input-group";
-import { PiTerminalFill } from "react-icons/pi";
+import { InputGroup, InputGroupButton, InputGroupInput } from "@/components/ui/input-group";
 
+import templatesCategories from "@/public/config/templatesCatagoriedConfig.json";
+const techStackImages = [
+    react,
+    next,
+    tailwindX,
+    shadcn,
+    ts,
+    js,
+]
 function Templates(){
-    const techStackImages = [
-            react,
-            next,
-            tailwindX,
-            shadcn,
-            ts,
-            js,
-        ]
+
     const templates = useQuery(api.getTemplates.getTemplates);
 
 
@@ -196,7 +196,7 @@ function Templates(){
                 )}
             </section>
 
-        <Footer />
+        {/* <Footer /> */}
         </div>
     )
 }
