@@ -4,6 +4,8 @@ import { Globe } from "@/components/ui/globe"
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import Image from 'next/image';
+
+
 function ComponentsBento() {
 
   
@@ -121,7 +123,7 @@ function ComponentsBento() {
                   <p className='text-left pt-2 pl-2 text-[15px] lg:pl-2 font-sans font-medium text-neutral-700 dark:text-neutral-400'>Foundational components built to support real functionality, covering common UI patterns used in everyday application development.</p>
                 </div>
                 <div className='pt-6'>
-                  <ComponentsMarquee />
+                  <ComponentsMarquee/>
                 </div>
               </div>
             </div>
