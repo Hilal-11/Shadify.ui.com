@@ -8,6 +8,10 @@ import { GoFileZip } from "react-icons/go";
 import { LuCodeXml } from "react-icons/lu";
 import { RxFigmaLogo } from "react-icons/rx";
 import { LuMessageCircleHeart } from "react-icons/lu";
+interface TemplatesCategories{
+  id: number,
+  name: string
+}
 export default function TemplatesShowcaseBento() {
   return (
     <div className='w-full h-full'>
@@ -132,7 +136,7 @@ export default function TemplatesShowcaseBento() {
                 <p className='text-left font-sans font-medium text-sm text-neutral-600 dark:text-neutral-400 lg:px-2'>We provide hands-on support for final UI refinements, production readiness, and deployment-level adjustments, helping ensure your product ships smoothly, performs reliably, and feels polished for real users.</p>
               </div>
               <div>
-                <ComponentsMarquee />
+                <ComponentsMarquee/>
               </div>
             </div>
 
