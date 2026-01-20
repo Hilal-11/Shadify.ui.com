@@ -1,14 +1,20 @@
+"use client"
 import React, { useEffect, useState } from 'react'
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { MAIN_PAGE_SEARCHING_CONFIG } from "@/config/searchingConfig";
 import Link from 'next/link';
 import { IoSearchSharp } from 'react-icons/io5';
 import { FilterIcon } from 'lucide-react';
+import { MAIN_PAGE_SEARCHING_CONFIG } from '../../../config/searchingConfig';
+type SearchProps = {
+  searchData: any; // replace 'any' with your type
+};
 export function SearchingMain() {
+
+
     const [searchQuery , setSearchQuery] = useState('');
     const [filteredItem , setFilteredItem] = useState([...MAIN_PAGE_SEARCHING_CONFIG]);
     const handleSearching = (event:any) => {
@@ -16,7 +22,7 @@ export function SearchingMain() {
     }
 
     useEffect(() => {
-        const filtering = MAIN_PAGE_SEARCHING_CONFIG.filter((item) => item.suggesstion.toLowerCase().includes(searchQuery.toLowerCase()))
+        const filtering = MAIN_PAGE_SEARCHING_CONFIG.filter((item:any) => item.suggesstion.toLowerCase().includes(searchQuery.toLowerCase()))
         setFilteredItem(filtering);
     }, [searchQuery])
   return (
