@@ -1,9 +1,4 @@
 "use client";
-
-import { ArrowUpRight, PartyPopper, Rocket } from "lucide-react";
-import Link from "next/link";
-import XIcon from "../icons/x-icon";
-import { ConfettiOutline } from "../icons/conffeti";
 import { useState, useEffect } from "react";
 
 interface HeaderContent {
