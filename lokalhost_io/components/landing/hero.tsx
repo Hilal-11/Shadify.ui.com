@@ -4,7 +4,6 @@ import type React from "react";
 import { motion } from "motion/react"
 import AnnoncementBadge from "./AnnoncementBadge";
 import Image from "next/image";
-import { IoIosArrowRoundForward } from "react-icons/io";
 import { cn } from "@/lib/utils";
 import { servicesShowCaseConfig } from '../../config/servicesConfig';
 import { useEffect, useState } from "react";
@@ -13,8 +12,6 @@ import { heroServiceContent } from "@/config/hero_section_service_config"
 import Link from "next/link";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { ContainerTextFlip } from "./animate_hero_tags"
-import DesignsShowcase from "./LandingComponents/DesignsShowcase";
-import TemplatesShowcase from "./LandingComponents/TemplatesShowcase";
 import TemplatesShowcaseBento from "./LandingComponents/TemplatesShowcaseBento";
 import { IoMdSend } from "react-icons/io";
 import TailoredSignal from "./MicroComponents/TailoredSignal";
@@ -43,7 +40,7 @@ export function HeroSection() {
        className="absolute top-0 left-0 lg:-top-28 lg:left-40 w-[60px] lg:w-[170px] h-[300px] lg:h-[600px] bg-neutral-300 dark:bg-neutral-800 blur-2xl rounded-b-full -rotate-45 "></motion.span>
        
       <div className="w-full h-auto px-0 lg:px-4 py-6">
-        <AnnoncementBadge />
+        <AnnoncementBadge aboutBadge={"Templates & Marketing UI Blocks, Mobile apps, UI design kits & more"}/>
         <div className="mt-8 text-center flex-col gap-4">
           <h1 className="font-sans font-bold text-2xl lg:text-5xl text-neutral-800 dark:text-neutral-200 pb-2">A Complete Ecosystem for Designing, Building, and Scaling Modern Web & Mobile Applications.</h1>
           <ContainerTextFlip/>
