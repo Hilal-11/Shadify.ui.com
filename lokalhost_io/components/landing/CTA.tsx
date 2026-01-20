@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { PiTerminalFill } from "react-icons/pi";
 import { StripedPattern } from "@/components/magicui/striped-pattern"
