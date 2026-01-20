@@ -18,7 +18,6 @@ import { FaChevronDown } from "react-icons/fa6";
 import { FaChevronUp } from "react-icons/fa";
 import HeaderProfile from "@/components/HeaderProfile";
 import { TbLockHeart } from "react-icons/tb";
-import { IoSearchSharp } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa";
 import { MdOutlineFeedback } from "react-icons/md";
 import {
@@ -26,12 +25,14 @@ import {
   DialogContent,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { MAIN_PAGE_SEARCHING_CONFIG } from "@/config/searchingConfig";
 import Feedback from "@/components/landing/MicroComponents/Feedback";
 import { SearchingMain } from '../components/landing/MicroComponents/Searching';
 import { HiArrowNarrowRight } from "react-icons/hi";
 
 function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
+
+
+
   // const token = cookies().get("token")?.value;
   // const isAuthenticate = !!token;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -216,7 +217,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                 <div className="hidden md:flex sm:flex items-center gap-2">
                 <div className=" lg:block xl:block h-full relative left-2">
                   <div className="flex justify-end items-center gap-1">
-                      <SearchingMain/>
+                      <SearchingMain />
                       <button className="bg-neutral-50 dark:bg-neutral-900 px-[7px] h-8 rounded-sm shadow-sm border hover:bg-neutral-100"><FaGithub className="text-[15px]"/></button>
                       <button onClick={() => setShowFeedback(prev => !prev)} className="flex items-center justify-center gap-2 text-xs border-t-[1px] border-l-[1px] border-r-[1px] border-neutral-950 dark:border-neutral-800 relative cursor-pointer font-sans font-medium px-4 h-8 pb-px rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]"><span className="text-sm"><MdOutlineFeedback /></span>Feedback</button>
                       {/*  feedback  */}
