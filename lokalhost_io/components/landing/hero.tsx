@@ -5,10 +5,7 @@ import { motion } from "motion/react"
 import AnnoncementBadge from "./AnnoncementBadge";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { servicesShowCaseConfig } from '../../config/servicesConfig';
-import { useEffect, useState } from "react";
 import {  useTheme } from "next-themes"
-import { heroServiceContent } from "@/config/hero_section_service_config"
 import Link from "next/link";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { ContainerTextFlip } from "./animate_hero_tags"
@@ -20,16 +17,31 @@ import FeaturesBento from "./LandingComponents/FeaturesBento";
 import ComponentsBento from "./LandingComponents/ComponentsBento"
 import DesignsBento from "./LandingComponents/DesignsBento"
 
-export function HeroSection() {
+interface IServiceType {
+    button_name: string,
+    button_link: string
+}
+interface IHeroSectionSevice {
+    id: string | number
+    sercice_name: string,
+    service_disc: string,
+    service_link: string,
+    service_light_image: string,
+    service_dark_image: string,
+    service_buttons: IServiceType[]
+}
+export interface ITemplate {
+  image: string;
+  to?: string;
+}
+
+
+
+export function HeroSection(
+   { heroServiceContent }: { heroServiceContent: IHeroSectionSevice[] },
+) {
 
   const { theme } = useTheme();
-  const [serviceId , setServiceId] = useState(1)
-  const [service , setService] = useState(servicesShowCaseConfig[0])
-  useEffect(() => {
-    const findService:any = servicesShowCaseConfig.find(service => service.id === serviceId)
-    setService(findService)
-  }, [serviceId])
-
 
   return (
     <div className="w-full container max-w-[1580px] h-auto mx-auto  py-8 lg:py-16 flex flex-col items-center justify-center text-center gap-6">
@@ -115,16 +127,16 @@ export function HeroSection() {
         </div> 
         
         <div className="w-full h-auto mt-10 mb-10">
-          <MarqueeTemplates />
+          <MarqueeTemplates/>
         </div>
         <div className="mt-16 relative overflow-hidden w-full h-auto border-t border-l border-r border-dashed">
           <FeaturesBento />
         </div>
         <div className="mt-16 relative overflow-hidden w-full h-auto border-t border-l border-r border-dashed">
-          <ComponentsBento />
+          <ComponentsBento/>
         </div>
         <div className="mt-16 relative overflow-hidden w-full h-auto border-t border-l border-r border-dashed">
-          <TemplatesShowcaseBento />
+          <TemplatesShowcaseBento/>
         </div>
         <div className="mt-16 relative overflow-hidden w-full h-auto border-t border-l border-r border-dashed">
           <DesignsBento />
