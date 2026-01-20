@@ -1,100 +1,29 @@
 import { cn } from "@/lib/utils"
 import { Marquee } from "@/components/ui/marquee"
 import Image from "next/image"
-const templates = [
-  {
-    image: "/templates/hero-block-1-light.webp",
-    to: ""
-  },
-    {
-    image: "/templates/hero-block-2-light.webp",
-    to: ""
-  },
-   {
-    image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1759937470/Screenshot_2025-10-05_232854_jjjxka.png",
-    to: ""
-  },
-    {
-    image: "/templates/hero-block-3-light.webp",
-    to: ""
-  },
-    
- 
-  {
-    image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1760680334/Screenshot_2025-09-28_081449_sk8qpj.png",
-    to: ""
-  },  
-
-   {
-    image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1760680333/Screenshot_2025-09-28_081408_bvxwvh.png",
-    to: ""
-  }, 
-
-   {
-    image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1760680296/Screenshot_2025-08-16_010903_jpmvup.png",
-    to: ""
-  }, 
-    {
-    image: "/templates/hero-block-5-light.webp",
-    to: ""
-  },
-  {
-    image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1760629285/Screenshot_2025-10-05_232843_pjfcdu.png",
-    to: ""
-  },
-    {
-    image: "/templates/hero-block-6-light.webp",
-    to: ""
-  },
-    {
-    image: "/templates/hero-block-7-light.webp",
-    to: ""
-  },
-  {
-    image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1759937583/Screenshot_2025-09-11_012042_aqqxwo.png",
-    to: ""
-  },
-  {
-    image: "/templates/hero-block-8-light.webp",
-    to: ""
-  },
-    {
-    image: "/templates/hero-block-9-light.webp",
-    to: ""
-  },  {
-    image: "/templates/hero-block-10-light.webp",
-    to: ""
-  },  
-  {
-    image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1760680334/Screenshot_2025-09-28_081449_sk8qpj.png",
-    to: ""
-  },  
-
-   {
-    image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1760680333/Screenshot_2025-09-28_081408_bvxwvh.png",
-    to: ""
-  }, 
-
-   {
-    image: "https://res.cloudinary.com/dou5rypdf/image/upload/v1760680296/Screenshot_2025-08-16_010903_jpmvup.png",
-    to: ""
-  },
-  
 
 
-  
- 
-]
+export interface ITemplate {
+  image: string;
+  to?: string;
+}
 
-const firstRow = templates.slice(0, templates.length / 2)
-const secondRow = templates.slice(templates.length / 2)
+
+
+import rawTemplatesImages from "@/public/config/templatesScrollingConfig.json";
+
+export const templatesImages: ITemplate[] =
+  rawTemplatesImages.templates;
+
+
+
 
 const ReviewCard = ({
   image,
   to,
 }: {
   image: string
-    to: string
+    to?: string
 }) => {
   return (
     <img alt="Error" src={image} className="w-auto h-[178px] object-cover object-center rounded-sm border" />
@@ -102,6 +31,10 @@ const ReviewCard = ({
 }
 
 export function MarqueeTemplates() {
+
+  const firstRow = templatesImages.slice(0, templatesImages.length / 2)
+  const secondRow = templatesImages.slice(templatesImages.length / 2)
+
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
       <Marquee pauseOnHover  className="[--duration:40s]">
@@ -126,7 +59,7 @@ const ComponentImage = ({
   to,
 }: {
   image: string
-    to: string
+    to?: string
 }) => {
   return (
     <img alt="Error" src={image} className="w-auto h-[140px] object-cover object-center rounded-sm border" />
@@ -138,7 +71,7 @@ export function ComponentsMarquee() {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
       <Marquee pauseOnHover repeat={1}  className="[--duration:200s]">
-        {templates.map((template, index) => (
+        {templatesImages.map((template, index) => (
           <ComponentImage key={index} {...template} />
         ))}
       </Marquee>
@@ -148,7 +81,7 @@ export function ComponentsMarquee() {
   )
 }
 
-import { templatesCategories } from "@/config/templatesCatagoriedConfig"
+
 
 const TemplatesCatagory = ({
   id,
@@ -163,21 +96,22 @@ const TemplatesCatagory = ({
     </div>
   )
 }
+import templatesCatagoeryData from "@/public/config/templatesCatagoriedConfig.json";
 export function TemplatesList() {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
       <Marquee pauseOnHover  className="[--duration:200s]">
-        {templatesCategories.map((template, index) => (
+        {templatesCatagoeryData.map((template, index) => (
           <TemplatesCatagory key={index} {...template} />
         ))}
       </Marquee>
       <Marquee reverse pauseOnHover className="[--duration:180s]">
-        {templatesCategories.map((template, index) => (
+        {templatesCatagoeryData.map((template, index) => (
           <TemplatesCatagory key={index} {...template} />
         ))}
       </Marquee>
       <Marquee pauseOnHover className="[--duration:180s]">
-        {templatesCategories.map((template, index) => (
+        {templatesCatagoeryData.map((template, index) => (
           <TemplatesCatagory key={index} {...template} />
         ))}
       </Marquee>
