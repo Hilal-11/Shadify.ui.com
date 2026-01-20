@@ -17,22 +17,13 @@ import { services } from "@/config/servicesConfig"
 import { FaChevronDown } from "react-icons/fa6";
 import { FaChevronUp } from "react-icons/fa";
 import HeaderProfile from "@/components/HeaderProfile";
-import { TbLockHeart } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa";
 import { MdOutlineFeedback } from "react-icons/md";
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@/components/ui/dialog"
 import Feedback from "@/components/landing/MicroComponents/Feedback";
 import { SearchingMain } from '../components/landing/MicroComponents/Searching';
 import { HiArrowNarrowRight } from "react-icons/hi";
 
 function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
-
-
-
   // const token = cookies().get("token")?.value;
   // const isAuthenticate = !!token;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -162,22 +153,8 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                     >
                       Figma
                     </Link>
-                    {/* <Link
-                      href="/designs"
-                      className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
-                      prefetch
-                    >
-                      Auth Kits
-                    </Link>
                     <Link
-                      href="/bg-patterns"
-                      className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
-                      prefetch
-                    >
-                      Mobile Applications
-                    </Link> */}
-                    <Link
-                      href="/bg-patterns"
+                      href="/pricing"
                       className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
                       prefetch
                     >
