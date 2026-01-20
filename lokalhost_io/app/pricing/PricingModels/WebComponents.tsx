@@ -1,10 +1,41 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 import { MdDone } from "react-icons/md";
 import { BsStars } from "react-icons/bs";
 import { StripedPattern } from "@/components/magicui/striped-pattern"
-import { webComponentsPricingConfig } from '@/config/pricingConfig';
+// import { webComponentsPricingConfig } from '@/config/pricingConfig';
 export const dynamic = 'force-static';
+
+
+interface PricingConfig {
+    id: string,
+    plan: string,
+    planDescription?: string,
+    subscription_amount: string,
+    save_price?: string,
+    save_price_value?: string,
+    features: string[],
+    butttonContent?: string,
+    popular?: boolean
+}
+
 function WebComponents() {
+  const [webComponentsPricingConfig , setWebComponentsPricingConfig] = useState<PricingConfig[]>([])
+  useEffect(() => {
+    const fetchPricing = async () => {
+      try{
+        const data = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/config/pricingConfig.json`, {
+          cache: 'force-cache'
+        })
+        const response = await data.json();
+        setWebComponentsPricingConfig(response)
+      }catch(error:any) {
+        console.log(error);
+      }
+    }
+    fetchPricing();
+  },[])
+
   return (
           <div id="web-components" className='dark:border-neutral-700'>
             

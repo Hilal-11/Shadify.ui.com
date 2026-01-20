@@ -1,16 +1,9 @@
 import React from 'react'
-import FAQ, { PricingFAQ } from './FAQ';
+import { PricingFAQ } from './FAQ';
 import { StripedPattern } from "@/components/magicui/striped-pattern"
 import Footer from '@/components/layout/footer';
 import CTA from '@/components/landing/CTA';
-import { MdOutlinePriceChange } from "react-icons/md";
-import Link from 'next/link';
 import WebComponents from './PricingModels/WebComponents';
-import MobileUIElements from "./PricingModels/MobileUIElements"
-import DesignKits from "./PricingModels/DesignKits"
-import Patterns from "./PricingModels/Patterns"
-
-
 export const dynamic = 'force-static';
 
 

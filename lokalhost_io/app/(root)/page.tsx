@@ -9,18 +9,13 @@ export default function Home() {
             <div className="grid grid-rows-[auto_1fr_auto] min-h-screen px-0 lg:px-4 gap-4 sm:gap-12">
                 <HeroSection />
             </div>
-            <div className="container">
+            <div className="w-full container max-w-[1580px]">
                 <ComponentsShowcase/>
             </div>
-            <div className="container">
+            <div className="w-full container max-w-[1580px]">
                 <TemplatesBlockList/>
             </div>
-            
-            <div className="container">
-                <BGPatterns/>
-            </div>
-
-            <div className="container">
+            <div className="w-full container max-w-[1580px]">
                 <FinalMainFAQ />
             </div>
             <div className="pt-10 pb-5">

@@ -1,3 +1,4 @@
+import { withNextVideo } from "next-video/process";
 import { createMDX } from "fumadocs-mdx/next";
 
 const withMDX = createMDX();
@@ -33,4 +34,4 @@ const nextConfig = {
       },
 };
 
-export default withMDX(nextConfig);
+export default withNextVideo(withMDX(nextConfig));
