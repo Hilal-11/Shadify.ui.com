@@ -77,7 +77,7 @@ function DegignKits(){
             
             </div>   
     
-        <Footer />
+        {/* <Footer /> */}
         </div>
     )
 }
