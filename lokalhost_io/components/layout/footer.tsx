@@ -1,6 +1,5 @@
 "use client"
-import React from 'react'
-import { footerConfig , socialLinks } from "@/config/footerConfig"
+import React, { useEffect } from 'react'
 import { PiTerminalFill } from "react-icons/pi";
 import Link from 'next/link';
 import { motion } from "motion/react"
@@ -10,7 +9,46 @@ import { RiComputerLine } from "react-icons/ri";
 import { StripedPattern } from '../magicui/striped-pattern';
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 
-function Footer() {
+interface Service {
+  service: string;
+  navigateTo: string;
+}
+
+interface FooterServicesItem {
+  id: string;
+  service_title: string;
+  services: Service[];
+}
+
+interface FooterConfig {
+  footer_heading: string;
+  creator_name: string;
+  link: string;
+  footerServicesItems: FooterServicesItem[];
+}
+ function Footer() {
+  
+  const [footerConfig, setFooterConfig] = React.useState<FooterConfig>({
+    footerServicesItems: [],
+    footer_heading: "",
+    creator_name: "",
+    link: ""
+  });
+  useEffect(() => {
+    const fetchFooter = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/config/footerConfig.json`, {
+          cache: 'force-cache'
+        });
+        const data = await res.json();
+        setFooterConfig(data); // now data is JSON
+      } catch (err) {
+        console.error("Failed to fetch footer config:", err);
+      }
+    };
+
+    fetchFooter();
+  }, []);
   return (
     <div className='relative h-auto w-[100%] bg-neutral-100 dark:bg-neutral-900 border-t border-neutral-400 dark:border-neutral-600 mt-20'>
 
@@ -30,12 +68,12 @@ function Footer() {
                 Lokalhost.io
               </span>
             </div>
-            <p className='text-sm lg:text-[17px] font-sans font-medium pl-2 pt-2 text-neutral-500 dark:text-neutral-400'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium numquam reprehenderit nesciunt maxime, dicta necessitatibus odit consequatur dignissimos accusamus voluptas nostrum dolorum minima natus? Ut rem.</p>
+            <p className='text-sm lg:text-[17px] font-sans font-medium pl-2 pt-2 text-neutral-500 dark:text-neutral-400'>{footerConfig?.footer_heading}</p>
             <div className='flex gap-2 items-center pl-2 py-2'>
               <p className='font-sans font-medium'>Build By</p>
             <div className="border-t border-dashed border-b py-1 w-30 text-center relative border-neutral-300 dark:border-neutral-700">
               <span className="h-12 absolute left-4 -top-2.5 border border-dashed border-neutral-300 dark:border-neutral-700"></span>
-                <Link href={''}><p className="text-sm font-mono font-bold text-neutral-700 dark:text-neutral-300 underline">@HILAL</p></Link>
+                <Link href={''}><p className="text-sm font-mono font-bold text-neutral-700 dark:text-neutral-300 underline">{footerConfig?.creator_name}</p></Link>
               <span className="h-12 absolute right-4 -top-2.5 border border-dashed  border-neutral-300 dark:border-neutral-700"></span>          
             </div>
             </div>
@@ -51,11 +89,16 @@ function Footer() {
         <div className='pt-4 lg:pt-10 grid lg:grid-cols-5 md:grid-cols-5 gap-4 justify-between grid-cols-2'>
           <div className='w-full'>
             <div>
-              <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">{footerConfig[0].service_title}</h1>
+              {footerConfig.footerServicesItems?.length > 0 && (
+                  <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">
+                    {footerConfig.footerServicesItems[0].service_title}
+                  </h1>
+                )}
+
             </div>
             <div className='pl-1 py-3'>
               {
-                footerConfig[0].services?.map((service , index) => (
+                footerConfig.footerServicesItems[0]?.services?.map((service , index) => (
                   <div className="" key={index}>
                     <motion.p
                       initial={{ scale: 1 }}
@@ -68,17 +111,20 @@ function Footer() {
                   </div>
                 ))
               }
-              <button className='py-2 text-xs'>Explore more</button>
+            </div>
+          </div>
+          <div className='w-full'>
+            <div>
+              {footerConfig.footerServicesItems?.length > 0 && (
+                <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">
+                  {footerConfig.footerServicesItems[1].service_title}
+                </h1>
+              )}
 
             </div>
-          </div>
-          <div className='w-full'>
-            <div>
-              <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">{footerConfig[1].service_title}</h1>
-            </div>
             <div className='pl-1 py-3'>
               {
-                footerConfig[1].services?.map((service , index) => (
+                footerConfig?.footerServicesItems[1]?.services?.map((service , index) => (
                   <div className="" key={index}>
                     <motion.p 
                     initial={{ scale: 1 }}
@@ -93,11 +139,16 @@ function Footer() {
           </div>
           <div className='w-full'>
             <div>
-              <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">{footerConfig[2].service_title}</h1>
+              {footerConfig.footerServicesItems?.length > 0 && (
+  <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">
+    {footerConfig.footerServicesItems[2].service_title}
+  </h1>
+)}
+
             </div>
             <div className='pl-1 py-3'>
               {
-                footerConfig[2].services?.map((service , index) => (
+                footerConfig.footerServicesItems[2]?.services?.map((service , index) => (
                   <div className="" key={index}>
                     <motion.p 
                     initial={{ scale: 1 }}
@@ -112,11 +163,16 @@ function Footer() {
           </div>
           <div className='w-full'>
             <div>
-              <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">{footerConfig[3].service_title}</h1>
+             {footerConfig.footerServicesItems?.length > 0 && (
+  <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">
+    {footerConfig.footerServicesItems[3].service_title}
+  </h1>
+)}
+
             </div>
             <div className='pl-1 py-3'>
               {
-                footerConfig[3].services?.map((service , index) => (
+                footerConfig.footerServicesItems[3]?.services?.map((service , index) => (
                   <div className="" key={index}>
                     <motion.p 
                     initial={{ scale: 1 }}
@@ -131,11 +187,16 @@ function Footer() {
           </div>
           <div className='w-full'>
             <div>
-              <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">{footerConfig[4].service_title}</h1>
+              {footerConfig.footerServicesItems?.length > 0 && (
+  <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">
+    {footerConfig.footerServicesItems[4].service_title}
+  </h1>
+)}
+
             </div>
             <div className='pl-1 py-3'>
               {
-                footerConfig[4].services?.map((service , index) => (
+                footerConfig.footerServicesItems[4]?.services?.map((service , index) => (
                   <div key={index}>
                     <motion.p 
                     initial={{ scale: 1 }}
@@ -150,11 +211,16 @@ function Footer() {
           </div>
           <div className='w-full'>
             <div>
-              <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">{footerConfig[5].service_title}</h1>
+             {footerConfig.footerServicesItems?.length > 0 && (
+  <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">
+    {footerConfig.footerServicesItems[5].service_title}
+  </h1>
+)}
+
             </div>
             <div className='pl-1 py-3'>
               {
-                footerConfig[5].services?.map((service , index) => (
+                footerConfig.footerServicesItems[5]?.services?.map((service , index) => (
                   <div key={index}>
                     <motion.p 
                     initial={{ scale: 1 }}
@@ -169,11 +235,16 @@ function Footer() {
           </div>
           <div className='w-full'>
             <div>
-              <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">{footerConfig[6].service_title}</h1>
+              {footerConfig.footerServicesItems?.length > 0 && (
+  <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">
+    {footerConfig.footerServicesItems[6].service_title}
+  </h1>
+)}
+
             </div>
             <div className='pl-1 py-3'>
               {
-                footerConfig[6].services?.map((service , index) => (
+                footerConfig.footerServicesItems[6]?.services?.map((service , index) => (
                   <div className="" key={index}>
                     <motion.p 
                     initial={{ scale: 1 }}
