@@ -19,7 +19,15 @@ import shadcn from "@/public/tech/shadcn.jpeg"
 import vite from "@/public/tech/vite.jpeg"
 import ts from "@/public/tech/ts.jpeg"
 import js from "@/public/tech/js.jpeg"
-
+const techStackImages = [
+        react,
+        next,
+        tailwindX,
+        shadcn,
+        vite,
+        ts,
+        js,
+]
 interface PageProps {
   params: Promise<{
     id?: string;
@@ -29,15 +37,7 @@ interface PageProps {
 
 async function templateView({ params }: PageProps) {
 
-    const techStackImages = [
-        react,
-        next,
-        tailwindX,
-        shadcn,
-        vite,
-        ts,
-        js,
-    ]
+
 
     const id = (await params).id as Id<'templates'>;
     const template:any = await fetchQuery(api.getTemplates.getTemplateById , { id : id })
