@@ -1,0 +1,75 @@
+
+[
+    {
+        "id": "WebComponents",
+        "sercice_name": "Web Components",
+        "service_disc": "Explore the production ready components for React and Next.Js apps.",
+        "service_link": "/docs",
+        "service_light_image": "https://res.cloudinary.com/dou5rypdf/image/upload/v1767728958/image_comp_vzgzhv.png",
+        "service_dark_image"  : "https://res.cloudinary.com/dou5rypdf/image/upload/v1767732075/image_comp_dark_xwdxwb.png",
+        "service_buttons": [
+            {
+                "button_name": "Start Building",
+                "button_link": "/docs"
+            },
+            {
+                "button_name": "Components",
+                "button_link": "/docs"
+            }
+        ]
+    },
+   {
+    "id": "WebTemplates",
+       "sercice_name": "Web Templates",
+        "service_disc": "Explore the production ready components for React and Next.Js apps.",
+        "service_link": "/templates",
+        "service_light_image": "https://res.cloudinary.com/dou5rypdf/image/upload/v1767729440/image_templat_r9b3hs.png",
+        "service_dark_image"  : "https://res.cloudinary.com/dou5rypdf/image/upload/v1767730724/image_temp_dark2_bkl2f6.png",
+        "service_buttons": [
+            {
+                "button_name": "Explore Templates",
+                "button_link": "/templates"
+            },
+            {
+                "button_name": "Free Templates",
+                "button_link": "/templates"
+            }
+        ]
+    },
+    {
+        "id": "MobileUIElements",
+       "sercice_name": "Mobile UI Elements",
+        "service_disc": "Explore the production ready components for React and Next.Js apps.",
+        "service_link": "/",
+        "service_light_image": "https://res.cloudinary.com/dou5rypdf/image/upload/v1767729440/image_mob_w4f6v3.png",
+        "service_dark_image"  : "https://res.cloudinary.com/dou5rypdf/image/upload/v1767732075/image_mob_dark_t4wia5.png",
+        "service_buttons": [
+            {
+                "button_name": "Building Apps",
+                "button_link": "apps"
+            },
+            {
+                "button_name": "Mobile Elements",
+                "button_link": "/xyz"
+            }
+        ]
+    },
+    {
+        "id": "Designs",
+       "sercice_name": "Designs and Figma Kits",
+        "service_disc": "Explore the production ready components for React and Next.Js apps.",
+        "service_link": "/designs",
+        "service_light_image": "https://res.cloudinary.com/dou5rypdf/image/upload/v1767729440/image_design_xo7czm.png",
+        "service_dark_image"  : "https://res.cloudinary.com/dou5rypdf/image/upload/v1767732075/image_mob_dark_t4wia5.png",
+        "service_buttons": [
+            {
+                "button_name": "Design Kits",
+                "button_link": "/designs"
+            },
+            {
+                "button_name": "Explore Free",
+                "button_link": "/designs"
+            }
+        ]
+    }
+]
