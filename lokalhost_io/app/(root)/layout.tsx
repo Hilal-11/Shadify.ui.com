@@ -1,4 +1,4 @@
-import Footer from "@/components/layout/footer";
+
 import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: {
@@ -7,9 +7,13 @@ export const metadata: Metadata = {
     },
 };
 
-export default function HomeLayout({
+
+
+
+export default async function HomeLayout({
     children,
 }: {
+    
     children: React.ReactNode;
 }) {
     return (
@@ -17,7 +21,6 @@ export default function HomeLayout({
             <main className="relative w-full pt-0 md:pt-0 bg-white dark:bg-black">
                 {children}
             </main>
-            <Footer />
 
         </div>
     );

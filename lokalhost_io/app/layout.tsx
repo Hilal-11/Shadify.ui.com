@@ -5,6 +5,7 @@ import GoToTop from '@/components/GoToTop';
 import Providers from "./provider";
 import { FeedbackMobile } from "@/components/GoToTop";
 import Wrapper from "./Wrapper";
+import Footer from "@/components/layout/footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -20,11 +21,45 @@ export const metadata: Metadata = {
   description: "component library, web templates, mobile apps, designs and patterns",
 };
 
-export default function RootLayout({
+interface Service {
+  service: string;
+  navigateTo: string;
+}
+
+interface FooterServicesItem {
+  id: string;
+  service_title: string;
+  services: Service[];
+}
+
+interface FooterConfig {
+  footer_heading: string;
+  creator_name: string;
+  link: string;
+  footerServicesItems: FooterServicesItem[];
+}
+
+
+async function getFooterConfigData(): Promise<FooterConfig> {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/config/footerConfig.json`,
+    {
+      cache: 'force-cache', // ✅ cached forever (until rebuild)
+    }
+  );
+  if (!res.ok) {
+    throw new Error('Failed to fetch Footer config');
+  }
+  return res.json();
+}
+
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const footerConfigData = await getFooterConfigData();
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -36,6 +71,7 @@ export default function RootLayout({
           <div className="lg:hidden md:hidden flex"><FeedbackMobile/></div>
           <Wrapper/>
           {children}
+          <Footer footerConfig={footerConfigData}/>
         </Providers>
       </body>
     </html>
