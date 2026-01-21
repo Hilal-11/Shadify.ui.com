@@ -22,7 +22,7 @@ import { MdOutlineFeedback } from "react-icons/md";
 import Feedback from "@/components/landing/MicroComponents/Feedback";
 import { SearchingMain } from '../components/landing/MicroComponents/Searching';
 import { HiArrowNarrowRight } from "react-icons/hi";
-
+import headerPagesConfig from "@/public/config/HeaderPages.json"
 function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
   // const token = cookies().get("token")?.value;
   // const isAuthenticate = !!token;
@@ -133,57 +133,39 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                             </Link>
                           ))
                          }
-                                <div className=" flex gap-3 items-end justify-end px-5">
-                                  <button className="pro_btn w-full whitespace-nowrap relative cursor-pointer font-sans font-medium rounded-md text-sm py-2 flex items-center gap-2"><span><PiCrownFill /></span>Pro Access</button>
-                                </div>
                         </div>
                       </DropdownMenuContent>
                     </DropdownMenu>
-                    <Link
-                      href="/templates"
-                      className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
-                      prefetch
-                    >
-                      Templates
-                    </Link>
-                    <Link
-                      href="/designs"
-                      className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
-                      prefetch
-                    >
-                      Figma
-                    </Link>
-                    <Link
-                      href="/pricing"
-                      className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
-                      prefetch
-                    >
-                      Pricing
-                    </Link>
-
+                    {
+                      headerPagesConfig.header_pages.map((page , index) => (
+                         <Link
+                            key={index}
+                            href={page.link}
+                            className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
+                            prefetch
+                          >
+                            {page.page}
+                          </Link>
+                      ))
+                    }
                     <DropdownMenu>
                       <DropdownMenuTrigger>
                         <h1 className="cursor-pointer flex gap-1 bg-transparent hover:bg-transparent font-sans font-medium text-[15px] text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors items-center">more<span className="text-sm"><FaAngleDown /></span></h1>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent className="w-[160px] flex-col space-y-1 px-1 pt-2 pb-2 mt-2" align="start">
-                        <div className="w-full hover:bg-neutral-200 hover:dark:bg-neutral-800 cursor-pointer rounded-sm py-1 pl-1 ">
-                          <Link
-                          href="/team"
-                          className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                          prefetch
-                        >
-                          Team
-                        </Link>
-                        </div>
-                        <div className="w-full hover:bg-neutral-200 hover:dark:bg-neutral-800 cursor-pointer rounded-sm py-1 pl-1 ">
-                          <Link
-                          href="/team"
-                          className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
-                          prefetch
-                        >
-                          Blogs
-                        </Link>
-                        </div>
+                        {
+                          headerPagesConfig.dropdown_pages.map((page , index) => (
+                            <div key={index} className="w-full hover:bg-neutral-200 hover:dark:bg-neutral-800 cursor-pointer rounded-sm py-1 pl-1 ">
+                              <Link
+                                href={page.link}
+                                className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                                prefetch
+                              >
+                                {page.page}
+                              </Link>
+                            </div>
+                          ))
+                        }
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </div>
