@@ -75,20 +75,21 @@ function DegignKits(){
             </div>
                            
             <section className="h-auto pt-4 mx-auto border border-dashed border-neutral-300 dark:border-neutral-700 mt-24">
-                <div className="flex justify-end gap-2 items-center w-full pt-0 pb-4 border-b border-dashed border-neutral-300 dark:border-neutral-700 pr-5">
-                    <div className="flex items-center gap-2 pl-5">
-                        <InputGroup className="flex items-center justify-center">
-                            <InputGroupInput placeholder="Search Template:- " className="hidden lg:flex md:flex"/>
-                            <InputGroupButton variant="secondary" className="bg-transparent flex items-center justify-center"><IoMdSearch className="text-lg mx-auto mr-px"/></InputGroupButton>
-                        </InputGroup>
-                    </div>
-                    <div>
-                        <ButtonGroup>
-                            <Button variant="outline">All</Button>
-                            <Button variant="outline">Free</Button>
-                            <Button variant="outline">Premium</Button>
-                        </ButtonGroup>
-                    </div>
+                <div className="flex justify-between flex-wrap gap-2 items-center w-full pt-0 pb-4 border-b border-dashed border-neutral-300 dark:border-neutral-700 px-5">
+                        <div>
+                            <SortDesigns />
+                        </div>
+                        <div className="flex items-center gap-1">
+                            <InputGroup className="flex items-center justify-center">
+                                <InputGroupInput placeholder="Search Template:- " className="hidden lg:flex md:flex"/>
+                                <InputGroupButton variant="secondary" className="bg-transparent flex items-center justify-center"><IoMdSearch className="text-lg mx-auto mr-px"/></InputGroupButton>
+                            </InputGroup>
+                            <ButtonGroup>
+                                <Button variant="outline">All</Button>
+                                <Button variant="outline">Free</Button>
+                                <Button variant="outline">Premium</Button>
+                            </ButtonGroup>
+                        </div>
                 </div>     
                 { !designsKits ? (<TemplateShimmerLoadingUI/>) : (
                     designsKits?.map((design) => (
@@ -169,6 +170,35 @@ function DegignKits(){
 export default DegignKits;
 
 
+
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
+export function SortDesigns() {
+  return (
+    <Select>
+      <SelectTrigger className="w-full max-w-56 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-100">
+        <SelectValue className="font-sans font-medium" placeholder="Sort" />
+      </SelectTrigger>
+      <SelectContent className="">
+        <SelectGroup className="">
+          <SelectLabel className="font-sans font-medium">Sort</SelectLabel>
+          <SelectItem value="All">All</SelectItem>
+          <SelectItem value="Figma Kits for Mobile Apps">Figma Kits for Mobile Apps</SelectItem>
+          <SelectItem value="Figma Kits for Web">Figma Kits for Web</SelectItem>
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+  )
+}
 
 
 
