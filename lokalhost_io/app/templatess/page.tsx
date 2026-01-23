@@ -93,14 +93,15 @@ function Templates(){
                 </div>
             </div>  
             <section className="h-auto pt-4 mx-auto border border-dashed border-neutral-300 dark:border-neutral-700 mt-10">
-                <div className="flex justify-end gap-2 items-center w-full pt-0 pb-4 border-b border-dashed border-neutral-300 dark:border-neutral-700 pr-5">
-                    <div className="flex items-center gap-2 pl-5">
+                <div className="flex justify-between gap-2 items-center w-full pt-0 pb-4 border-b border-dashed border-neutral-300 dark:border-neutral-700 px-5">
+                    <div>
+                        <SortTemplates />
+                    </div>
+                    <div className="flex items-center gap-1">
                         <InputGroup className="flex items-center justify-center">
                             <InputGroupInput placeholder="Search Template:- " className="hidden lg:flex md:flex"/>
                             <InputGroupButton variant="secondary" className="bg-transparent flex items-center justify-center"><IoMdSearch className="text-lg mx-auto mr-px"/></InputGroupButton>
                         </InputGroup>
-                    </div>
-                    <div>
                         <ButtonGroup>
                             <Button variant="outline">All</Button>
                             <Button variant="outline">Free</Button>
@@ -198,3 +199,38 @@ function Templates(){
 
 export default Templates;
 
+
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
+export function SortTemplates() {
+  return (
+    <Select>
+      <SelectTrigger className="w-full max-w-56 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-100">
+        <SelectValue className="font-sans font-medium" placeholder="Sort" />
+      </SelectTrigger>
+      <SelectContent className="">
+        <SelectGroup className="">
+          <SelectLabel className="font-sans font-medium">Sort</SelectLabel>
+          <SelectItem value="All">All</SelectItem>
+          <SelectItem value="ReactJs">ReactJs</SelectItem>
+          <SelectItem value="ReactJs + NextJs">ReactJs & NextJs</SelectItem>
+          <SelectItem value="React + Tailwind-Css">React & Tailwind Css</SelectItem>
+          <SelectItem value="Astro">Astro</SelectItem>
+          <SelectItem value="ReactJs & Material UI">ReactJs & Material UI</SelectItem>
+          <SelectItem value="NextJs & ShadcnUI">NextJs & ShadcnUI</SelectItem>
+          <SelectItem value="Django & TailwindCss">Django & Tailwind Css</SelectItem>
+          <SelectItem value="Html Css & JS">Html Css & Javascript</SelectItem>
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+  )
+}
