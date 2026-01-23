@@ -1,0 +1,20 @@
+{
+    "title": "Components",
+    "description": "The headless library",
+    "icon": "Dna",
+    "root": true,
+    "defaultOpen": true,
+    "pages": [
+        "index",
+        "cli",
+        "components",
+        "---Components---",
+        "components/buttons",
+        "components/bentos",
+        "components/cards",
+        "components/forms",
+        "components/inputs",
+        "components/navbars"
+    ]
+}
+
