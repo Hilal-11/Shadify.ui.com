@@ -1,7 +1,6 @@
 import React from 'react'
 import { PricingFAQ } from './FAQ';
 import { StripedPattern } from "@/components/magicui/striped-pattern"
-import Footer from '@/components/layout/footer';
 import CTA from '@/components/landing/CTA';
 import WebComponents from './PricingModels/WebComponents';
 export const dynamic = 'force-static';
@@ -37,7 +36,6 @@ function Pricing() {
       <CTA />
     </div>
     <div className='pt-20'>
-      <Footer/>
     </div>
     </div>
   )
