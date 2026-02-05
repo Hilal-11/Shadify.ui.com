@@ -1,4 +1,3 @@
-import { HeaderPro } from "@/components/landing/header-pro";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import { PiTerminalFill } from "react-icons/pi";
 
@@ -19,7 +18,7 @@ export const baseOptions: BaseLayoutProps = {
       url: "/templates",
     },
     {
-      text: "Patterns",
+      text: "Designs",
       url: "/patterns",
     },
     {
@@ -28,7 +27,7 @@ export const baseOptions: BaseLayoutProps = {
     },
     {
       type: "custom",
-      children: <HeaderPro />,
+      children: "",
     },
   ],
 };
