@@ -3,12 +3,7 @@ import { useRef } from "react"
 import { useRouter } from "next/navigation";
 import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
-import { BsStars } from "react-icons/bs";
-import Footer from "@/components/layout/footer"
 import { IoMdSearch } from "react-icons/io";
-import { Suspense } from 'react'
-import Video from 'next-video';
-import getStarted from '/videos/mobile_ui_kits.mp4';
 import Image from "next/image";
 import TemplateShimmerLoadingUI from '@/components/templateShimmerLoadingUI';
 import { Button } from "@/components/ui/button"
@@ -66,13 +61,6 @@ function DegignKits(){
                                 <button className="px-8 py-[10px] cursor-pointer border-t border-l border-r border-neutral-800 rounded-lg whitespace-nowrap font-sans font-medium text-sm text-neutral-200 dark:text-neutral-200 bg-gradient-to-t from-[#262626] to-[#525252] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">Get All Premium Templates</button>
                             </div>
             
-            <div className="grid grid-cols-1 w-full">
-                <div className="w-full lg:h-[700px] md:h-[700px] overflow-hidden rounded-xl bg-neutral-100 bg-gradient-to-r from-[#F6D5F7] to-[#FBE9D7] p-4">
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <Video src={getStarted} autoPlay/>
-                    </Suspense>
-                </div>
-            </div>
                            
             <section className="h-auto pt-4 mx-auto border border-dashed border-neutral-300 dark:border-neutral-700 mt-24">
                 <div className="flex justify-between flex-wrap gap-2 items-center w-full pt-0 pb-4 border-b border-dashed border-neutral-300 dark:border-neutral-700 px-5">
@@ -162,7 +150,6 @@ function DegignKits(){
             </section>
 
             </div>   
-        {/* <Footer /> */}
         </div>
     )
 }
