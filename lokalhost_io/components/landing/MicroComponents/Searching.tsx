@@ -47,7 +47,7 @@ export function SearchingMain() {
                                             {
                                             filteredItem.map(({suggesstion , suggesstion_to , Icon}) => (
                                               <div key={suggesstion_to} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
-                                                <Link className="flex gap-3 pl-2 items-center text-sm font-medium" href={suggesstion_to}><span className="text-lg"><Icon /></span>{suggesstion}</Link>
+                                                <Link prefetch={true} className="flex gap-3 pl-2 items-center text-sm font-medium" href={suggesstion_to}><span className="text-lg"><Icon /></span>{suggesstion}</Link>
                                               </div>
                                             ))
                                           }
@@ -57,7 +57,7 @@ export function SearchingMain() {
                                           {
                                             MAIN_PAGE_SEARCHING_CONFIG.map(({suggesstion , suggesstion_to , Icon}) => (
                                               <div key={suggesstion_to} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
-                                                <Link className="flex gap-3 pl-2 items-center text-sm font-medium" href={suggesstion_to}><span className="text-lg"><Icon /></span>{suggesstion}</Link>
+                                                <Link prefetch={true} className="flex gap-3 pl-2 items-center text-sm font-medium" href={suggesstion_to}><span className="text-lg"><Icon /></span>{suggesstion}</Link>
                                               </div>
                                             ))
                                           }
