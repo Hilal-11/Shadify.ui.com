@@ -229,7 +229,6 @@ async function templateView({ params }: PageProps) {
         </div>
 
     </div>
-            <Footer/>
     </div>
   )
 }
