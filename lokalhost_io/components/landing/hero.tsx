@@ -86,7 +86,7 @@ export function HeroSection(
           <span className="absolute h-[160px] w-[160px] rounded-full border border-dashed -top-20 -right-20"></span>
           {
             heroServiceContent.map((service) => (
-              <Link key={service.id} href={service.service_link}>
+              <Link key={service.id} href={service.service_link} prefetch={true}>
               <div  className="cursor-pointer group relative h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex items-center justify-center overflow-hidden w-full border border-dashed">
                 <div className="relative group-hover:scale-110 transition duration-400">
                   <Image 
