@@ -4,7 +4,6 @@ import { fetchQuery } from "convex/nextjs";
 import { api } from "@/convex/_generated/api";
 import { Id } from '@/convex/_generated/dataModel';
 import CTA from '@/components/landing/CTA';
-import Footer from '@/components/layout/footer';
 import { MdDone } from "react-icons/md";
 import { IoIosStarOutline } from "react-icons/io";
 interface PageProps {
@@ -122,8 +121,6 @@ async function templateView({ params }: PageProps) {
     </div>
     <br />
     <CTA />
-    <br />
-    <Footer />
     </div>
   )
 }
