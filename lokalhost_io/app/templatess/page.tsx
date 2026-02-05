@@ -1,13 +1,11 @@
 "use client"
 import { useRef } from "react"
-import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { IoMdSearch } from "react-icons/io";
 import TemplateShimmerLoadingUI from '@/components/templateShimmerLoadingUI';
-import Footer from "@/components/layout/footer"
 import { LuFigma } from "react-icons/lu";
 import AnnoncementBadge from "@/components/landing/AnnoncementBadge"
 import { Button } from "@/components/ui/button"
