@@ -1,6 +1,6 @@
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
-function AnnoncementBadge({ aboutBadge }: { aboutBange?: string }) {
+function AnnoncementBadge({ aboutBadge }: { aboutBadge?: string | undefined }) {
   return (
     <div className="z-10 flex  items-center justify-center px-5">
       <ShimmerButton className="shadow-2xl">
