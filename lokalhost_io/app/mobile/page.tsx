@@ -1,4 +1,5 @@
 "use client"
+import { useState } from "react"
 import { IoMdSearch } from "react-icons/io";
 import { Button } from "@/components/ui/button"
 import { ButtonGroup } from "@/components/ui/button-group"
@@ -8,7 +9,10 @@ import { LuFigma } from "react-icons/lu";
 import AnnoncementBadge from "@/components/landing/AnnoncementBadge";
 import Image from "next/image";
 
-function page() {
+function Mobile() {
+  
+  const [activeFilter, setActiveFilter] = useState<'All' | 'Free' | 'Premium'>('All');
+  
   return (
     <div className="relative">
             <AnimatedGridPatternDemo />
@@ -16,7 +20,7 @@ function page() {
                <AnnoncementBadge aboutBadge={"Lokalhost.io cross-platform mobile apps are Coming soon"}/>
 
             <div className="z-50 w-full grid grid-cols-1 lg:grid-cols-2 gap-4 items-start pb-10">
-                 <div className=" z-50 w-full h-auto mx-auto pt-20 px-10"> 
+                 <div className=" z-50 w-full h-auto mx-auto pt-6 lg:pt-20 px-5 lg:px-10"> 
                             <div className="w-full mx-auto text-center lg:text-left pt-2">
                                     <h1 className="font-sans font-bold text-3xl lg:text-4xl text-neutral-800 dark:text-neutral-200">High quality mobile Applications and UI Blocks for React Native and Flutter</h1>
                                     <p className="lg:px-2 mx-auto py-4 font-sans font-medium text-md text-neutral-600 dark:text-neutral-400">Discover a curated library of responsive templates and reusable components built for React, Next.js, and modern web technologies. Whether you're a freelancer, startup, or enterprise team.</p>
@@ -29,11 +33,8 @@ function page() {
                 </div>
                  <div className="h-full relative p-10"> 
                     <div>
-                      <Image width={100} height={100} className="w-full h-full object-cover z-30 rounded-lg" alt="loading..." src="https://cdn.dribbble.com/userupload/18384847/file/original-a1467207b6d2a338f6c0d6c1764fdefa.png?resize=1200x900&vertical=center" />
+                      <img width={100} height={100} className="w-full h-full object-cover z-30 rounded-lg" alt="loading..." src="https://cdn.dribbble.com/userupload/18384847/file/original-a1467207b6d2a338f6c0d6c1764fdefa.png?resize=1200x900&vertical=center" />
                     </div>        
-                    <span className="z-10 lg:w-[200px] h-[200px] rounded-full shadow-xs bg-orange-500 absolute top-0 left-0 blur-xl"></span>
-                    <span className="z-10 lg:w-[200px] h-[200px] rounded-full shadow-xs bg-blue-500 absolute top-0 right-0 blur-2xl"></span>
-                    <span className="z-10 lg:w-[310px] h-[310px] rounded-full shadow-xs bg-cyan-300 absolute right-0 bottom-0 blur-2xl"></span>
                 </div>
             </div>           
 
@@ -49,11 +50,29 @@ function page() {
                               <InputGroupInput placeholder="Search Template:- " className="hidden lg:flex md:flex"/>
                               <InputGroupButton variant="secondary" className="bg-transparent flex items-center justify-center"><IoMdSearch className="text-lg mx-auto mr-px"/></InputGroupButton>
                           </InputGroup>
-                          <ButtonGroup>
-                              <Button variant="outline">All</Button>
-                              <Button variant="outline">Free</Button>
-                              <Button variant="outline">Premium</Button>
-                          </ButtonGroup>
+                    <ButtonGroup>
+                        <Button 
+                            variant={activeFilter === 'All' ? 'default' : 'outline'}
+                            onClick={() => setActiveFilter('All')}
+                            className={activeFilter === 'All' ? 'bg-gradient-to-t from-[#262626] to-[#525252] text-primary-foreground' : ''}
+                        >
+                            All
+                        </Button>
+                        <Button 
+                            variant={activeFilter === 'Free' ? 'default' : 'outline'}
+                            onClick={() => setActiveFilter('Free')}
+                            className={activeFilter === 'Free' ? 'bg-gradient-to-t from-[#262626] to-[#525252] text-primary-foreground' : ''}
+                        >
+                            Free
+                        </Button>
+                        <Button 
+                            variant={activeFilter === 'Premium' ? 'default' : 'outline'}
+                            onClick={() => setActiveFilter('Premium')}
+                            className={activeFilter === 'Premium' ? 'bg-gradient-to-t from-[#262626] to-[#525252] text-primary-foreground' : ''}
+                        >
+                            Premium
+                        </Button>
+                    </ButtonGroup>
                     </div>
                 </div> 
 
@@ -73,7 +92,7 @@ function page() {
   )
 }
 
-export default page
+export default Mobile
 
 
 
@@ -86,7 +105,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-export function SortMobile() {
+function SortMobile() {
   return (
     <Select>
       <SelectTrigger className="w-full max-w-56 bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-100">
