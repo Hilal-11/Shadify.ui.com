@@ -28,7 +28,7 @@ function Pricing() {
       </div>
         <div className="relative w-[100%] h-auto border-t border-b border-dashed border-neutral-300 dark:border-neutral-800 z-10">
           <StripedPattern direction="left" className="mask-l-from-70% mask-l-to-100% mask-r-from-70% mask-r-to-100%" />
-        <div className='relative container h-[100%] !important border-l border-r border-dashed z-50 !important bg-neutral-100 dark:bg-neutral-950 pb-5'>
+        <div className='relative container h-[100%] !important border-l border-r border-dashed z-50 !important bg-neutral-100 dark:bg-neutral-950 pb-20'>
           <PricingFAQ />
         </div>
     </div>
