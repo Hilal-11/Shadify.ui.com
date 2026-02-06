@@ -100,18 +100,6 @@ function Templates(){
                     <button className="border-1 border-orange-400 cursor-pointer px-8 py-[9px] rounded-lg text-sm font-sans font-medium text-neutral-800 bg-gradient-to-r from-[#F6D5F7] to-[#FBE9D7] shadow-sm flex items-center justify-center gap-2"><span><LuFigma /></span> Get Full Design Access</button>
                     <button className="px-8 py-[10px] cursor-pointer border-t border-l border-r border-neutral-800 rounded-lg whitespace-nowrap font-sans font-medium text-sm text-neutral-200 dark:text-neutral-200 bg-gradient-to-t from-[#262626] to-[#525252] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">Get All Premium Templates</button>
                 </div>
-                <div className="flex flex-col justify-center items-center pt-4">
-                    <div className="w-[100%] flex gap-3 overflow-auto whitespace-nowrap px-4 py-1 scrollbar-hide"
-                        ref={ref}
-                        onMouseDown={onMouseDown}
-                    >
-                        {
-                            templatesCategories?.map((catagory) => (
-                                <span key={catagory.id} className="px-4 py-1 text-lg cursor-pointer rounded-full ring-1 dark:ring-neutral-700 ring-neutral-300 flex items-center justify-center font-sans font-medium">{catagory.name}</span>
-                            ))
-                        }
-                    </div> 
-                </div>
             </div>  
             <section className="h-auto pt-4 mx-auto border border-dashed border-neutral-300 dark:border-neutral-700 mt-10">
                 <div className="flex justify-between gap-2 items-center w-full pt-0 pb-4 border-b border-dashed border-neutral-300 dark:border-neutral-700 px-5">
