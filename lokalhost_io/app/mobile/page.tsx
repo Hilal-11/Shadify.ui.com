@@ -9,6 +9,8 @@ import { LuFigma } from "react-icons/lu";
 import AnnoncementBadge from "@/components/landing/AnnoncementBadge";
 import Image from "next/image";
 
+
+
 function Mobile() {
   
   const [activeFilter, setActiveFilter] = useState<'All' | 'Free' | 'Premium'>('All');
@@ -105,6 +107,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { BsListUl } from "react-icons/bs";
+import { TbBrandReact } from "react-icons/tb";
+import { FaFlutter } from "react-icons/fa6";
+import { TbBlocks } from "react-icons/tb";
 function SortMobile() {
   return (
     <Select>
@@ -114,11 +120,11 @@ function SortMobile() {
       <SelectContent className="">
         <SelectGroup className="">
           <SelectLabel className="font-sans font-medium">Sort</SelectLabel>
-          <SelectItem value="All">All</SelectItem>
-          <SelectItem value="react-native">React Native Apps</SelectItem>
-          <SelectItem value="react-native-blocks">React Native UI Blocks</SelectItem>
-          <SelectItem value="flutter">Flutter Apps</SelectItem>
-          <SelectItem value="flutter-blocks">Flutter UI Blocks</SelectItem>
+          <SelectItem value="All"><span><BsListUl /></span> All</SelectItem>
+          <SelectItem value="react-native"> <span><TbBrandReact /></span> React Native Apps</SelectItem>
+          <SelectItem value="react-native-blocks"><span><TbBlocks /></span>React Native UI Blocks</SelectItem>
+          <SelectItem value="flutter"> <span><FaFlutter /></span> Flutter Apps</SelectItem>
+          <SelectItem value="flutter-blocks"><span><TbBlocks /></span>Flutter UI Blocks</SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>
