@@ -1,4 +1,5 @@
 // @ts-nocheck -- skip type checking
+import * as meta_0 from "../content/docs/meta.json?collection=meta&hash=1768485949753"
 import * as docs_9 from "../content/docs/hooks/use-auto-resize-textarea.mdx?collection=docs&hash=1768485949753"
 import * as docs_8 from "../content/docs/components/navbars.mdx?collection=docs&hash=1768485949753"
 import * as docs_7 from "../content/docs/components/inputs.mdx?collection=docs&hash=1768485949753"
@@ -9,7 +10,6 @@ import * as docs_3 from "../content/docs/components/bentos.mdx?collection=docs&h
 import * as docs_2 from "../content/docs/index.mdx?collection=docs&hash=1768485949753"
 import * as docs_1 from "../content/docs/components.mdx?collection=docs&hash=1768485949753"
 import * as docs_0 from "../content/docs/cli.mdx?collection=docs&hash=1768485949753"
-import * as meta_0 from "../content/docs/meta.json?collection=meta&hash=1768485949753"
 import * as backgroundsmeta_0 from "../content/backgrounds/meta.json?collection=backgroundsmeta&hash=1768485949753"
 import * as backgrounds_28 from "../content/backgrounds/gradients/gradients.mdx?collection=backgrounds&hash=1768485949753"
 import * as backgrounds_27 from "../content/backgrounds/SpiralAnimationBackground.mdx?collection=backgrounds&hash=1768485949753"
