@@ -244,6 +244,9 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
+import { BsListUl } from "react-icons/bs";
+import { BsPhoneFlip } from "react-icons/bs";
+import { CgDesktop } from "react-icons/cg";
 export function SortDesigns() {
   return (
     <Select>
@@ -253,9 +256,9 @@ export function SortDesigns() {
       <SelectContent className="">
         <SelectGroup className="">
           <SelectLabel className="font-sans font-medium">Sort</SelectLabel>
-          <SelectItem value="All">All</SelectItem>
-          <SelectItem value="Figma Kits for Mobile Apps">Figma Kits for Mobile Apps</SelectItem>
-          <SelectItem value="Figma Kits for Web">Figma Kits for Web</SelectItem>
+          <SelectItem value="All"><span><BsListUl /></span>All</SelectItem>
+          <SelectItem value="Figma Kits for Mobile Apps"><span><BsPhoneFlip /></span>Figma Kits for Mobile Apps</SelectItem>
+          <SelectItem value="Figma Kits for Web"><span><CgDesktop /></span>Figma Kits for Web</SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>
