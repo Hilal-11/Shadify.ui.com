@@ -20,6 +20,18 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 import HoverExternalIcon from "@/components/landing/MicroComponents/HoverExternalIcon";
 import { InputGroup, InputGroupButton, InputGroupInput } from "@/components/ui/input-group";
 
+
+import React, { useEffect, useState } from 'react'
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import Link from 'next/link';
+import { IoSearchSharp } from 'react-icons/io5';
+import { RiCheckboxBlankCircleLine } from "react-icons/ri";
+
+
 import templatesCategories from "@/public/config/templatesCatagoriedConfig.json";
 const techStackImages = [
     react,
@@ -30,9 +42,11 @@ const techStackImages = [
     js,
 ]
 function Templates(){
-
+    
     const templates = useQuery(api.getTemplates.getTemplates);
 
+    const [searchQuery , setSearchQuery] = useState('');
+    const [filteredItem , setFilteredItem] = useState(templates);
 
     const ref = useRef<HTMLDivElement>(null);
 
@@ -58,6 +72,17 @@ function Templates(){
         document.addEventListener("mouseup", onMouseUp);
     };
 
+
+
+    
+    const handleSearching = (event:any) => {
+        setSearchQuery(event.target.value)
+    }
+  
+      useEffect(() => {
+          const filtering = templates?.filter((item:any) => item.projectName.toLowerCase().includes(searchQuery.toLowerCase()))
+          setFilteredItem(filtering);
+      }, [searchQuery])
 
 
     const router = useRouter();
@@ -92,14 +117,52 @@ function Templates(){
             </div>  
             <section className="h-auto pt-4 mx-auto border border-dashed border-neutral-300 dark:border-neutral-700 mt-10">
                 <div className="flex justify-between gap-2 items-center w-full pt-0 pb-4 border-b border-dashed border-neutral-300 dark:border-neutral-700 px-5">
+                    
                     <div>
                         <SortTemplates />
                     </div>
                     <div className="flex items-center gap-1">
-                        <InputGroup className="flex items-center justify-center">
-                            <InputGroupInput placeholder="Search Template:- " className="hidden lg:flex md:flex"/>
-                            <InputGroupButton variant="secondary" className="bg-transparent flex items-center justify-center"><IoMdSearch className="text-lg mx-auto mr-px"/></InputGroupButton>
-                        </InputGroup>
+                        <Dialog>
+                <DialogTrigger asChild className='flex items-center justify-center'>
+                    <InputGroup className="flex items-center justify-center">
+                        <InputGroupInput placeholder="Search Template:- " className="hidden lg:flex md:flex"/>
+                        <InputGroupButton variant="secondary" className="bg-transparent flex items-center justify-center"><IoMdSearch className="text-lg mx-auto mr-px"/></InputGroupButton>
+                    </InputGroup>
+                </DialogTrigger>
+                <DialogContent className="lg:w-[500px] h-[400px] overflow-y-scroll pb-4">
+                    {/* Header search box */}
+                    <div className="w-full h-[48px] fixed top-0 border-b rounded-5-lg p-1 flex justify-center items-center pl-2  ">
+                        <span><IoSearchSharp className="text-lg text-neutral-400 dark:text-neutral-700"/></span>
+                        <input className="w-full h-full outline-0 text-sm font-sans font-medium pl-1" onChange={handleSearching} type="text" placeholder="Searching..." />
+                            </div>
+                                <div className="flex flex-col gap-1 w-full h-auto mt-10">
+                                    <p className="text-xs fonr-sans text-neutral-600">Templates</p>
+                                    {
+                                      filteredItem && filteredItem?.length > 0 ? (
+                                        <div>
+                                            {
+                                            filteredItem?.map(({id , projectName}) => (
+                                              <div key={id} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
+                                                <Link prefetch={true} className="flex gap-3 pl-2 items-center text-sm font-medium" href={`#${id}`}><span className="text-xs"><RiCheckboxBlankCircleLine/></span>{projectName}</Link>
+                                              </div>
+                                            ))
+                                          }
+                                        </div>
+                                      ) : (
+                                        <div>
+                                          {
+                                            templates?.map(({id , projectName}) => (
+                                              <div key={id} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
+                                                <Link prefetch={true} className="flex gap-3 pl-2 items-center text-sm font-medium" href={`#${id}`}><span className="text-xs"><RiCheckboxBlankCircleLine/></span>{projectName}</Link>
+                                              </div>
+                                            ))
+                                          }
+                                        </div>
+                                      )
+                                    }
+                    </div>
+                </DialogContent>
+            </Dialog>
                         <ButtonGroup>
                             <Button variant="outline">All</Button>
                             <Button variant="outline">Free</Button>
@@ -109,7 +172,7 @@ function Templates(){
                 </div>     
                 { !templates ? (<TemplateShimmerLoadingUI/>) : (
                     templates?.map((templete) => (
-                        <div key={templete.id} className="flex flex-col gap-4 w-full">
+                        <div id={`${templete.id}`} key={templete.id} className="flex flex-col gap-4 w-full">
                         <div className="w-full h-auto flex flex-wrap border-t border-dashed border-neutral-300 dark:border-neutral-700 r">
                             <div className="xl:w-[30%] lg:w-[40%] md:w-[50%] px-6 border-r border-dashed border-neutral-300 dark:border-neutral-700 py-5 pb-5">
                                 <div className="flex flex-col gap-3">
@@ -232,3 +295,7 @@ export function SortTemplates() {
     </Select>
   )
 }
+
+
+
+
