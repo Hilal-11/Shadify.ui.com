@@ -2,8 +2,11 @@
 import { useRef, useState , useEffect } from "react"
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useQuery } from "convex/react";
-import { api } from "../../convex/_generated/api";
+
+import { useQuery as useConvexQuery } from 'convex/react'; // ← Rename this
+import { useQuery } from '@tanstack/react-query'; // ← Keep this as useQuery
+import { useConvex } from 'convex/react';
+import { api } from '@/convex/_generated/api';
 import { IoMdSearch } from "react-icons/io";
 import Image from "next/image";
 import TemplateShimmerLoadingUI from '@/components/templateShimmerLoadingUI';
@@ -21,8 +24,16 @@ import { RiCheckboxBlankCircleLine } from "react-icons/ri";
 
 
 function DegignKits(){
-
-    const designsKits = useQuery(api.getTemplates.getDesignKits);
+    const convex = useConvex();
+    
+    const { data: designsKits } = useQuery({
+        queryKey: ['designKits'] as const,
+        queryFn: () => convex.query(api.getTemplates.getDesignKits),
+        staleTime: 24 * 60 * 60 * 1000, // Same for design kits
+        gcTime: 24 * 60 * 60 * 1000,
+        refetchOnWindowFocus: false,
+        refetchOnMount: false,
+    });
 
     const [searchQuery , setSearchQuery] = useState('');
     const [filteredItem , setFilteredItem] = useState(designsKits);
@@ -59,7 +70,7 @@ function DegignKits(){
         }
       
           useEffect(() => {
-              const filtering = designsKits?.filter((item:any) => item.projectName.toLowerCase().includes(searchQuery.toLowerCase()))
+              const filtering = designsKits?.filter((item:any) => item?.projectName?.toLowerCase().includes(searchQuery.toLowerCase()))
               setFilteredItem(filtering);
           },[])
     
@@ -164,7 +175,11 @@ function DegignKits(){
                                     <p className="pt-2 text-sm font-sans font-medium text-neutral-600 dark:text-neutral-400">{design.discription}</p>
                                 </div>
                                 <div className="flex justify-between pt-4">
-                                    <button className="px-3 border border-dashed rounded-sm font-sans font-medium text-sm text-neutral-800 dark:text-neutral-200">{design._creationTime.toLocaleString("en-US")}</button>
+                                    <button className="px-3 border border-dashed rounded-sm font-sans font-medium text-sm text-neutral-800 dark:text-neutral-200">{new Date(design?._creationTime).toLocaleDateString('en-US', {
+                                            year: 'numeric',
+                                            month: 'short',
+                                            day: 'numeric'
+                                        })}</button>
                                     <button className="px-4 py-2 cursor-pointer border-t border-l border-r border-neutral-800 rounded-lg whitespace-nowrap font-sans font-medium text-xs text-neutral-200 dark:text-neutral-200 bg-gradient-to-t from-[#262626] to-[#525252] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">{design.price === "free" ? `Free` : `${design.price !== "Free"? `${design.price}` : "Free"} `}</button>
                                 </div>
                                 <div className="flex w-full justify-start items-center pt-4">
