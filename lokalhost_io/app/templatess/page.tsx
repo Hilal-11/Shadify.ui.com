@@ -2,8 +2,6 @@
 import { useRef } from "react"
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { useQuery } from "convex/react";
-import { api } from "../../convex/_generated/api";
 import { IoMdSearch } from "react-icons/io";
 import TemplateShimmerLoadingUI from '@/components/templateShimmerLoadingUI';
 import { LuFigma } from "react-icons/lu";
@@ -20,6 +18,10 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 import HoverExternalIcon from "@/components/landing/MicroComponents/HoverExternalIcon";
 import { InputGroup, InputGroupButton, InputGroupInput } from "@/components/ui/input-group";
 
+import { useQuery as useConvexQuery } from 'convex/react'; // ← Rename this
+import { useQuery } from '@tanstack/react-query'; // ← Keep this as useQuery
+import { useConvex } from 'convex/react';
+import { api } from '@/convex/_generated/api';
 
 import React, { useEffect, useState } from 'react'
 import {
@@ -42,8 +44,16 @@ const techStackImages = [
     js,
 ]
 function Templates(){
+    const convex = useConvex();
     
-    const templates = useQuery(api.getTemplates.getTemplates);
+    const { data: templates, isLoading } = useQuery({
+        queryKey: ['templates'] as const, // ← Add "as const"
+        queryFn: () => convex.query(api.getTemplates.getTemplates),
+            staleTime: 24 * 60 * 60 * 1000,
+            gcTime: 24 * 60 * 60 * 1000, 
+            refetchOnWindowFocus: false,
+            refetchOnMount: false,
+    });
 
     const [searchQuery , setSearchQuery] = useState('');
     const [filteredItem , setFilteredItem] = useState(templates);
@@ -183,7 +193,13 @@ function Templates(){
                                     <p className="pt-2 text-sm font-sans font-medium text-neutral-600 dark:text-neutral-400">{templete.projectDescription}</p>
                                 </div>
                                 <div className="flex justify-between pt-4">
-                                    <button className="px-3 border border-dashed rounded-sm font-sans font-medium text-sm text-neutral-800 dark:text-neutral-200">{templete._creationTime.toLocaleString("en-US")}</button>
+                                    <button className="px-3 border border-dashed rounded-sm font-sans font-medium text-sm text-neutral-800 dark:text-neutral-200">
+                                        {new Date(templete?._creationTime).toLocaleDateString('en-US', {
+                                            year: 'numeric',
+                                            month: 'short',
+                                            day: 'numeric'
+                                        })}
+                                    </button>
                                     <button className="px-4 py-2 cursor-pointer border-t border-l border-r border-neutral-800 rounded-lg whitespace-nowrap font-sans font-medium text-xs text-neutral-200 dark:text-neutral-200 bg-gradient-to-t from-[#262626] to-[#525252] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">{templete.projectPrize === "free" ? `Free` : `${templete.projectPrize !== "Free"? `$${templete.projectPrize}` : "Free"} `}</button>
                                 </div>
                                 <div className='pt-3 flex flex-wrap py-0 poppins-medium text-neutral-600 gap-1'>
