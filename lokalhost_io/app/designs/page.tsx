@@ -1,5 +1,6 @@
 "use client"
-import { useRef } from "react"
+import { useRef, useState , useEffect } from "react"
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useQuery } from "convex/react";
 import { api } from "../../convex/_generated/api";
@@ -11,13 +12,23 @@ import { ButtonGroup } from "@/components/ui/button-group"
 import { HiArrowNarrowRight } from "react-icons/hi";
 import HoverExternalIcon from "@/components/landing/MicroComponents/HoverExternalIcon";
 import { InputGroup, InputGroupButton, InputGroupInput } from "@/components/ui/input-group";
-
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { RiCheckboxBlankCircleLine } from "react-icons/ri";
 
 
 function DegignKits(){
 
     const designsKits = useQuery(api.getTemplates.getDesignKits);
+
+    const [searchQuery , setSearchQuery] = useState('');
+    const [filteredItem , setFilteredItem] = useState(designsKits);
+    
     const ref = useRef<HTMLDivElement>(null);
+    const router = useRouter();
 
     const onMouseDown = (e: React.MouseEvent) => {
         const slider = ref.current;
@@ -41,9 +52,16 @@ function DegignKits(){
         document.addEventListener("mouseup", onMouseUp);
     };
 
+    const handleSearching = (event:any) => {
+            setSearchQuery(event.target.value)
+        }
+      
+          useEffect(() => {
+              const filtering = designsKits?.filter((item:any) => item.projectName.toLowerCase().includes(searchQuery.toLowerCase()))
+              setFilteredItem(filtering);
+          },[])
+    
 
-
-    const router = useRouter();
     return (
         <div className="relative">
 
@@ -68,10 +86,47 @@ function DegignKits(){
                             <SortDesigns />
                         </div>
                         <div className="flex items-center gap-1">
-                            <InputGroup className="flex items-center justify-center">
-                                <InputGroupInput placeholder="Search Template:- " className="hidden lg:flex md:flex"/>
-                                <InputGroupButton variant="secondary" className="bg-transparent flex items-center justify-center"><IoMdSearch className="text-lg mx-auto mr-px"/></InputGroupButton>
-                            </InputGroup>
+                            <Dialog>
+                                <DialogTrigger asChild className='flex items-center justify-center'>
+                                    <InputGroup className="flex items-center justify-center">
+                                        <InputGroupInput placeholder="Search Template:- " className="hidden lg:flex md:flex"/>
+                                        <InputGroupButton variant="secondary" className="bg-transparent flex items-center justify-center"><IoMdSearch className="text-lg mx-auto mr-px"/></InputGroupButton>
+                                    </InputGroup>
+                                </DialogTrigger>
+                                <DialogContent className="lg:w-[500px] h-[400px] overflow-y-scroll pb-4">
+                                                {/* Header search box */}
+                                                <div className="w-full h-[48px] fixed top-0 border-b rounded-5-lg p-1 flex justify-center items-center pl-2  ">
+                                                    <span><IoSearchSharp className="text-lg text-neutral-400 dark:text-neutral-700"/></span>
+                                                    <input className="w-full h-full outline-0 text-sm font-sans font-medium pl-1" onChange={handleSearching} type="text" placeholder="Searching..." />
+                                                        </div>
+                                                            <div className="flex flex-col gap-1 w-full h-auto mt-10">
+                                                                <p className="text-xs fonr-sans text-neutral-600">Templates</p>
+                                                                {
+                                                                  filteredItem && filteredItem?.length > 0 ? (
+                                                                    <div>
+                                                                        {
+                                                                        filteredItem?.map(({id , name}) => (
+                                                                          <div key={id} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
+                                                                            <Link prefetch={true} className="flex gap-3 pl-2 items-center text-sm font-medium" href={`#${id}`}><span className="text-sm"><RiCheckboxBlankCircleLine/></span>{name}</Link>
+                                                                          </div>
+                                                                        ))
+                                                                      }
+                                                                    </div>
+                                                                  ) : (
+                                                                    <div>
+                                                                      {
+                                                                        designsKits?.map(({id , name}) => (
+                                                                          <div key={id} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
+                                                                            <Link prefetch={true} className="flex gap-3 pl-2 items-center text-sm font-medium" href={`#${id}`}><span className="text-sm"><RiCheckboxBlankCircleLine/></span>{name}</Link>
+                                                                          </div>
+                                                                        ))
+                                                                      }
+                                                                    </div>
+                                                                  )
+                                                                }
+                                                </div>
+                                            </DialogContent>
+                                        </Dialog>
                             <ButtonGroup>
                                 <Button variant="outline">All</Button>
                                 <Button variant="outline">Free</Button>
@@ -82,7 +137,7 @@ function DegignKits(){
                 { !designsKits ? (<TemplateShimmerLoadingUI/>) : (
                     designsKits?.map((design) => (
                         <div key={design.id} className="flex flex-col gap-4 w-full">
-                        <div className="w-full h-auto flex flex-wrap border-t border-dashed border-neutral-300 dark:border-neutral-700 r">
+                        <div id={`${design.id}`} className="w-full h-auto flex flex-wrap border-t border-dashed border-neutral-300 dark:border-neutral-700 r">
                             <div className="xl:w-[30%] lg:w-[40%] md:w-[50%] px-6 border-r border-dashed border-neutral-300 dark:border-neutral-700 py-5 pb-5">
                                 <div className="flex flex-col gap-3">
                                     <h1 className="font-sans font-bold text-3xl text-neutral-800 dark:text-neutral-200">{design.name}</h1>
@@ -193,6 +248,7 @@ import { cn } from "@/lib/utils"
 import { AnimatedGridPattern } from "@/components/ui/animated-grid-pattern";
 import AnnoncementBadge from "@/components/landing/AnnoncementBadge";
 import { LuFigma } from "react-icons/lu";
+import { IoSearchSharp } from "react-icons/io5";
 export function AnimatedGridPatternDemo() {
   return (
     <div className="pointer-events-none absolute inset-0 z-0 mask-x-from-80% mask-y-from-98% to-100%">
