@@ -52,6 +52,8 @@ function DegignKits(){
         document.addEventListener("mouseup", onMouseUp);
     };
 
+    const [activeFilter, setActiveFilter] = useState<'All' | 'Free' | 'Premium'>('All');
+
     const handleSearching = (event:any) => {
             setSearchQuery(event.target.value)
         }
@@ -128,10 +130,28 @@ function DegignKits(){
                                             </DialogContent>
                                         </Dialog>
                             <ButtonGroup>
-                                <Button variant="outline">All</Button>
-                                <Button variant="outline">Free</Button>
-                                <Button variant="outline">Premium</Button>
-                            </ButtonGroup>
+                                                    <Button 
+                                                        variant={activeFilter === 'All' ? 'default' : 'outline'}
+                                                        onClick={() => setActiveFilter('All')}
+                                                        className={activeFilter === 'All' ? 'bg-gradient-to-t from-[#262626] to-[#525252] text-primary-foreground' : ''}
+                                                    >
+                                                        All
+                                                    </Button>
+                                                    <Button 
+                                                        variant={activeFilter === 'Free' ? 'default' : 'outline'}
+                                                        onClick={() => setActiveFilter('Free')}
+                                                        className={activeFilter === 'Free' ? 'bg-gradient-to-t from-[#262626] to-[#525252] text-primary-foreground' : ''}
+                                                    >
+                                                        Free
+                                                    </Button>
+                                                    <Button 
+                                                        variant={activeFilter === 'Premium' ? 'default' : 'outline'}
+                                                        onClick={() => setActiveFilter('Premium')}
+                                                        className={activeFilter === 'Premium' ? 'bg-gradient-to-t from-[#262626] to-[#525252] text-primary-foreground' : ''}
+                                                    >
+                                                        Premium
+                                                    </Button>
+                                                </ButtonGroup>
                         </div>
                 </div>     
                 { !designsKits ? (<TemplateShimmerLoadingUI/>) : (
