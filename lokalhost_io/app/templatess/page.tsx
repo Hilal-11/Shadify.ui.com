@@ -72,7 +72,7 @@ function Templates(){
         document.addEventListener("mouseup", onMouseUp);
     };
 
-
+    const [activeFilter, setActiveFilter] = useState<'All' | 'Free' | 'Premium'>('All');
 
     
     const handleSearching = (event:any) => {
@@ -100,8 +100,6 @@ function Templates(){
                     <button className="border-1 border-orange-400 cursor-pointer px-8 py-[9px] rounded-lg text-sm font-sans font-medium text-neutral-800 bg-gradient-to-r from-[#F6D5F7] to-[#FBE9D7] shadow-sm flex items-center justify-center gap-2"><span><LuFigma /></span> Get Full Design Access</button>
                     <button className="px-8 py-[10px] cursor-pointer border-t border-l border-r border-neutral-800 rounded-lg whitespace-nowrap font-sans font-medium text-sm text-neutral-200 dark:text-neutral-200 bg-gradient-to-t from-[#262626] to-[#525252] shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">Get All Premium Templates</button>
                 </div>
-                 {/* Search functionality */}
-               
                 <div className="flex flex-col justify-center items-center pt-4">
                     <div className="w-[100%] flex gap-3 overflow-auto whitespace-nowrap px-4 py-1 scrollbar-hide"
                         ref={ref}
@@ -117,57 +115,74 @@ function Templates(){
             </div>  
             <section className="h-auto pt-4 mx-auto border border-dashed border-neutral-300 dark:border-neutral-700 mt-10">
                 <div className="flex justify-between gap-2 items-center w-full pt-0 pb-4 border-b border-dashed border-neutral-300 dark:border-neutral-700 px-5">
-                    
                     <div>
                         <SortTemplates />
                     </div>
                     <div className="flex items-center gap-1">
-                        <Dialog>
-                <DialogTrigger asChild className='flex items-center justify-center'>
-                    <InputGroup className="flex items-center justify-center">
-                        <InputGroupInput placeholder="Search Template:- " className="hidden lg:flex md:flex"/>
-                        <InputGroupButton variant="secondary" className="bg-transparent flex items-center justify-center"><IoMdSearch className="text-lg mx-auto mr-px"/></InputGroupButton>
-                    </InputGroup>
-                </DialogTrigger>
-                <DialogContent className="lg:w-[500px] h-[400px] overflow-y-scroll pb-4">
-                    {/* Header search box */}
-                    <div className="w-full h-[48px] fixed top-0 border-b rounded-5-lg p-1 flex justify-center items-center pl-2  ">
-                        <span><IoSearchSharp className="text-lg text-neutral-400 dark:text-neutral-700"/></span>
-                        <input className="w-full h-full outline-0 text-sm font-sans font-medium pl-1" onChange={handleSearching} type="text" placeholder="Searching..." />
-                            </div>
-                                <div className="flex flex-col gap-1 w-full h-auto mt-10">
-                                    <p className="text-xs fonr-sans text-neutral-600">Templates</p>
-                                    {
-                                      filteredItem && filteredItem?.length > 0 ? (
-                                        <div>
+                    <Dialog>
+                        <DialogTrigger asChild className='flex items-center justify-center'>
+                            <InputGroup className="flex items-center justify-center">
+                                <InputGroupInput placeholder="Search Template:- " className="flex lg:flex md:flex"/>
+                                <InputGroupButton variant="secondary" className="bg-transparent flex items-center justify-center"><IoMdSearch className="text-lg mx-auto mr-px"/></InputGroupButton>
+                            </InputGroup>
+                        </DialogTrigger>
+                        <DialogContent className="lg:w-[500px] h-[400px] overflow-y-scroll pb-4">
+                            {/* Header search box */}
+                            <div className="w-full h-[48px] fixed top-0 border-b rounded-5-lg p-1 flex justify-center items-center pl-2  ">
+                                <span><IoSearchSharp className="text-lg text-neutral-400 dark:text-neutral-700"/></span>
+                                <input className="w-full h-full outline-0 text-sm font-sans font-medium pl-1" onChange={handleSearching} type="text" placeholder="Searching..." />
+                                    </div>
+                                        <div className="flex flex-col gap-1 w-full h-auto mt-10">
+                                            <p className="text-xs fonr-sans text-neutral-600">Templates</p>
                                             {
-                                            filteredItem?.map(({id , projectName}) => (
-                                              <div key={id} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
-                                                <Link prefetch={true} className="flex gap-3 pl-2 items-center text-sm font-medium" href={`#${id}`}><span className="text-xs"><RiCheckboxBlankCircleLine/></span>{projectName}</Link>
-                                              </div>
-                                            ))
-                                          }
-                                        </div>
-                                      ) : (
-                                        <div>
-                                          {
-                                            templates?.map(({id , projectName}) => (
-                                              <div key={id} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
-                                                <Link prefetch={true} className="flex gap-3 pl-2 items-center text-sm font-medium" href={`#${id}`}><span className="text-xs"><RiCheckboxBlankCircleLine/></span>{projectName}</Link>
-                                              </div>
-                                            ))
-                                          }
-                                        </div>
-                                      )
-                                    }
-                    </div>
-                </DialogContent>
-            </Dialog>
-                        <ButtonGroup>
-                            <Button variant="outline">All</Button>
-                            <Button variant="outline">Free</Button>
-                            <Button variant="outline">Premium</Button>
-                        </ButtonGroup>
+                                            filteredItem && filteredItem?.length > 0 ? (
+                                                <div>
+                                                    {
+                                                    filteredItem?.map(({id , projectName}) => (
+                                                    <div key={id} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
+                                                        <Link prefetch={true} className="flex gap-3 pl-2 items-center text-sm font-medium" href={`#${id}`}><span className="text-xs"><RiCheckboxBlankCircleLine/></span>{projectName}</Link>
+                                                    </div>
+                                                    ))
+                                                }
+                                                </div>
+                                            ) : (
+                                                <div>
+                                                {
+                                                    templates?.map(({id , projectName}) => (
+                                                    <div key={id} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
+                                                        <Link prefetch={true} className="flex gap-3 pl-2 items-center text-sm font-medium" href={`#${id}`}><span className="text-xs"><RiCheckboxBlankCircleLine/></span>{projectName}</Link>
+                                                    </div>
+                                                    ))
+                                                }
+                                                </div>
+                                            )
+                                            }
+                            </div>
+                        </DialogContent>
+                    </Dialog>
+                    <ButtonGroup>
+                        <Button 
+                            variant={activeFilter === 'All' ? 'default' : 'outline'}
+                            onClick={() => setActiveFilter('All')}
+                            className={activeFilter === 'All' ? 'bg-gradient-to-t from-[#262626] to-[#525252] text-primary-foreground' : ''}
+                        >
+                            All
+                        </Button>
+                        <Button 
+                            variant={activeFilter === 'Free' ? 'default' : 'outline'}
+                            onClick={() => setActiveFilter('Free')}
+                            className={activeFilter === 'Free' ? 'bg-gradient-to-t from-[#262626] to-[#525252] text-primary-foreground' : ''}
+                        >
+                            Free
+                        </Button>
+                        <Button 
+                            variant={activeFilter === 'Premium' ? 'default' : 'outline'}
+                            onClick={() => setActiveFilter('Premium')}
+                            className={activeFilter === 'Premium' ? 'bg-gradient-to-t from-[#262626] to-[#525252] text-primary-foreground' : ''}
+                        >
+                            Premium
+                        </Button>
+                    </ButtonGroup>
                     </div>
                 </div>     
                 { !templates ? (<TemplateShimmerLoadingUI/>) : (
