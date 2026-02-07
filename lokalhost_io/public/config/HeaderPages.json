@@ -20,8 +20,8 @@
     ],
     "dropdown_pages": [
         {
-            "page": "Team",
-            "link": "/team"
+            "page": "About",
+            "link": "/about"
         },
         {
             "page": "Blogs",
@@ -29,7 +29,11 @@
         },
         {
             "page": "Custom Work",
-            "link": "/freeforwork"
+            "link": "/custom-work"
+        },
+        {
+            "page": "Support | Contact Us",
+            "link": "/support"
         }
     ]
 }
