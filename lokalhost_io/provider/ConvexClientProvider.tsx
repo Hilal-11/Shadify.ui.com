@@ -3,28 +3,44 @@
 
 import { ConvexProvider, ConvexReactClient } from "convex/react";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
+import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister';
 import { useState } from 'react';
 
 const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
 
 export function ConvexClientProvider({ children }: { children: React.ReactNode }) {
-  // Create query client with caching config
   const [queryClient] = useState(() => new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime: 5 * 60 * 1000, // Data stays fresh for 5 minutes
-        gcTime: 10 * 60 * 1000, // Cache kept for 10 minutes (was cacheTime)
-        refetchOnWindowFocus: false, // Don't refetch when user comes back to tab
-        retry: 1, // Retry once on failure
+        staleTime: 24 * 60 * 60 * 1000, // 24 hours
+        gcTime: 24 * 60 * 60 * 1000,
+        refetchOnWindowFocus: false,
+        refetchOnMount: false,
+        refetchOnReconnect: false, // ← Add this
+        retry: 1,
       },
     },
   }));
 
+  // Persist cache to localStorage
+ const [persister] = useState(() => 
+    createSyncStoragePersister({
+      storage: typeof window !== 'undefined' ? window.localStorage : undefined,
+    })
+  );
+
   return (
     <ConvexProvider client={convex}>
-      <QueryClientProvider client={queryClient}>
+      <PersistQueryClientProvider 
+        client={queryClient} 
+        persistOptions={{ 
+          persister,
+          maxAge: 24 * 60 * 60 * 1000, // ← Add this
+        }}
+      >
         {children}
-      </QueryClientProvider>
+      </PersistQueryClientProvider>
     </ConvexProvider>
   );
 }
