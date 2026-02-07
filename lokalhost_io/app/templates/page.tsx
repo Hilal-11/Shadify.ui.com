@@ -293,7 +293,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-
+import { BsListUl } from "react-icons/bs";
+import { TbBrandReact } from "react-icons/tb";
+import { TbBlocks } from "react-icons/tb";
+import { TbBrandNextjs } from "react-icons/tb";
+import { TbBrandTailwind } from "react-icons/tb";
+import { SiShadcnui } from "react-icons/si";
+import { TbBrandJavascript } from "react-icons/tb";
+import { TbBrandAstro } from "react-icons/tb";
+import { TbBrandDjango } from "react-icons/tb";
 export function SortTemplates() {
   return (
     <Select>
@@ -303,15 +311,13 @@ export function SortTemplates() {
       <SelectContent className="">
         <SelectGroup className="">
           <SelectLabel className="font-sans font-medium">Sort</SelectLabel>
-          <SelectItem value="All">All</SelectItem>
-          <SelectItem value="ReactJs">ReactJs</SelectItem>
-          <SelectItem value="ReactJs + NextJs">ReactJs & NextJs</SelectItem>
-          <SelectItem value="React + Tailwind-Css">React & Tailwind Css</SelectItem>
-          <SelectItem value="Astro">Astro</SelectItem>
-          <SelectItem value="ReactJs & Material UI">ReactJs & Material UI</SelectItem>
-          <SelectItem value="NextJs & ShadcnUI">NextJs & ShadcnUI</SelectItem>
-          <SelectItem value="Django & TailwindCss">Django & Tailwind Css</SelectItem>
-          <SelectItem value="Html Css & JS">Html Css & Javascript</SelectItem>
+          <SelectItem value="All"><span className="text-white dark:text-neutral-200"><BsListUl /></span>All</SelectItem>
+          <SelectItem value="ReactJs"><span className="text-white dark:text-neutral-200"><TbBrandReact /></span>ReactJs</SelectItem>
+          <SelectItem value="ReactJs + NextJs"><span className="text-white dark:text-neutral-200"><TbBrandNextjs /></span>ReactJs & NextJs</SelectItem>
+          <SelectItem value="Astro"><span className="text-white dark:text-neutral-200"><TbBrandAstro /></span>Astro</SelectItem>
+          <SelectItem value="NextJs & ShadcnUI"><span className="text-white dark:text-neutral-200"><SiShadcnui /></span>NextJs & ShadcnUI</SelectItem>
+          <SelectItem value="Django & TailwindCss"><span className="text-white dark:text-neutral-200"><TbBrandDjango /></span>Django & Tailwind Css</SelectItem>
+          <SelectItem value="Html Css & JS"><span className="text-white dark:text-neutral-200"><TbBrandJavascript /></span>Html Css & Javascript</SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>
