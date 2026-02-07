@@ -1,0 +1,92 @@
+{
+  "faqs": [
+    {
+      "id": "faq1",
+      "title": "Getting Started",
+      "questions": [
+        {
+          "question": "What is Lokalhost.io?",
+          "answer": "Lokalhost.io is a platform providing developers and startups with ready-to-use templates, components, UI kits, and design resources."
+        },
+        {
+          "question": "How do I create an account?",
+          "answer": "You can sign up using your email or social login options available on the registration page."
+        },
+        {
+          "question": "Are the templates free to use?",
+          "answer": "We provide a mix of free and premium templates. Free templates can be used directly in your projects."
+        },
+        {
+          "question": "Can I customize the templates?",
+          "answer": "Yes, all templates come with full customization support to match your project needs."
+        }
+      ]
+    },
+    {
+      "id": "faq2",
+      "title": "Components & UI Kits",
+      "questions": [
+        {
+          "question": "What are the components offered?",
+          "answer": "We provide functional and production-ready components like buttons, forms, dashboards, headers, and more."
+        },
+        {
+          "question": "Are UI kits compatible with React?",
+          "answer": "Yes, all our UI kits are designed for React, Next.js, and modern frontend stacks."
+        },
+        {
+          "question": "How do I install components?",
+          "answer": "You can install components via our CLI or copy-paste them directly into your project."
+        },
+        {
+          "question": "Can I use components in commercial projects?",
+          "answer": "Yes, you have full ownership and can use the components in commercial and personal projects."
+        }
+      ]
+    },
+    {
+      "id": "faq3",
+      "title": "Templates & Projects",
+      "questions": [
+        {
+          "question": "Do templates include full projects?",
+          "answer": "Yes, most templates come as full project setups including frontend, backend boilerplate, or just frontend depending on the template type."
+        },
+        {
+          "question": "Can I get source files?",
+          "answer": "All templates include code files and design files like Figma, ready for customization."
+        },
+        {
+          "question": "Are templates mobile-friendly?",
+          "answer": "Yes, all templates are responsive and optimized for mobile devices."
+        },
+        {
+          "question": "How can I contribute templates?",
+          "answer": "You can submit templates or request features by contacting our team via email or social channels."
+        }
+      ]
+    },
+    {
+      "id": "faq4",
+      "title": "Support & Services",
+      "questions": [
+        {
+          "question": "Can I get help with customization?",
+          "answer": "Yes, our team provides customization support for layouts, styling, and minor functionality tweaks."
+        },
+        {
+          "question": "Is there production support?",
+          "answer": "Yes, we provide guidance for deployment, optimizations, and bug fixes for templates and components."
+        },
+        {
+          "question": "How do I report issues?",
+          "answer": "Issues can be reported via GitHub, email, or our support portal. We respond as quickly as possible."
+        },
+        {
+          "question": "Can I request new features?",
+          "answer": "Absolutely! We welcome feature requests and try to incorporate them into our future releases."
+        }
+      ]
+    }
+  ]
+}
