@@ -27,7 +27,7 @@ function DegignKits(){
     const { data: designsKits } = useQuery({
         queryKey: ['designKits'] as const,
         queryFn: () => convex.query(api.getTemplates.getDesignKits),
-        staleTime: 24 * 60 * 60 * 1000, // Same for design kits
+        staleTime: 24 * 60 * 60 * 1000, 
         gcTime: 24 * 60 * 60 * 1000,
         refetchOnWindowFocus: false,
         refetchOnMount: false,
@@ -40,8 +40,6 @@ function DegignKits(){
         if (activeFilter === 'Premium') return design?.isPremium === true
         return true
     }) 
-
-
 
     const [searchQuery , setSearchQuery] = useState('');
     const [filteredItem , setFilteredItem] = useState(designsKits);
