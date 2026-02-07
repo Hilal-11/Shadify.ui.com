@@ -13,11 +13,11 @@ export function ConvexClientProvider({ children }: { children: React.ReactNode }
   const [queryClient] = useState(() => new QueryClient({
     defaultOptions: {
       queries: {
-        staleTime: 24 * 60 * 60 * 1000, // 24 hours
+        staleTime: 24 * 60 * 60 * 1000, 
         gcTime: 24 * 60 * 60 * 1000,
         refetchOnWindowFocus: false,
         refetchOnMount: false,
-        refetchOnReconnect: false, // ← Add this
+        refetchOnReconnect: false, 
         retry: 1,
       },
     },
@@ -36,7 +36,7 @@ export function ConvexClientProvider({ children }: { children: React.ReactNode }
         client={queryClient} 
         persistOptions={{ 
           persister,
-          maxAge: 24 * 60 * 60 * 1000, // ← Add this
+          maxAge: 24 * 60 * 60 * 1000,
         }}
       >
         {children}
