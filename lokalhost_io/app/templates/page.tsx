@@ -51,8 +51,6 @@ function Templates(){
             return result;
         },
     });
-
-   
     const [activeFilter, setActiveFilter] = useState<'All' | 'Free' | 'Premium'>('All');
     const filteredTemplates = templates?.filter((template) => {
         if (activeFilter === 'All') return true
@@ -61,8 +59,6 @@ function Templates(){
         return true
     })  
      
-
-
     const [searchQuery , setSearchQuery] = useState('');
     const [filteredItem , setFilteredItem] = useState(templates);
     const handleSearching = (event:any) => {
