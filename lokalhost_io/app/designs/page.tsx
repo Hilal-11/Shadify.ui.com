@@ -2,8 +2,6 @@
 import { useRef, useState , useEffect } from "react"
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-
-import { useQuery as useConvexQuery } from 'convex/react'; // ← Rename this
 import { useQuery } from '@tanstack/react-query'; // ← Keep this as useQuery
 import { useConvex } from 'convex/react';
 import { api } from '@/convex/_generated/api';
@@ -35,6 +33,16 @@ function DegignKits(){
         refetchOnMount: false,
     });
 
+    const [activeFilter, setActiveFilter] = useState<'All' | 'Free' | 'Premium'>('All');
+     const filteredDesigns = designsKits?.filter((design) => {
+        if (activeFilter === 'All') return true
+        if (activeFilter === 'Free') return design?.isPremium === false
+        if (activeFilter === 'Premium') return design?.isPremium === true
+        return true
+    }) 
+
+
+
     const [searchQuery , setSearchQuery] = useState('');
     const [filteredItem , setFilteredItem] = useState(designsKits);
     
@@ -63,7 +71,7 @@ function DegignKits(){
         document.addEventListener("mouseup", onMouseUp);
     };
 
-    const [activeFilter, setActiveFilter] = useState<'All' | 'Free' | 'Premium'>('All');
+    
 
     const handleSearching = (event:any) => {
             setSearchQuery(event.target.value)
@@ -166,7 +174,7 @@ function DegignKits(){
                         </div>
                 </div>     
                 { !designsKits ? (<TemplateShimmerLoadingUI/>) : (
-                    designsKits?.map((design) => (
+                    filteredDesigns?.map((design) => (
                         <div key={design.id} className="flex flex-col gap-4 w-full">
                         <div id={`${design.id}`} className="w-full h-auto flex flex-wrap border-t border-dashed border-neutral-300 dark:border-neutral-700 r">
                             <div className="xl:w-[30%] lg:w-[40%] md:w-[50%] px-6 border-r border-dashed border-neutral-300 dark:border-neutral-700 py-5 pb-5">
