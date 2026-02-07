@@ -33,8 +33,6 @@ import Link from 'next/link';
 import { IoSearchSharp } from 'react-icons/io5';
 import { RiCheckboxBlankCircleLine } from "react-icons/ri";
 
-
-import templatesCategories from "@/public/config/templatesCatagoriedConfig.json";
 const techStackImages = [
     react,
     next,
@@ -46,20 +44,40 @@ const techStackImages = [
 function Templates(){
     const convex = useConvex();
     
-    const { data: templates, isLoading } = useQuery({
-        queryKey: ['templates'] as const, // ← Add "as const"
-        queryFn: () => convex.query(api.getTemplates.getTemplates),
-            staleTime: 24 * 60 * 60 * 1000,
-            gcTime: 24 * 60 * 60 * 1000, 
-            refetchOnWindowFocus: false,
-            refetchOnMount: false,
+    const { data: templates, isLoading, isFetching, dataUpdatedAt } = useQuery({
+        queryKey: ['templates'] as const,
+        queryFn: async () => {
+            const result = await convex.query(api.getTemplates.getTemplates);
+            return result;
+        },
     });
+
+   
+    const [activeFilter, setActiveFilter] = useState<'All' | 'Free' | 'Premium'>('All');
+    const filteredTemplates = templates?.filter((template) => {
+        if (activeFilter === 'All') return true
+        if (activeFilter === 'Free') return template?.projectPrize === 'Free'
+        if (activeFilter === 'Premium') return template?.projectPrize !== 'Free'
+        return true
+    })  
+     
+
 
     const [searchQuery , setSearchQuery] = useState('');
     const [filteredItem , setFilteredItem] = useState(templates);
+    const handleSearching = (event:any) => {
+        setSearchQuery(event.target.value)
+    }
+  
+      useEffect(() => {
+          const filtering = templates?.filter((item:any) => item.projectName.toLowerCase().includes(searchQuery.toLowerCase()))
+          setFilteredItem(filtering);
+      }, [])
+
+
+
 
     const ref = useRef<HTMLDivElement>(null);
-
     const onMouseDown = (e: React.MouseEvent) => {
         const slider = ref.current;
         if (!slider) return;
@@ -82,18 +100,7 @@ function Templates(){
         document.addEventListener("mouseup", onMouseUp);
     };
 
-    const [activeFilter, setActiveFilter] = useState<'All' | 'Free' | 'Premium'>('All');
-
     
-    const handleSearching = (event:any) => {
-        setSearchQuery(event.target.value)
-    }
-  
-      useEffect(() => {
-          const filtering = templates?.filter((item:any) => item.projectName.toLowerCase().includes(searchQuery.toLowerCase()))
-          setFilteredItem(filtering);
-      }, [searchQuery])
-
 
     const router = useRouter();
     return (
@@ -184,7 +191,7 @@ function Templates(){
                     </div>
                 </div>     
                 { !templates ? (<TemplateShimmerLoadingUI/>) : (
-                    templates?.map((templete) => (
+                    filteredTemplates?.map((templete) => (
                         <div id={`${templete.id}`} key={templete.id} className="flex flex-col gap-4 w-full">
                         <div className="w-full h-auto flex flex-wrap border-t border-dashed border-neutral-300 dark:border-neutral-700 r">
                             <div className="xl:w-[30%] lg:w-[40%] md:w-[50%] px-6 border-r border-dashed border-neutral-300 dark:border-neutral-700 py-5 pb-5">
