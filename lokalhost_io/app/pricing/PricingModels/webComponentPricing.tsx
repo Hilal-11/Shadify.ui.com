@@ -57,8 +57,9 @@ function WebComponentPricing({webComponentsPricingConfig}: {webComponentsPricing
                 </div>
               ))  
             }
-            </div>
+    </div>
   )
 }
 
 export default WebComponentPricing
+

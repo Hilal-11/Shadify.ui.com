@@ -25,6 +25,10 @@ function Pricing() {
         <div id="web-components">
           <WebComponents />
         </div>
+        <div>
+          
+        </div>
+
       </div>
         <div className="relative w-[100%] h-auto border-t border-b border-dashed border-neutral-300 dark:border-neutral-800 z-10">
           <StripedPattern direction="left" className="mask-l-from-70% mask-l-to-100% mask-r-from-70% mask-r-to-100%" />
