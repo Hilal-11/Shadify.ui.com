@@ -329,3 +329,65 @@
   background-color: #2d3436;
   background-image: linear-gradient(275deg, #000000 20% , #2d3436 90%);
 }
+/* Import base nprogress styles */
+@import 'nprogress/nprogress.css';
+
+/* Custom styling for the loading bar */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+background: linear-gradient(
+    to right,
+    #fb923c,  /* soft orange */
+    #f97316,  /* rich orange */
+    #ef4444   /* warm red */
+  ) !important;
+
+  box-shadow: 0 0 14px rgba(249, 115, 22, 0.45);
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  border-top-right-radius: 100%;
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+   box-shadow: 0 0 16px #ef4444, 0 0 8px #f97316;
+  opacity: 1;
+  border-top-right-radius: 100%;
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* For light theme */
+.light #nprogress .bar {
+  background: linear-gradient(
+    to right,
+    #fb923c,  /* soft orange */
+    #f97316,  /* rich orange */
+    #ef4444   /* warm red */
+  ) !important;
+
+  box-shadow: 0 0 14px rgba(249, 115, 22, 0.45);
+  border-top-right-radius: 100%;
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+.light #nprogress .peg {
+  box-shadow: 0 0 16px #ef4444, 0 0 8px #f97316;
+  border-top-right-radius: 100%;
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+  transform: rotate(3deg) translate(0px, -4px);
+}
