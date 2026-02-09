@@ -6,6 +6,7 @@ import Providers from "./provider";
 import { FeedbackMobile } from "@/components/GoToTop";
 import Wrapper from "./Wrapper";
 import Footer from "@/components/layout/footer";
+import TopLoader from '@/components/TopLoader'
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -70,6 +71,7 @@ export default async function RootLayout({
           <GoToTop />
           <div className="lg:hidden md:hidden flex"><FeedbackMobile/></div>
           <Wrapper/>
+          <TopLoader />
           {children}
           <Footer footerConfig={footerConfigData}/>
         </Providers>

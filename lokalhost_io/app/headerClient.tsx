@@ -1,6 +1,11 @@
 "use client"
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import Link from "next/link";
+
+import NProgress from 'nprogress'
+
+
+
 import { PiTerminalFill } from "react-icons/pi";
 import { PiCrownFill } from "react-icons/pi";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
@@ -76,6 +81,12 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
     };
   }, [showFeedback]);
 
+
+
+  const handleLinkClick = () => {
+    NProgress.start()
+  }
+
   return (
     <>
       {/* Mobile Pro Banner completely separate from sticky header */}
@@ -96,7 +107,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
               <div className="relative z-10 flex items-center justify-between w-full gap-2">
                 {/* Logo Section with Navigation Links */}
                 <div className="flex items-center gap-6">
-                  <Link  prefetch={true} href="/" className="flex items-center gap-2">
+                  <Link prefetch={true} href="/" onClick={handleLinkClick} className="flex items-center gap-2">
                    <PiTerminalFill className="mr-2 h-8 w-8" />
                    
                    
@@ -121,7 +132,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                         <div className="grid grid-cols-3 gap-3 w-full h-auto justify-evenly py-4 px-4">
                          {
                           services.map(({ id, service, icon: Icon, link }) => (
-                            <Link key={id} href={link} prefetch={true}>
+                            <Link onClick={handleLinkClick} key={id} href={link} prefetch={true}>
                               <div className="h-auto py-2 cursor-pointer flex items-center hover:bg-neutral-100 hover:dark:bg-neutral-950 hover:rounded-sm">
                                 <div className="flex justify-center items-center px-5 h-full overflow-hidden relative">
                                   <span className="text-xl z-30"><Icon/></span>
@@ -138,11 +149,11 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                     </DropdownMenu>
                     {
                       headerPagesConfig.header_pages.map((page , index) => (
-                         <Link
-                            key={index}
+                         <Link                            key={index}
                             href={page.link}
                             className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex items-center gap-2"
                             prefetch={true}
+                            onClick={handleLinkClick}
                           >
                             {page.page}
                           </Link>
@@ -156,8 +167,8 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                         {
                           headerPagesConfig.dropdown_pages.map((page , index) => (
                             <div key={index} className="w-full hover:bg-neutral-200 hover:dark:bg-neutral-800 cursor-pointer rounded-sm py-1 pl-1 ">
-                              <Link
-                                href={page.link}
+                              <Link                                href={page.link}
+                              onClick={handleLinkClick}
                                 className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                                 prefetch={true}
                               >
@@ -189,7 +200,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                   {/* <HeaderPro /> */}
 
                   <div className="flex items-center gap-3">
-                      <Link prefetch={true} href="/signup" className="flex gap-1 border-t-[1px] border-l-[1px] border-r-[1px] border-neutral-950 dark:border-neutral-800 w-full whitespace-nowrap relative cursor-pointer font-sans font-medium rounded-md text-xs px-4 h-8 pb-px bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] items-center justify-center gap-2">{isLoggedIn ? "Start Building" : "Signup"}{isLoggedIn && <span className="text-xl"><HiArrowNarrowRight /></span>}</Link>
+                      <Link prefetch={true} onClick={handleLinkClick} href="/signup" className="flex gap-1 border-t-[1px] border-l-[1px] border-r-[1px] border-neutral-950 dark:border-neutral-800 w-full whitespace-nowrap relative cursor-pointer font-sans font-medium rounded-md text-xs px-4 h-8 pb-px bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] items-center justify-center gap-2">{isLoggedIn ? "Start Building" : "Signup"}{isLoggedIn && <span className="text-xl"><HiArrowNarrowRight /></span>}</Link>
                   </div>
                   { isLoggedIn ? (<HeaderProfile user={user} userEmail={userEmail} />) : null }
                 </div>
@@ -241,7 +252,7 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                           <div className="grid grid-cols-1 gap-6 w-full h-auto justify-evenly pt-4">
                           { showservices && 
                             services.map(({ id, service, about,  icon: Icon, link }) => (
-                              <Link key={id} href={link} prefetch={true}>
+                              <Link onClick={handleLinkClick} key={id} href={link} prefetch={true}>
                                 <div
                                 className="hover:bg-neutral-50 hover:dark:bg-neutral-800 rounded-sm h-auto cursor-pointer flex items-center gap-4 hover:rounded-sm">
                                   <div className="w-[40px] h-[40px] flex justify-center items-center overflow-hidden relative bg-neutral-200 dark:bg-neutral-900 rounded-sm">
@@ -262,14 +273,14 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                         <div className="flex justify-between w-full px-2">
                           <div className="grid grid-cols-2 justify-between w-full">
                             <Link
-                              href="/pricing"
+                            onClick={handleLinkClick}                              href="/pricing"
                               className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                               prefetch
                             >
                               Pricing
                             </Link>
                             <Link
-                        
+                            onClick={handleLinkClick}                        
                               href="/team"
                               className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                               prefetch
@@ -277,14 +288,14 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                               Team
                             </Link>
                             <Link
-                              href="/team"
+                            onClick={handleLinkClick}                              href="/team"
                               className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                               prefetch
                             >
                               Feedback
                             </Link>
                             <Link
-                        
+                            onClick={handleLinkClick}                        
                               href="/team"
                               className="block pb-3 font-sans font-medium text-md text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
                               prefetch
