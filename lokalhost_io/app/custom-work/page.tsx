@@ -240,7 +240,7 @@ function CustomWorkPage() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.5 }}
             className="text-4xl md:text-5xl lg:text-5xl font-bold font-sans leading-tight"
           >
             Let's Build Something{' '}
@@ -251,7 +251,7 @@ function CustomWorkPage() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5 }}
             className="text-base md:text-[17px] text-gray-600 dark:text-gray-300 font-sans font-medium leading-relaxed"
           >
             From web applications to mobile apps, SaaS platforms to custom solutions - we turn your ideas into reality with cutting-edge technology and exceptional design.
@@ -261,7 +261,7 @@ function CustomWorkPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5 }}
           className="space-y-4"
         >
           <div className="flex items-center gap-3 text-sm font-sans font-medium">
@@ -287,7 +287,7 @@ function CustomWorkPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5 }}
           className="flex flex-wrap gap-4 pt-4"
         >
           <motion.button
@@ -314,7 +314,7 @@ function CustomWorkPage() {
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        transition={{ duration: 0.8 }}
         className="relative"
       >
         {/* Placeholder Container - Add your image or video here */}
@@ -364,7 +364,7 @@ function CustomWorkPage() {
                   key={service.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5 }}
                   className="border border-dashed p-6 hover:shadow-2xl transition-all duration-300 group cursor-pointer relative overflow-hidden"
                   onClick={() => handleServiceSelect(service)}
                 >
@@ -440,7 +440,7 @@ function CustomWorkPage() {
                   key={tech.name}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  transition={{ duration: 0.3}}
                   className="flex flex-col items-center gap-2 p-4 border border-dashed hover:shadow-lg transition-all duration-300 group"
                 >
                   <div className="text-4xl group-hover:scale-110 transition-transform">
@@ -774,14 +774,14 @@ function CustomWorkPage() {
                       <motion.div
                         initial={{ scale: 0, rotate: -180 }}
                         animate={{ scale: 1, rotate: 0 }}
-                        transition={{ delay: 0.2, duration: 0.6, type: "spring", stiffness: 200 }}
+                        transition={{ duration: 0.6, type: "spring", stiffness: 200 }}
                         className="relative"
                       >
                         <div className="w-24 h-24 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center shadow-2xl">
                           <motion.div
                             initial={{ pathLength: 0 }}
                             animate={{ pathLength: 1 }}
-                            transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
                           >
                             <FaCheckCircle className="text-white text-5xl" />
                           </motion.div>
@@ -791,7 +791,7 @@ function CustomWorkPage() {
                         <motion.div
                           initial={{ scale: 0, opacity: 1 }}
                           animate={{ scale: 3, opacity: 0 }}
-                          transition={{ delay: 0.3, duration: 1 }}
+                          transition={{duration: 1 }}
                           className="absolute inset-0 rounded-full bg-green-400/30 blur-xl"
                         />
                       </motion.div>
@@ -800,7 +800,7 @@ function CustomWorkPage() {
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4, duration: 0.5 }}
+                        transition={{ duration: 0.5 }}
                         className="text-center space-y-3"
                       >
                         <h2 className="text-3xl md:text-4xl font-bold font-sans bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent">
@@ -815,7 +815,7 @@ function CustomWorkPage() {
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6, duration: 0.5 }}
+                        transition={{ duration: 0.5 }}
                         className="w-full max-w-2xl grid md:grid-cols-2 gap-4"
                       >
                         {/* Response Time Card */}
@@ -863,7 +863,7 @@ function CustomWorkPage() {
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8, duration: 0.5 }}
+                        transition={{ duration: 0.5 }}
                         className="w-full max-w-2xl bg-white dark:bg-slate-800 p-6 rounded-xl border border-dashed border-gray-300 dark:border-gray-700 shadow-sm"
                       >
                         <h4 className="font-sans font-bold text-lg mb-4 flex items-center gap-2">
@@ -903,7 +903,7 @@ function CustomWorkPage() {
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1, duration: 0.5 }}
+                        transition={{ duration: 0.5 }}
                         className="w-full max-w-2xl"
                       >
                         <h4 className="font-sans font-bold text-center mb-4">What Happens Next?</h4>
@@ -939,7 +939,7 @@ function CustomWorkPage() {
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1.2, duration: 0.5 }}
+                        transition={{ duration: 0.5 }}
                         className="flex flex-col sm:flex-row gap-4 pt-4"
                       >
                         <motion.button
@@ -978,7 +978,7 @@ function CustomWorkPage() {
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        transition={{ delay: 1.4, duration: 0.5 }}
+                        transition={{ duration: 0.5 }}
                         className="flex items-center gap-2 text-sm font-sans text-gray-500 dark:text-gray-400"
                       >
                         <FaShieldAlt className="text-green-500" />
