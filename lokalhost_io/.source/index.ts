@@ -1,5 +1,4 @@
 // @ts-nocheck -- skip type checking
-import * as authmeta_0 from "../content/authdocs/meta.json?collection=authmeta&hash=1768485949753"
 import * as meta_0 from "../content/docs/meta.json?collection=meta&hash=1768485949753"
 import * as docs_9 from "../content/docs/hooks/use-auto-resize-textarea.mdx?collection=docs&hash=1768485949753"
 import * as docs_8 from "../content/docs/components/navbars.mdx?collection=docs&hash=1768485949753"
@@ -41,6 +40,7 @@ import * as backgrounds_3 from "../content/backgrounds/index.mdx?collection=back
 import * as backgrounds_2 from "../content/backgrounds/GradientAnimationBackground.mdx?collection=backgrounds&hash=1768485949753"
 import * as backgrounds_1 from "../content/backgrounds/ExplodingBeamsBackground.mdx?collection=backgrounds&hash=1768485949753"
 import * as backgrounds_0 from "../content/backgrounds/EtherealShadowBackground.mdx?collection=backgrounds&hash=1768485949753"
+import * as authmeta_0 from "../content/authdocs/meta.json?collection=authmeta&hash=1768485949753"
 import * as authdocs_14 from "../content/authdocs/components/User_Profile.mdx?collection=authdocs&hash=1768485949753"
 import * as authdocs_13 from "../content/authdocs/components/Signup.mdx?collection=authdocs&hash=1768485949753"
 import * as authdocs_12 from "../content/authdocs/components/OTP_Verification.mdx?collection=authdocs&hash=1768485949753"
