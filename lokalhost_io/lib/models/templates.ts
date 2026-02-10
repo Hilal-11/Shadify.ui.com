@@ -1,5 +1,5 @@
 
-import { Model, Schema , model } from "mongoose";
+import { Model, Schema, model, models } from 'mongoose';
 
 
 interface ITemplate {
@@ -34,5 +34,5 @@ const templatesSchema: Schema<ITemplate> = new Schema({
 }, { timestamps: true });
 
 
-const Templates = model<ITemplate>("Templates" , templatesSchema);
+const Templates = models.Templates || model<ITemplate>("Templates" , templatesSchema);
 export default Templates;

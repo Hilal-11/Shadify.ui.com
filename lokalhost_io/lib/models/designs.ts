@@ -1,4 +1,4 @@
-import { Schema ,  model } from "mongoose";
+import { Schema, model, models } from 'mongoose';
 
 interface IDesign {
     id: string
@@ -27,5 +27,5 @@ const designSchema:Schema<IDesign> = new Schema({
     highlight: { type: [String], required: true , trim: true },
 } , { timestamps: true });
 
-const Design = model<IDesign>("Design" , designSchema); 
+const Design = models.Design || model<IDesign>("Design" , designSchema); 
 export default Design;
