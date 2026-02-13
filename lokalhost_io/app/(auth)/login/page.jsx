@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { LoginFormSchema } from "@/lib/definitions"
 import { Spinner } from "@/components/ui/spinner"
 import Snowfall from "react-snowfall"
+import { PiTerminalFill } from "react-icons/pi";
 
 export const dynamic = "force-static";
 
@@ -102,15 +103,18 @@ const  Login = () => {
 
   return (
     <div className="w-full h-auto">
-      <Snowfall color="#bfdbf7"/>
     <div className="flex flex-col w-full h-svh relative justify-center items-start lg:justify-center lg:items-center md:justify-center md:items-center">
       
-    <div className="dark:hidden absolute top-0 z-[-2] h-svh w-screen flex rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
-
       <div className="w-svw h-[100%] lg:w-[460px] md:w-[460px] md:h-auto lg:h-auto z-30 dg-neutral-50 dark:bg-neutral-900
       shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] px-4 lg:px-2 py-4 flex justify-center items-center md:rounded-xl lg:rounded-xl">
         <form onSubmit={handleFormSubmittion}>
-            <h1 className="text-4xl font-bold ">Login</h1>
+
+           {/* Brand Header Section */}
+            <div className="justify-center flex items-center gap-2 w-full pb-3">
+                <span className="text-white font-bold text-3xl"><PiTerminalFill /></span><h2 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">Lokalhost.io</h2>
+            </div>
+          
+            <h1 className="text-xl font-bold ">Login</h1>
             <p className="font-sans font-medium text-sm pl-1.5 text-neutral-700 dark:text-neutral-300 pb-8 py-1">Login to your account if you already have an account.</p>
 
             <div className="mt-0">

@@ -8,7 +8,7 @@ import PrefetchLink from "@/components/pre-fetching"
 import { SignupFormSchema } from "@/lib/definitions";
 import { useRouter } from "next/navigation";
 import { Spinner } from "@/components/ui/spinner"
-import Snowfall from "react-snowfall"
+import { PiTerminalFill } from "react-icons/pi";
 
 
 export const dynamic = "force-static";
@@ -110,17 +110,22 @@ const  Signup = () => {
 
 
   return (
-    <div className="w-full h-auto">
-      <Snowfall color="#bfdbf7"/>
+   <div className="w-full h-auto">
     <div className="flex flex-col w-full h-svh relative justify-center items-start lg:justify-center lg:items-center md:justify-center md:items-center">
       
     <div className="dark:hidden absolute top-0 z-[-2] h-svh w-screen flex rotate-180 transform bg-white bg-[radial-gradient(60%_120%_at_50%_50%,hsla(0,0%,100%,0)_0,rgba(252,205,238,.5)_100%)]"></div>
 
-      <div className="w-svw h-[100%] lg:w-[460px] md:w-[460px] md:h-auto  lg:h-auto z-30 dg-neutral-50 dark:bg-neutral-900
+      <div className="w-svw h-[100%] lg:w-[460px] md:w-[460px] md:h-auto  lg:h-auto z-30 bg-neutral-50 dark:bg-neutral-900
       shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] px-5 py-4 flex justify-center items-center md:rounded-xl lg:rounded-xl">
-        <form onSubmit={handleFormSubmittion}>
-            <h1 className="text-4xl font-bold ">Signup</h1>
-            <p className="font-sans font-medium text-sm pl-1.5 text-neutral-700 dark:text-neutral-300 pb-8 py-1">Signup to create an account to get start building?</p>
+        <form onSubmit={handleFormSubmittion} className="w-full">
+            {/* Brand Header Section */}
+            <div className="justify-center flex items-center gap-2 w-full pb-3">
+                <span className="text-white font-bold text-3xl"><PiTerminalFill /></span><h2 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">Lokalhost.io</h2>
+            </div>
+
+            {/* Main Heading */}
+            <h1 className="text-xl font-bold text-neutral-900 dark:text-neutral-100">Create Account</h1>
+            <p className="font-sans font-medium text-sm pl-1.5 text-neutral-700 dark:text-neutral-300 pb-3">Sign up to start building amazing projects</p>
 
             <div className="mt-3">
                 <Label className="text-[15px] font-sans font-medium pb-1 px-1" htmlFor="username">Username</Label>
@@ -148,7 +153,7 @@ const  Signup = () => {
                 <div><p className="dark:text-neutral-300">Forget password?</p></div>
             </div>
             <div className="mt-8">
-                <Button className="w-full cursor-pointer font-sans font-medium px-10 py-6 rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-md" type="submit" disabled={loading}>{loading && <div><Spinner/></div>}  Signup</Button>
+                <Button className="w-full cursor-pointer font-sans font-medium px-10 py-6 rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-md" type="submit" disabled={loading}>{loading && <div><Spinner/></div>}  Create Account</Button>
             </div>
 
             <div className="mt-6 mb-6 flex justify-between items-center gap-3 px-4">
@@ -160,8 +165,8 @@ const  Signup = () => {
                 <Button className="w-full cursor-pointer font-sans font-medium px-10 py-6 rounded-md bg-white text-neutral-800 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] text-md hover:bg-none" type="submit"><span className="text-2xl"><FaGoogle  /></span>Google</Button>
             </div>
 
-            <div className="mt-4 text-center text-sm 0 mx-auto">
-                <p >Do you have an account <PrefetchLink href="/login" className="font-bold text-neutral-500 pl-1 underline"> Login</PrefetchLink></p>
+            <div className="mt-4 text-center text-sm mx-auto">
+                <p >Already have an account? <PrefetchLink href="/login" className="font-bold text-neutral-500 pl-1 underline">Login</PrefetchLink></p>
             </div>
 
         </form>
