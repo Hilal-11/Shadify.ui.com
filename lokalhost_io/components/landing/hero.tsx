@@ -16,6 +16,7 @@ import { MarqueeTemplates } from "./MicroComponents/templatesScrolling";
 import FeaturesBento from "./LandingComponents/FeaturesBento";
 import ComponentsBento from "./LandingComponents/ComponentsBento"
 import DesignsBento from "./LandingComponents/DesignsBento"
+import nProgress from "nprogress";
 
 interface IServiceType {
     button_name: string,
@@ -43,6 +44,11 @@ export function HeroSection(
 
   const { theme } = useTheme();
 
+
+   const handleLinkClick = () => {
+      nProgress.start()
+    }
+
   return (
     <div className="w-full container max-w-[1580px] h-auto mx-auto  py-8 lg:py-16 flex flex-col items-center justify-center text-center gap-6">
       <motion.span
@@ -68,11 +74,13 @@ export function HeroSection(
             transition={{ duration: 0.28 , ease: "easeInOut"}}
             whileHover={{ y: -3 }}
             whileTap={{ y: -4 }}
+            onClick={handleLinkClick}
           className="border-t-[2px] border-l-[2px] border-r-[2px] border-neutral-50 dark:border-neutral-400 relative overflow-hidden cursor-pointer font-sans font-medium px-10 py-2 rounded-md bg-neutral-100 bg-gradient-to-t from-[#f5f5f5] to-[#d4d4d4] dark:text-neutral-900 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] flex items-center justify-center gap-2"><span><IoMdSend className="text-lg text-neutral-700"/></span>Explore Templets</motion.button>
           <motion.button
               transition={{ duration: 0.28 , ease: "easeInOut"}}
               whileHover={{ y: -3}}
               whileTap={{ y: -4 }}
+              onClick={handleLinkClick}
           className="border-t-[2px] border-l-[2px] border-r-[2px] border-neutral-950 dark:border-neutral-800 relative cursor-pointer font-sans font-medium px-10 py-2 rounded-md bg-gradient-to-t from-[#262626] to-[#525252] text-neutral-200 shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)]">Components Documentation
           </motion.button>
           
@@ -86,7 +94,7 @@ export function HeroSection(
           <span className="absolute h-[160px] w-[160px] rounded-full border border-dashed -top-20 -right-20"></span>
           {
             heroServiceContent.map((service) => (
-              <Link key={service.id} href={service.service_link} prefetch={true}>
+              <Link key={service.id} href={service.service_link} prefetch={true}  onClick={handleLinkClick}>
               <div  className="cursor-pointer group relative h-[400px] bg-neutral-100 dark:bg-neutral-950 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex items-center justify-center overflow-hidden w-full border border-dashed">
                 <div className="relative group-hover:scale-110 transition duration-400">
                   <Image 
