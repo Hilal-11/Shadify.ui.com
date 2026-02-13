@@ -30,7 +30,7 @@ export function Preview({
   return (
     <>
       <div className={cn("w-full overflow-hidden", className)}>
-        <PreviewContent link={link} prePath={prePath} isBlock={isBlock} />
+        {/* <PreviewContent link={link} prePath={prePath} isBlock={isBlock} /> */}
 
         {useIframe ? (
           <div className="w-full my-4 border rounded-2xl border-zinc-400 dark:border-zinc-700">
