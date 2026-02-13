@@ -7,6 +7,7 @@ import { TbBrandAuth0 } from "react-icons/tb";
 import { LuFigma } from "react-icons/lu";
 import { TbBackground } from "react-icons/tb";
 import { PiCubeDuotone } from "react-icons/pi";
+import { RiTeamFill } from "react-icons/ri";
 interface Services {
     id: string | number
     service: string
@@ -19,57 +20,64 @@ export const services: Services[]  = [
    {
     id: 1,
     service: "Components",
-    about: "Pre-built, customizable components to speed up your development workflow.",
+    about: "Plug-and-play components for faster, cleaner development.",
     icon: GrCubes,
     link: "/docs"
   },
   {
     id: 2,
     service: "Web Templates",
-    about: "Production-ready website templates built with modern UI and top-tier code quality.",
+    about: "Production-ready templates with modern, top-tier code.",
     icon: MdViewQuilt,
     link: "/templates"
   },
   {
     id: 3,
     service: "Application Templates",
-    about: "Starter app templates for full-scale web and mobile applications with best practices.",
+    about: "Full-scale app starters built with industry best practices.",
     icon: IoPhonePortraitOutline,
     link: "/mobile-apps"
   },
   {
+    id: 7,
+    service: "Backgrounds",
+    about: "Modern patterns and sections, ready to plug in.",
+    icon: TbBackground,
+    link: "/backgrounds"
+  },
+  {
+    id: 9,
+    service: "Figma Kits",
+    about: "Complete design systems for fast UI/UX creation.",
+    icon: LuFigma,
+    link: "/designs"
+  },
+  {
     id: 4,
     service: "Mobile UI Elements",
-    about: "Beautiful and reusable mobile UI components for iOS and Android apps.",
+    about: "Beautiful, reusable UI components for mobile apps.",
     icon: PiCubeDuotone,
     link: "/mobile-apps"
   },
   {
     id: 5,
-    service: "Authentication kits",
-    about: "Authentication solutions for modern apps including JWT, OAuth, and social logins.",
+    service: "Authentication Kits",
+    about: "JWT, OAuth, and social login solutions, ready instantly.",
     icon: TbBrandAuth0,
     link: "/authdocs"
   },
   {
     id: 6,
     service: "SASS Starter Kits",
-    about: "End-to-end starter kits with complete backend, APIs, and scalable architectures.",
+    about: "Complete backend, APIs, and scalable architecture included.",
     icon: LiaIconsSolid,
     link: "/"
   },
   {
-    id: 7,
-    service: "UI Patterns",
-    about: "Modern UI backgrounds, patterns, and sections ready to plug into any project.",
-    icon: TbBackground,
-    link: "/bg-patterns"
-  },
-  {
     id: 9,
-    service: "Figma Kits",
-    about: "Complete Figma design systems, components, and templates for fast UI/UX creation.",
-    icon: LuFigma,
-    link: "/designs"
+    service: "Custom Request",
+    about: "Got a unique idea? Let's build it together.",
+    icon: RiTeamFill,
+    link: "/custom-work"
   }
 ];
