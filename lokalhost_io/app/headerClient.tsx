@@ -26,8 +26,9 @@ import { FaGithub } from "react-icons/fa";
 import { MdOutlineFeedback } from "react-icons/md";
 import Feedback from "@/components/landing/MicroComponents/Feedback";
 import { SearchingMain } from '../components/landing/MicroComponents/Searching';
-import { HiArrowNarrowRight } from "react-icons/hi";
 import headerPagesConfig from "@/public/config/HeaderPages.json"
+import { HiArrowNarrowRight } from "react-icons/hi";
+
 function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
   // const token = cookies().get("token")?.value;
   // const isAuthenticate = !!token;
@@ -170,10 +171,10 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                             <div key={index} className="w-full hover:bg-neutral-200 hover:dark:bg-neutral-800 cursor-pointer rounded-sm py-1 pl-1 ">
                               <Link                                href={page.link}
                               onClick={handleLinkClick}
-                                className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+                                className="font-sans font-medium text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors flex gap-2 items-center"
                                 prefetch={true}
                               >
-                                {page.page}
+                                <span className="text-sm"><HiArrowNarrowRight /></span>{page.page}
                               </Link>
                             </div>
                           ))
