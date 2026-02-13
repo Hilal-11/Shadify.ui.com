@@ -6,7 +6,7 @@
     "defaultOpen": true,
     "pages": [
         "index",
-        "---Backgrounds Components---",
+        "ReactDottedPatterns",
         "ExplodingBeamsBackground",
         "ReactBackgroundBeams",
         "ReactBackgroundBoxes",
