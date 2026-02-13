@@ -14,7 +14,7 @@ interface IMAIN_PAGE_SERCHING {
 export const MAIN_PAGE_SEARCHING_CONFIG:IMAIN_PAGE_SERCHING[] = [ 
     {
         suggesstion: "Components",
-        suggesstion_to: "/components",
+        suggesstion_to: "/docs",
         Icon: GrCubes
     },
     {
@@ -44,8 +44,28 @@ export const MAIN_PAGE_SEARCHING_CONFIG:IMAIN_PAGE_SERCHING[] = [
     },
     {
         suggesstion: "Mobile Applications",
-        suggesstion_to: "/mobile-apps",
+        suggesstion_to: "/mobile",
         Icon: PiCubeDuotone
+    },
+    {
+        suggesstion: "Pricing",
+        suggesstion_to: "/pricing",
+        Icon: MdViewQuilt
+    },
+     {
+        suggesstion: "Custom Work",
+        suggesstion_to: "/custom-work",
+        Icon: RiTeamLine
+    },
+    {
+        suggesstion: "Blogs",
+        suggesstion_to: "/blogs",
+        Icon: RiTeamLine
+    },
+     {
+        suggesstion: "About Product",
+        suggesstion_to: "/about",
+        Icon: RiTeamLine
     },
     {
         suggesstion: "Team",
