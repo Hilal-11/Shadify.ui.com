@@ -9,6 +9,7 @@ import {
 import Link from 'next/link';
 import { IoSearchSharp } from 'react-icons/io5';
 import { MAIN_PAGE_SEARCHING_CONFIG } from '../../../config/searchingConfig';
+import NProgress from 'nprogress';
 
 
 type SearchProps = {
@@ -27,6 +28,10 @@ export function SearchingMain() {
           const filtering = MAIN_PAGE_SEARCHING_CONFIG.filter((item:any) => item.suggesstion.toLowerCase().includes(searchQuery.toLowerCase()))
           setFilteredItem(filtering);
       }, [searchQuery])
+
+    const handleLinkClick = () => {
+        NProgress.start()
+      }
   
   return (
     <Dialog>
@@ -47,7 +52,7 @@ export function SearchingMain() {
                                             {
                                             filteredItem.map(({suggesstion , suggesstion_to , Icon}) => (
                                               <div key={suggesstion_to} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
-                                                <Link prefetch={true} className="flex gap-3 pl-2 items-center text-sm font-medium" href={suggesstion_to}><span className="text-lg"><Icon /></span>{suggesstion}</Link>
+                                                <Link onClick={handleLinkClick} prefetch={true} className="flex gap-3 pl-2 items-center text-sm font-medium" href={suggesstion_to}><span className="text-lg"><Icon /></span>{suggesstion}</Link>
                                               </div>
                                             ))
                                           }
@@ -57,7 +62,7 @@ export function SearchingMain() {
                                           {
                                             MAIN_PAGE_SEARCHING_CONFIG.map(({suggesstion , suggesstion_to , Icon}) => (
                                               <div key={suggesstion_to} className="w-full h-[42px] rounded-sm hover:bg-neutral-200 hover:dark:bg-neutral-800 transition duration-300 flex items-center">
-                                                <Link prefetch={true} className="flex gap-3 pl-2 items-center text-sm font-medium" href={suggesstion_to}><span className="text-lg"><Icon /></span>{suggesstion}</Link>
+                                                <Link onClick={handleLinkClick} prefetch={true} className="flex gap-3 pl-2 items-center text-sm font-medium" href={suggesstion_to}><span className="text-lg"><Icon /></span>{suggesstion}</Link>
                                               </div>
                                             ))
                                           }
