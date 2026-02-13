@@ -131,14 +131,15 @@ function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
                         
                         <div className="grid grid-cols-3 gap-3 w-full h-auto justify-evenly py-4 px-4">
                          {
-                          services.map(({ id, service, icon: Icon, link }) => (
+                          services.map(({ id, service, icon: Icon, link, about }) => (
                             <Link onClick={handleLinkClick} key={id} href={link} prefetch={true}>
                               <div className="h-auto py-2 cursor-pointer flex items-center hover:bg-neutral-100 hover:dark:bg-neutral-950 hover:rounded-sm">
                                 <div className="flex justify-center items-center px-5 h-full overflow-hidden relative">
                                   <span className="text-xl z-30"><Icon/></span>
                                 </div>
-                                <div className="space-y-1">
+                                <div className="space-y-0">
                                   <h1 className="text-sm font-sans font-medium">{service}</h1>
+                                  <p className="text-[10px] font-sans font-medium text-neutral-500">{about}</p>
                                 </div>
                               </div>
                             </Link>
