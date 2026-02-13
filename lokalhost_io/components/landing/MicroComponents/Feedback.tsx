@@ -103,16 +103,18 @@ function Feedback() {
             <SelectTrigger>
                 <SelectValue placeholder="Select Topic"/>
             </SelectTrigger>
-            <SelectContent>
-                <SelectItem value="engineering">Engineering</SelectItem>
-                <SelectItem value="design">Design</SelectItem>
-                <SelectItem value="marketing">Marketing</SelectItem>
-                <SelectItem value="sales">Sales</SelectItem>
-                <SelectItem value="support">Customer Support</SelectItem>
-                <SelectItem value="hr">Human Resources</SelectItem>
-                <SelectItem value="finance">Finance</SelectItem>
-                <SelectItem value="operations">Operations</SelectItem>
-            </SelectContent>
+           <SelectContent>
+            <SelectItem value="bug_report">Report a Bug</SelectItem>
+            <SelectItem value="feature_request">Feature Request</SelectItem>
+            <SelectItem value="improvement">Improvement Suggestion</SelectItem>
+            <SelectItem value="ui_ux_feedback">UI/UX Feedback</SelectItem>
+            <SelectItem value="performance_issue">Performance Issue</SelectItem>
+            <SelectItem value="account_issue">Account / Login Issue</SelectItem>
+            <SelectItem value="content_issue">Content / Documentation Issue</SelectItem>
+            <SelectItem value="integration_problem">Integration Problem</SelectItem>
+            <SelectItem value="general_feedback">General Feedback</SelectItem>
+            <SelectItem value="other">Other</SelectItem>
+          </SelectContent>
             </Select>
         </Field>
       </CardHeader>
