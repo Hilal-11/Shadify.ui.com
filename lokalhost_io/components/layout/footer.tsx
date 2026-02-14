@@ -6,7 +6,7 @@ import { motion } from "motion/react"
 import { StripedPattern } from '../magicui/striped-pattern';
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import NProgress from 'nprogress';
-
+import {SoonV1} from '../landing/MicroComponents/ComingSoon';
 interface Service {
   service: string;
   navigateTo: string;
@@ -123,6 +123,7 @@ function Footer({footerConfig}: {footerConfig: FooterConfig}) {
               {footerConfig.footerServicesItems?.length > 0 && (
   <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">
     {footerConfig.footerServicesItems[2].service_title}
+    
   </h1>
 )}
 
@@ -171,6 +172,7 @@ function Footer({footerConfig}: {footerConfig: FooterConfig}) {
               {footerConfig.footerServicesItems?.length > 0 && (
   <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">
     {footerConfig.footerServicesItems[4].service_title}
+      <SoonV1 />
   </h1>
 )}
 
@@ -195,6 +197,7 @@ function Footer({footerConfig}: {footerConfig: FooterConfig}) {
              {footerConfig.footerServicesItems?.length > 0 && (
   <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">
     {footerConfig.footerServicesItems[5].service_title}
+      <SoonV1 />
   </h1>
 )}
 
@@ -202,13 +205,14 @@ function Footer({footerConfig}: {footerConfig: FooterConfig}) {
             <div className='pl-1 py-3'>
               {
                 footerConfig.footerServicesItems[5]?.services?.map((service , index) => (
-                  <div key={index}>
+                  <div key={index} className='relative'>
                     <motion.p 
                     initial={{ scale: 1 }}
                       transition={{ duration: 0.26, ease: "easeInOut" }}
                       whileHover={{ scale: 1.03, }}
                       whileTap={{ scale: 1.03 }}
                       className='py-1 text-neutral-500 dark:text-neutral-500 text-sm lg:text-[15px] font-sans font-medium hover:text-neutral-800 dark:hover:text-neutral-300' ><Link href={service.navigateTo} onClick={handleLinkClick}>{service.service}</Link></motion.p>
+                      
                   </div>
                 ))
               }
