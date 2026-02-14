@@ -8,22 +8,22 @@
             "id": "services",
             "service_title": "Services",
             "services": [
-                { "service": "Authentication HILAL", "navigateTo": "/auth" },
-                { "service": "Authorization", "navigateTo": "/auth/authorization" },
-                { "service": "Social Login", "navigateTo": "/auth/social-login" },
-                { "service": "Password Reset", "navigateTo": "/auth/password-reset" },
-                { "service": "Session Management", "navigateTo": "/auth/sessions" },
-                { "service": "Two-Factor Auth", "navigateTo": "/auth/2fa" },
-                { "service": "OAuth Integrations", "navigateTo": "/auth/oauth" },
-                { "service": "Single Sign-On", "navigateTo": "/auth/sso" },
-                { "service": "Passwordless Login", "navigateTo": "/auth/passwordless" },
-                { "service": "SSO Providers", "navigateTo": "/auth/sso-providers" },
-                { "service": "API Keys", "navigateTo": "/auth/api-keys" },
-                { "service": "Device Management", "navigateTo": "/auth/devices" },
-                { "service": "User Provisioning", "navigateTo": "/auth/provisioning" },
-                { "service": "Session Revocation", "navigateTo": "/auth/session-revoke" },
-                { "service": "Access Logs", "navigateTo": "/auth/access-logs" },
-                { "service": "Rate Limiting", "navigateTo": "/auth/rate-limits" }
+                { "service": "Web Components", "navigateTo": "/docs" },
+                { "service": "Templates", "navigateTo": "/templates" },
+                { "service": "Designs and UI Kits", "navigateTo": "/designs" },
+                { "service": "Backgrounds Patterns", "navigateTo": "/backgrounds" },
+                { "service": "Mobile UI Kits", "navigateTo": "/mobile" },
+                { "service": "Mobile Apps", "navigateTo": "/mobile" },
+                { "service": "Mobile Dev Elements", "navigateTo": "/mobile" },
+                { "service": "Authentication Kits", "navigateTo": "/authDocs" },
+                { "service": "Full-Stack Starter Kits", "navigateTo": "/coming-soon" },
+                { "service": "SaaS Boilerplates", "navigateTo": "/coming-soon" },
+                { "service": "Freelancing Work", "navigateTo": "/custom-work" },
+                { "service": "Custom Work Request", "navigateTo": "/custom-work"},
+                { "service": "Premium Admin Dashboards", "navigateTo": "/coming-soon" },
+                { "service": "AI UI Components", "navigateTo": "/coming-soon" },
+                { "service": "AI Chatbot Integration Kits", "navigateTo": "/coming-soon" },
+                { "service": "API Starter Backends", "navigateTo": "/coming-soon" }
             ] 
         },
 
@@ -33,16 +33,18 @@
             "services": [
                 { "service": "Home", "navigateTo": "/" },
                 { "service": "Docs", "navigateTo": "/docs" },
-                { "service": "Components", "navigateTo": "/about" },
+                { "service": "Components", "navigateTo": "/docs" },
                 { "service": "Templates", "navigateTo": "/pricing" },
-                { "service": "Mobile Apps", "navigateTo": "/docs" },
-                { "service": "Mobile UI Blocks", "navigateTo": "/blog" },
                 { "service": "Design kits", "navigateTo": "/designs" },
-                { "service": "Patterns", "navigateTo": "/contact" },
-                { "service": "Team & About", "navigateTo": "/team" },
+                { "service": "Mobile Apps", "navigateTo": "/mobile" },
+                { "service": "Mobile UI Blocks", "navigateTo": "/mobile" },
+                { "service": "Backgrounds", "navigateTo": "/backgrounds" },
+                { "service": "Custom Work", "navigateTo": "/custom-work" },
+                { "service": "Team & About", "navigateTo": "/about" },
                 { "service": "Pricing", "navigateTo": "/pricing" },
-                { "service": "Contect Center", "navigateTo": "/contact" }
-
+                { "service": "Report Bug", "navigateTo": "/" },
+                { "service": "Feedback", "navigateTo": "/" },
+                { "service": "About Developer", "navigateTo": "https://hila-11.com" }
             ] 
         },
 
@@ -118,13 +120,7 @@
                 { "service": "Music Streaming", "navigateTo": "/mobile/music" },
                 { "service": "Podcast Player", "navigateTo": "/mobile/podcast" },
                 { "service": "Event Ticketing", "navigateTo": "/mobile/events" },
-                { "service": "Video Streaming", "navigateTo": "/mobile/video" },
-                { "service": "Marketplace", "navigateTo": "/mobile/marketplace" },
-                { "service": "Ride Sharing", "navigateTo": "/mobile/rideshare" },
-                { "service": "Meditation & Mindfulness", "navigateTo": "/mobile/meditation" },
-                { "service": "Real Estate", "navigateTo": "/mobile/real-estate" },
-                { "service": "Grocery Delivery", "navigateTo": "/mobile/grocery" },
-                { "service": "Loyalty & Rewards", "navigateTo": "/mobile/loyalty" }
+                { "service": "Video Streaming", "navigateTo": "/mobile/video" }
             ] 
         },
 
@@ -152,41 +148,8 @@
                 { "service": "Skeleton Loader", "navigateTo": "/blocks/skeleton" },
                 { "service": "Bottom Navigation", "navigateTo": "/blocks/bottom-navigation" },
                 { "service": "Segmented Control", "navigateTo": "/blocks/segmented-control" },
-                { "service": "Media Player", "navigateTo": "/blocks/media-player" },
-                { "service": "Settings Panel", "navigateTo": "/blocks/settings-panel" }
-            ] 
-        },
-
-
-        {
-            "id": "web-mobile-ui-patterns",
-            "service_title": "Web/Mobile UI Patterns",
-            "services": [
-                { "service": "Gradient Waves", "navigateTo": "/patterns/gradient-waves" },
-                { "service": "Diagonal Stripes", "navigateTo": "/patterns/diagonal-stripes" },
-                { "service": "Mesh Grid", "navigateTo": "/patterns/mesh-grid" },
-                { "service": "Dot Matrix", "navigateTo": "/patterns/dot-matrix" },
-                { "service": "Noise Texture", "navigateTo": "/patterns/noise-texture" },
-                { "service": "Halftone", "navigateTo": "/patterns/halftone" },
-                { "service": "Blurred Blobs", "navigateTo": "/patterns/blurred-blobs" },
-                { "service": "Radial Burst", "navigateTo": "/patterns/radial-burst" },
-                { "service": "Linear Gradient", "navigateTo": "/patterns/linear-gradient" },
-                { "service": "Conic Gradient", "navigateTo": "/patterns/conic-gradient" },
-                { "service": "Subtle Checker", "navigateTo": "/patterns/subtle-checker" },
-                { "service": "Wavy Lines", "navigateTo": "/patterns/wavy-lines" },
-                { "service": "Isometric Grid", "navigateTo": "/patterns/isometric-grid" },
-                { "service": "Hex Tile", "navigateTo": "/patterns/hex-tile" },
-                { "service": "Crosshatch", "navigateTo": "/patterns/crosshatch" },
-                { "service": "Paper Texture", "navigateTo": "/patterns/paper-texture" },
-                { "service": "Speckled Dust", "navigateTo": "/patterns/speckled-dust" },
-                { "service": "Glass Frosted", "navigateTo": "/patterns/glass-frosted" },
-                { "service": "Gradient Noise", "navigateTo": "/patterns/gradient-noise" },
-                { "service": "Retro Lines", "navigateTo": "/patterns/retro-lines" },
-                { "service": "Fluid Gradient", "navigateTo": "/patterns/fluid-gradient" },
-                { "service": "Micro Dots", "navigateTo": "/patterns/micro-dots" },
-                { "service": "Organic Shapes", "navigateTo": "/patterns/organic-shapes" }
+                { "service": "Media Player", "navigateTo": "/blocks/media-player" }
             ] 
         }
-
     ]
 }
