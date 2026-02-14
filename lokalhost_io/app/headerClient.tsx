@@ -28,7 +28,7 @@ import Feedback from "@/components/landing/MicroComponents/Feedback";
 import { SearchingMain } from '../components/landing/MicroComponents/Searching';
 import headerPagesConfig from "@/public/config/HeaderPages.json"
 import { HiArrowNarrowRight } from "react-icons/hi";
-
+import { SoonV1 } from "@/components/landing/MicroComponents/ComingSoon";
 function Header({ isLoggedIn }: { isLoggedIn: boolean }) {
   // const token = cookies().get("token")?.value;
   // const isAuthenticate = !!token;
