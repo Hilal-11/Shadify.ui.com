@@ -10,7 +10,7 @@ import { FaGithub } from "react-icons/fa";
 import { GoFileZip } from "react-icons/go";
 import { MdDone } from "react-icons/md";
 import { IoIosStarOutline } from "react-icons/io";
-import Footer from '@/components/layout/footer';
+import { HiArrowUpRight } from "react-icons/hi2";
 
 import react from "@/public/tech/react.jpeg"
 import next from "@/public/tech/next.jpeg"
@@ -19,176 +19,365 @@ import shadcn from "@/public/tech/shadcn.jpeg"
 import vite from "@/public/tech/vite.jpeg"
 import ts from "@/public/tech/ts.jpeg"
 import js from "@/public/tech/js.jpeg"
-const techStackImages = [
-        react,
-        next,
-        tailwindX,
-        shadcn,
-        vite,
-        ts,
-        js,
-]
+
+const techStackImages = [react, next, tailwindX, shadcn, vite, ts, js];
+
 interface PageProps {
   params: Promise<{
     id?: string;
   }>;
 }
 
-
 async function templateView({ params }: PageProps) {
-
-
 
     const id = (await params).id as Id<'templates'>;
     const template:any = await fetchQuery(api.getTemplates.getTemplateById , { id : id })
-    
+
   return (
-    <div>
-      <div className='pt-0 lg:pt-20 w-full h-auto py-2 lg:py-7 container px-6'>
-        <div className='grid grid-cols-1 lg:grid-cols-2 justify-between py-14 lg:py-14 md:py-14'>
-            <div className='space-y-4'>
-                <h1 className='font-sans font-bold text-2xl lg:text-4xl'>{template?.projectName}</h1>
-                <p className='font-sans font-medium text-sm text-neutral-600 dark:text-neutral-400'>{template?.projectDescription}</p>
+    <div className="min-h-screen bg-white dark:bg-neutral-950">
 
+      
+
+      {/* ── inline motion styles ───────────────────────────── */}
+      <style>{`
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0);    }
+        }
+        .anim-0 { animation: fadeUp .5s cubic-bezier(.22,1,.36,1) .00s both; }
+        .anim-1 { animation: fadeUp .5s cubic-bezier(.22,1,.36,1) .08s both; }
+        .anim-2 { animation: fadeUp .5s cubic-bezier(.22,1,.36,1) .16s both; }
+        .anim-3 { animation: fadeUp .5s cubic-bezier(.22,1,.36,1) .26s both; }
+        .anim-4 { animation: fadeUp .5s cubic-bezier(.22,1,.36,1) .34s both; }
+
+        /* shine sweep */
+        .shine { position:relative; overflow:hidden; }
+        .shine::after {
+          content:'';
+          position:absolute; inset:0;
+          background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.2) 50%,transparent 60%);
+          transform:translateX(-100%);
+          transition:transform .45s ease;
+        }
+        .shine:hover::after { transform:translateX(100%); }
+
+        /* image card */
+        .preview-card {
+          transition: transform .42s cubic-bezier(.22,1,.36,1),
+                      box-shadow .42s cubic-bezier(.22,1,.36,1),
+                      border-color .3s ease;
+        }
+        .preview-card:hover {
+          transform: translateY(-7px) scale(1.013);
+          box-shadow: 0 28px 56px -14px rgba(0,0,0,.2);
+          border-color: rgba(0,0,0,.15);
+        }
+        .preview-card .img-inner {
+          transition: transform .6s cubic-bezier(.22,1,.36,1), filter .4s ease;
+        }
+        .preview-card:hover .img-inner {
+          transform: scale(1.05);
+          filter: brightness(1.03) contrast(1.02);
+        }
+
+        /* download / tag pill */
+        .pill {
+          transition: transform .22s cubic-bezier(.22,1,.36,1),
+                      box-shadow .22s ease,
+                      background-color .18s ease,
+                      border-color .18s ease;
+        }
+        .pill:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 18px -5px rgba(0,0,0,.13);
+        }
+
+        /* tech icon spring-pop */
+        .tech-icon {
+          transition: transform .28s cubic-bezier(.34,1.6,.64,1);
+        }
+        .tech-icon:hover { transform: translateY(-5px) scale(1.18); }
+
+        /* feature row slide */
+        .feat-row {
+          transition: transform .22s cubic-bezier(.22,1,.36,1),
+                      box-shadow .22s ease,
+                      background-color .18s ease,
+                      border-color .18s ease;
+        }
+        .feat-row:hover {
+          transform: translateX(5px);
+          box-shadow: 0 4px 18px -6px rgba(0,0,0,.1);
+        }
+
+        /* step number hover */
+        .step-num {
+          transition: background-color .18s, border-color .18s, color .18s;
+        }
+        .step-num:hover {
+          background-color: rgb(23,23,23);
+          border-color: rgb(23,23,23);
+          color: white;
+        }
+        .dark .step-num:hover {
+          background-color: rgb(229,229,229);
+          border-color: rgb(229,229,229);
+          color: rgb(23,23,23);
+        }
+      `}</style>
+
+      <div className="pt-0 lg:pt-20 w-full container px-6 pb-28 relative">
+
+        <Link
+          href="/templates"
+          className="relative top-4 group inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-200 hover:-translate-x-0.5 hover:shadow-sm"
+        >
+          <HiArrowLeft className="w-3.5 h-3.5 text-neutral-400 dark:text-neutral-500 group-hover:text-neutral-700 dark:group-hover:text-neutral-200 transition-all duration-200 group-hover:-translate-x-0.5" />
+          <span className="text-sm font-sans font-medium text-neutral-600 dark:text-neutral-400 group-hover:text-neutral-800 dark:group-hover:text-neutral-200 transition-colors duration-200">
+            Back to Templates
+          </span>
+        </Link>
+
+        {/* ════════════════════════ HERO ════════════════════════ */}
+        <div className="py-12 lg:py-16 border-b border-neutral-200 dark:border-neutral-800">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
+
+            {/* ── Left col ── */}
+            <div className="max-w-[560px] space-y-6">
+
+              {/* badge */}
+              <div className="anim-0 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 text-xs font-sans tracking-wide text-neutral-500 dark:text-neutral-400">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Template
+              </div>
+
+              {/* title */}
+              <h1 className="anim-1 font-sans font-extrabold text-[2rem] lg:text-[2.85rem] leading-[1.12] tracking-[-0.025em] text-neutral-900 dark:text-neutral-50">
+                {template?.projectName}
+              </h1>
+
+              {/* description */}
+              <p className="anim-2 font-sans text-sm leading-[1.8] text-neutral-500 dark:text-neutral-400">
+                {template?.projectDescription}
+              </p>
+
+              {/* ── Tech Stack — original markup kept exactly ── */}
+              <div className="anim-3">
+                <p className="mb-3 text-[11px] font-sans uppercase tracking-widest text-neutral-400 dark:text-neutral-500">
+                  Built with
+                </p>
+                <div className='flex flex-wrap gap-2 py-0 poppins-medium text-neutral-600 '>
+                                        {techStackImages.map((image, index) => (
+                                            <div key={index} className='rounded-full p-[3px] cursor-pointer bg-neutral-50 dark:bg-neutral-800 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex items-center justify-center'>
+                                                <Image
+                                                    key={index}
+                                                    src={image}
+                                                    width={30}
+                                                    height={30}
+                                                    alt='Tech Image'
+                                                    className='rounded-full '
+                                                />
+                                            </div>
+                                        ))}
+                </div>
+              </div>
             </div>
-            <div className='py-10 flex flex-wrap items-end lg:justify-end justify-center gap-5'>
 
-                <Link href={template?.projectLiveURL} target='_blank' className='w-full md:w-[200px] bg-neutral-900 dark:bg-neutral-100 dark:text-black text-white font-sans font-medium  text-sm lg:text-md shadow-sm shadow-slate-800  py-[9px] lg:rounded-md rounded-md cursor-pointer transition-all duration-300 text-center'>Live Demo</Link>
+            {/* ── Right col: CTAs + Downloads ── */}
+            <div className="anim-4 shrink-0 flex flex-col gap-5 lg:items-end lg:min-w-[300px]">
 
-                <button className='w-full md:w-[200px] font-sans font-medium text-sm dark:bg-neutral-950 lg:text-md shadow-sm shadow-slate-800  py-[9px] rounded-md cursor-pointer transition-all duration-300'>Buy Now {template?.projectPrize}</button>
+              {/* Primary CTAs */}
+              <div className="flex flex-wrap gap-3 w-full lg:justify-end">
+                <Link
+                  href={template?.projectLiveURL}
+                  target="_blank"
+                  className="shine group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-sans font-semibold text-sm shadow-[0_2px_8px_rgba(0,0,0,.18)] hover:shadow-[0_8px_24px_rgba(0,0,0,.22)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+                >
+                  Live Demo
+                  <HiArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+
+                <button className="shine group inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 font-sans font-semibold text-sm text-neutral-800 dark:text-neutral-200 shadow-sm hover:border-neutral-400 dark:hover:border-neutral-500 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200">
+                  Buy Now
+                  <span className="px-2 py-0.5 rounded-md bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-mono text-xs">
+                    {template?.projectPrize}
+                  </span>
+                </button>
+              </div>
+
+              {/* thin rule */}
+              <div className="w-full lg:w-[300px] h-px bg-neutral-100 dark:bg-neutral-800" />
+
+              {/* Download group */}
+              <div className="w-full lg:w-auto space-y-2.5">
+                <p className="text-[11px] font-sans uppercase tracking-widest text-neutral-400 dark:text-neutral-500 lg:text-right">
+                  Resources
+                </p>
+                <div className="flex flex-wrap gap-2 lg:justify-end">
+                  <Link
+                    href={template?.zip_code_file || '#'}
+                    className="pill group inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 text-sm font-sans font-medium text-neutral-700 dark:text-neutral-300"
+                  >
+                    <GoFileZip className="w-4 h-4 text-neutral-400 group-hover:text-neutral-700 dark:group-hover:text-neutral-200 transition-colors duration-200" />
+                    Download ZIP
+                  </Link>
+                  <button className="pill group inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 text-sm font-sans font-medium text-neutral-700 dark:text-neutral-300">
+                    <FaGithub className="w-4 h-4 text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors duration-200" />
+                    Clone Repo
+                  </button>
+                  <button className="pill group inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 text-sm font-sans font-medium text-neutral-700 dark:text-neutral-300">
+                    <LuFigma className="w-4 h-4 text-neutral-400 group-hover:text-violet-500 transition-colors duration-200" />
+                    Figma Kit
+                  </button>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
 
-        <div className='w-full h-auto flex justify-between items-center'>
+        {/* ════════════════════════ PREVIEW IMAGES ════════════════════════ */}
+        <div className="py-16">
+          <p className="text-[11px] font-sans uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-6">
+            Preview
+          </p>
+          <div className="grid lg:grid-cols-2 grid-cols-1 gap-5">
+            {template?.projectImages.map((image: any, index: number) => (
+              <div
+                key={index}
+                className="preview-card overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900"
+              >
+                <Image
+                  className="img-inner w-full h-full object-cover"
+                  src={image}
+                  alt={`Preview ${index + 1}`}
+                  width={800}
+                  height={800}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ════════════════════════ INSTALL + FEATURES ════════════════════════ */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 mb-16">
+
+          {/* Installation */}
+          <div className="space-y-7">
             <div>
-                {/* Technologies used */}
-                    <div className='flex flex-wrap justify-evenly lg:justify-between py-0 poppins-medium text-neutral-600 '>
-                        {techStackImages.map((image, index) => (
-                            <div key={index} className='rounded-full p-[3px] cursor-pointer bg-neutral-50 dark:bg-neutral-800 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] flex items-center justify-center'>
-                                <Image
-                                    key={index}
-                                    src={image}
-                                    width={30}
-                                    height={30}
-                                    alt='Tech Image'
-                                    className='rounded-full '
-                                />
-                            </div>
-                        ))}
-                    </div>
-                {/* Template format for users(code, figms kit, repo,) */}
+              <p className="text-[11px] font-sans uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-2">Setup</p>
+              <h2 className="font-sans font-bold text-xl lg:text-[1.6rem] tracking-tight text-neutral-900 dark:text-neutral-100">
+                Installation Guide
+              </h2>
             </div>
+
+            <ol className="space-y-5">
+              {([
+                { s: "01", t: "Download the template as a ZIP file and extract it to your preferred location." },
+                { s: "02", t: <>Open the folder in <strong className="font-semibold text-neutral-800 dark:text-neutral-200">Visual Studio Code</strong> or any editor of your choice.</> },
+                { s: "03", t: "Open the integrated terminal and navigate to the extracted project root." },
+              ] as const).map(({ s, t }) => (
+                <li key={s} className="group flex gap-4 items-start">
+                  <span className="step-num shrink-0 w-8 h-8 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center font-mono text-xs text-neutral-400 dark:text-neutral-500 cursor-default">
+                    {s}
+                  </span>
+                  <p className="pt-1.5 text-sm font-sans leading-relaxed text-neutral-600 dark:text-neutral-400">{t}</p>
+                </li>
+              ))}
+
+              <li className="flex gap-4 items-start">
+                <span className="step-num shrink-0 w-8 h-8 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center font-mono text-xs text-neutral-400 dark:text-neutral-500 cursor-default">
+                  04
+                </span>
+                <div className="space-y-2.5 flex-1">
+                  <p className="text-sm font-sans text-neutral-600 dark:text-neutral-400">
+                    Install dependencies and start the dev server:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {['npm install', 'npm run dev'].map(cmd => (
+                      <code
+                        key={cmd}
+                        className="pill inline-flex items-center px-3 py-1.5 rounded-lg bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 font-mono text-xs text-neutral-700 dark:text-neutral-300 hover:border-neutral-400 dark:hover:border-neutral-500 cursor-pointer transition-colors duration-200"
+                      >
+                        {cmd}
+                      </code>
+                    ))}
+                  </div>
+                </div>
+              </li>
+
+              <li className="flex gap-4 items-start">
+                <span className="step-num shrink-0 w-8 h-8 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900 flex items-center justify-center font-mono text-xs text-neutral-400 dark:text-neutral-500 cursor-default">
+                  05
+                </span>
+                <p className="pt-1.5 text-sm font-sans leading-relaxed text-neutral-600 dark:text-neutral-400">
+                  Customize by editing{' '}
+                  <code className="px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 font-mono text-xs text-neutral-700 dark:text-neutral-300">
+                    src/config
+                  </code>
+                  {' '}— update static data to match your project requirements.
+                </p>
+              </li>
+            </ol>
+          </div>
+
+          {/* Features */}
+          <div className="space-y-7">
             <div>
-                {/* buttons---> like, installation setup, users queries */}
+              <p className="text-[11px] font-sans uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-2">What's included</p>
+              <h2 className="font-sans font-bold text-xl lg:text-[1.6rem] tracking-tight text-neutral-900 dark:text-neutral-100">
+                Features
+              </h2>
             </div>
-        </div>
-    {/* Template Images */}
 
-        <div className='flex justify-center items-center py-20'>
-            <div className='grid lg:grid-cols-2 grid-cols-1 w-full lg:gap-4 gap-2 '>
-                {
-                    template?.projectImages.map((image:any, index:number) => (
-                        <div key={index} className=' lg:rounded-2xl rounded-xl shadow-sm shadow-gray-400'>
-                            <Image 
-                                className='h-full rounded-md object-cover hover:mask-none transition duration-500' 
-                                src={image} 
-                                alt="Error" 
-                                width={'800'}
-                                height={800}
-                            />
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-
-        <div className='mt-8 lg:mt-16 flex gap-10 flex-wrap w-full items-start'>
-            {/* Instructions to use this template */}
-            <div className="space-y-4">
-                <h1 className="text-2xl font-sans font-medium">
-                    Instructions to Use This Template
-                </h1>
-
-                <div className="lg:pl-10 flex flex-col gap-3 text-neutral-700">
-                    <p className='font-sans font-medium text-sm lg:text-lg dark:text-neutral-400'>1. Download the template as a ZIP file.</p>
-
-                    <p className='font-sans font-medium text-sm lg:text-lg dark:text-neutral-400'>2. Extract the ZIP file to your preferred location.</p>
-
-                    <p className='font-sans font-medium text-sm lg:text-lg dark:text-neutral-400'>
-                    3. Open the extracted folder in a code editor such as{" "}
-                    <b>Visual Studio Code</b>.
-                    </p>
-
-                    <p className='font-sans font-medium text-sm lg:text-lg dark:text-neutral-400'>
-                    4. Open the terminal inside the editor and navigate to the template
-                    folder.
-                    </p>
-
-                    <div className="space-y-3">
-                    <h2 className="font-medium text-lg dark:text-neutral-400">5. Install Dependencies & Run the Project</h2>
-                    <code className="dark:bg-neutral-800 dark:text-neutral-300 bg-neutral-100 px-2 py-2 rounded font-medium font-mono">
-                        npm install
-                    </code>
-                    <code className="ml-10 dark:bg-neutral-800 dark:text-neutral-300 bg-neutral-100 px-2 py-2 rounded font-medium font-mono">
-                        npm run dev
-                    </code>
+            <div className="flex flex-col gap-2.5">
+              {template?.projectFeatures.map((item: any, index: number) => (
+                <div
+                  key={index}
+                  className={`feat-row px-4 py-3.5 rounded-xl border cursor-default
+                    ${index === 0
+                      ? 'bg-neutral-50 dark:bg-neutral-900 border-neutral-300 dark:border-neutral-700'
+                      : 'border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-900 hover:border-neutral-300 dark:hover:border-neutral-700'
+                    }`}
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="mt-0.5 shrink-0 w-[18px] h-[18px] rounded-full bg-neutral-800 dark:bg-neutral-200 flex items-center justify-center">
+                      <MdDone className="w-2.5 h-2.5 text-white dark:text-neutral-900" />
+                    </span>
+                    <div>
+                      <p className="text-sm font-sans font-semibold text-neutral-800 dark:text-neutral-200 leading-snug">
+                        {item.feature}
+                      </p>
+                      <p className="text-xs font-sans text-neutral-500 dark:text-neutral-400 mt-1 leading-relaxed">
+                        {item.aboutFeature}
+                      </p>
                     </div>
-
-                    <div className="space-y-3">
-                    <h2 className="font-medium dark:text-neutral-400">6. Customize the Template</h2>
-                    <p className='font-sans font-medium text-sm lg:text-lg dark:text-neutral-400'>
-                        Navigate to the <code className="dark:bg-neutral-800 dark:text-neutral-300 bg-neutral-100 px-1 rounded">src/config</code>{" "}
-                        folder.
-                    </p>
-                    <p className='font-sans font-medium text-sm lg:text-lg dark:text-neutral-400'>Update the static data according to your project requirements.</p>
-                    </div>
+                  </div>
                 </div>
-                </div>
-
-            {/* download resources */}
-            <div className=' px-10'>
-                <h1 className='text-2xl font-sans font-medium'>Download resources</h1>
-                <br />
-                <div className='flex pl-5'> 
-                    <p className='w-[220px] flex gap-2 border px-2 cursor-pointer hover:bg-neutral-200 dark:hover:bg-neutral-800 transition duration-300 py-2 font-sans font-medium'><span className='text-2xl dark:text-neutral-400'><GoFileZip/></span><Link href={template.zip_code_file}>Download Zip</Link></p>
-                </div>
-                <div className='flex pl-5'>
-                    <p className='w-[220px] flex gap-2 border px-2 cursor-pointer hover:bg-neutral-200 dark:hover:bg-neutral-800 transition duration-300 py-2 font-sans font-medium'><span className='text-2xl dark:text-neutral-400'><FaGithub/></span>Clone Repository</p>
-                </div>
-                <div className='flex pl-5'>
-                    <p className='w-[220px] flex gap-2 border px-2 cursor-pointer hover:bg-neutral-200 dark:hover:bg-neutral-800 transition duration-300 py-2 font-sans font-medium'><span className='text-2xl dark:text-neutral-400'><LuFigma/></span>Figma Kit</p>
-                </div>
+              ))}
             </div>
+          </div>
         </div>
 
-        <div className='mt-14'>
-            {/* Features */}
-                <h1 className='text-2xl font-sans font-medium'>Features</h1>
-                <div className='mt-5 lg:mt-10 w-full flex flex-wrap justify-between lg:gap-10 lg:px-14'>
-                    {
-                        template?.projectFeatures.map((item:any , index: number) => (
-                            <div key={index} className={`${index === 0 ? 'bg-neutral-100 border dark:bg-neutral-800' : 'hover:bg-neutral-100 hover:border dark:hover:bg-neutral-800'} hover:bg-neutral-100 hover:border dark:hover:bg-neutral-800 transition duration-300 py-8 px-4 rounded hover:shadow-[10_0px_10px_rgba(248,_155,_41,_0.1)]`}>
-                                
-                                <p className='flex items-center gap-1 font-sans font-medium text-sm lg:text-[16px] text-neutral-800 dark:text-neutral-200'><span className='relative -left-1 -top-1 w-4 h-4 bg-zinc-600 rounded-full flex items-center justify-center text-white'><MdDone /></span>{item.feature}</p>
-                                <p className='pt-1 pl-6 lg:pl-10 text-sm font-sans w-[300px]'>{item.aboutFeature}</p>
-                            </div>
-                        ) )
-                    }
-                </div>
+        {/* ════════════════════════ PREFERRED FOR ════════════════════════ */}
+        <div className="mb-16 pt-2">
+          <p className="text-[11px] font-sans uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-2">Use cases</p>
+          <h2 className="font-sans font-bold text-xl lg:text-[1.6rem] tracking-tight text-neutral-900 dark:text-neutral-100 mb-6">
+            Preferred For
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {template?.templatePurposes.map((item: any, index: number) => (
+              <span
+                key={index}
+                className="pill inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 text-sm font-sans font-medium text-neutral-700 dark:text-neutral-300 cursor-default hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700"
+              >
+                <IoIosStarOutline className="w-3.5 h-3.5 shrink-0 text-neutral-400 dark:text-neutral-500" />
+                {item}
+              </span>
+            ))}
+          </div>
         </div>
 
-       <div className='mt-10 lg:mt-16 '>
-        <h1 className='text-2xl font-sans font-medium'>Prefer For</h1>
-        <div className='flex flex-col gap-0 lg:px-4 py-6'>
-            {
-                template?.templatePurposes.map((item:any , index:number) => (
-                    <span className='border px-2 py-2 font-sans font-medium lg:w-[400px] flex items-center gap-2' key={index}><span className='bg-neutral-200 dark:bg-neutral-800 h-full p-2 text-xl rounded-sm'><IoIosStarOutline /></span>{item}</span>
-                ))
-            }
-        </div>
-       </div>
-
-        {/* CTA */}
+        {/* ════════════════════════ CTA ════════════════════════ */}
         <div className='flex justify-center items-center w-full h-auto pt-20'>
             <div className='relative w-full grid grid-cols-1 lg:grid-cols-3 border border-dashed border-neutral-300 dark:border-neutral-800 h-auto bg-neutral-50 dark:bg-neutral-900 shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]'>
 
@@ -228,12 +417,12 @@ async function templateView({ params }: PageProps) {
             </div>
         </div>
 
+      </div>
     </div>
-    </div>
-  )
+  );
 }
 
-export default templateView
+export default templateView;
 
 
 
@@ -241,6 +430,7 @@ export default templateView
 
 import { useId } from "react"
 import { cn } from "@/lib/utils"
+import { HiArrowLeft } from 'react-icons/hi';
 interface StripedPatternProps extends React.SVGProps<SVGSVGElement> {
   direction?: "left" | "right"
 }
