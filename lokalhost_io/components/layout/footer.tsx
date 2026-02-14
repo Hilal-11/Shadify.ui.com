@@ -3,11 +3,9 @@ import React, { useEffect } from 'react'
 import { PiTerminalFill } from "react-icons/pi";
 import Link from 'next/link';
 import { motion } from "motion/react"
-import { LuMoon } from "react-icons/lu";
-import { LuSunMedium } from "react-icons/lu";
-import { RiComputerLine } from "react-icons/ri";
 import { StripedPattern } from '../magicui/striped-pattern';
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import NProgress from 'nprogress';
 
 interface Service {
   service: string;
@@ -27,6 +25,11 @@ interface FooterConfig {
   footerServicesItems: FooterServicesItem[];
 }
 function Footer({footerConfig}: {footerConfig: FooterConfig}) {
+
+    const handleLinkClick = () => {
+      NProgress.start()
+    }
+
   return (
     <div className='relative h-auto w-[100%] bg-neutral-100 dark:bg-neutral-900 border-t border-neutral-400 dark:border-neutral-600 mt-20'>
 
@@ -51,7 +54,7 @@ function Footer({footerConfig}: {footerConfig: FooterConfig}) {
               <p className='font-sans font-medium'>Build By</p>
             <div className="border-t border-dashed border-b py-1 w-30 text-center relative border-neutral-300 dark:border-neutral-700">
               <span className="h-12 absolute left-4 -top-2.5 border border-dashed border-neutral-300 dark:border-neutral-700"></span>
-                <Link href={''}><p className="text-sm font-mono font-bold text-neutral-700 dark:text-neutral-300 underline">{footerConfig?.creator_name}</p></Link>
+                <Link href={'https://hila-11.com'} target='_blank'><p className="text-sm font-mono font-bold text-neutral-700 dark:text-neutral-300 underline">{footerConfig?.creator_name}</p></Link>
               <span className="h-12 absolute right-4 -top-2.5 border border-dashed  border-neutral-300 dark:border-neutral-700"></span>          
             </div>
             </div>
@@ -83,7 +86,7 @@ function Footer({footerConfig}: {footerConfig: FooterConfig}) {
                       transition={{ duration: 0.26, ease: "easeInOut" }}
                       whileHover={{ scale: 1.03, }}
                       whileTap={{ scale: 1.03 }}
-                    className='py-1 text-neutral-500 dark:text-neutral-500 text-sm lg:text-[15px] font-sans font-medium' ><Link href={service.navigateTo}
+                    className='py-1 text-neutral-500 dark:text-neutral-500 text-sm lg:text-[15px] font-sans font-medium' ><Link href={service.navigateTo} onClick={handleLinkClick}
                     className='space-y-4'>{service.service}</Link></motion.p>
                     
                   </div>
@@ -109,7 +112,7 @@ function Footer({footerConfig}: {footerConfig: FooterConfig}) {
                       transition={{ duration: 0.26, ease: "easeInOut" }}
                       whileHover={{ scale: 1.03, }}
                       whileTap={{ scale: 1.03 }}
-                      className='py-1 text-neutral-500 dark:text-neutral-500 text-sm lg:text-[15px] font-sans font-medium hover:text-neutral-800 dark:hover:text-neutral-300' ><Link href={service.navigateTo}>{service.service}</Link></motion.p>
+                      className='py-1 text-neutral-500 dark:text-neutral-500 text-sm lg:text-[15px] font-sans font-medium hover:text-neutral-800 dark:hover:text-neutral-300' ><Link href={service.navigateTo} onClick={handleLinkClick}>{service.service}</Link></motion.p>
                   </div>
                 ))
               }
@@ -133,7 +136,7 @@ function Footer({footerConfig}: {footerConfig: FooterConfig}) {
                       transition={{ duration: 0.26, ease: "easeInOut" }}
                       whileHover={{ scale: 1.03, }}
                       whileTap={{ scale: 1.03 }}
-                      className='py-1 text-neutral-500 dark:text-neutral-500 text-sm lg:text-[15px] font-sans font-medium hover:text-neutral-800 dark:hover:text-neutral-300' ><Link href={service.navigateTo}>{service.service}</Link></motion.p>
+                      className='py-1 text-neutral-500 dark:text-neutral-500 text-sm lg:text-[15px] font-sans font-medium hover:text-neutral-800 dark:hover:text-neutral-300' ><Link href={service.navigateTo} onClick={handleLinkClick}>{service.service}</Link></motion.p>
                   </div>
                 ))
               }
@@ -157,7 +160,7 @@ function Footer({footerConfig}: {footerConfig: FooterConfig}) {
                       transition={{ duration: 0.26, ease: "easeInOut" }}
                       whileHover={{ scale: 1.03, }}
                       whileTap={{ scale: 1.03 }}
-                      className='py-1 text-neutral-500 dark:text-neutral-500 text-sm lg:text-[15px] font-sans font-medium hover:text-neutral-800 dark:hover:text-neutral-300'><Link href={service.navigateTo}>{service.service}</Link></motion.p>
+                      className='py-1 text-neutral-500 dark:text-neutral-500 text-sm lg:text-[15px] font-sans font-medium hover:text-neutral-800 dark:hover:text-neutral-300'><Link href={service.navigateTo} onClick={handleLinkClick}>{service.service}</Link></motion.p>
                   </div>
                 ))
               }
@@ -181,7 +184,7 @@ function Footer({footerConfig}: {footerConfig: FooterConfig}) {
                       transition={{ duration: 0.26, ease: "easeInOut" }}
                       whileHover={{ scale: 1.03, }}
                       whileTap={{ scale: 1.03 }}
-                      className='py-1 text-neutral-500 dark:text-neutral-500 text-sm lg:text-[15px] font-sans font-medium hover:text-neutral-800 dark:hover:text-neutral-300' ><Link href={service.navigateTo}>{service.service}</Link></motion.p>
+                      className='py-1 text-neutral-500 dark:text-neutral-500 text-sm lg:text-[15px] font-sans font-medium hover:text-neutral-800 dark:hover:text-neutral-300' ><Link href={service.navigateTo} onClick={handleLinkClick}>{service.service}</Link></motion.p>
                   </div>
                 ))
               }
@@ -205,39 +208,13 @@ function Footer({footerConfig}: {footerConfig: FooterConfig}) {
                       transition={{ duration: 0.26, ease: "easeInOut" }}
                       whileHover={{ scale: 1.03, }}
                       whileTap={{ scale: 1.03 }}
-                      className='py-1 text-neutral-500 dark:text-neutral-500 text-sm lg:text-[15px] font-sans font-medium hover:text-neutral-800 dark:hover:text-neutral-300' ><Link href={service.navigateTo}>{service.service}</Link></motion.p>
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-          <div className='w-full'>
-            <div>
-              {footerConfig.footerServicesItems?.length > 0 && (
-  <h1 className="font-mono text-neutral-700 dark:text-neutral-300 text-[18px] font-medium">
-    {footerConfig.footerServicesItems[6].service_title}
-  </h1>
-)}
-
-            </div>
-            <div className='pl-1 py-3'>
-              {
-                footerConfig.footerServicesItems[6]?.services?.map((service , index) => (
-                  <div className="" key={index}>
-                    <motion.p 
-                    initial={{ scale: 1 }}
-                      transition={{ duration: 0.26, ease: "easeInOut" }}
-                      whileHover={{ scale: 1.03, }}
-                      whileTap={{ scale: 1.03 }}
-                      className='whitespace-nowrap lg:whitespace-normal py-1 text-neutral-500 dark:text-neutral-500 text-sm lg:text-[16px] font-sans font-medium hover:text-neutral-800 dark:hover:text-neutral-300' ><Link href={service.navigateTo}>{service.service}</Link></motion.p>
+                      className='py-1 text-neutral-500 dark:text-neutral-500 text-sm lg:text-[15px] font-sans font-medium hover:text-neutral-800 dark:hover:text-neutral-300' ><Link href={service.navigateTo} onClick={handleLinkClick}>{service.service}</Link></motion.p>
                   </div>
                 ))
               }
             </div>
           </div>
         </div>
-
-        
 
         <div className='flex w-full justify-between lg:px-4 py-5 lg:py-10'>
             <div></div>
